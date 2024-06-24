@@ -2,7 +2,7 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:social_app/core/components/components.dart';
+import 'package:social_app/core/widgets/components.dart';
 import 'package:social_app/core/constants/constants.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
@@ -34,7 +34,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
           ),
           title: Text(
             'Add Post',
-            style: TextStyles.font24Black700,
+            style: AppTextStyles.font24Black700,
           ),
           actions: [
             TextButton(
@@ -60,7 +60,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
               },
               child: Text(
                 'Post',
-                style: TextStyles.font18Black.copyWith(color: Colors.blue),
+                style: AppTextStyles.font18Black.copyWith(color: Colors.blue),
               ),
             )
           ],
@@ -96,7 +96,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                             ),
                             horizontalSpace(10),
                             Text(Constants.userModel.name!,
-                                style: TextStyles.font18Black),
+                                style: AppTextStyles.font18Black),
                           ],
                         ),
                         // verticalSpace(15),,
@@ -164,14 +164,14 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                 ),
                                 label: Text(
                                   'add photo',
-                                  style: TextStyles.font14BlueSemiBold,
+                                  style: AppTextStyles.font14BlueSemiBold,
                                 ),
                               ),
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   '# tags',
-                                  style: TextStyles.font14BlueSemiBold,
+                                  style: AppTextStyles.font14BlueSemiBold,
                                 ),
                               ),
                             ])
@@ -195,7 +195,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(
           'Choose Image',
-          style: TextStyles.font24Black700,
+          style: AppTextStyles.font24Black700,
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,

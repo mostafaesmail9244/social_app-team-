@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Home',
-          style: TextStyles.font24Black700,
+          style: AppTextStyles.font24Black700,
         ),
         actions: [
           IconButton(
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
-          // add refresh indicator 
+          // add refresh indicator
           child: SingleChildScrollView(
             child: Column(
               children: [

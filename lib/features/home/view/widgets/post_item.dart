@@ -2,11 +2,9 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:readmore/readmore.dart';
-import 'package:social_app/core/constants/constants.dart';
-
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
-import 'package:social_app/core/style/colors.dart';
+import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/features/post/models/post_model.dart';
 
@@ -47,10 +45,10 @@ class _PostItemState extends State<PostItem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(widget.postModel.name!,
-                          style: TextStyles.font18Black),
+                          style: AppTextStyles.font18Black),
                       Text(
                         widget.postModel.date!.toString(),
-                        style: TextStyles.font16Grey,
+                        style: AppTextStyles.font16Grey,
                       ),
                     ],
                   ),
@@ -61,7 +59,7 @@ class _PostItemState extends State<PostItem> {
             verticalSpace(5),
             const Divider(
               height: 1,
-              color: ColorsManager.grey,
+              color: AppColors.grey,
             ),
             verticalSpace(10),
             ReadMoreText(
@@ -69,12 +67,12 @@ class _PostItemState extends State<PostItem> {
               trimLines: 4,
               trimCollapsedText: 'Show more',
               trimExpandedText: 'Show less',
-              style: TextStyles.font18Black,
-              lessStyle: TextStyles.font14DarkBlueMedium.copyWith(
-                color: ColorsManager.darkBlue.withOpacity(.7),
+              style: AppTextStyles.font18Black,
+              lessStyle: AppTextStyles.font14DarkBlueMedium.copyWith(
+                color: AppColors.darkBlue.withOpacity(.7),
               ),
-              moreStyle: TextStyles.font14DarkBlueMedium.copyWith(
-                color: ColorsManager.darkBlue.withOpacity(.7),
+              moreStyle: AppTextStyles.font14DarkBlueMedium.copyWith(
+                color: AppColors.darkBlue.withOpacity(.7),
               ),
             ),
             verticalSpace(5),
@@ -102,7 +100,7 @@ class _PostItemState extends State<PostItem> {
                     Text(
                       // widget.postModel.likes!.toString(),
                       ' likes',
-                      style: TextStyles.font13GrayRegular,
+                      style: AppTextStyles.font13GrayRegular,
                     ),
                   ],
                 ),
@@ -111,7 +109,7 @@ class _PostItemState extends State<PostItem> {
                     const Icon((IconlyLight.chat), color: Colors.red, size: 16),
                     horizontalSpace(5),
                     // Text('${widget.postModel.comments!.toString()} comment',
-                    Text('0 comment', style: TextStyles.font13GrayRegular),
+                    Text('0 comment', style: AppTextStyles.font13GrayRegular),
                   ],
                 ),
               ],
@@ -119,16 +117,16 @@ class _PostItemState extends State<PostItem> {
             verticalSpace(10),
             const Divider(
               height: 1,
-              color: ColorsManager.grey,
+              color: AppColors.grey,
             ),
             Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
+                const Padding(
+                  padding: EdgeInsets.all(5.0),
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
                         //add current user image
-                        Constants.userModel.profileImage!),
+                        'https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/438172651_3665936620341657_1972247425404956973_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=hFeNxotCfy8Q7kNvgFz0YZ9&_nc_ht=scontent.fcai20-1.fna&oh=00_AYAchyCUci_92RuHZDokX9dJb6TsEf_19gMN1zG4VHevCw&oe=667F1C72'),
                     radius: 12,
                   ),
                 ),
@@ -138,7 +136,7 @@ class _PostItemState extends State<PostItem> {
                     decoration: InputDecoration(
                       hintText: 'Write a comment...',
                       border: InputBorder.none,
-                      hintStyle: TextStyles.font13GrayRegular,
+                      hintStyle: AppTextStyles.font13GrayRegular,
                     ),
                   ),
                 ),
@@ -146,10 +144,7 @@ class _PostItemState extends State<PostItem> {
                   child: Row(
                     children: [
                       IconButton(
-                        onPressed: () {
-                        
-                        
-                        },
+                        onPressed: () {},
                         icon: Icon(
                           (isLike ? IconlyBold.heart : IconlyLight.heart),
                           color: Colors.red,
@@ -157,7 +152,7 @@ class _PostItemState extends State<PostItem> {
                       ),
                       Text(
                         'Like',
-                        style: TextStyles.font13GrayRegular,
+                        style: AppTextStyles.font13GrayRegular,
                       ),
                     ],
                   ),
@@ -174,7 +169,7 @@ class _PostItemState extends State<PostItem> {
                       ),
                       Text(
                         'Share',
-                        style: TextStyles.font13GrayRegular,
+                        style: AppTextStyles.font13GrayRegular,
                       ),
                     ],
                   ),

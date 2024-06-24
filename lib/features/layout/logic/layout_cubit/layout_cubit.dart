@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:social_app/features/auth/data/models/auth_model/user_model.dart';
 import 'package:social_app/features/layout/chat_screen.dart';
 import 'package:social_app/features/home/view/screens/home_screen.dart';
 import 'package:social_app/features/post/view/screens/new_post_screen.dart';
-import 'package:social_app/features/settings/view/screens/settings_screen.dart';
 import 'package:social_app/features/layout/users_screen.dart';
 
 part 'layout_state.dart';
@@ -35,7 +33,7 @@ class LayoutCubit extends Cubit<LayoutState> {
     ChatScreen(),
     NewPostScreen(),
     UsersScreen(),
-    SettingsScreen(),
+    //SettingsScreen(),
   ];
   List<BottomNavigationBarItem> navBarItems = const [
     BottomNavigationBarItem(

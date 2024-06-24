@@ -12,11 +12,11 @@ final class NavigatToPostScreen extends LayoutState {}
 
 final class GetUserDataLoadingState extends LayoutState {}
 
-final class GetUserDataSuccessState extends LayoutState {
-  final UserModel data;
+// final class GetUserDataSuccessState extends LayoutState {
+//   final UserModel data;
 
-  GetUserDataSuccessState({required this.data});
-}
+//   GetUserDataSuccessState({required this.data});
+// }
 
 final class GetUserDataErrorState extends LayoutState {
   final String error;

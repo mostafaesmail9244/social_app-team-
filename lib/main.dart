@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/bloc_observer.dart';
-import 'package:social_app/core/constants/constants.dart';
 import 'package:social_app/core/d_injection/injection.dart';
-import 'package:social_app/core/helper/cach_helper.dart';
+import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
+import 'package:social_app/core/helper/cash_helper/cash_helper_constants.dart';
 import 'package:social_app/core/router/app_router.dart';
 import 'package:social_app/core/router/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await CacheHelper.init();
+  await CashHelper.init();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -27,9 +27,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    super.key,
-  });
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -40,7 +38,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.onGenerateRoute,
-          initialRoute: CacheHelper.getData(key: Constants.uId) != null
+          initialRoute: CashHelper.get(key: CashConstants.userId) != null
               ? Routes.layoutScreen
               : Routes.loginScreen,
           home: child,
