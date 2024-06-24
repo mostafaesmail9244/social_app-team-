@@ -7,22 +7,16 @@ class SignupRequestBody {
   final String lastName;
   final String email;
   final String phone;
-  final String address;
   final String password;
-  final String image;
-  final String? coverImage;
-  final String? bio;
+  final String? image;
 
   const SignupRequestBody({
     required this.firstName,
     required this.lastName,
     required this.email,
     required this.phone,
-    required this.address,
     required this.password,
-    required this.image,
-    this.coverImage,
-    this.bio,
+    this.image,
   });
   Map<String, dynamic> toJson() => _$SignupRequestBodyToJson(this);
 }

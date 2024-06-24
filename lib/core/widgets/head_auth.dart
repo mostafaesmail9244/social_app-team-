@@ -17,7 +17,7 @@ class HeadAuth extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        verticalSpace(100),
+        verticalSpace(70),
         Text(
           title,
           style: AppTextStyles.font24SemiBoldBlue,
@@ -28,7 +28,7 @@ class HeadAuth extends StatelessWidget {
           style: AppTextStyles.font14RegularBlack
               .copyWith(color: AppColors.grey66),
         ),
-        verticalSpace(50),
+        verticalSpace(30),
       ],
     );
   }

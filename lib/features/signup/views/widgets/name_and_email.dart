@@ -40,14 +40,15 @@ class NameAndEmail extends StatelessWidget {
         ),
         verticalSpace(16),
         AppTextFormFiled(
-            hintText: "Email",
-            validator: (val) {
-              if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
-                return "Please enter a valid  Email";
-              }
-            },
-            controller: cubit.emailController,
-            keyboardType: TextInputType.emailAddress),
+          hintText: "Email",
+          validator: (val) {
+            if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
+              return "Please enter a valid  Email";
+            }
+          },
+          controller: cubit.emailController,
+          keyboardType: TextInputType.emailAddress,
+        ),
       ],
     );
   }

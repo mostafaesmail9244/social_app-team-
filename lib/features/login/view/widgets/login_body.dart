@@ -21,10 +21,12 @@ class LoginBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            verticalSpace(30),
             const HeadAuth(
               title: "LOGIN",
               subTitle: "login now to browse our hot offers",
             ),
+            verticalSpace(20),
             const LoginForm(),
             verticalSpace(30),
             AppButton(

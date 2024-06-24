@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_app/core/cubits/pick_image_cubit/pick_image_cubit.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/head_auth.dart';
 import '../../view_model/signup_cubit/signup_cubit.dart';
 import 'already_have_account.dart';
+import 'image_of_profile.dart';
 import 'signup_bloc_listener.dart';
 import 'signup_form.dart';
 
@@ -15,19 +16,20 @@ class SignupViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 25.w),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       children: [
-        const HeadAuth(
-          title: "Sign Up",
-          subTitle: "Create an new account",
-        ),
+        const HeadAuth(title: "Sign Up", subTitle: "Create an new account"),
+        const ImageProfile(),
+        verticalSpace(30),
         const SignupForm(),
         verticalSpace(30),
         AppButton(
-            buttonText: "Sign Up",
-            onPressed: () {
-              context.read<SignupCubit>().validateThenDoLogin();
-            }),
+          buttonText: "Sign Up",
+          onPressed: () {
+            context.read<SignupCubit>().validateThenDoSignUp(
+                image: context.read<PickImageCubit>().selectProfileImage);
+          },
+        ),
         verticalSpace(20),
         const AlreadyHaveAccount(),
         verticalSpace(70),

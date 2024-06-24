@@ -10,6 +10,8 @@ import 'package:social_app/features/post/logic/cubit/post_cubit.dart';
 import 'package:social_app/features/post/view/screens/new_post_screen.dart';
 
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
+import '../../features/signup/views/signup_view.dart';
+import '../cubits/pick_image_cubit/pick_image_cubit.dart';
 
 class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
@@ -23,13 +25,20 @@ class AppRouter {
           ),
         );
 
-      // case Routes.registerScreen:
-      //   return MaterialPageRoute(
-      //     builder: (context) => BlocProvider.value(
-      //       value: getIt<SignupCubit>(),
-      //       child: const RegisterScreen(),
-      //     ),
-      //   );
+      case Routes.registerScreen:
+        return MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: getIt<SignupCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => PickImageCubit(),
+              ),
+            ],
+            child: const SignupView(),
+          ),
+        );
       case Routes.layoutScreen:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(

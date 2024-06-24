@@ -1,11 +1,13 @@
-abstract class PickImagePostStates {}
+abstract class PickImageStates {}
 
-class PickImageInitialState extends PickImagePostStates {}
+class PickImageInitialState extends PickImageStates {}
 
-class PickImageLoadingState extends PickImagePostStates {}
+class PickImageLoadingState extends PickImageStates {}
 
-class PickImageSuccessState extends PickImagePostStates {}
+class PickPostImageState extends PickImageStates {}
 
-class PickImageErrorState extends PickImagePostStates {}
+class PickProfileImageState extends PickImageStates {}
 
-class RemoveImageState extends PickImagePostStates {}
+class PickImageErrorState extends PickImageStates {}
+
+class RemoveImageState extends PickImageStates {}

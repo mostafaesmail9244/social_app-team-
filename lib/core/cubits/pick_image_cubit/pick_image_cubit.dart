@@ -5,26 +5,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'pick_image_states.dart';
 
-class PickImagePostCubit extends Cubit<PickImagePostStates> {
-  PickImagePostCubit() : super(PickImageInitialState());
-  File? selectImagePost;
-  File? selectImageSell;
+class PickImageCubit extends Cubit<PickImageStates> {
+  PickImageCubit() : super(PickImageInitialState());
+  File? selectPostImage;
+  File? selectProfileImage;
   String imageBase64Sell = '';
-  void pickImage(bool post) async {
+  void pickFromGallary(bool post) async {
     emit(PickImageLoadingState());
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image != null) {
         if (post) {
-          selectImagePost = File(image.path);
+          selectPostImage = File(image.path);
+          emit(PickPostImageState());
         } else {
-          selectImageSell = File(image.path);
-          List<int> imageBytes = selectImageSell!.readAsBytesSync();
+          selectProfileImage = File(image.path);
+          List<int> imageBytes = selectProfileImage!.readAsBytesSync();
           imageBase64Sell = base64Encode(imageBytes);
           log("############$imageBase64Sell");
+          emit(PickProfileImageState());
         }
       }
-      emit(PickImageSuccessState());
     } catch (error) {
       emit(PickImageErrorState());
     }
@@ -33,16 +34,16 @@ class PickImagePostCubit extends Cubit<PickImagePostStates> {
   Future<void> pickFromCamera() async {
     final image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image != null) {
-      selectImageSell = File(image.path);
-      emit(PickImageSuccessState());
+      selectProfileImage = File(image.path);
+      emit(PickPostImageState());
     } else {
       emit(PickImageErrorState());
     }
   }
 
-  void deleteImage() {
-    selectImagePost = null;
-    selectImageSell = null;
+  void removeImage() {
+    selectPostImage = null;
+    selectProfileImage = null;
     emit(RemoveImageState());
   }
 }

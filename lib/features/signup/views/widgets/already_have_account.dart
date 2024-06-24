@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/extentaion.dart';
-
 import '../../../../core/router/routes.dart';
 import '../../../../core/style/text_styles.dart';
 

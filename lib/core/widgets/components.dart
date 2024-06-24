@@ -1,158 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-// Widget defaultButton(
-//         {required Function onTap, required String text, double size = 35.0}) =>
-//     GestureDetector(
-//       onTap: onTap(),
-//       child: Text(
-//         text,
-//       ),
-//     );
-
-// Widget defaultTextFormFeild({
-//   required TextEditingController controller,
-//   required TextInputType textType,
-//   Function()? onSubmit,
-//   Function()? onChange,
-//   required Function validate,
-//   required String label,
-//   required IconData prefix,
-//   Widget? suffix,
-//   Function? onTap,
-//   bool isClickable = true,
-// }) =>
-//     TextFormField(
-//       controller: controller,
-//       keyboardType: textType,
-//       onTap: () => onTap!(),
-//       // onChanged: (s) => onChange!(),
-//       // onFieldSubmitted: (s) => onSubmit!(),
-//       validator: (s) => validate(s),
-//       enabled: isClickable,
-//       decoration: InputDecoration(
-//         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-//         prefixIcon: Icon(
-//           prefix,
-//           size: 30,
-//         ),
-//         suffixIcon: suffix,
-//         labelText: label,
-//         labelStyle: const TextStyle(fontSize: 20),
-//       ),
-//     );
-
-Widget defaultTextButton(
-    {required String text, required void Function()? onPressed}) {
-  return TextButton(
-    onPressed: onPressed,
-    child: Text(
-      text.toUpperCase(),
-    ),
-  );
-}
-
-Widget defaultButton({required Function() onPressed, required String text}) =>
-    Container(
-      width: 90.w,
-      height: 60.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.blue,
-      ),
-      child: Center(
-        child: TextButton(
-          onPressed: onPressed,
-          child: Text(
-            text.toUpperCase(),
-            style: const TextStyle(color: Colors.blue, fontSize: 19),
-          ),
-        ),
-      ),
-    );
-// Widget defaultButton(
-//     {required Widget title,
-//     required dynamic onTap,
-//     Color? splashColor,
-//     double? width,
-//     double? height,
-//     dynamic shape,
-//     Color? color}) {
-//   return MaterialButton(
-//     onPressed: onTap,
-//     splashColor: splashColor,
-//     minWidth: width,
-//     height: height,
-//     shape: shape,
-//     color: color,
-//     elevation: 0,
-//     child: title,
-//   );
-// }
-
-// Default TextFormField
-Widget defaultTextFormFeild({
-  required TextEditingController controller,
-  Text? label,
-  TextInputType? keyboardType,
-  int? maxLength,
-  String? Function(String?)? validator,
-  IconData? prefixIcon,
-  FocusNode? focusNode,
-  TextInputAction? textInputAction,
-  IconData? suffixIcon,
-  bool outlineInputBorderStatus = true,
-  required TextInputType type,
-  bool obscureText = false,
-  String? hint,
-  EdgeInsetsGeometry? contentPadding,
-  int maxLines = 1,
-  Iterable<String>? autofillHints,
-  void Function(String)? onSubmit,
-  void Function()? suffixTap,
-  dynamic initialValue,
-}) {
-  return TextFormField(
-    onFieldSubmitted: onSubmit,
-    controller: controller,
-    maxLines: maxLines,
-    textInputAction: textInputAction,
-    initialValue: initialValue,
-    maxLength: maxLength,
-    keyboardType: keyboardType,
-    autofillHints: autofillHints,
-    focusNode: focusNode,
-    validator: validator,
-    obscureText: obscureText,
-    decoration: InputDecoration(
-      label: label,
-      hintText: hint,
-      contentPadding: contentPadding,
-      prefixIcon: Icon(prefixIcon),
-      suffixIcon: InkWell(
-        onTap: suffixTap,
-        child: Icon(suffixIcon),
-      ),
-      border: outlineInputBorderStatus
-          ? const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)))
-          : InputBorder.none,
-    ),
-  );
-}
 
 enum ToastEnum { success, error, warning }
 
 void flutterToast({required String text, required ToastEnum state}) {
   Fluttertoast.showToast(
-      msg: text,
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 5,
-      backgroundColor: toastColor(state),
-      textColor: Colors.white,
-      fontSize: 16.0);
+    msg: text,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 5,
+    backgroundColor: toastColor(state),
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
 }
 
 Color toastColor(ToastEnum toastEnum) {
