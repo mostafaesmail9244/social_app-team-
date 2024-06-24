@@ -1,4 +1,4 @@
-import '../../features/settings/data/models/profile_response/profile_response.dart';
+import '../../features/profile/data/models/profile_response/profile_response.dart';
 
 abstract class Constants {
   static UserResponse userModel = const UserResponse(

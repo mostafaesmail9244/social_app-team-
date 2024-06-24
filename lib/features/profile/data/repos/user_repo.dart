@@ -14,7 +14,8 @@ class UserRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final Reference firebaseRef = FirebaseStorage.instance.ref();
 
-  Future<Either<Failure, UserResponse>> getUser({required String uid}) async {
+  Future<Either<Failure, UserResponse>> getUserInfo(
+      {required String uid}) async {
     try {
       final snap = await _firestore
           .collection(FireBaseConstants.usersCollection)

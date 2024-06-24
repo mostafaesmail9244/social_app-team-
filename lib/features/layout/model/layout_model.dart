@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-
 import '../../home/view/screens/home_screen.dart';
 import '../../post/view/screens/new_post_screen.dart';
+import '../../profile/view/settings_screen.dart';
 import '../chat_screen.dart';
 import '../users_screen.dart';
 
@@ -35,5 +35,5 @@ List<Widget> screensList = const [
   ChatScreen(),
   NewPostScreen(),
   UsersScreen(),
-  //SettingsScreen(),
+  ProfileView(),
 ];

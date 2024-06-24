@@ -10,7 +10,7 @@ class GetUserCubit extends Cubit<GetUserStates> {
   GetUserCubit(this._getUserRepo) : super(const GetUserStates.initial());
   void emitGetUser() async {
     emit(const GetUserStates.getUserLoading());
-    final response = await _getUserRepo.getUser(
+    final response = await _getUserRepo.getUserInfo(
         uid: CashHelper.get(key: CashConstants.userId));
     response.fold(
         (error) => emit(GetUserStates.getUserError(error: error.errorMessage)),

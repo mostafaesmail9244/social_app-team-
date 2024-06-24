@@ -8,7 +8,9 @@ import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart'
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/post/logic/cubit/post_cubit.dart';
 import 'package:social_app/features/post/view/screens/new_post_screen.dart';
+import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 
+import '../../features/profile/view/edite_profile_screen.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
 import '../../features/signup/views/signup_view.dart';
 import '../cubits/pick_image_cubit/pick_image_cubit.dart';
@@ -28,12 +30,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
-              BlocProvider.value(
-                value: getIt<SignupCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => PickImageCubit(),
-              ),
+              BlocProvider.value(value: getIt<SignupCubit>()),
+              BlocProvider(create: (context) => getIt<PickImageCubit>()),
             ],
             child: const SignupView(),
           ),
@@ -42,21 +40,18 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
+              BlocProvider(create: (context) => getIt<LayoutCubit>()),
               BlocProvider(
-                create: (context) => LayoutCubit(),
-              ),
+                  create: (context) => getIt<GetUserCubit>()..emitGetUser()),
             ],
             child: const LayoutScreen(),
           ),
         );
-      // case Routes.editeProfileScreen:
-      //   // final user = arguments as UserModel;
-      //   return MaterialPageRoute(
-      //     builder: (context) => BlocProvider(
-      //       create: (context) => SettingsCubit(),
-      //       child: const EditeProflieScreen(),
-      //     ),
-      //   );
+      case Routes.editeProfileScreen:
+        // final user = arguments as UserModel;
+        return MaterialPageRoute(
+          builder: (context) => const EditeProflieView(),
+        );
       case Routes.addPostScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
