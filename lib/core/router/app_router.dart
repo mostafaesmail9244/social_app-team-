@@ -15,7 +15,6 @@ import '../cubits/pick_image_cubit/pick_image_cubit.dart';
 
 class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
-    final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.loginScreen:
         return MaterialPageRoute(
