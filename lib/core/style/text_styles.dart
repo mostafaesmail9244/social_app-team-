@@ -73,6 +73,12 @@ class AppTextStyles {
   );
 
   ////samir magdy
+  static TextStyle font24SemiBoldBlue = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 24.sp,
+    color: AppColors.mainBlue,
+  );
+
   static TextStyle font14SemiBoldBlue = TextStyle(
     fontWeight: FontWeightHelper.semiBold,
     fontSize: 14.sp,

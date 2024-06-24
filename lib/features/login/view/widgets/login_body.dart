@@ -5,6 +5,7 @@ import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/features/login/view/widgets/login_form.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import '../../../../core/widgets/app_button.dart';
+import '../../../../core/widgets/head_auth.dart';
 import 'dont_have_account.dart';
 import 'login_bloc_listener.dart';
 
@@ -15,36 +16,28 @@ class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'LOGIN',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              verticalSpace(15),
-              Text(
-                'login now to browse our hot offers',
-                style: TextStyle(fontSize: 19, color: Colors.grey[700]),
-              ),
-              verticalSpace(30),
-              const LoginForm(),
-              verticalSpace(30),
-              AppButton(
-                buttonHeight: 30.h,
-                buttonText: "Login",
-                onPressed: () {
-                  context.read<LoginCubit>().emitLoginState();
-                },
-              ),
-              verticalSpace(15),
-              const DontHaveAccount(),
-              const LoginBlocListener()
-            ],
-          ),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HeadAuth(
+              title: "LOGIN",
+              subTitle: "login now to browse our hot offers",
+            ),
+            const LoginForm(),
+            verticalSpace(30),
+            AppButton(
+              buttonHeight: 30.h,
+              buttonText: "Login",
+              onPressed: () {
+                context.read<LoginCubit>().emitLoginState();
+              },
+            ),
+            verticalSpace(15),
+            const DontHaveAccount(),
+            const LoginBlocListener()
+          ],
         ),
       ),
     );
