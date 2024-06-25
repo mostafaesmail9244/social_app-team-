@@ -4,7 +4,7 @@ import 'package:social_app/core/style/text_styles.dart';
 import '../view_model/get_user_cubit/get_user_cubit.dart';
 import '../view_model/get_user_cubit/get_user_states.dart';
 import 'widgets/get_profile_loading.dart';
-import 'widgets/settigns_screen_body.dart';
+import 'widgets/profile_body.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});

@@ -3,20 +3,20 @@ import 'package:social_app/core/helper/extentaion.dart';
 import '../../../../core/widgets/custom_cached_image.dart';
 import '../../data/models/profile_response/profile_response.dart';
 
-class ImagesSection extends StatelessWidget {
+class ProfileImagesSection extends StatelessWidget {
   final UserResponse data;
-  const ImagesSection({super.key, required this.data});
+  const ProfileImagesSection({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.deviceHeight * .3,
+      height: context.deviceHeight * .33,
       child: Stack(
         children: [
           CustomCachedNetworkImage(
             radius: 10,
             imageUrl: data.coverImage!,
-            height: 170,
+            height: 175,
             width: double.infinity,
           ),
           Positioned(
@@ -24,14 +24,14 @@ class ImagesSection extends StatelessWidget {
             right: -1,
             bottom: -1,
             child: CircleAvatar(
-              radius: 57,
+              radius: 67,
               backgroundColor: Colors.white,
               child: CircleAvatar(
-                radius: 55,
+                radius: 65,
                 backgroundColor: Colors.white,
                 child: CustomCachedNetworkImage(
-                  radius: 55,
-                  height: 100,
+                  radius: 65,
+                  height: 150,
                   width: double.infinity,
                   imageUrl: data.image!,
                 ),

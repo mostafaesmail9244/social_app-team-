@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/extentaion.dart';
-import '../../../../core/helper/spacing.dart';
-import '../../../../core/router/routes.dart';
-import '../../../../core/style/text_styles.dart';
+import '../../../../../core/helper/spacing.dart';
+import '../../../../../core/router/routes.dart';
+import '../../../../../core/style/text_styles.dart';
 
 class EditButtonSection extends StatelessWidget {
   const EditButtonSection({super.key});

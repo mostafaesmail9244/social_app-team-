@@ -6,6 +6,8 @@ class CashConstants {
   static const String name = "name";
   static const String phone = "phone";
   static const String address = "address";
-  static const String imageUser = "imageUser";
+  static const String userImage = "imageUser";
+  static const String coverImage = "coverImage";
+  static const String bio = "bio";
   static const String messagesList = "messagesList";
 }

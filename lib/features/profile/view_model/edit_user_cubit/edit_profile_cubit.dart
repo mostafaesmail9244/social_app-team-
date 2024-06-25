@@ -15,29 +15,28 @@ class EditUserCubit extends Cubit<EditUserStatus> {
       TextEditingController(text: "${CashHelper.get(key: CashConstants.name)}");
   late final TextEditingController phoneController = TextEditingController(
       text: "${CashHelper.get(key: CashConstants.phone)}");
-  late final TextEditingController addressController = TextEditingController(
-      text: "${CashHelper.get(key: CashConstants.address)}");
+  late final TextEditingController bio =
+      TextEditingController(text: "${CashHelper.get(key: CashConstants.bio)}");
 
-  Future<void> emitToEditMyInfo({File? image}) async {
+  Future<void> emitToEditMyInfo({File? profileImage, File? coverImage}) async {
     emit(EditUserLoadingState());
     final response = await _userRepo.editUserInfo(
       uid: CashHelper.get(key: CashConstants.userId),
       name: nameController.text,
       phone: phoneController.text,
-      address: addressController.text,
-      image: image,
+      bio: bio.text,
+      profileImage: profileImage,
+      coverImage: coverImage,
     );
-    response
-        .fold((error) => emit(EditUserErrorState(error: error.errorMessage)),
-            (message) {
-      //debugPrint('fffffffffffffffff is $message');
-      emit(EditUserSuccessState(message: message));
-    });
+    response.fold(
+      (error) => emit(EditUserErrorState(error: error.errorMessage)),
+      (res) => emit(EditUserSuccessState(message: res)),
+    );
   }
 
-  void validateThenDoEdit({File? image}) {
+  void validateThenDoEdit({File? profileImage, File? coverImage}) {
     if (formKey.currentState!.validate()) {
-      emitToEditMyInfo(image: image);
+      emitToEditMyInfo(profileImage: profileImage, coverImage: coverImage);
     }
   }
 }

@@ -15,9 +15,10 @@ class GetUserCubit extends Cubit<GetUserStates> {
     response.fold(
         (error) => emit(GetUserStates.getUserError(error: error.errorMessage)),
         (data) {
-      CashHelper.put(key: CashConstants.imageUser, value: data.image);
+      CashHelper.put(key: CashConstants.userImage, value: data.image);
+      CashHelper.put(key: CashConstants.coverImage, value: data.coverImage);
       CashHelper.put(key: CashConstants.name, value: data.name);
-      CashHelper.put(key: CashConstants.address, value: data.address);
+      CashHelper.put(key: CashConstants.bio, value: data.bio);
       CashHelper.put(key: CashConstants.phone, value: data.phone);
 
       emit(GetUserStates.getUserSuccess(data));

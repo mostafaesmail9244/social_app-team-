@@ -35,27 +35,33 @@ class UserRepo {
     required String uid,
     required String name,
     required String phone,
-    required String address,
-    File? image,
+    required String bio,
+    File? profileImage,
+    File? coverImage,
   }) async {
     try {
-      String? downloadURL;
-      if (image != null) {
-        String fileName = basename(image.path);
-        Reference fire = firebaseRef.child('users/$fileName');
-        UploadTask uploadTask = fire.putFile(image);
-        TaskSnapshot taskSnapshot = await uploadTask;
-        downloadURL = await taskSnapshot.ref.getDownloadURL();
+      String? downloadImageURL;
+      String? downloadCoverURL;
+
+      if (profileImage != null) {
+        downloadImageURL = await uploadImage(profileImage);
+      }
+      if (coverImage != null) {
+        downloadCoverURL = await uploadImage(coverImage);
       }
 
       _firestore.collection(FireBaseConstants.usersCollection).doc(uid).update({
-        'image': image == null
-            ? CashHelper.get(key: CashConstants.imageUser)
-            : downloadURL,
+        'image': profileImage == null
+            ? CashHelper.get(key: CashConstants.userImage)
+            : downloadImageURL,
+        'coverImage': coverImage == null
+            ? CashHelper.get(key: CashConstants.coverImage)
+            : downloadCoverURL,
         'name': name,
+        'bio': bio,
         'phone': phone,
-        'address': address,
       });
+
       return right("Editing Successfully");
     } catch (e) {
       if (e is FirebaseAuthException) {
@@ -63,5 +69,13 @@ class UserRepo {
       }
       return left(ServerFailure(e.toString()));
     }
+  }
+
+  Future<String> uploadImage(File image) async {
+    String fileName = basename(image.path);
+    Reference fire = firebaseRef.child('users/$fileName');
+    UploadTask uploadTask = fire.putFile(image);
+    TaskSnapshot taskSnapshot = await uploadTask;
+    return await taskSnapshot.ref.getDownloadURL();
   }
 }

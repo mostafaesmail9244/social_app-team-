@@ -37,20 +37,19 @@ class GetProfileLoading extends StatelessWidget {
               ],
             ),
           ),
-          verticalSpace(60),
+          verticalSpace(50),
           const CustomShimmer(
             height: 70,
             radius: 10,
             width: double.infinity,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 30),
-            child: CustomShimmer(
-              height: 50,
-              radius: 10,
-              width: double.infinity,
-            ),
+          verticalSpace(15),
+          const CustomShimmer(
+            height: 50,
+            radius: 10,
+            width: double.infinity,
           ),
+          verticalSpace(35),
           const CustomShimmer(
             height: 50,
             radius: 10,

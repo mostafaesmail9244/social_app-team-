@@ -3,9 +3,9 @@ import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/widgets/app_button.dart';
 import '../../data/models/profile_response/profile_response.dart';
-import 'buttom_widget.dart';
-import 'edit_button_section.dart';
-import 'image_section.dart';
+import 'detail_buttom_widget.dart';
+import 'edit_profile/edit_button_section.dart';
+import 'profile_image_section.dart';
 
 class ProfileBody extends StatelessWidget {
   final UserResponse data;
@@ -16,7 +16,7 @@ class ProfileBody extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       children: [
-        ImagesSection(data: data),
+        ProfileImagesSection(data: data),
         Text(
           data.name!,
           //  userModel!.name!,
