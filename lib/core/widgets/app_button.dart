@@ -41,7 +41,7 @@ class AppButton extends StatelessWidget {
                     ),
             padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
             fixedSize: WidgetStateProperty.all(Size(
-                buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 45.h)),
+                buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 40.h)),
           ),
       onPressed: onPressed,
       child: Center(

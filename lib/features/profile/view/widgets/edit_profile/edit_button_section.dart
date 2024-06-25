@@ -26,7 +26,7 @@ class EditButtonSection extends StatelessWidget {
             Icons.edit_outlined,
             color: Colors.blue,
           ),
-          onPressed: () => context.pushNamed(Routes.editeProfileScreen),
+          onPressed: () => context.pushNamed(Routes.editeProfileView),
         ),
       ],
     );

@@ -18,8 +18,8 @@ class SocialApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.onGenerateRoute,
           initialRoute: CashHelper.get(key: CashConstants.userId) != null
-              ? Routes.layoutScreen
-              : Routes.loginScreen,
+              ? Routes.layoutView
+              : Routes.loginView,
           home: child,
         );
       },

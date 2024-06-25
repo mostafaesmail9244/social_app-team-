@@ -20,7 +20,7 @@ class LogoutButton extends StatelessWidget {
           onTap: () {
             FirebaseAuth.instance.signOut();
             context.pushNamedAndRemoveUntil(
-              Routes.loginScreen,
+              Routes.loginView,
               predicate: (route) => false,
             );
             CashHelper.removeData(key: CashConstants.userId);

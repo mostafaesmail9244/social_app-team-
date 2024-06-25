@@ -7,6 +7,8 @@ import 'package:social_app/features/layout/layout_screen.dart';
 import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
+import '../../features/login/view/forgot_password_view.dart';
+import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../features/profile/view/edit_profile_view.dart';
 import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/profile/view_model/pick_image_cubit/pick_image_cubit.dart';
@@ -18,7 +20,7 @@ class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       //loginScreen
-      case Routes.loginScreen:
+      case Routes.loginView:
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
             value: getIt<LoginCubit>(),
@@ -26,8 +28,17 @@ class AppRouter {
           ),
         );
 
+      //forgotPasswordView
+      case Routes.forgotPasswordView:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: getIt<ForgotPassCubit>(),
+            child: const ForgotPasswordView(),
+          ),
+        );
+
       //registerScreen
-      case Routes.registerScreen:
+      case Routes.registerView:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
@@ -39,7 +50,7 @@ class AppRouter {
         );
 
       //layoutScreen
-      case Routes.layoutScreen:
+      case Routes.layoutView:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
@@ -54,7 +65,7 @@ class AppRouter {
         );
 
       //editeProfileScreen
-      case Routes.editeProfileScreen:
+      case Routes.editeProfileView:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
@@ -66,15 +77,6 @@ class AppRouter {
             child: const EditProflieView(),
           ),
         );
-
-      //editeProfileScreen
-      // case Routes.addPostScreen:
-      //   return MaterialPageRoute(
-      //     builder: (context) => BlocProvider(
-      //       create: (context) => PostCubit(),
-      //       child: const NewPostScreen(),
-      //     ),
-      //   );
     }
     return null;
   }

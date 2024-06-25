@@ -1,8 +1,8 @@
 abstract class Routes {
-  static const String loginScreen = 'loginScreen';
-  static const String registerScreen = 'registerScreen';
-  static const String forgotPasswordScreen = 'forgotPasswordScreen';
-  static const String layoutScreen = 'layoutScreen';
-  static const String editeProfileScreen = 'editeProfileScreen';
-  static const String addPostScreen = 'addPostScreen';
+  static const String loginView = 'loginView';
+  static const String registerView = 'registerView';
+  static const String forgotPasswordView = 'forgotPasswordView';
+  static const String layoutView = 'layoutView';
+  static const String editeProfileView = 'editeProfileView';
+  static const String addPostView = 'addPostView';
 }

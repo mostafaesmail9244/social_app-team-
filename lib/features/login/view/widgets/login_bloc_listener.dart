@@ -26,7 +26,7 @@ class LoginBlocListener extends StatelessWidget {
           context.pop();
           CashHelper.put(key: CashConstants.userId, value: userData.user!.uid);
           CashHelper.put(key: CashConstants.email, value: userData.user!.email);
-          context.pushNamedAndRemoveUntil(Routes.layoutScreen,
+          context.pushNamedAndRemoveUntil(Routes.layoutView,
               predicate: (route) => false);
         }, loginErrorState: (error) {
           context.pop();

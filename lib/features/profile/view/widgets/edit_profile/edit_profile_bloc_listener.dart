@@ -25,7 +25,7 @@ class EditProfileBlocListener extends StatelessWidget {
           context.pop();
           customSuccessWidget(context, state.message, "Go To Home", () {
             context.pushNamedAndRemoveUntil(
-              Routes.layoutScreen,
+              Routes.layoutView,
               predicate: (route) => false,
             );
           });
