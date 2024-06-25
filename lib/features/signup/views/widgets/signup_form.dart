@@ -21,6 +21,9 @@ class SignupForm extends StatelessWidget {
           verticalSpace(16),
           AppTextFormFiled(
             hintText: "Phone",
+            prefixIcon: const Icon(Icons.phone),
+            controller: cubit.phoneController,
+            keyboardType: TextInputType.phone,
             validator: (val) {
               if (val == null ||
                   val.isEmpty ||
@@ -28,8 +31,6 @@ class SignupForm extends StatelessWidget {
                 return "Please enter a valid phone";
               }
             },
-            controller: cubit.phoneController,
-            keyboardType: TextInputType.phone,
           ),
           verticalSpace(16),
           PasswordAndValidation(controller: cubit.passwordController),

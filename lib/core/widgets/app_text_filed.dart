@@ -15,6 +15,7 @@ class AppTextFormFiled extends StatelessWidget {
   final String? hintText;
   final bool? isObscureText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final int? maxLines;
   final Function(String?)? onChanged;
   final TextEditingController? controller;
@@ -24,17 +25,18 @@ class AppTextFormFiled extends StatelessWidget {
   final FocusNode? focusNode;
   const AppTextFormFiled({
     super.key,
+    required this.hintText,
+    required this.validator,
+    required this.keyboardType,
     this.contentPadding,
     this.focusedBorder,
     this.enabledBorder,
     this.inputTextStyle,
     this.hintStyle,
-    required this.hintText,
     this.isObscureText,
     this.suffixIcon,
+    this.prefixIcon,
     this.controller,
-    required this.validator,
-    required this.keyboardType,
     this.maxLines,
     this.onChanged,
     this.filled,
@@ -70,6 +72,7 @@ class AppTextFormFiled extends StatelessWidget {
             buildOutlineInputBorder(AppColors.fillRed, borderRadius),
         hintText: hintText,
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
       ),
       obscureText: isObscureText ?? false,
       style: inputTextStyle ??

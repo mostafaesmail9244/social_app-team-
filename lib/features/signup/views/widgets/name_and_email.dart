@@ -18,7 +18,7 @@ class NameAndEmail extends StatelessWidget {
               hintText: "First Name",
               validator: (val) {
                 if (val == null || val.isEmpty) {
-                  return "Please enter a valid  fName";
+                  return "Please enter a valid  Name";
                 }
               },
               controller: cubit.fNameController,
@@ -30,7 +30,7 @@ class NameAndEmail extends StatelessWidget {
               hintText: "Last Name",
               validator: (val) {
                 if (val == null || val.isEmpty) {
-                  return "Please enter a valid  lName";
+                  return "Please enter a valid  Name";
                 }
               },
               controller: cubit.lNameController,
@@ -41,6 +41,7 @@ class NameAndEmail extends StatelessWidget {
         verticalSpace(16),
         AppTextFormFiled(
           hintText: "Email",
+          prefixIcon: const Icon(Icons.email_outlined),
           validator: (val) {
             if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {
               return "Please enter a valid  Email";

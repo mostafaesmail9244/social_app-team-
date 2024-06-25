@@ -61,6 +61,7 @@ class _PasswordAndValidationsState extends State<PasswordAndValidation> {
           controller: widget.controller,
           hintText: "Password",
           isObscureText: isObscureText,
+          prefixIcon: const Icon(Icons.lock_outline_rounded),
           suffixIcon: GestureDetector(
             onTap: () {
               setState(() {

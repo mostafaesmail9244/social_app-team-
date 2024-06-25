@@ -18,6 +18,7 @@ class LoginForm extends StatelessWidget {
       child: Column(
         children: [
           AppTextFormFiled(
+            prefixIcon: const Icon(Icons.email_outlined),
             controller: cubit.emailController,
             validator: (val) {
               if (val == null || val.isEmpty || !AppRegex.isEmailValid(val)) {

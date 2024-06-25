@@ -34,7 +34,7 @@ class ImagePickerDialog extends StatelessWidget {
             icon: Icons.camera_alt,
           ),
           IconWithButton(
-            label: "Gallery",
+            label: " Gallery ",
             function: galleryFun,
             icon: Icons.image,
           ),
@@ -71,8 +71,10 @@ class IconWithButton extends StatelessWidget {
         }
       },
       icon: Icon(icon, color: AppColors.mainBlue, size: 25),
-      label: Text(label,
-          style: TextStyle(fontSize: 14.sp, color: AppColors.grey66)),
+      label: Text(
+        label,
+        style: TextStyle(fontSize: 14.sp, color: AppColors.grey66),
+      ),
     );
   }
 }

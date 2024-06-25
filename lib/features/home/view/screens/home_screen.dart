@@ -4,7 +4,6 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/features/home/view/widgets/post_item.dart';
-import 'package:social_app/features/post/logic/cubit/post_cubit.dart';
 import 'package:social_app/features/post/models/post_model.dart';
 
 class HomeScreen extends StatelessWidget {

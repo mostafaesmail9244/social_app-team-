@@ -6,8 +6,6 @@ import 'package:social_app/features/login/view/login_screen.dart';
 import 'package:social_app/features/layout/layout_screen.dart';
 import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
-import 'package:social_app/features/post/logic/cubit/post_cubit.dart';
-import 'package:social_app/features/post/view/screens/new_post_screen.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import '../../features/profile/view/edit_profile_view.dart';
 import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
@@ -19,6 +17,7 @@ import '../cubits/pick_image_cubit/pick_image_cubit.dart';
 class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      //loginScreen
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
@@ -27,6 +26,7 @@ class AppRouter {
           ),
         );
 
+      //registerScreen
       case Routes.registerScreen:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
@@ -37,18 +37,23 @@ class AppRouter {
             child: const SignupView(),
           ),
         );
+
+      //layoutScreen
       case Routes.layoutScreen:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<LayoutCubit>()),
               // BlocProvider(create: (context) => getIt<PickImageCubit>()),
+              //BlocProvider(create: (context) => getIt<PostCubit>()),
               BlocProvider(
                   create: (context) => getIt<GetUserCubit>()..emitGetUser()),
             ],
             child: const LayoutScreen(),
           ),
         );
+
+      //editeProfileScreen
       case Routes.editeProfileScreen:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
@@ -57,18 +62,19 @@ class AppRouter {
                 create: (context) => getIt<EditUserCubit>(),
               ),
               BlocProvider(create: (context) => getIt<PickImageProfileCubit>()),
-              BlocProvider(create: (context) => getIt<GetUserCubit>()),
             ],
             child: const EditProflieView(),
           ),
         );
-      case Routes.addPostScreen:
-        return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => PostCubit(),
-            child: const NewPostScreen(),
-          ),
-        );
+
+      //editeProfileScreen
+      // case Routes.addPostScreen:
+      //   return MaterialPageRoute(
+      //     builder: (context) => BlocProvider(
+      //       create: (context) => PostCubit(),
+      //       child: const NewPostScreen(),
+      //     ),
+      //   );
     }
     return null;
   }

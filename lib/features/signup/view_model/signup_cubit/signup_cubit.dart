@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/components.dart';
@@ -37,10 +36,10 @@ class SignupCubit extends Cubit<SignupStates> {
   }
 
   void validateThenDoSignUp({File? image}) {
-    if (image == null) {
-      flutterToast(text: 'Please Select image', state: ToastEnum.warning);
-    } else {
-      if (formKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
+      if (image == null) {
+        flutterToast(text: 'Please Select image', state: ToastEnum.warning);
+      } else {
         emitToSignupState(image: image);
       }
     }

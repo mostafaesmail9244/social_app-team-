@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
-import 'package:social_app/core/widgets/app_button.dart';
 import '../../data/models/profile_response/profile_response.dart';
 import 'detail_buttom_widget.dart';
 import 'edit_profile/edit_button_section.dart';
+import 'logout_button.dart';
 import 'profile_image_section.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -43,12 +43,7 @@ class ProfileBody extends StatelessWidget {
         verticalSpace(20),
         const EditButtonSection(),
         verticalSpace(40),
-        AppButton(
-          buttonText: 'Log out',
-          onPressed: () {},
-          buttonHeight: 35,
-          borderRadius: 6,
-        ),
+        const LogoutButton(),
       ],
     );
   }

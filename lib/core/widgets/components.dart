@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:social_app/core/helper/extentaion.dart';
+import '../helper/spacing.dart';
+import '../style/text_styles.dart';
 
 enum ToastEnum { success, error, warning }
 
@@ -73,4 +75,65 @@ void showSnackBar(
     duration: const Duration(seconds: 1),
   );
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
+
+void showWarningDialog({
+  required BuildContext context,
+  required String title,
+  required String subTitle,
+  required String textTap,
+  required void Function()? onTap,
+  Color? textTapColor,
+}) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(32),
+        ),
+        content: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 16), // EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              verticalSpace(10),
+              Text(
+                title,
+                style: AppTextStyles.font24SemiBoldBlue.copyWith(fontSize: 20),
+              ),
+              verticalSpace(15),
+              Text(
+                subTitle,
+                style: AppTextStyles.font14GreyRegular,
+                textAlign: TextAlign.center,
+              ),
+              verticalSpace(30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TextButton(
+                    onPressed: () => context.pop(),
+                    child: Text(
+                      "Cancel",
+                      style: AppTextStyles.font18Black,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: onTap,
+                    child: Text(
+                      textTap,
+                      style: AppTextStyles.font18Black
+                          .copyWith(color: textTapColor ?? Colors.red),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }

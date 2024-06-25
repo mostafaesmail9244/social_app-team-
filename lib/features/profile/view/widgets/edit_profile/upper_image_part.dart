@@ -4,9 +4,9 @@ import 'package:social_app/core/helper/extentaion.dart';
 import '../../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../../core/widgets/custom_cached_image.dart';
+import '../../../../../core/widgets/icon_button_filled.dart';
 import '../../../view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../../view_model/pick_image_cubit/pick_image_states.dart';
-import 'edit_profile_image_section.dart';
 
 class UpperImagePart extends StatelessWidget {
   final PickImageProfileCubit cubit;
@@ -29,7 +29,7 @@ class UpperImagePart extends StatelessWidget {
                     width: double.infinity,
                   )
                 : SizedBox(
-                    height: context.deviceHeight * .3,
+                    height: context.deviceHeight * .275,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.file(
@@ -42,7 +42,7 @@ class UpperImagePart extends StatelessWidget {
             Positioned(
               top: 5,
               right: 5,
-              child: IconFilled(
+              child: CustomIconFilled(
                 onPressed: () {
                   cubit.selectCoverImage == null
                       ? cubit.pickFromGallary(true)

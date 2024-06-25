@@ -1,0 +1,32 @@
+import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/repos/add_post_repo.dart';
+import 'add_states.dart';
+
+class AddPostCubit extends Cubit<AddPostStates> {
+  final AddPostRepo _repo;
+  AddPostCubit(this._repo) : super(const AddPostStates.initial());
+  DateTime dateNow = DateTime.now();
+
+  late final TextEditingController contentController = TextEditingController();
+  late final FocusNode focusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
+
+  void emitToAddPost({required File image}) async {
+    emit(const AddPostStates.addLoading());
+    final response = await _repo.addPost(
+      image: image,
+      content: contentController.text,
+    );
+    response.fold(
+        (error) => emit(AddPostStates.addError(error: error.errorMessage)),
+        (data) => emit(AddPostStates.addSuccess(data)));
+  }
+
+  void validateThenDoAddPost({required File image}) {
+    if (formKey.currentState!.validate()) {
+      emitToAddPost(image: image);
+    }
+  }
+}

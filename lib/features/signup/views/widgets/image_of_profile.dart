@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_app/core/widgets/icon_button_filled.dart';
 import '../../../../core/cubits/pick_image_cubit/pick_image_cubit.dart';
 import '../../../../core/cubits/pick_image_cubit/pick_image_states.dart';
 import '../../../../core/style/app_colors.dart';
@@ -19,23 +20,27 @@ class ImageProfile extends StatelessWidget {
           return Stack(
             children: [
               CircleAvatar(
-                radius: 75.r,
-                child: cubit.selectProfileImage == null
-                    ? Image.asset('assets/images/user.png')
-                    : ClipRRect(
-                        borderRadius: BorderRadius.circular(320),
-                        child: Image.file(
-                          cubit.selectProfileImage!,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
+                radius: 72.r,
+                backgroundColor: AppColors.mainBlue,
+                child: CircleAvatar(
+                  radius: 70.r,
+                  child: cubit.selectProfileImage == null
+                      ? Image.asset('assets/images/user.png')
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(320),
+                          child: Image.file(
+                            cubit.selectProfileImage!,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
                         ),
-                      ),
+                ),
               ),
               Positioned(
                 bottom: -1,
                 right: -1,
-                child: IconButton.filled(
-                  onPressed: () async {
+                child: CustomIconFilled(
+                  onPressed: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -48,15 +53,9 @@ class ImageProfile extends StatelessWidget {
                       },
                     );
                   },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all(const Color(0xffEEEEEE)),
-                  ),
-                  icon: const Icon(
-                    Icons.edit,
-                    color: AppColors.mainBlue,
-                  ),
+                  icon: Icons.edit,
                 ),
+                // ),
               ),
             ],
           );
