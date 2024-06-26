@@ -20,10 +20,10 @@ class ImageProfile extends StatelessWidget {
           return Stack(
             children: [
               CircleAvatar(
-                radius: 72.r,
+                radius: 57.r,
                 backgroundColor: AppColors.mainBlue,
                 child: CircleAvatar(
-                  radius: 70.r,
+                  radius: 55.r,
                   child: cubit.selectProfileImage == null
                       ? Image.asset('assets/images/user.png')
                       : ClipRRect(
@@ -37,8 +37,8 @@ class ImageProfile extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: -1,
-                right: -1,
+                bottom: -2,
+                right: -2,
                 child: CustomIconFilled(
                   onPressed: () {
                     showDialog(
