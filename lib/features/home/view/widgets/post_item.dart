@@ -126,7 +126,7 @@ class _PostItemState extends State<PostItem> {
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
                         //add current user image
-                        'https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/438172651_3665936620341657_1972247425404956973_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=hFeNxotCfy8Q7kNvgFz0YZ9&_nc_ht=scontent.fcai20-1.fna&oh=00_AYAchyCUci_92RuHZDokX9dJb6TsEf_19gMN1zG4VHevCw&oe=667F1C72'),
+                        'https://img.freepik.com/premium-photo/nighttime-reflections-lofi-manga-wallpaper-sad-beautiful-scene-with-cityscape_442337-37827.jpg?w=740'),
                     radius: 12,
                   ),
                 ),
