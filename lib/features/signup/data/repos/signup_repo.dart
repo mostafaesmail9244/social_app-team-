@@ -33,7 +33,7 @@ class SignupRepo {
         "phone": body.phone,
         "image": downloadURL,
         "bio": "write your bio",
-        "coverImage": "",
+        "coverImage": null,
       };
       CollectionReference userColl =
           _firestore.collection(FireBaseConstants.usersCollection);

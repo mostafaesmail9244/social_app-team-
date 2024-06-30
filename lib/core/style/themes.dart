@@ -18,8 +18,8 @@ class Themes {
     ),
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-            textStyle: MaterialStateProperty.all(
-                const TextStyle(color: Colors.white)))),
+            textStyle:
+                WidgetStateProperty.all(const TextStyle(color: Colors.white)))),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       contentPadding: const EdgeInsets.all(10),
@@ -66,7 +66,7 @@ class Themes {
     ),
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-            textStyle: MaterialStateProperty.all(
+            textStyle: WidgetStateProperty.all(
                 const TextStyle(color: Colors.black)))),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
