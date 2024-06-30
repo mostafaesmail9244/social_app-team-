@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import '../../../../core/cubits/pick_image_cubit/pick_image_cubit.dart';
-import '../../view_model/add_post&palm_cubit/add_cubit.dart';
 import 'add_post_bloc_listener.dart';
 import 'add_post_text_field.dart';
 import 'build_image_post.dart';
@@ -15,7 +14,7 @@ class PostBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<PickImageCubit>();
-    return Column(
+    return ListView(
       children: [
         verticalSpace(10),
         const ImageAndName(),
