@@ -4,25 +4,28 @@ import 'package:social_app/core/router/routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'core/helper/cash_helper/cash_helper.dart';
+import 'core/style/app_colors.dart';
 
 class SocialApp extends StatelessWidget {
   const SocialApp({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      //  designSize: const Size(360, 690),
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: AppRouter.onGenerateRoute,
-          initialRoute: CashHelper.get(key: CashConstants.userId) != null
-              ? Routes.layoutView
-              : Routes.loginView,
-          home: child,
-        );
-      },
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor: AppColors.mainBlue,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        initialRoute: CashHelper.get(key: CashConstants.userId) != null
+            ? Routes.layoutView
+            : Routes.loginView,
+      ),
     );
   }
 }

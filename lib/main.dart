@@ -9,12 +9,13 @@ import 'social_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setubGetIt();
   Bloc.observer = MyBlocObserver();
+  await CashHelper.init();
+  setubGetIt();
+  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.grey));
-  await CashHelper.init();
-  await Firebase.initializeApp();
+
   runApp(const SocialApp());
 }
