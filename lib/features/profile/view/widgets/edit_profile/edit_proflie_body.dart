@@ -13,6 +13,7 @@ class EditProflieBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final imageCubit = context.read<PickImageProfileCubit>();
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       children: [
@@ -22,14 +23,12 @@ class EditProflieBody extends StatelessWidget {
         verticalSpace(50),
         AppButton(
           buttonText: 'Save',
-          buttonHeight: 35,
-          borderRadius: 6,
+          buttonHeight: 40,
+          borderRadius: 8,
           onPressed: () {
             context.read<EditUserCubit>().validateThenDoEdit(
-                  profileImage:
-                      context.read<PickImageProfileCubit>().selectProfileImage,
-                  coverImage:
-                      context.read<PickImageProfileCubit>().selectCoverImage,
+                  profileImage: imageCubit.selectProfileImage,
+                  coverImage: imageCubit.selectCoverImage,
                 );
           },
         ),

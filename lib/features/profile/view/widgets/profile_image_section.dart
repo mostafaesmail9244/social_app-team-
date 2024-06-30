@@ -10,13 +10,13 @@ class ProfileImagesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.deviceHeight * .33,
+      height: context.deviceHeight * .35,
       child: Stack(
         children: [
           CustomCachedNetworkImage(
             radius: 10,
             imageUrl: data.coverImage!,
-            height: 175,
+            height: 190,
             width: double.infinity,
           ),
           Positioned(
@@ -28,7 +28,6 @@ class ProfileImagesSection extends StatelessWidget {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 65,
-                backgroundColor: Colors.white,
                 child: CustomCachedNetworkImage(
                   radius: 65,
                   height: 150,

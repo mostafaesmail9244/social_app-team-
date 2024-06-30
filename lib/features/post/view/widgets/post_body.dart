@@ -28,7 +28,7 @@ class PostBody extends StatelessWidget {
                 hintText: 'What\'s on your mind .....',
                 validator: (val) {
                   if (val == null || val.isEmpty) {
-                    return "Please enter a valid  Name";
+                    return "Please enter a valid  title";
                   }
                 },
                 keyboardType: TextInputType.multiline,
@@ -38,6 +38,7 @@ class PostBody extends StatelessWidget {
                     const OutlineInputBorder(borderSide: BorderSide.none),
                 enabledBorder:
                     const OutlineInputBorder(borderSide: BorderSide.none),
+                    
               ),
             ),
           ),

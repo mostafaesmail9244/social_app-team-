@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/core/helper/extentaion.dart';
 import '../../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../../core/widgets/custom_cached_image.dart';
@@ -9,8 +8,9 @@ import '../../../view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../../view_model/pick_image_cubit/pick_image_states.dart';
 
 class UpperImagePart extends StatelessWidget {
+  final Size size;
   final PickImageProfileCubit cubit;
-  const UpperImagePart({super.key, required this.cubit});
+  const UpperImagePart({super.key, required this.cubit, required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,11 @@ class UpperImagePart extends StatelessWidget {
                 ? CustomCachedNetworkImage(
                     radius: 10,
                     imageUrl: CashHelper.get(key: CashConstants.coverImage),
-                    height: 175,
+                    height: 200,
                     width: double.infinity,
                   )
                 : SizedBox(
-                    height: context.deviceHeight * .275,
+                    height: size.height * .29,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.file(

@@ -10,7 +10,7 @@ class EditProfileForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<EditUserCubit>();
+    final cubit = context.read<EditUserCubit>();
     return Form(
       key: cubit.formKey,
       child: Column(

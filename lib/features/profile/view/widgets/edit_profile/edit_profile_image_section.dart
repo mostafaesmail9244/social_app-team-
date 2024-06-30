@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/core/helper/extentaion.dart';
 import '../../../view_model/pick_image_cubit/pick_image_cubit.dart';
 import 'buttom_image_part.dart';
 import 'upper_image_part.dart';
@@ -10,16 +9,16 @@ class EditImagesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     final cubit = context.read<PickImageProfileCubit>();
     return SizedBox(
-      height: context.deviceHeight * .33,
+      height: size.height * .355,
       child: Stack(
         children: [
-          UpperImagePart(cubit: cubit),
-          LowerPart(cubit: cubit),
+          UpperImagePart(cubit: cubit, size: size),
+          LowerPart(cubit: cubit, size: size),
         ],
       ),
     );
   }
 }
-

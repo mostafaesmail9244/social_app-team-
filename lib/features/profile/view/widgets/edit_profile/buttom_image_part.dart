@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
@@ -10,7 +9,8 @@ import '../../../view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../../view_model/pick_image_cubit/pick_image_states.dart';
 
 class LowerPart extends StatelessWidget {
-  const LowerPart({super.key, required this.cubit});
+  const LowerPart({super.key, required this.cubit, required this.size});
+  final Size size;
   final PickImageProfileCubit cubit;
 
   @override
@@ -37,6 +37,7 @@ class LowerPart extends StatelessWidget {
                       ? CustomCachedNetworkImage(
                           radius: 65,
                           height: 150,
+                          size: 20,
                           width: double.infinity,
                           imageUrl:
                               CashHelper.get(key: CashConstants.userImage),
@@ -52,8 +53,8 @@ class LowerPart extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: -1,
-                right: context.deviceWidth * .3,
+                bottom: -2,
+                right: size.height * .135,
                 child: CustomIconFilled(
                   onPressed: () {
                     cubit.selectProfileImage == null
