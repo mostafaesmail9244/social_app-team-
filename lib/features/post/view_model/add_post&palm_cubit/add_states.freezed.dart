@@ -15,10 +15,11 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AddStates<T> {
+mixin _$AddPostStates<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() validate,
     required TResult Function() addLoading,
     required TResult Function(String data) addSuccess,
     required TResult Function(String error) addError,
@@ -27,6 +28,7 @@ mixin _$AddStates<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? validate,
     TResult? Function()? addLoading,
     TResult? Function(String data)? addSuccess,
     TResult? Function(String error)? addError,
@@ -35,6 +37,7 @@ mixin _$AddStates<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? validate,
     TResult Function()? addLoading,
     TResult Function(String data)? addSuccess,
     TResult Function(String error)? addError,
@@ -44,6 +47,7 @@ mixin _$AddStates<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Validate<T> value) validate,
     required TResult Function(AddLoading<T> value) addLoading,
     required TResult Function(AddSuccess<T> value) addSuccess,
     required TResult Function(AddError<T> value) addError,
@@ -52,6 +56,7 @@ mixin _$AddStates<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Validate<T> value)? validate,
     TResult? Function(AddLoading<T> value)? addLoading,
     TResult? Function(AddSuccess<T> value)? addSuccess,
     TResult? Function(AddError<T> value)? addError,
@@ -60,6 +65,7 @@ mixin _$AddStates<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(Validate<T> value)? validate,
     TResult Function(AddLoading<T> value)? addLoading,
     TResult Function(AddSuccess<T> value)? addSuccess,
     TResult Function(AddError<T> value)? addError,
@@ -69,16 +75,16 @@ mixin _$AddStates<T> {
 }
 
 /// @nodoc
-abstract class $AddStatesCopyWith<T, $Res> {
-  factory $AddStatesCopyWith(
+abstract class $AddPostStatesCopyWith<T, $Res> {
+  factory $AddPostStatesCopyWith(
           AddPostStates<T> value, $Res Function(AddPostStates<T>) then) =
-      _$AddStatesCopyWithImpl<T, $Res, AddPostStates<T>>;
+      _$AddPostStatesCopyWithImpl<T, $Res, AddPostStates<T>>;
 }
 
 /// @nodoc
-class _$AddStatesCopyWithImpl<T, $Res, $Val extends AddPostStates<T>>
-    implements $AddStatesCopyWith<T, $Res> {
-  _$AddStatesCopyWithImpl(this._value, this._then);
+class _$AddPostStatesCopyWithImpl<T, $Res, $Val extends AddPostStates<T>>
+    implements $AddPostStatesCopyWith<T, $Res> {
+  _$AddPostStatesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +101,7 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$AddStatesCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$AddPostStatesCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
@@ -109,7 +115,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'AddStates<$T>.initial()';
+    return 'AddPostStates<$T>.initial()';
   }
 
   @override
@@ -125,6 +131,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() validate,
     required TResult Function() addLoading,
     required TResult Function(String data) addSuccess,
     required TResult Function(String error) addError,
@@ -136,6 +143,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? validate,
     TResult? Function()? addLoading,
     TResult? Function(String data)? addSuccess,
     TResult? Function(String error)? addError,
@@ -147,6 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? validate,
     TResult Function()? addLoading,
     TResult Function(String data)? addSuccess,
     TResult Function(String error)? addError,
@@ -162,6 +171,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Validate<T> value) validate,
     required TResult Function(AddLoading<T> value) addLoading,
     required TResult Function(AddSuccess<T> value) addSuccess,
     required TResult Function(AddError<T> value) addError,
@@ -173,6 +183,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Validate<T> value)? validate,
     TResult? Function(AddLoading<T> value)? addLoading,
     TResult? Function(AddSuccess<T> value)? addSuccess,
     TResult? Function(AddError<T> value)? addError,
@@ -184,6 +195,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(Validate<T> value)? validate,
     TResult Function(AddLoading<T> value)? addLoading,
     TResult Function(AddSuccess<T> value)? addSuccess,
     TResult Function(AddError<T> value)? addError,
@@ -201,6 +213,126 @@ abstract class _Initial<T> implements AddPostStates<T> {
 }
 
 /// @nodoc
+abstract class _$$ValidateImplCopyWith<T, $Res> {
+  factory _$$ValidateImplCopyWith(
+          _$ValidateImpl<T> value, $Res Function(_$ValidateImpl<T>) then) =
+      __$$ValidateImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ValidateImplCopyWithImpl<T, $Res>
+    extends _$AddPostStatesCopyWithImpl<T, $Res, _$ValidateImpl<T>>
+    implements _$$ValidateImplCopyWith<T, $Res> {
+  __$$ValidateImplCopyWithImpl(
+      _$ValidateImpl<T> _value, $Res Function(_$ValidateImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ValidateImpl<T> implements Validate<T> {
+  const _$ValidateImpl();
+
+  @override
+  String toString() {
+    return 'AddPostStates<$T>.validate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ValidateImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() validate,
+    required TResult Function() addLoading,
+    required TResult Function(String data) addSuccess,
+    required TResult Function(String error) addError,
+  }) {
+    return validate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? validate,
+    TResult? Function()? addLoading,
+    TResult? Function(String data)? addSuccess,
+    TResult? Function(String error)? addError,
+  }) {
+    return validate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? validate,
+    TResult Function()? addLoading,
+    TResult Function(String data)? addSuccess,
+    TResult Function(String error)? addError,
+    required TResult orElse(),
+  }) {
+    if (validate != null) {
+      return validate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Validate<T> value) validate,
+    required TResult Function(AddLoading<T> value) addLoading,
+    required TResult Function(AddSuccess<T> value) addSuccess,
+    required TResult Function(AddError<T> value) addError,
+  }) {
+    return validate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Validate<T> value)? validate,
+    TResult? Function(AddLoading<T> value)? addLoading,
+    TResult? Function(AddSuccess<T> value)? addSuccess,
+    TResult? Function(AddError<T> value)? addError,
+  }) {
+    return validate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Validate<T> value)? validate,
+    TResult Function(AddLoading<T> value)? addLoading,
+    TResult Function(AddSuccess<T> value)? addSuccess,
+    TResult Function(AddError<T> value)? addError,
+    required TResult orElse(),
+  }) {
+    if (validate != null) {
+      return validate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Validate<T> implements AddPostStates<T> {
+  const factory Validate() = _$ValidateImpl<T>;
+}
+
+/// @nodoc
 abstract class _$$AddLoadingImplCopyWith<T, $Res> {
   factory _$$AddLoadingImplCopyWith(
           _$AddLoadingImpl<T> value, $Res Function(_$AddLoadingImpl<T>) then) =
@@ -209,7 +341,7 @@ abstract class _$$AddLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$AddLoadingImplCopyWithImpl<T, $Res>
-    extends _$AddStatesCopyWithImpl<T, $Res, _$AddLoadingImpl<T>>
+    extends _$AddPostStatesCopyWithImpl<T, $Res, _$AddLoadingImpl<T>>
     implements _$$AddLoadingImplCopyWith<T, $Res> {
   __$$AddLoadingImplCopyWithImpl(
       _$AddLoadingImpl<T> _value, $Res Function(_$AddLoadingImpl<T>) _then)
@@ -223,7 +355,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
 
   @override
   String toString() {
-    return 'AddStates<$T>.addLoading()';
+    return 'AddPostStates<$T>.addLoading()';
   }
 
   @override
@@ -239,6 +371,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() validate,
     required TResult Function() addLoading,
     required TResult Function(String data) addSuccess,
     required TResult Function(String error) addError,
@@ -250,6 +383,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? validate,
     TResult? Function()? addLoading,
     TResult? Function(String data)? addSuccess,
     TResult? Function(String error)? addError,
@@ -261,6 +395,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? validate,
     TResult Function()? addLoading,
     TResult Function(String data)? addSuccess,
     TResult Function(String error)? addError,
@@ -276,6 +411,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Validate<T> value) validate,
     required TResult Function(AddLoading<T> value) addLoading,
     required TResult Function(AddSuccess<T> value) addSuccess,
     required TResult Function(AddError<T> value) addError,
@@ -287,6 +423,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Validate<T> value)? validate,
     TResult? Function(AddLoading<T> value)? addLoading,
     TResult? Function(AddSuccess<T> value)? addSuccess,
     TResult? Function(AddError<T> value)? addError,
@@ -298,6 +435,7 @@ class _$AddLoadingImpl<T> implements AddLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(Validate<T> value)? validate,
     TResult Function(AddLoading<T> value)? addLoading,
     TResult Function(AddSuccess<T> value)? addSuccess,
     TResult Function(AddError<T> value)? addError,
@@ -325,7 +463,7 @@ abstract class _$$AddSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$AddSuccessImplCopyWithImpl<T, $Res>
-    extends _$AddStatesCopyWithImpl<T, $Res, _$AddSuccessImpl<T>>
+    extends _$AddPostStatesCopyWithImpl<T, $Res, _$AddSuccessImpl<T>>
     implements _$$AddSuccessImplCopyWith<T, $Res> {
   __$$AddSuccessImplCopyWithImpl(
       _$AddSuccessImpl<T> _value, $Res Function(_$AddSuccessImpl<T>) _then)
@@ -355,7 +493,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
 
   @override
   String toString() {
-    return 'AddStates<$T>.addSuccess(data: $data)';
+    return 'AddPostStates<$T>.addSuccess(data: $data)';
   }
 
   @override
@@ -379,6 +517,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() validate,
     required TResult Function() addLoading,
     required TResult Function(String data) addSuccess,
     required TResult Function(String error) addError,
@@ -390,6 +529,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? validate,
     TResult? Function()? addLoading,
     TResult? Function(String data)? addSuccess,
     TResult? Function(String error)? addError,
@@ -401,6 +541,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? validate,
     TResult Function()? addLoading,
     TResult Function(String data)? addSuccess,
     TResult Function(String error)? addError,
@@ -416,6 +557,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Validate<T> value) validate,
     required TResult Function(AddLoading<T> value) addLoading,
     required TResult Function(AddSuccess<T> value) addSuccess,
     required TResult Function(AddError<T> value) addError,
@@ -427,6 +569,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Validate<T> value)? validate,
     TResult? Function(AddLoading<T> value)? addLoading,
     TResult? Function(AddSuccess<T> value)? addSuccess,
     TResult? Function(AddError<T> value)? addError,
@@ -438,6 +581,7 @@ class _$AddSuccessImpl<T> implements AddSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(Validate<T> value)? validate,
     TResult Function(AddLoading<T> value)? addLoading,
     TResult Function(AddSuccess<T> value)? addSuccess,
     TResult Function(AddError<T> value)? addError,
@@ -470,7 +614,7 @@ abstract class _$$AddErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$AddErrorImplCopyWithImpl<T, $Res>
-    extends _$AddStatesCopyWithImpl<T, $Res, _$AddErrorImpl<T>>
+    extends _$AddPostStatesCopyWithImpl<T, $Res, _$AddErrorImpl<T>>
     implements _$$AddErrorImplCopyWith<T, $Res> {
   __$$AddErrorImplCopyWithImpl(
       _$AddErrorImpl<T> _value, $Res Function(_$AddErrorImpl<T>) _then)
@@ -500,7 +644,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
 
   @override
   String toString() {
-    return 'AddStates<$T>.addError(error: $error)';
+    return 'AddPostStates<$T>.addError(error: $error)';
   }
 
   @override
@@ -524,6 +668,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() validate,
     required TResult Function() addLoading,
     required TResult Function(String data) addSuccess,
     required TResult Function(String error) addError,
@@ -535,6 +680,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? validate,
     TResult? Function()? addLoading,
     TResult? Function(String data)? addSuccess,
     TResult? Function(String error)? addError,
@@ -546,6 +692,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? validate,
     TResult Function()? addLoading,
     TResult Function(String data)? addSuccess,
     TResult Function(String error)? addError,
@@ -561,6 +708,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Validate<T> value) validate,
     required TResult Function(AddLoading<T> value) addLoading,
     required TResult Function(AddSuccess<T> value) addSuccess,
     required TResult Function(AddError<T> value) addError,
@@ -572,6 +720,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Validate<T> value)? validate,
     TResult? Function(AddLoading<T> value)? addLoading,
     TResult? Function(AddSuccess<T> value)? addSuccess,
     TResult? Function(AddError<T> value)? addError,
@@ -583,6 +732,7 @@ class _$AddErrorImpl<T> implements AddError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
+    TResult Function(Validate<T> value)? validate,
     TResult Function(AddLoading<T> value)? addLoading,
     TResult Function(AddSuccess<T> value)? addSuccess,
     TResult Function(AddError<T> value)? addError,

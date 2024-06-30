@@ -9,8 +9,9 @@ class AddPostCubit extends Cubit<AddPostStates> {
   AddPostCubit(this._repo) : super(const AddPostStates.initial());
   DateTime dateNow = DateTime.now();
 
+  late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late final TextEditingController contentController = TextEditingController();
-  late final FocusNode focusNode = FocusNode();
+//  late final FocusNode focusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
   void emitToAddPost({required File image}) async {
@@ -27,6 +28,9 @@ class AddPostCubit extends Cubit<AddPostStates> {
   void validateThenDoAddPost({required File image}) {
     if (formKey.currentState!.validate()) {
       emitToAddPost(image: image);
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      emit(const AddPostStates.validate());
     }
   }
 }
