@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../helper/app_regex.dart';
 import '../helper/spacing.dart';
 import 'app_text_filed.dart';

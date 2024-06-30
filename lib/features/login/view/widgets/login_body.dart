@@ -48,7 +48,7 @@ class LoginBody extends StatelessWidget {
               buttonHeight: 30.h,
               buttonText: "Login",
               onPressed: () {
-                context.read<LoginCubit>().emitLoginState();
+                context.read<LoginCubit>().validateThenDoLogin();
               },
             ),
             verticalSpace(15),

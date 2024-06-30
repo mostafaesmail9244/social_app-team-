@@ -14,7 +14,7 @@ class LoginForm extends StatelessWidget {
     var cubit = context.read<LoginCubit>();
 
     return Form(
-      //key: cubit.formKey,
+      key: cubit.formKey,
       child: Column(
         children: [
           AppTextFormFiled(
