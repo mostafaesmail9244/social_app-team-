@@ -5,4 +5,5 @@ abstract class Routes {
   static const String layoutView = 'layoutView';
   static const String editeProfileView = 'editeProfileView';
   static const String addPostView = 'addPostView';
+  static const String chatDetailsView = 'chatDetailsView';
 }

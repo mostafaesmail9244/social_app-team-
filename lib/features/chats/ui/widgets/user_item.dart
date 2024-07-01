@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
+import 'package:social_app/core/router/routes.dart';
 
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
@@ -10,24 +12,30 @@ class UserItem extends StatelessWidget {
   final UserResponse user;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 30,
-          child: CustomCachedNetworkImage(
-            imageUrl: user.image!,
-            size: 20,
-            height: 50,
-            width: 50,
-            radius: 320,
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(Routes.chatDetailsView, arguments: user);
+      },
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 30,
+            child: CustomCachedNetworkImage(
+              imageUrl: user.image!,
+              size: 20,
+              height: 50,
+              width: 50,
+              radius: 320,
+            ),
           ),
-        ),
-        horizontalSpace(10),
-        Text(
-          user.name!,
-          style: AppTextStyles.font18Black,
-        ),
-      ],
+          horizontalSpace(10),
+          Text(
+            user.name!,
+            style: AppTextStyles.font18Black,
+          ),
+        ],
+      ),
     );
   }
 }
+

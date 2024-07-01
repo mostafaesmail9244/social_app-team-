@@ -22,7 +22,10 @@ class AddPostCubit extends Cubit<AddPostStates> {
     );
     response.fold(
         (error) => emit(AddPostStates.addError(error: error.errorMessage)),
-        (data) => emit(AddPostStates.addSuccess(data)));
+        (data) {
+      contentController.clear();
+      emit(AddPostStates.addSuccess(data));
+    });
   }
 
   void validateThenDoAddPost({required File image}) {

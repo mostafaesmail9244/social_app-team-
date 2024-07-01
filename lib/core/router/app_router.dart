@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/router/routes.dart';
+import 'package:social_app/features/chats/logic/cubit/chat_cubit.dart';
+import 'package:social_app/features/chats/ui/screens/chat_detials_screen.dart';
 import 'package:social_app/features/login/view/login_screen.dart';
 import 'package:social_app/features/layout/layout_screen.dart';
 import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
+import 'package:social_app/features/profile/data/models/profile_response/profile_response.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
@@ -18,6 +21,7 @@ import '../cubits/pick_image_cubit/pick_image_cubit.dart';
 
 class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
+    final data = settings.arguments;
     switch (settings.name) {
       //loginScreen
       case Routes.loginView:
@@ -61,6 +65,16 @@ class AppRouter {
                   create: (context) => getIt<GetUserCubit>()..emitGetUser()),
             ],
             child: const LayoutScreen(),
+          ),
+        );
+      case Routes.chatDetailsView:
+        final userData = data as UserResponse;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: getIt<ChatCubit>(),
+            child: ChatDetailsScreen(
+              user: userData,
+            ),
           ),
         );
 

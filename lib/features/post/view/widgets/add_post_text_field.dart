@@ -15,26 +15,24 @@ class AddPostTextField extends StatelessWidget {
       key: cubit.formKey,
       autovalidateMode: cubit.autovalidateMode,
       child: BlocBuilder<AddPostCubit, AddPostStates>(
-      //  buildWhen: (previous, current) => current is Validate,
+        //  buildWhen: (previous, current) => current is Validate,
         builder: (context, state) {
-          return Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: AppTextFormFiled(
-                hintText: 'What\'s on your mind .....',
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return "Please enter a valid  title";
-                  }
-                },
-                keyboardType: TextInputType.multiline,
-                maxLines: 10,
-                controller: cubit.contentController,
-                focusedBorder:
-                    const OutlineInputBorder(borderSide: BorderSide.none),
-                enabledBorder:
-                    const OutlineInputBorder(borderSide: BorderSide.none),
-              ),
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: AppTextFormFiled(
+              hintText: 'What\'s on your mind .....',
+              validator: (val) {
+                if (val == null || val.isEmpty) {
+                  return "Please enter a valid title";
+                }
+              },
+              keyboardType: TextInputType.multiline,
+              maxLines: 10,
+              controller: cubit.contentController,
+              focusedBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
+              enabledBorder:
+                  const OutlineInputBorder(borderSide: BorderSide.none),
             ),
           );
         },

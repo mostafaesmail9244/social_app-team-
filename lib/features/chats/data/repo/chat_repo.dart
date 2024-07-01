@@ -27,4 +27,5 @@ class ChatRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+  // local storage
 }
