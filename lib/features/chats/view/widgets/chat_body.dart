@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/spacing.dart';
-import 'package:social_app/features/chats/logic/cubit/chat_cubit.dart';
-import 'package:social_app/features/chats/ui/widgets/user_item.dart';
+import 'package:social_app/features/chats/view_model/cubit/chat_cubit.dart';
+import 'package:social_app/features/chats/view/widgets/user_item.dart';
 import 'package:social_app/features/profile/data/models/profile_response/profile_response.dart';
 
 class ChatBody extends StatelessWidget {

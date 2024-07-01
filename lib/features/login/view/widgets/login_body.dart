@@ -18,45 +18,38 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            verticalSpace(30),
-            const HeadAuth(
-              title: "LOGIN",
-              subTitle: "login now to browse our hot offers",
-            ),
-            verticalSpace(20),
-            const LoginForm(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: () {
-                  context.pushNamed(Routes.forgotPasswordView);
-                },
-                child: Text(
-                  "Forgot Password?",
-                  style: AppTextStyles.font14SemiBoldBlue,
-                ),
-              ),
-            ),
-            verticalSpace(30),
-            AppButton(
-              buttonHeight: 30.h,
-              buttonText: "Login",
-              onPressed: () {
-                context.read<LoginCubit>().validateThenDoLogin();
-              },
-            ),
-            verticalSpace(15),
-            const DontHaveAccount(),
-            const LoginBlocListener()
-          ],
+      children: [
+        verticalSpace(30),
+        const HeadAuth(
+          title: "LOGIN",
+          subTitle: "login now to browse our hot offers",
         ),
-      ),
+        verticalSpace(20),
+        const LoginForm(),
+        Align(
+          alignment: Alignment.centerRight,
+          child: TextButton(
+            onPressed: () => context.pushNamed(Routes.forgotPasswordView),
+            child: Text(
+              "Forgot Password?",
+              style: AppTextStyles.font14SemiBoldBlue,
+            ),
+          ),
+        ),
+        verticalSpace(30),
+        AppButton(
+          buttonHeight: 30.h,
+          buttonText: "Login",
+          onPressed: () {
+            context.read<LoginCubit>().validateThenDoLogin();
+          },
+        ),
+        verticalSpace(15),
+        const DontHaveAccount(),
+        const LoginBlocListener()
+      ],
     );
   }
 }

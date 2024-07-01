@@ -7,8 +7,8 @@ import '../../home/view/screens/home_screen.dart';
 import '../../post/view/post_view.dart';
 import '../../post/view_model/add_post&palm_cubit/add_cubit.dart';
 import '../../profile/view/profile_view.dart';
-import '../chat_screen.dart';
-import '../users_screen.dart';
+import '../../chats/view/chat_screen.dart';
+import '../../users/users_screen.dart';
 
 const List<String> labels = [
   "Home",

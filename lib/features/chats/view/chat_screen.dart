@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
-import 'package:social_app/features/chats/logic/cubit/chat_cubit.dart';
-import 'package:social_app/features/chats/logic/cubit/chat_state.dart';
-import 'package:social_app/features/chats/ui/widgets/chat_body.dart';
-import 'package:social_app/features/chats/ui/widgets/shimmer_loading_chat.dart';
+import 'package:social_app/features/chats/view_model/cubit/chat_cubit.dart';
+import 'package:social_app/features/chats/view_model/cubit/chat_state.dart';
+import 'package:social_app/features/chats/view/widgets/chat_body.dart';
+import 'package:social_app/features/chats/view/widgets/shimmer_loading_chat.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
