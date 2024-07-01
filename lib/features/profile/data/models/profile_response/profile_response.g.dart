@@ -13,8 +13,8 @@ UserResponse _$UserResponseFromJson(Map<String, dynamic> json) => UserResponse(
       address: json['address'] as String?,
       phone: json['phone'] as String?,
       email: json['email'] as String?,
-      coverImage: json['coverImage'] as String,
-      bio: json['bio'] as String,
+      coverImage: json['coverImage'] as String?,
+      bio: json['bio'] as String?,
     );
 
 Map<String, dynamic> _$UserResponseToJson(UserResponse instance) =>

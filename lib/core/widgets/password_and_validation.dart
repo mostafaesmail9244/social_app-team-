@@ -53,7 +53,7 @@ class _PasswordAndValidationsState extends State<PasswordAndValidation> {
         AppTextFormFiled(
           keyboardType: TextInputType.visiblePassword,
           validator: (val) {
-            if (val == null || val.isEmpty || !AppRegex.isPasswordValid(val)) {
+            if (val == null || val.isEmpty ) {
               return "Please enter a valid password";
             }
           },

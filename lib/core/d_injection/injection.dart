@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:social_app/features/chats/data/repo/chat_repo.dart';
+import 'package:social_app/features/chats/logic/cubit/chat_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/post/view_model/add_post&palm_cubit/add_cubit.dart';
 import '../../features/layout/logic/layout_cubit/layout_cubit.dart';
@@ -23,6 +25,7 @@ void setubGetIt() {
   getIt.registerLazySingleton<ForgotPasswordRepo>(() => ForgotPasswordRepo());
   getIt.registerLazySingleton<UserRepo>(() => UserRepo());
   getIt.registerLazySingleton<AddPostRepo>(() => AddPostRepo());
+  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo());
 
   //cubits
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
@@ -31,6 +34,7 @@ void setubGetIt() {
   getIt.registerFactory<GetUserCubit>(() => GetUserCubit(getIt()));
   getIt.registerFactory<EditUserCubit>(() => EditUserCubit(getIt()));
   getIt.registerFactory<AddPostCubit>(() => AddPostCubit(getIt()));
+  getIt.registerFactory<ChatCubit>(() => ChatCubit(getIt()));
 
   getIt.registerFactory<LayoutCubit>(() => LayoutCubit());
   getIt.registerFactory<PickImageCubit>(() => PickImageCubit());

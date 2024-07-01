@@ -13,7 +13,10 @@ class LayoutScreen extends StatelessWidget {
       builder: (context, state) {
         final cubit = context.read<LayoutCubit>();
         return Scaffold(
-          body: screensList[cubit.currentIndex],
+          body: IndexedStack(
+            index: cubit.currentIndex,
+            children: screensList,
+          ),
           bottomNavigationBar: BtmNav(cubit: cubit),
         );
       },
