@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,6 +10,8 @@ import '../../../../core/firebase_service/firebase_failures.dart';
 class ChatRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final Reference firebaseRef = FirebaseStorage.instance.ref();
+  List<MessageModel> messages = [];
+
   Future<Either<Failure, List<UserResponse>>> getAllUsers(
       {required String uid}) async {
     List<UserResponse> users = [];
@@ -31,8 +32,6 @@ class ChatRepo {
     }
   }
 
-  List<MessageModel> messages = [];
-
   Future<Either<Failure, List<MessageModel>>> getMessages({
     required String receiverId,
     required String currnetUserId,
@@ -50,11 +49,11 @@ class ChatRepo {
           .collection(FireBaseConstants.chatsCollection)
           .doc(receiverId)
           .collection(FireBaseConstants.messagesCollection)
-          .orderBy('date', descending: false)
+          .orderBy('date', descending: true)
           .snapshots()
           .listen(
         (event) {
-          messages.clear(); // Clear the list instead of re-initializing
+          messages.clear();
 
           for (var message in event.docs) {
             MessageModel newMessage = MessageModel.fromSnapshot(message);
@@ -65,14 +64,6 @@ class ChatRepo {
           // Complete the completer with the messages
           if (!completer.isCompleted) {
             completer.complete(right(messages));
-          }
-        },
-        onError: (error) {
-          if (error is FirebaseException) {
-            completer
-                .complete(left(ServerFailure.fromFirebaseAuthException(error)));
-          } else {
-            completer.complete(left(ServerFailure(error.toString())));
           }
         },
       );
@@ -87,50 +78,29 @@ class ChatRepo {
     }
   }
 
-  Future<Either<Failure, String>> sendMessage({
-    required String currnetUserId,
-    required String message,
-    required String receiverId,
-    String? type,
-  }) async {
+  Future<Either<Failure, String>> sendMessage(
+      {required MessageModel messageModel, String? type}) async {
     try {
-      String messageId = _firestore
-          .collection(FireBaseConstants.usersCollection)
-          .doc(receiverId)
-          .collection(FireBaseConstants.chatsCollection)
-          .doc(currnetUserId)
-          .collection(FireBaseConstants.messagesCollection)
-          .doc()
-          .id;
 
+      
       // to receiver
-      MessageModel messageModel = MessageModel(
-        messageId: messageId,
-        message: message,
-        toId: currnetUserId,
-        fromId: receiverId,
-        date:  DateTime.now().millisecondsSinceEpoch.toString(),
-        read: '',
-        type: type ?? 'text',
-      );
-
       await _firestore
           .collection(FireBaseConstants.usersCollection)
-          .doc(receiverId)
+          .doc(messageModel.toId)
           .collection(FireBaseConstants.chatsCollection)
-          .doc(currnetUserId)
+          .doc(messageModel.fromId)
           .collection(FireBaseConstants.messagesCollection)
-          .doc(messageId)
+          .doc(messageModel.messageId)
           .set(messageModel.toJson());
 
       // to current user
       await _firestore
           .collection(FireBaseConstants.usersCollection)
-          .doc(currnetUserId)
+          .doc(messageModel.fromId)
           .collection(FireBaseConstants.chatsCollection)
-          .doc(receiverId)
+          .doc(messageModel.toId)
           .collection(FireBaseConstants.messagesCollection)
-          .doc(messageId)
+          .doc(messageModel.messageId)
           .set(messageModel.toJson());
 
       return right("Success");

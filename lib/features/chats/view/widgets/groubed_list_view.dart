@@ -28,7 +28,7 @@ class GroupedListViewBuilder extends StatelessWidget {
       order: GroupedListOrder.DESC,
       sort: false,
       controller: scrollController,
-      elements: cubit.messages,
+      elements: cubit.messagesList,
       groupBy: (message) {
         final timestamp = int.parse(message.date);
         final date = DateTime.fromMillisecondsSinceEpoch(timestamp);
@@ -54,7 +54,7 @@ class GroupedListViewBuilder extends StatelessWidget {
         return ChatBuble(
           message: message,
           isUserMessage:
-              CashHelper.get(key: CashConstants.userId) == message.toId,
+              CashHelper.get(key: CashConstants.userId) == message.fromId,
         );
       },
     );

@@ -15,6 +15,8 @@ class ChatView extends StatefulWidget {
 
 @override
 class _ChatViewState extends State<ChatView> {
+  final ScrollController scrollController = ScrollController();
+  final TextEditingController textControler = TextEditingController();
   @override
   void initState() {
     context.read<ChatCubit>().getMessages(receiverId: widget.user.id!);
@@ -22,10 +24,21 @@ class _ChatViewState extends State<ChatView> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    scrollController.dispose();
+    textControler.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: chatAppBar(widget.user),
-      body: ChatViewBody(user: widget.user),
+      body: ChatViewBody(
+        user: widget.user,
+        textControler: textControler,
+        scrollController: scrollController,
+      ),
     );
   }
 }

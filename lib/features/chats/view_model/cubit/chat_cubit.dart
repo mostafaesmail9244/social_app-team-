@@ -1,19 +1,25 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper_constants.dart';
 import 'package:social_app/features/chats/data/models/message_model.dart';
 import 'package:social_app/features/chats/data/repo/chat_repo.dart';
 import 'package:social_app/features/chats/view_model/cubit/chat_state.dart';
 import 'package:social_app/features/profile/data/models/profile_response/profile_response.dart';
+import 'package:uuid/uuid.dart';
+import '../../../../core/firebase_service/firebase_constants.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepo _chatRepo;
   ChatCubit(this._chatRepo) : super(const ChatState.initial());
 
-  late final ScrollController scrollController = ScrollController();
-  late final TextEditingController textControler = TextEditingController();
+  // late final ScrollController scrollController = ScrollController();
+  // late final TextEditingController textControler = TextEditingController();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   List<UserResponse> users = [];
+  List<MessageModel> messagesList = [];
+
   Future<void> getAllUsers() async {
     emit(const ChatState.getUsersLoadingState());
     final result = await _chatRepo.getAllUsers(
@@ -27,37 +33,52 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  List<MessageModel> messages = [];
-
-  Future<void> getMessages({required String receiverId}) async {
-    messages.clear(); // Clear the list instead of re-initializing
-    final result = await _chatRepo.getMessages(
-      currnetUserId: CashHelper.get(key: CashConstants.userId),
-      receiverId: receiverId,
-    );
-    result.fold(
-      (error) =>
-          emit(ChatState.getMessagesErrorState(error: error.errorMessage)),
-      (messages) {
-        this.messages.addAll(messages);
-        emit(ChatState.getMessagesSuccessState(messages));
-      },
-    );
-  }
-
   Future<void> sendMessage(
       {required String receiverId, required String message}) async {
-    final result = await _chatRepo.sendMessage(
-      currnetUserId: CashHelper.get(key: CashConstants.userId),
-      receiverId: receiverId,
+    final String msgId = const Uuid().v1();
+    MessageModel messageModel = MessageModel(
+      messageId: msgId,
       message: message,
+      toId: receiverId,
+      fromId: CashHelper.get(key: CashConstants.userId),
+      date: DateTime.now().millisecondsSinceEpoch.toString(),
+      read: '',
+      type: 'text',
     );
-    result.fold(
-      (error) =>
-          emit(ChatState.sendMessageErrorState(error: error.errorMessage)),
-      (r) async {
-        emit(const ChatState.sendMessageSuccessState());
-      },
-    );
+  //  messagesList.clear();
+    messagesList.add(messageModel);
+    emit(const ChatState.getUsersLoadingState());
+    await _chatRepo.sendMessage(messageModel: messageModel);
   }
+
+  Future<void> getMessages({required String receiverId}) async {
+    _firestore
+        .collection(FireBaseConstants.usersCollection)
+        .doc(CashHelper.get(key: CashConstants.userId))
+        .collection(FireBaseConstants.chatsCollection)
+        .doc(receiverId)
+        .collection(FireBaseConstants.messagesCollection)
+        .orderBy('date', descending: true)
+        .snapshots()
+        .listen((event) {
+      messagesList.clear();
+      for (var doc in event.docs) {
+        messagesList.add(MessageModel.fromSnapshot(doc));
+        emit(ChatState.getMessagesSuccessState(messagesList));
+      }
+    });
+  }
+
+  // void scroll() {
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     if (scrollController.hasClients) {
+  //       scrollController.animateTo(
+  //         scrollController.position.maxScrollExtent,
+  //         duration: const Duration(milliseconds: 500),
+  //         curve: Curves.easeOut,
+  //         //curve: Curves.easeOutCirc,
+  //       );
+  //     }
+  //   });
+  // }
 }

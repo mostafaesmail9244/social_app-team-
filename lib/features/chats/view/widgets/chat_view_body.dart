@@ -8,7 +8,15 @@ import 'groubed_list_view.dart';
 
 class ChatViewBody extends StatelessWidget {
   final UserResponse user;
-  const ChatViewBody({super.key, required this.user});
+  final TextEditingController textControler;
+  final ScrollController scrollController;
+
+  const ChatViewBody({
+    super.key,
+    required this.user,
+    required this.textControler,
+    required this.scrollController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +24,10 @@ class ChatViewBody extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: BlocConsumer<ChatCubit, ChatState>(
-            listener: (context, state) {
-              if (state is SendMessageSuccessState) {
-                cubit.scrollController.animateTo(
-                  cubit.scrollController.position.minScrollExtent,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeIn,
-                );
-                cubit.getMessages(receiverId: user.id!);
-              }
-            },
+          child: BlocBuilder<ChatCubit, ChatState>(
             builder: (context, state) {
               return GroupedListViewBuilder(
-                scrollController: cubit.scrollController,
+                scrollController: scrollController,
                 user: user,
                 cubit: cubit,
                 // email: widget.user.email,
@@ -38,7 +36,7 @@ class ChatViewBody extends StatelessWidget {
           ),
         ),
         ChatTextField(
-          controler: cubit.textControler,
+          controler: textControler,
           cubit: cubit,
           toID: user.id!,
         ),
