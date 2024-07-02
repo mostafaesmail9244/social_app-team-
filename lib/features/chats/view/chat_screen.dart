@@ -16,13 +16,18 @@ class ChatScreen extends StatelessWidget {
         create: (context) => getIt<ChatCubit>()..getAllUsers(),
         child: SafeArea(
           child: BlocBuilder<ChatCubit, ChatState>(
+            buildWhen: (previous, current) =>
+                current is GetUsersSuccessState ||
+                current is GetUsersErrorState ||
+                current is GetUsersLoadingState,
             builder: (context, state) {
-              return state.when(
-                getUSersLoadingState: () => const ShimmerLoadingChat(),
-                getUSersSuccessState: (users) =>
+              return state.maybeWhen(
+                getUsersLoadingState: () => const ShimmerLoadingChat(),
+                getUsersSuccessState: (users) =>
                     ChatBody(users: context.read<ChatCubit>().users),
-                getUSersErrorState: (error) => Text(error),
+                getUsersErrorState: (error) => Text(error),
                 initial: () => Container(),
+                orElse: () => Container(),
               );
             },
           ),
