@@ -14,7 +14,7 @@ class AddPostCubit extends Cubit<AddPostStates> {
 //  late final FocusNode focusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
-  void emitToAddPost({required File image}) async {
+  void emitToAddPost({File? image}) async {
     emit(const AddPostStates.addLoading());
     final response = await _repo.addPost(
       image: image,
@@ -28,7 +28,7 @@ class AddPostCubit extends Cubit<AddPostStates> {
     });
   }
 
-  void validateThenDoAddPost({required File image}) {
+  void validateThenDoAddPost({File? image}) {
     if (formKey.currentState!.validate()) {
       emitToAddPost(image: image);
     } else {

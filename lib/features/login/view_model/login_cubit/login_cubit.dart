@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
+import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../data/models/login_request/login_request_body.dart';
 import '../../data/repos/login_repo.dart';
 import 'login_states.dart';
@@ -20,7 +22,11 @@ class LoginCubit extends Cubit<LoginStates> {
     response.fold(
         (failure) =>
             emit(LoginStates.loginErrorState(error: failure.errorMessage)),
-        (userData) => emit(LoginStates.loginSuccessState(userData)));
+        (userData) async {
+      await CashHelper.put(
+          key: CashConstants.userId, value: userData.user!.uid);
+      emit(LoginStates.loginSuccessState(userData));
+    });
   }
 
   void validateThenDoLogin() {

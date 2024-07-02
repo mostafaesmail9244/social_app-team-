@@ -14,35 +14,22 @@ class PostBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<PickImageCubit>();
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      verticalSpace(10),
-                      const ImageAndName(),
-                      const AddPostTextField(),
-                      BuildImagePost(cubit: cubit),
-                      verticalSpace(25),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            PhotoTagsButton(cubit: cubit),
-            const Align(
-              alignment: AlignmentDirectional.bottomEnd,
-              child: AddPostBlocListener(),
-            ),
-          ],
+    return Column(
+      children: [
+        verticalSpace(10),
+        const ImageAndName(),
+        Expanded(
+          child: ListView(
+            children: [
+              const AddPostTextField(),
+              BuildImagePost(cubit: cubit),
+              verticalSpace(20),
+            ],
+          ),
         ),
-      ),
+        PhotoTagsButton(cubit: cubit),
+        const AddPostBlocListener(),
+      ],
     );
   }
 }

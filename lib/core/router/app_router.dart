@@ -22,7 +22,6 @@ import '../cubits/pick_image_cubit/pick_image_cubit.dart';
 class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
     final data = settings.arguments;
-
     switch (settings.name) {
       //loginScreen
       case Routes.loginView:
@@ -63,7 +62,8 @@ class AppRouter {
               // BlocProvider(create: (context) => getIt<PickImageCubit>()),
               //BlocProvider(create: (context) => getIt<PostCubit>()),
               BlocProvider(
-                  create: (context) => getIt<GetUserCubit>()..emitGetUser()),
+                create: (context) => getIt<GetUserCubit>()..emitGetUser(),
+              ),
             ],
             child: const LayoutScreen(),
           ),
@@ -73,8 +73,8 @@ class AppRouter {
       case Routes.chatDetailsView:
         final userData = data as UserResponse;
         return MaterialPageRoute(
-          builder: (context) => BlocProvider.value(
-            value: getIt<ChatCubit>(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<ChatCubit>(),
             child: ChatDetailsScreen(user: userData),
           ),
         );
@@ -84,9 +84,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
-              BlocProvider(
-                create: (context) => getIt<EditUserCubit>(),
-              ),
+              BlocProvider(create: (context) => getIt<EditUserCubit>()),
               BlocProvider(create: (context) => getIt<PickImageProfileCubit>()),
             ],
             child: const EditProflieView(),

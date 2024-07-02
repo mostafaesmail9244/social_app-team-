@@ -13,22 +13,23 @@ import '../models/add_post_request_body/add_post_request_body.dart';
 class AddPostRepo {
   final Reference firebaseRef = FirebaseStorage.instance.ref();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  String? downloadURL;
   Future<Either<Failure, String>> addPost({
-    required File image,
     required String content,
+    File? image,
   }) async {
     try {
-      String fileName = basename(image.path);
-      Reference fire = firebaseRef.child('postsImages/$fileName');
-      UploadTask uploadTask = fire.putFile(image);
-      TaskSnapshot taskSnapshot = await uploadTask;
-      String downloadURL = await taskSnapshot.ref.getDownloadURL();
-
+      if (image != null) {
+        String fileName = basename(image.path);
+        Reference fire = firebaseRef.child('postsImages/$fileName');
+        UploadTask uploadTask = fire.putFile(image);
+        TaskSnapshot taskSnapshot = await uploadTask;
+        downloadURL = await taskSnapshot.ref.getDownloadURL();
+      }
       await _firestore
           .collection(FireBaseConstants.postsCollection)
           .add(AddPostRequestBody(
-            image: downloadURL,
+            image: image == null ? '' : downloadURL!,
             content: content,
             userName: CashHelper.get(key: CashConstants.name),
             userImage: CashHelper.get(key: CashConstants.userImage),

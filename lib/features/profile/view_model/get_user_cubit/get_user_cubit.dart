@@ -14,7 +14,7 @@ class GetUserCubit extends Cubit<GetUserStates> {
         uid: CashHelper.get(key: CashConstants.userId));
     response.fold(
         (error) => emit(GetUserStates.getUserError(error: error.errorMessage)),
-        (data) {
+        (data) async {
       CashHelper.put(key: CashConstants.userImage, value: data.image);
       CashHelper.put(key: CashConstants.coverImage, value: data.coverImage);
       CashHelper.put(key: CashConstants.name, value: data.name);
