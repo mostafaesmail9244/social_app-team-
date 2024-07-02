@@ -6,15 +6,15 @@ import 'package:social_app/features/chats/view_model/cubit/chat_state.dart';
 import 'package:social_app/features/chats/view/widgets/chat_body.dart';
 import 'package:social_app/features/chats/view/widgets/shimmer_loading_chat.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+class HomeChatView extends StatelessWidget {
+  const HomeChatView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider(
-        create: (context) => getIt<ChatCubit>()..getAllUsers(),
-        child: SafeArea(
+    return BlocProvider(
+      create: (context) => getIt<ChatCubit>()..getAllUsers(),
+      child: Scaffold(
+        body: SafeArea(
           child: BlocBuilder<ChatCubit, ChatState>(
             buildWhen: (previous, current) =>
                 current is GetUsersSuccessState ||
@@ -25,7 +25,7 @@ class ChatScreen extends StatelessWidget {
                 getUsersLoadingState: () => const ShimmerLoadingChat(),
                 getUsersSuccessState: (users) =>
                     ChatBody(users: context.read<ChatCubit>().users),
-                getUsersErrorState: (error) => Text(error),
+                getUsersErrorState: (error) => const ShimmerLoadingChat(),
                 initial: () => Container(),
                 orElse: () => Container(),
               );

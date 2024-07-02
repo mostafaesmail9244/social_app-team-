@@ -7,7 +7,7 @@ import '../../home/view/home_screen.dart';
 import '../../post/view/post_view.dart';
 import '../../post/view_model/add_post_cubit/add_cubit.dart';
 import '../../profile/view/profile_view.dart';
-import '../../chats/view/chat_screen.dart';
+import '../../chats/view/users_chat_view.dart';
 import '../../users/users_screen.dart';
 
 const List<String> labels = [
@@ -36,7 +36,7 @@ const List<Icon> activeIconsList = [
 
 List<Widget> screensList = [
   const HomeScreen(),
-  const ChatScreen(),
+  const HomeChatView(),
   MultiBlocProvider(
     providers: [
       BlocProvider(create: (context) => getIt<PickImageCubit>()),

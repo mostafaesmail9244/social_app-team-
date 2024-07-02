@@ -5,16 +5,20 @@ part 'message_model.g.dart';
 
 @JsonSerializable()
 class MessageModel {
-  final String messageId;
   final String message;
-  final String senderId;
-  final String receiverId;
+  final String messageId;
+  final String toId;
+  final String fromId;
   final String date;
+  final String read;
+  final String type;
   MessageModel({
+    required this.read,
+    required this.type,
     required this.messageId,
     required this.message,
-    required this.senderId,
-    required this.receiverId,
+    required this.toId,
+    required this.fromId,
     required this.date,
   });
 

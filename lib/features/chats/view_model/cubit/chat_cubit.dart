@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper_constants.dart';
 import 'package:social_app/features/chats/data/models/message_model.dart';
@@ -7,9 +8,11 @@ import 'package:social_app/features/chats/view_model/cubit/chat_state.dart';
 import 'package:social_app/features/profile/data/models/profile_response/profile_response.dart';
 
 class ChatCubit extends Cubit<ChatState> {
-  ChatCubit(this._chatRepo) : super(const ChatState.initial());
   final ChatRepo _chatRepo;
+  ChatCubit(this._chatRepo) : super(const ChatState.initial());
 
+  late final ScrollController scrollController = ScrollController();
+  late final TextEditingController textControler = TextEditingController();
   List<UserResponse> users = [];
   Future<void> getAllUsers() async {
     emit(const ChatState.getUsersLoadingState());
@@ -33,8 +36,8 @@ class ChatCubit extends Cubit<ChatState> {
       receiverId: receiverId,
     );
     result.fold(
-      (error) => emit(ChatState.getMessagesErrorState(
-          error: error.errorMessage)), 
+      (error) =>
+          emit(ChatState.getMessagesErrorState(error: error.errorMessage)),
       (messages) {
         this.messages.addAll(messages);
         emit(ChatState.getMessagesSuccessState(messages));
@@ -50,8 +53,8 @@ class ChatCubit extends Cubit<ChatState> {
       message: message,
     );
     result.fold(
-      (error) => emit(ChatState.sendMessageErrorState(
-          error: error.errorMessage)), 
+      (error) =>
+          emit(ChatState.sendMessageErrorState(error: error.errorMessage)),
       (r) async {
         emit(const ChatState.sendMessageSuccessState());
       },

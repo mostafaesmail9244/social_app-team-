@@ -5,7 +5,6 @@ import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper_constants.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
-
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/widgets/app_text_filed.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
@@ -77,7 +76,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                               context
                                   .read<ChatCubit>()
                                   .messages[index]
-                                  .receiverId) {
+                                  .fromId) {
                             return _chatBubbleCurrentUser(
                                 message:
                                     context.read<ChatCubit>().messages[index]);

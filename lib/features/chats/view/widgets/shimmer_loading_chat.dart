@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:shimmer/shimmer.dart';
-
 import 'package:social_app/core/helper/spacing.dart';
+import '../../../../core/widgets/custom_shimmer.dart';
 
 class ShimmerLoadingChat extends StatelessWidget {
   const ShimmerLoadingChat({super.key});
@@ -10,9 +8,10 @@ class ShimmerLoadingChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-        itemBuilder: (context, index) => const ShimmerLoading(),
-        separatorBuilder: (context, index) => verticalSpace(16),
-        itemCount: 10);
+      itemBuilder: (context, index) => const ShimmerLoading(),
+      separatorBuilder: (context, index) => verticalSpace(20),
+      itemCount: 10,
+    );
   }
 }
 
@@ -21,24 +20,23 @@ class ShimmerLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!,
-      highlightColor: Colors.grey[100]!,
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.grey[300], // Placeholder color
+          CircleAvatar(
+            radius: 30,
+            child: CustomShimmer(
+              height: 50,
+              width: 50,
+              radius: 320,
             ),
           ),
-          const SizedBox(width: 10),
-          Container(
+          SizedBox(width: 15),
+          CustomShimmer(
+            height: 15,
             width: 100,
-            height: 18,
-            color: Colors.grey[300], // Placeholder color for text
+            radius: 0,
           ),
         ],
       ),
