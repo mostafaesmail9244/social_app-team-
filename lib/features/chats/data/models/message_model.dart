@@ -5,15 +5,17 @@ part 'message_model.g.dart';
 
 @JsonSerializable()
 class MessageModel {
+  final String messageId;
   final String message;
   final String senderId;
   final String receiverId;
-  final DateTime createdAt;
+  final String date;
   MessageModel({
+    required this.messageId,
     required this.message,
     required this.senderId,
     required this.receiverId,
-    required this.createdAt,
+    required this.date,
   });
 
   factory MessageModel.fromSnapshot(

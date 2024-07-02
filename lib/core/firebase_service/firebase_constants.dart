@@ -6,4 +6,6 @@ abstract class FireBaseConstants {
   static const userordersCollection = "userOrders";
   static const favoritesCollection = "favorites";
   static const userFavoritesCollection = "userFavorites";
+  static const chatsCollection = "chats";
+  static const messagesCollection = "messages";
 }

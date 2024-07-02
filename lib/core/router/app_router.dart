@@ -7,7 +7,7 @@ import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart'
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import '../../features/chats/view_model/cubit/chat_cubit.dart';
-import '../../features/chats/view/chat_detials_screen.dart';
+import '../../features/chats/view/chat_details_screen.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
@@ -73,8 +73,8 @@ class AppRouter {
       case Routes.chatDetailsView:
         final userData = data as UserResponse;
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<ChatCubit>(),
+          builder: (context) => BlocProvider.value(
+            value: getIt<ChatCubit>(),
             child: ChatDetailsScreen(user: userData),
           ),
         );
