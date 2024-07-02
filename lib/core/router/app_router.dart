@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/router/routes.dart';
 import 'package:social_app/features/layout/layout_screen.dart';
-import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart';
+import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import '../../features/chats/view_model/cubit/chat_cubit.dart';

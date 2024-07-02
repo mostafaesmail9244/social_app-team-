@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/features/layout/logic/layout_cubit/layout_cubit.dart';
+import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'model/layout_model.dart';
 import 'widgets/btm_nav.dart';
 
@@ -13,10 +13,7 @@ class LayoutScreen extends StatelessWidget {
       builder: (context, state) {
         final cubit = context.read<LayoutCubit>();
         return Scaffold(
-          body: IndexedStack(
-            index: cubit.currentIndex,
-            children: screensList,
-          ),
+          body: screensList[cubit.currentIndex],
           bottomNavigationBar: BtmNav(cubit: cubit),
         );
       },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/style/app_colors.dart';
-import '../logic/layout_cubit/layout_cubit.dart';
+import '../view_model/layout_cubit/layout_cubit.dart';
 import '../model/layout_model.dart';
 
 class BtmNav extends StatelessWidget {

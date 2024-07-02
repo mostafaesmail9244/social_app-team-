@@ -3,7 +3,7 @@ import 'package:social_app/features/chats/data/repo/chat_repo.dart';
 import 'package:social_app/features/chats/view_model/cubit/chat_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/post/view_model/add_post&palm_cubit/add_cubit.dart';
-import '../../features/layout/logic/layout_cubit/layout_cubit.dart';
+import '../../features/layout/view_model/layout_cubit/layout_cubit.dart';
 import '../../features/login/data/repos/forgot_password_repo.dart';
 import '../../features/login/data/repos/login_repo.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
