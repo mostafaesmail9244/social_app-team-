@@ -80,7 +80,8 @@ class AppTextFormFiled extends StatelessWidget {
   }
 
   OutlineInputBorder buildOutlineInputBorder(Color color, double? radius) {
-    return OutlineInputBorder(
+    return
+     OutlineInputBorder(
       borderSide: BorderSide(color: color, width: 1.3),
       borderRadius: BorderRadius.circular(radius ?? 16),
     );

@@ -3,21 +3,20 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../profile/data/models/profile_response/profile_response.dart';
-import '../../data/models/message_model.dart';
-import '../../view_model/cubit/chat_cubit.dart';
+import '../../data/models/message_model/message_model.dart';
+import '../../view_model/chat_cubit/chat_cubit.dart';
 import 'cards/chat_buble.dart';
 import 'grouped_date_widget.dart';
 
 class GroupedListViewBuilder extends StatelessWidget {
   final ScrollController scrollController;
-  final UserResponse user;
+  final String toId;
   final ChatCubit cubit;
   const GroupedListViewBuilder({
     super.key,
     required this.scrollController,
-    required this.user,
     required this.cubit,
+    required this.toId,
   });
 
   @override
@@ -53,8 +52,7 @@ class GroupedListViewBuilder extends StatelessWidget {
       itemBuilder: (context, MessageModel message) {
         return ChatBuble(
           message: message,
-          isUserMessage:
-              CashHelper.get(key: CashConstants.userId) == message.fromId,
+          isUserMessage: toId != CashHelper.get(key: CashConstants.userId),
         );
       },
     );

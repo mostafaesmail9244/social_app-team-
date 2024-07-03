@@ -8,7 +8,7 @@ import 'logout_button.dart';
 import 'profile_image_section.dart';
 
 class ProfileBody extends StatelessWidget {
-  final UserResponse data;
+  final UserData data;
   const ProfileBody({super.key, required this.data});
 
   @override

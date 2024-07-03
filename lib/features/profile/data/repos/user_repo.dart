@@ -14,14 +14,13 @@ class UserRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final Reference firebaseRef = FirebaseStorage.instance.ref();
 
-  Future<Either<Failure, UserResponse>> getUserInfo(
-      {required String uid}) async {
+  Future<Either<Failure, UserData>> getUserInfo({required String uid}) async {
     try {
       final snap = await _firestore
           .collection(FireBaseConstants.usersCollection)
           .doc(uid)
           .get();
-      final UserResponse response = UserResponse.fromSnapshot(snap);
+      final UserData response = UserData.fromSnapshot(snap);
       return right(response);
     } catch (e) {
       if (e is FirebaseException) {

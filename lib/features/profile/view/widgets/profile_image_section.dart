@@ -4,7 +4,7 @@ import '../../../../core/widgets/custom_cached_image.dart';
 import '../../data/models/profile_response/profile_response.dart';
 
 class ProfileImagesSection extends StatelessWidget {
-  final UserResponse data;
+  final UserData data;
   const ProfileImagesSection({super.key, required this.data});
 
   @override

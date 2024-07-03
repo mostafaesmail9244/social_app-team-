@@ -20,7 +20,7 @@ mixin _$GetUserStates<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getUserLoading,
-    required TResult Function(UserResponse data) getUserSuccess,
+    required TResult Function(UserData data) getUserSuccess,
     required TResult Function(String error) getUserError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$GetUserStates<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getUserLoading,
-    TResult? Function(UserResponse data)? getUserSuccess,
+    TResult? Function(UserData data)? getUserSuccess,
     TResult? Function(String error)? getUserError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$GetUserStates<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getUserLoading,
-    TResult Function(UserResponse data)? getUserSuccess,
+    TResult Function(UserData data)? getUserSuccess,
     TResult Function(String error)? getUserError,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getUserLoading,
-    required TResult Function(UserResponse data) getUserSuccess,
+    required TResult Function(UserData data) getUserSuccess,
     required TResult Function(String error) getUserError,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getUserLoading,
-    TResult? Function(UserResponse data)? getUserSuccess,
+    TResult? Function(UserData data)? getUserSuccess,
     TResult? Function(String error)? getUserError,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getUserLoading,
-    TResult Function(UserResponse data)? getUserSuccess,
+    TResult Function(UserData data)? getUserSuccess,
     TResult Function(String error)? getUserError,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$GetUserLoadingImpl<T> implements GetUserLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getUserLoading,
-    required TResult Function(UserResponse data) getUserSuccess,
+    required TResult Function(UserData data) getUserSuccess,
     required TResult Function(String error) getUserError,
   }) {
     return getUserLoading();
@@ -251,7 +251,7 @@ class _$GetUserLoadingImpl<T> implements GetUserLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getUserLoading,
-    TResult? Function(UserResponse data)? getUserSuccess,
+    TResult? Function(UserData data)? getUserSuccess,
     TResult? Function(String error)? getUserError,
   }) {
     return getUserLoading?.call();
@@ -262,7 +262,7 @@ class _$GetUserLoadingImpl<T> implements GetUserLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getUserLoading,
-    TResult Function(UserResponse data)? getUserSuccess,
+    TResult Function(UserData data)? getUserSuccess,
     TResult Function(String error)? getUserError,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$GetuserSuccessImplCopyWith<T, $Res> {
           $Res Function(_$GetuserSuccessImpl<T>) then) =
       __$$GetuserSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({UserResponse data});
+  $Res call({UserData data});
 }
 
 /// @nodoc
@@ -340,7 +340,7 @@ class __$$GetuserSuccessImplCopyWithImpl<T, $Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserResponse,
+              as UserData,
     ));
   }
 }
@@ -351,7 +351,7 @@ class _$GetuserSuccessImpl<T> implements GetuserSuccess<T> {
   const _$GetuserSuccessImpl(this.data);
 
   @override
-  final UserResponse data;
+  final UserData data;
 
   @override
   String toString() {
@@ -381,7 +381,7 @@ class _$GetuserSuccessImpl<T> implements GetuserSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getUserLoading,
-    required TResult Function(UserResponse data) getUserSuccess,
+    required TResult Function(UserData data) getUserSuccess,
     required TResult Function(String error) getUserError,
   }) {
     return getUserSuccess(data);
@@ -392,7 +392,7 @@ class _$GetuserSuccessImpl<T> implements GetuserSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getUserLoading,
-    TResult? Function(UserResponse data)? getUserSuccess,
+    TResult? Function(UserData data)? getUserSuccess,
     TResult? Function(String error)? getUserError,
   }) {
     return getUserSuccess?.call(data);
@@ -403,7 +403,7 @@ class _$GetuserSuccessImpl<T> implements GetuserSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getUserLoading,
-    TResult Function(UserResponse data)? getUserSuccess,
+    TResult Function(UserData data)? getUserSuccess,
     TResult Function(String error)? getUserError,
     required TResult orElse(),
   }) {
@@ -452,10 +452,9 @@ class _$GetuserSuccessImpl<T> implements GetuserSuccess<T> {
 }
 
 abstract class GetuserSuccess<T> implements GetUserStates<T> {
-  const factory GetuserSuccess(final UserResponse data) =
-      _$GetuserSuccessImpl<T>;
+  const factory GetuserSuccess(final UserData data) = _$GetuserSuccessImpl<T>;
 
-  UserResponse get data;
+  UserData get data;
   @JsonKey(ignore: true)
   _$$GetuserSuccessImplCopyWith<T, _$GetuserSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -528,7 +527,7 @@ class _$GetUserErrorImpl<T> implements GetUserError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getUserLoading,
-    required TResult Function(UserResponse data) getUserSuccess,
+    required TResult Function(UserData data) getUserSuccess,
     required TResult Function(String error) getUserError,
   }) {
     return getUserError(error);
@@ -539,7 +538,7 @@ class _$GetUserErrorImpl<T> implements GetUserError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getUserLoading,
-    TResult? Function(UserResponse data)? getUserSuccess,
+    TResult? Function(UserData data)? getUserSuccess,
     TResult? Function(String error)? getUserError,
   }) {
     return getUserError?.call(error);
@@ -550,7 +549,7 @@ class _$GetUserErrorImpl<T> implements GetUserError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getUserLoading,
-    TResult Function(UserResponse data)? getUserSuccess,
+    TResult Function(UserData data)? getUserSuccess,
     TResult Function(String error)? getUserError,
     required TResult orElse(),
   }) {

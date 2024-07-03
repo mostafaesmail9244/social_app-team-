@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/router/routes.dart';
+import 'package:social_app/features/chats/data/models/room_model/rooms_response.dart';
+import 'package:social_app/features/chats/view/search_view.dart';
+import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
+import 'package:social_app/features/chats/view_model/search_cubit/search_cubit.dart';
 import 'package:social_app/features/layout/layout_screen.dart';
 import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import '../../features/chats/view/chat_view.dart';
-import '../../features/chats/view_model/cubit/chat_cubit.dart';
+import '../../features/chats/view_model/chat_cubit/chat_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
-import '../../features/profile/data/models/profile_response/profile_response.dart';
 import '../../features/profile/view/edit_profile_view.dart';
 import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/profile/view_model/pick_image_cubit/pick_image_cubit.dart';
@@ -70,12 +73,12 @@ class AppRouter {
         );
 
       //chatDetailsView
-      case Routes.chatDetailsView:
-        final userData = data as UserResponse;
+      case Routes.chatView:
+        final room = data as RoomsData;
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<ChatCubit>(),
-            child: ChatView(user: userData),
+            child: ChatView(room: room),
           ),
         );
 
@@ -88,6 +91,20 @@ class AppRouter {
               BlocProvider(create: (context) => getIt<PickImageProfileCubit>()),
             ],
             child: const EditProflieView(),
+          ),
+        );
+
+      //searchView
+      case Routes.searchView:
+        return MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SearchCubit>()..getAllUsers(),
+              ),
+              BlocProvider(create: (context) => getIt<RoomCubit>()),
+            ],
+            child: const SearchView(),
           ),
         );
     }

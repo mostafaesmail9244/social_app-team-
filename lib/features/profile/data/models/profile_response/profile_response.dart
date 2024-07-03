@@ -2,8 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_response.g.dart';
 
+class UsersResponse {
+  final List<UserData>? users;
+  const UsersResponse({this.users});
+  factory UsersResponse.fromJson(List<dynamic> json) {
+    return UsersResponse(
+      users: json.map((post) => UserData.fromSnapshot(post)).toList(),
+    );
+  }
+}
+
 @JsonSerializable()
-class UserResponse {
+class UserData {
   final String? id;
   final String? name;
   final String? email;
@@ -13,7 +23,7 @@ class UserResponse {
   final String? coverImage;
   final String? bio;
 
-  const UserResponse({
+  const UserData({
     this.id,
     this.name,
     this.image,
@@ -24,7 +34,7 @@ class UserResponse {
     this.bio,
   });
 
-  factory UserResponse.fromSnapshot(
+  factory UserData.fromSnapshot(
           DocumentSnapshot<Map<String, dynamic>> document) =>
-      _$UserResponseFromJson(document.data()!);
+      _$UserDataFromJson(document.data()!);
 }

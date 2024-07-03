@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/widgets/app_text_filed.dart';
-import '../../view_model/cubit/chat_cubit.dart';
+import '../../data/models/room_model/rooms_response.dart';
+import '../../view_model/chat_cubit/chat_cubit.dart';
 
 class ChatTextField extends StatelessWidget {
   final TextEditingController controler;
   final ChatCubit cubit;
-  final String toID;
+  final RoomsData room;
 
   const ChatTextField({
     super.key,
     required this.controler,
     required this.cubit,
-    required this.toID,
+    required this.room,
   });
 
   @override
@@ -38,7 +39,10 @@ class ChatTextField extends StatelessWidget {
             onPressed: () async {
               if (controler.text.trim().isNotEmpty) {
                 await cubit.sendMessage(
-                    receiverId: toID, message: controler.text);
+                  toId: room.toUserId,
+                  message: controler.text,
+                  roomId: room.id,
+                );
               }
               controler.clear();
             },

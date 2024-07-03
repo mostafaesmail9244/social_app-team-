@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
-
 import '../../../../core/style/text_styles.dart';
-import '../../../profile/data/models/profile_response/profile_response.dart';
+import '../../data/models/room_model/rooms_response.dart';
 
-AppBar chatAppBar(UserResponse user) {
+AppBar chatAppBar(RoomsData room) {
   return AppBar(
     automaticallyImplyLeading: false,
     elevation: 0,
@@ -25,7 +24,7 @@ AppBar chatAppBar(UserResponse user) {
         CircleAvatar(
           radius: 25.r,
           child: CustomCachedNetworkImage(
-            imageUrl: user.image!,
+            imageUrl: room.toUserpicture,
             size: 20,
             height: 50,
             width: 50,
@@ -37,7 +36,7 @@ AppBar chatAppBar(UserResponse user) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              user.name!,
+              room.toUserName,
               style: AppTextStyles.font15DarkBlueMedium.copyWith(
                 color: AppColors.grey75,
                 fontSize: 18,

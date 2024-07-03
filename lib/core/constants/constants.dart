@@ -1,7 +1,7 @@
 import '../../features/profile/data/models/profile_response/profile_response.dart';
 
 abstract class Constants {
-  static UserResponse userModel = const UserResponse(
+  static UserData userModel = const UserData(
     id: '1',
     name: 'Alice Smith',
     bio: 'A passionate Flutter developer.',

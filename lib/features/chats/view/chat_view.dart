@@ -1,44 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../profile/data/models/profile_response/profile_response.dart';
-import '../view_model/cubit/chat_cubit.dart';
+import '../data/models/room_model/rooms_response.dart';
 import 'widgets/chat_app_bar.dart';
-import 'widgets/chat_view_body.dart';
+import 'widgets/body/chat_body.dart';
 
-class ChatView extends StatefulWidget {
-  final UserResponse user;
-  const ChatView({super.key, required this.user});
-
-  @override
-  State<ChatView> createState() => _ChatViewState();
-}
-
-@override
-class _ChatViewState extends State<ChatView> {
-  final ScrollController scrollController = ScrollController();
-  final TextEditingController textControler = TextEditingController();
-  @override
-  void initState() {
-    context.read<ChatCubit>().getMessages(receiverId: widget.user.id!);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    scrollController.dispose();
-    textControler.dispose();
-  }
+class ChatView extends StatelessWidget {
+  final RoomsData room;
+  const ChatView({super.key, required this.room});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: chatAppBar(widget.user),
-      body: ChatViewBody(
-        user: widget.user,
-        textControler: textControler,
-        scrollController: scrollController,
-      ),
+      appBar: chatAppBar(room),
+      body: ChatBody(room: room),
     );
   }
 }
