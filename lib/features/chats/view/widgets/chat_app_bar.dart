@@ -24,7 +24,7 @@ AppBar chatAppBar(RoomsData room) {
         CircleAvatar(
           radius: 25.r,
           child: CustomCachedNetworkImage(
-            imageUrl: room.toUserpicture,
+            imageUrl: room.otherUserDetails!.image!,
             size: 20,
             height: 50,
             width: 50,
@@ -36,7 +36,7 @@ AppBar chatAppBar(RoomsData room) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              room.toUserName,
+              room.otherUserDetails!.name!,
               style: AppTextStyles.font15DarkBlueMedium.copyWith(
                 color: AppColors.grey75,
                 fontSize: 18,

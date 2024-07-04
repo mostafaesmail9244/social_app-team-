@@ -44,9 +44,6 @@ class RoomRepo {
         lastMessage: '',
         lastMessageTime: DateTime.now().millisecondsSinceEpoch.toString(),
         createdAt: DateTime.now().millisecondsSinceEpoch.toString(),
-        toUserId: toId,
-        toUserName: userName,
-        toUserpicture: userPicture,
       );
       _firestore
           .collection(FireBaseConstants.roomsCollection)
@@ -65,11 +62,32 @@ class RoomRepo {
     try {
       QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.roomsCollection)
+          // .orderBy('createdAt', descending: true)
           .where('members',
               arrayContains: CashHelper.get(key: CashConstants.userId))
           .get();
-      RoomsResponse response = RoomsResponse.fromJson(snap.docs);
 
+      List<RoomsData> rooms = await Future.wait(snap.docs.map((doc) async {
+        RoomsData room = RoomsData.fromSnapshot(doc);
+
+        // Assume each room has exactly one other member
+        String? otherMemberId = room.members.firstWhere(
+          (memberId) => memberId != CashHelper.get(key: CashConstants.userId),
+        );
+
+        UserData? otherMemberDetails;
+        DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
+            .collection(FireBaseConstants.usersCollection)
+            .doc(otherMemberId)
+            .get();
+        if (userDoc.exists) {
+          otherMemberDetails = UserData.fromSnapshot(userDoc);
+        }
+
+        return room.copyWith(memberDetails: otherMemberDetails);
+      }).toList());
+
+      RoomsResponse response = RoomsResponse(rooms: rooms);
       return right(response);
     } catch (e) {
       if (e is FirebaseException) {

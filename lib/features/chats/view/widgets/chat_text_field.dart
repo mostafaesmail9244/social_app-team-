@@ -39,7 +39,7 @@ class ChatTextField extends StatelessWidget {
             onPressed: () async {
               if (controler.text.trim().isNotEmpty) {
                 await cubit.sendMessage(
-                  toId: room.toUserId,
+                  toId: room.otherUserDetails!.id!,
                   message: controler.text,
                   roomId: room.id,
                 );

@@ -37,7 +37,9 @@ class UserItem extends StatelessWidget {
           CircleAvatar(
             radius: 30,
             child: CustomCachedNetworkImage(
-              imageUrl: isSearch == true ? user!.image! : room!.toUserpicture,
+              imageUrl: isSearch == true
+                  ? user!.image!
+                  : room!.otherUserDetails!.image!,
               size: 20,
               height: 50,
               width: 50,
@@ -46,7 +48,7 @@ class UserItem extends StatelessWidget {
           ),
           horizontalSpace(10),
           Text(
-            isSearch == true ? user!.name! : room!.toUserName,
+            isSearch == true ? user!.name! : room!.otherUserDetails!.name!,
             style: AppTextStyles.font18Black,
           ),
         ],

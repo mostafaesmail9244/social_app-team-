@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
 import '../../../../../core/helper/spacing.dart';
 import '../../../data/models/room_model/rooms_response.dart';
 import '../user_item.dart';
@@ -12,8 +14,7 @@ class RoomBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: RefreshIndicator(
         onRefresh: () async {
-          // context.read<ChatCubit>().users = [];
-          // return await context.read<ChatCubit>().getAllUsers();
+          return await context.read<RoomCubit>().getRooms();
         },
         child: ListView.separated(
           itemCount: data.rooms!.length,

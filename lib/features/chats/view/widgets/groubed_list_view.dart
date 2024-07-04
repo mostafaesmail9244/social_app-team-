@@ -10,13 +10,11 @@ import 'grouped_date_widget.dart';
 
 class GroupedListViewBuilder extends StatelessWidget {
   final ScrollController scrollController;
-  final String toId;
   final ChatCubit cubit;
   const GroupedListViewBuilder({
     super.key,
     required this.scrollController,
     required this.cubit,
-    required this.toId,
   });
 
   @override
@@ -52,7 +50,8 @@ class GroupedListViewBuilder extends StatelessWidget {
       itemBuilder: (context, MessageModel message) {
         return ChatBuble(
           message: message,
-          isUserMessage: toId != CashHelper.get(key: CashConstants.userId),
+          isUserMessage:
+              CashHelper.get(key: CashConstants.userId) == message.fromId,
         );
       },
     );

@@ -11,11 +11,11 @@ RoomsData _$RoomsDataFromJson(Map<String, dynamic> json) => RoomsData(
       lastMessage: json['lastMessage'] as String,
       lastMessageTime: json['lastMessageTime'] as String,
       createdAt: json['createdAt'] as String,
-      toUserId: json['toUserId'] as String,
-      toUserName: json['toUserName'] as String,
-      toUserpicture: json['toUserpicture'] as String,
       members:
           (json['members'] as List<dynamic>).map((e) => e as String).toList(),
+      otherUserDetails: json['memberDetails'] == null
+          ? null
+          : UserData.fromMap(json['memberDetails'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$RoomsDataToJson(RoomsData instance) => <String, dynamic>{
@@ -23,8 +23,6 @@ Map<String, dynamic> _$RoomsDataToJson(RoomsData instance) => <String, dynamic>{
       'lastMessage': instance.lastMessage,
       'lastMessageTime': instance.lastMessageTime,
       'createdAt': instance.createdAt,
-      'toUserId': instance.toUserId,
-      'toUserName': instance.toUserName,
-      'toUserpicture': instance.toUserpicture,
+      'memberDetails': instance.otherUserDetails,
       'members': instance.members,
     };

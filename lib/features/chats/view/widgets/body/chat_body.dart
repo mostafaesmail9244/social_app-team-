@@ -7,7 +7,6 @@ import '../groubed_list_view.dart';
 
 class ChatBody extends StatefulWidget {
   final RoomsData room;
-
   const ChatBody({super.key, required this.room});
 
   @override
@@ -50,7 +49,7 @@ class _ChatBodyState extends State<ChatBody> {
               return GroupedListViewBuilder(
                 scrollController: scrollController,
                 cubit: cubit,
-                toId: widget.room.toUserId,
+             //   toId: widget.room.memberDetails!.id!,
               );
             },
           ),
