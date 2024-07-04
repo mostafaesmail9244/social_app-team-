@@ -10,7 +10,7 @@ class SearchCubit extends Cubit<SearchState> {
   final RoomRepo _repo;
   SearchCubit(this._repo) : super(const SearchState.initial());
   late final searchController = TextEditingController();
-  final FocusNode searchFocusNode = FocusNode();
+  late final FocusNode searchFocusNode = FocusNode();
   UsersResponse? _userss;
 
   Future<void> getAllUsers() async {

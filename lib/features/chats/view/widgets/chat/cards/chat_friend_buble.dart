@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/message_model/message_model.dart';
+import '../../../../data/models/message_model/message_model.dart';
 
 class ChatBubleForFriend extends StatelessWidget {
   final MessageModel message;

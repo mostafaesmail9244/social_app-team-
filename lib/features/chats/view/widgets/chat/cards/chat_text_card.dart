@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import '../../../data/models/message_model/message_model.dart';
-import '../text_widget.dart';
+import '../../../../data/models/message_model/message_model.dart';
+import '../../text_widget.dart';
 
 class ChatTextCard extends StatelessWidget {
   final MessageModel message;

@@ -13,6 +13,7 @@ class AppTextStyles {
   );
   static TextStyle font18Black = const TextStyle(
     color: Colors.black,
+    
     fontSize: 18,
   );
   static TextStyle font24BlueBold = const TextStyle(

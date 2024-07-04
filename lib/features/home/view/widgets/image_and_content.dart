@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
+import 'package:social_app/core/helper/spacing.dart';
+import 'package:social_app/core/widgets/custom_cached_image.dart';
+import '../../../../core/style/app_colors.dart';
+import '../../../../core/style/text_styles.dart';
+import '../../data/model/posts_response.dart';
+
+class ImageAndContent extends StatelessWidget {
+  final PostsData post;
+  const ImageAndContent({super.key, required this.post});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: ReadMoreText(
+            post.content!,
+            trimLines: 4,
+            trimCollapsedText: 'Show more',
+            trimExpandedText: 'Show less',
+            style: AppTextStyles.font18Black,
+            lessStyle: AppTextStyles.font14DarkBlueMedium.copyWith(
+              color: AppColors.darkBlue.withOpacity(.7),
+            ),
+            moreStyle: AppTextStyles.font14DarkBlueMedium.copyWith(
+              color: AppColors.darkBlue.withOpacity(.7),
+            ),
+          ),
+        ),
+        verticalSpace(10),
+        if (post.image != '')
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: CustomCachedNetworkImage(
+              imageUrl: post.image!,
+              radius: 10,
+              height: 200,
+              width: double.infinity,
+              // fit: BoxFit.fill,
+            ),
+          ),
+      ],
+    );
+  }
+}

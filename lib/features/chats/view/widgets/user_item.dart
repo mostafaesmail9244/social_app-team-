@@ -24,13 +24,13 @@ class UserItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        isSearch == false
-            ? context.pushNamed(Routes.chatView, arguments: room)
-            : context.read<RoomCubit>().createRoom(
+        isSearch == true
+            ? context.read<RoomCubit>().createRoom(
                   toId: user!.id!,
                   userName: user!.name!,
                   userPicture: user!.image!,
-                );
+                )
+            : context.pushNamed(Routes.chatView, arguments: room);
       },
       child: Row(
         children: [

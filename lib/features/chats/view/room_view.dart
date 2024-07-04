@@ -5,36 +5,24 @@ import 'package:social_app/features/chats/view/widgets/shimmer_loading_chat.dart
 import 'package:social_app/features/chats/view_model/room_cubit/room_state.dart';
 import '../../../core/router/routes.dart';
 import '../view_model/room_cubit/room_cubit.dart';
-import 'widgets/body/room_body.dart';
+import 'widgets/room/room_body.dart';
 
-class RoomView extends StatefulWidget {
+class RoomView extends StatelessWidget {
   const RoomView({super.key});
-
-  @override
-  State<RoomView> createState() => _RoomViewState();
-}
-
-class _RoomViewState extends State<RoomView> {
-  @override
-  void initState() {
-    context.read<RoomCubit>().getRooms();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text(
-          'Chats',
-        ),
+        title: const Text('Chats'),
         actions: [
           IconButton(
-              onPressed: () {
-                context.pushNamed(Routes.searchView);
-              },
-              icon: const Icon(Icons.search))
+            onPressed: () {
+              context.pushNamed(Routes.searchView);
+            },
+            icon: const Icon(Icons.search),
+          ),
         ],
       ),
       body: SafeArea(

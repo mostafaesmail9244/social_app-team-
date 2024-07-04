@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import '../../../data/models/message_model/message_model.dart';
+import '../../../../data/models/message_model/message_model.dart';
 import 'chat_image_card.dart';
 import 'chat_text_card.dart';
 

@@ -12,6 +12,13 @@ class LayoutCubit extends Cubit<LayoutState> {
       emit(ChangeBottomNavBar());
     }
   }
+
+  void changeIndexOfNavBar(val) {
+    if (val != currentIndex) {
+      currentIndex = val;
+      emit(ChangeBottomNavBar());
+    }
+  }
   // void changeBottomNavBar(int index) {
   //   if (index == 2) {
   //     emit(NavigatToPostScreen());

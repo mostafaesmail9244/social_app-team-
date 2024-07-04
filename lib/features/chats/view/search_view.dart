@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../view_model/search_cubit/search_cubit.dart';
 import '../view_model/search_cubit/search_state.dart';
-import 'widgets/search_app_bar.dart';
-import 'widgets/body/search_body.dart';
+import 'widgets/search/search_app_bar.dart';
+import 'widgets/search/search_body.dart';
 import 'widgets/shimmer_loading_chat.dart';
 
 class SearchView extends StatelessWidget {

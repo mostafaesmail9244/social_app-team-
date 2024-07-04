@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import '../../../../core/widgets/app_text_filed.dart';
-import '../../data/models/room_model/rooms_response.dart';
-import '../../view_model/chat_cubit/chat_cubit.dart';
+import '../../../../../core/widgets/app_text_filed.dart';
+import '../../../data/models/room_model/rooms_response.dart';
+import '../../../view_model/chat_cubit/chat_cubit.dart';
 
 class ChatTextField extends StatelessWidget {
   final TextEditingController controler;

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/models/room_model/rooms_response.dart';
 import '../../../view_model/chat_cubit/chat_cubit.dart';
-import '../chat_text_field.dart';
-import '../groubed_list_view.dart';
+import 'chat_text_field.dart';
+import 'groubed_list_view.dart';
 
 class ChatBody extends StatefulWidget {
   final RoomsData room;

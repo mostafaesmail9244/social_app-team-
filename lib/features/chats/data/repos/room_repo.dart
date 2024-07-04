@@ -14,7 +14,7 @@ class RoomRepo {
   Future<Either<Failure, UsersResponse>> getAllUsers(
       {required String uid}) async {
     try {
-      QuerySnapshot<Map<String, dynamic>> snap = await _firestore
+      final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.usersCollection)
           .where('id', isNotEqualTo: CashHelper.get(key: CashConstants.userId))
           .get();
@@ -38,7 +38,7 @@ class RoomRepo {
     final List<String> members = [fromID, toId]..sort((a, b) => a.compareTo(b));
 
     try {
-      RoomsData chatRoom = RoomsData(
+      final RoomsData chatRoom = RoomsData(
         id: members.toString(),
         members: members,
         lastMessage: '',
@@ -60,7 +60,7 @@ class RoomRepo {
 
   Future<Either<Failure, RoomsResponse>> getRoom() async {
     try {
-      QuerySnapshot<Map<String, dynamic>> snap = await _firestore
+      final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.roomsCollection)
           // .orderBy('createdAt', descending: true)
           .where('members',
@@ -68,10 +68,10 @@ class RoomRepo {
           .get();
 
       List<RoomsData> rooms = await Future.wait(snap.docs.map((doc) async {
-        RoomsData room = RoomsData.fromSnapshot(doc);
+        final RoomsData room = RoomsData.fromSnapshot(doc);
 
         // Assume each room has exactly one other member
-        String? otherMemberId = room.members.firstWhere(
+        final String otherMemberId = room.members.firstWhere(
           (memberId) => memberId != CashHelper.get(key: CashConstants.userId),
         );
 
