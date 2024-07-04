@@ -27,7 +27,10 @@ class UserInfoPost extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(post.userName!, style: AppTextStyles.font18Black),
+              Text(
+                post.userName!,
+                style: AppTextStyles.font15MediumBlack12,
+              ),
               Text(
                 DateFormat('d MMM, yyyy').format(DateTime.parse(
                   DateTime.fromMillisecondsSinceEpoch(

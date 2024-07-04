@@ -13,7 +13,6 @@ class AppTextStyles {
   );
   static TextStyle font18Black = const TextStyle(
     color: Colors.black,
-    
     fontSize: 18,
   );
   static TextStyle font24BlueBold = const TextStyle(
@@ -96,6 +95,11 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     fontSize: 14.sp,
     color: AppColors.darkBlue,
+  );
+  static TextStyle font15MediumBlack12 = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 15.sp,
+    color: AppColors.black12,
   );
 }
 

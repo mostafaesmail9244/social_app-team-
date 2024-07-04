@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/post_app_bar.dart';
+import '../../../core/widgets/build_app_bar.dart';
 import 'widgets/post_body.dart';
 
 class PostView extends StatelessWidget {
@@ -9,7 +9,12 @@ class PostView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: postAppBar(context),
+      appBar: buildAppBar(
+        context,
+        title: 'Add Post',
+        leading: 'Post',
+        onPressed: () {},
+      ),
       body: const PostBody(),
     );
   }

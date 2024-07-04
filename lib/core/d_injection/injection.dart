@@ -7,7 +7,7 @@ import '../../features/chats/data/repos/room_repo.dart';
 import '../../features/chats/view_model/room_cubit/room_cubit.dart';
 import '../../features/chats/view_model/search_cubit/search_cubit.dart';
 import '../../features/home/data/repos/get_posts_repo.dart';
-import '../../features/home/view/view_model/get_posts_cubit/get_posts_cubit.dart';
+import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
 import '../../features/layout/view_model/layout_cubit/layout_cubit.dart';
 import '../../features/login/data/repos/forgot_password_repo.dart';
 import '../../features/login/data/repos/login_repo.dart';

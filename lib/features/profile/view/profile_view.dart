@@ -15,7 +15,7 @@ class ProfileView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Settings',
-          style: AppTextStyles.font24Black700,
+          style: AppTextStyles.font24SemiBoldBlue.copyWith(fontSize: 23),
         ),
       ),
       body: BlocBuilder<GetUserCubit, GetUserStates>(

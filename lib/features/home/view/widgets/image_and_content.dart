@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:readmore/readmore.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
@@ -22,7 +23,7 @@ class ImageAndContent extends StatelessWidget {
             trimLines: 4,
             trimCollapsedText: 'Show more',
             trimExpandedText: 'Show less',
-            style: AppTextStyles.font18Black,
+            style: AppTextStyles.font15MediumBlack12.copyWith(fontSize: 14.sp),
             lessStyle: AppTextStyles.font14DarkBlueMedium.copyWith(
               color: AppColors.darkBlue.withOpacity(.7),
             ),
@@ -34,10 +35,10 @@ class ImageAndContent extends StatelessWidget {
         verticalSpace(10),
         if (post.image != '')
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 4),
             child: CustomCachedNetworkImage(
               imageUrl: post.image!,
-              radius: 10,
+              radius: 8,
               height: 200,
               width: double.infinity,
               // fit: BoxFit.fill,

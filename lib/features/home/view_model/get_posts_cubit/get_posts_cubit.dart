@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../data/repos/get_posts_repo.dart';
+import '../../data/repos/get_posts_repo.dart';
 import 'get_posts_states.dart';
 
 class GetPostsCubit extends Cubit<GetPostsStates> {

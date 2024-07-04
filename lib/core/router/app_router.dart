@@ -12,7 +12,7 @@ import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dar
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import '../../features/chats/view/chat_view.dart';
 import '../../features/chats/view_model/chat_cubit/chat_cubit.dart';
-import '../../features/home/view/view_model/get_posts_cubit/get_posts_cubit.dart';
+import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';

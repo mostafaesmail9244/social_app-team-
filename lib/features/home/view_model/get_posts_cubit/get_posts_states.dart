@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../data/model/posts_response.dart';
+import '../../data/model/posts_response.dart';
 part 'get_posts_states.freezed.dart';
 
 @Freezed()
