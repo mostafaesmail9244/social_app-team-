@@ -7,4 +7,5 @@ abstract class Routes {
   static const String addPostView = 'addPostView';
   static const String chatView = 'chatDetailsView';
   static const String searchView = 'searchView';
+  static const String imageDetails = 'imageDetails';
 }

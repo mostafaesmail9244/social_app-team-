@@ -6,6 +6,7 @@ import 'package:social_app/features/chats/data/models/room_model/rooms_response.
 import 'package:social_app/features/chats/view/search_view.dart';
 import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
 import 'package:social_app/features/chats/view_model/search_cubit/search_cubit.dart';
+import 'package:social_app/features/home/view/widgets/image_details.dart';
 import 'package:social_app/features/layout/layout_screen.dart';
 import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
@@ -78,6 +79,11 @@ class AppRouter {
           ),
         );
 
+      case Routes.imageDetails:
+        final image = data as String;
+        return MaterialPageRoute(
+          builder: (context) => ImageDetails(image: image),
+        );
       //chatDetailsView
       case Routes.chatView:
         final room = data as RoomsData;

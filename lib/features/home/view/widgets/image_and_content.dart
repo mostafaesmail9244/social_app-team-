@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:readmore/readmore.dart';
+import 'package:social_app/core/helper/extentaion.dart';
+
 import 'package:social_app/core/helper/spacing.dart';
+import 'package:social_app/core/router/routes.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
+import 'package:social_app/features/home/view/widgets/image_details.dart';
+
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../data/model/posts_response.dart';
@@ -36,12 +41,17 @@ class ImageAndContent extends StatelessWidget {
         if (post.image != '')
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: CustomCachedNetworkImage(
-              imageUrl: post.image!,
-              radius: 8,
-              height: 200,
-              width: double.infinity,
-              // fit: BoxFit.fill,
+            child: InkWell(
+              onTap: () {
+                context.pushNamed(Routes.imageDetails, arguments: post.image!);
+              },
+              child: CustomCachedNetworkImage(
+                imageUrl: post.image!,
+                radius: 8,
+                height: 200,
+                width: double.infinity,
+                // fit: BoxFit.fill,
+              ),
             ),
           ),
       ],
