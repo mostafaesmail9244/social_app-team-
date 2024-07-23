@@ -20,6 +20,7 @@ class AddPostTextField extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: AppTextFormFiled(
               hintText: 'What\'s on your mind .....',
+              focusNode: cubit.focusNode,
               validator: (val) {
                 if (val == null || val.isEmpty) {
                   return "Please enter a valid title";

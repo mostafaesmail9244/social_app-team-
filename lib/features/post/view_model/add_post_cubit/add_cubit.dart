@@ -11,7 +11,7 @@ class AddPostCubit extends Cubit<AddPostStates> {
 
   late AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late final TextEditingController contentController = TextEditingController();
-//  late final FocusNode focusNode = FocusNode();
+  final FocusNode focusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
   void emitToAddPost({File? image}) async {

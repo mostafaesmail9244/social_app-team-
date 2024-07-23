@@ -8,7 +8,6 @@ import '../../data/model/posts_response.dart';
 
 class UserInfoPost extends StatelessWidget {
   final PostsData post;
-
   const UserInfoPost({super.key, required this.post});
 
   @override
@@ -16,7 +15,7 @@ class UserInfoPost extends StatelessWidget {
     return Row(
       children: [
         CustomCachedNetworkImage(
-          imageUrl: post.image!,
+          imageUrl: post.userImage!,
           radius: 320,
           height: 35,
           width: 40,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/style/app_colors.dart';
 import '../../data/model/posts_response.dart';
 import 'post_item.dart';

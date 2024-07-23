@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/features/post/view/widgets/add_post_text_field.dart';
 import 'package:social_app/features/post/view/widgets/build_image_post.dart';
@@ -9,11 +8,11 @@ import 'image_and_name.dart';
 import 'photo_tags_button.dart';
 
 class PostBody extends StatelessWidget {
-  const PostBody({super.key});
+  final PickImageCubit cubit;
+  const PostBody({super.key, required this.cubit});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<PickImageCubit>();
     return Column(
       children: [
         verticalSpace(10),

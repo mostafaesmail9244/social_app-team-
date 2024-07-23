@@ -9,7 +9,7 @@ class PostsShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
       child: Column(
         children: [
           Row(

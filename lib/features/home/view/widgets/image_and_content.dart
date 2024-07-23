@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:readmore/readmore.dart';
 import 'package:social_app/core/helper/extentaion.dart';
-
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/router/routes.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
-import 'package:social_app/features/home/view/widgets/image_details.dart';
-
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../data/model/posts_response.dart';
@@ -28,7 +25,7 @@ class ImageAndContent extends StatelessWidget {
             trimLines: 4,
             trimCollapsedText: 'Show more',
             trimExpandedText: 'Show less',
-            style: AppTextStyles.font15MediumBlack12.copyWith(fontSize: 14.sp),
+            style: AppTextStyles.font15MediumBlack12.copyWith(fontSize: 12.sp),
             lessStyle: AppTextStyles.font14DarkBlueMedium.copyWith(
               color: AppColors.darkBlue.withOpacity(.7),
             ),

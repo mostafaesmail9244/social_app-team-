@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/extentaion.dart';
+import 'package:social_app/features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
 import 'package:social_app/features/post/view_model/add_post_cubit/add_cubit.dart';
 import '../../../../core/cubits/pick_image_cubit/pick_image_cubit.dart';
 import '../../../../core/widgets/custom_error.dart';
@@ -25,7 +26,9 @@ class AddPostBlocListener extends StatelessWidget {
         }, addSuccess: (data) {
           // context.read<GetPostsCubit>().emitGetPosts();
           customSuccessWidget(context, 'Added Successfully', 'close it', () {
+            context.read<GetPostsCubit>().emitGetPosts();
             context.read<PickImageCubit>().removeImage();
+            context.read<AddPostCubit>().focusNode.unfocus();
             context.pop();
             context.pop();
           });

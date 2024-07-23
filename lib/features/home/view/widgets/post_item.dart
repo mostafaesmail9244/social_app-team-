@@ -31,10 +31,7 @@ class PostItem extends StatelessWidget {
           children: [
             verticalSpace(10),
             UserInfoPost(post: post),
-            verticalSpace(5),
-            const Divider(height: 1, color: AppColors.grey),
-            verticalSpace(10),
-            verticalSpace(5),
+            verticalSpace(15),
             ImageAndContent(post: post),
             verticalSpace(10),
             const LikeAndCommentNumber(),
