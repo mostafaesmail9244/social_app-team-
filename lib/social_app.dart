@@ -7,7 +7,9 @@ import 'core/helper/cash_helper/cash_helper.dart';
 import 'core/style/app_colors.dart';
 
 class SocialApp extends StatelessWidget {
-  const SocialApp({super.key});
+  final AppRouter appRouter;
+  const SocialApp({super.key, required this.appRouter});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -24,7 +26,7 @@ class SocialApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         debugShowCheckedModeBanner: false,
-        onGenerateRoute: AppRouter.onGenerateRoute,
+        onGenerateRoute: appRouter.onGenerateRoute,
         initialRoute: CashHelper.get(key: CashConstants.userId) != null
             ? Routes.layoutView
             : Routes.loginView,

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import '../../../core/widgets/build_app_bar.dart';
-import '../view_model/get_posts_cubit/get_posts_cubit.dart';
-import '../view_model/get_posts_cubit/get_posts_states.dart';
 import 'widgets/home_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -19,6 +16,9 @@ class HomeView extends StatelessWidget {
         icon: IconlyLight.notification,
         onPressed: () {},
       ),
+<<<<<<< HEAD
+      body: const HomeBody(),
+=======
       body:
           BlocBuilder<GetPostsCubit, GetPostsStates>(builder: (context, state) {
         return state.when(
@@ -36,6 +36,7 @@ class HomeView extends StatelessWidget {
           ),
         );
       }),
+>>>>>>> a83406186de50e71d82ba773884fae18fee7e01d
     );
   }
 }

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../data/model/posts_response.dart';
+import 'get_posts_builder.dart';
 import 'on_your_mind_widget.dart';
-import 'posts_builder.dart';
 
 class HomeBody extends StatelessWidget {
-  final bool loading;
-  final List<PostsData>? posts;
-  const HomeBody({super.key, required this.loading, this.posts});
+  const HomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +13,7 @@ class HomeBody extends StatelessWidget {
       children: [
         const OnYourMindWidget(),
         verticalSpace(10),
-        PostsBuilder(isLoading: loading, posts: posts),
+        const GetPostsBuilder(),
         verticalSpace(10),
       ],
     );

@@ -54,8 +54,10 @@ class OnYourMindWidget extends StatelessWidget {
                         color: AppColors.greyED),
                     child: BlocBuilder<GetUserCubit, GetUserStates>(
                       builder: (context, state) {
-                        return Text("What's on your mind?",
-                            style: AppTextStyles.font14GreyRegular);
+                        return Text(
+                          "What's on your mind?",
+                          style: AppTextStyles.font14GreyRegular,
+                        );
                       },
                     ),
                   ),

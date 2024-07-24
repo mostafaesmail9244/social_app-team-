@@ -9,4 +9,5 @@ abstract class Routes {
   static const String usersView = 'usersView';
   static const String imageDetails = 'imageDetails';
   static const String userProfileView = 'userProfileView';
+  static const String commentView = 'commentView';
 }

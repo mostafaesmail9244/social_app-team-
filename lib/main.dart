@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:social_app/bloc_observer.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
+import 'core/router/app_router.dart';
 import 'social_app.dart';
 
 void main() async {
@@ -17,5 +18,6 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.grey));
 
-  runApp(const SocialApp());
+  runApp(SocialApp(appRouter: AppRouter()));
 }
+  

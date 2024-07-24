@@ -12,7 +12,7 @@ class MessageModel {
   final String date;
   final String read;
   final String type;
-  MessageModel({
+  const MessageModel({
     required this.read,
     required this.type,
     required this.messageId,

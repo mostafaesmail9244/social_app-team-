@@ -1,51 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-
+import 'package:social_app/core/helper/extentaion.dart';
+import 'package:social_app/core/router/routes.dart';
+import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
+import '../../../../core/widgets/custom_cached_image.dart';
+import '../../data/model/posts_response.dart';
 
 class CommentAndShareSection extends StatelessWidget {
-  // final TextEditingController commentController;
+  final PostsData post;
   final bool isLike;
-  const CommentAndShareSection({super.key, required this.isLike});
+  const CommentAndShareSection(
+      {super.key, required this.isLike, required this.post});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(5.0),
+        Padding(
+          padding: const EdgeInsets.all(5.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage(
-                //add current user image
-                'https://img.freepik.com/premium-photo/nighttime-reflections-lofi-manga-wallpaper-sad-beautiful-scene-with-cityscape_442337-37827.jpg?w=740'),
             radius: 12,
-          ),
-        ),
-        Expanded(
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: 'Write a comment...',
-              border: InputBorder.none,
-              hintStyle: AppTextStyles.font13GrayRegular,
+            child: CustomCachedNetworkImage(
+              imageUrl: post.userImage ?? "",
+              height: 20,
+              width: 20,
+              size: 5,
+              radius: 320,
             ),
           ),
         ),
-        FittedBox(
-          child: Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  (isLike ? IconlyBold.heart : IconlyLight.heart),
-                  color: Colors.red,
-                ),
-              ),
-              Text(
-                'Like',
-                style: AppTextStyles.font13GrayRegular,
-              ),
-            ],
+        TextButton(
+          onPressed: () => context.pushNamed(Routes.commentView),
+          child: Text(
+            'Write a comment.... ',
+            style: AppTextStyles.font14GreyRegular,
           ),
+        ),
+        const Spacer(),
+        Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                (isLike ? IconlyBold.heart : IconlyLight.heart),
+                color: Colors.red,
+              ),
+            ),
+            Text(
+              'Like',
+              style: AppTextStyles.font13GrayRegular,
+            ),
+          ],
         ),
         FittedBox(
           child: Row(
@@ -54,7 +60,7 @@ class CommentAndShareSection extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(
                   (Icons.ios_share_outlined),
-                  color: Colors.red,
+                  color: AppColors.lightMainBlue,
                 ),
               ),
               Text(

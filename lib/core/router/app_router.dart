@@ -13,6 +13,7 @@ import 'package:social_app/features/my_profile/view_model/get_user_cubit/get_use
 import 'package:social_app/features/users/view/users_view.dart';
 import '../../features/chats/view/chat_view.dart';
 import '../../features/chats/view_model/chat_cubit/chat_cubit.dart';
+import '../../features/comment/view/comment_view.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
@@ -28,7 +29,7 @@ import '../../features/user_profile/view_model/get_other_user_cubit/get_other_us
 import '../cubits/pick_image_cubit/pick_image_cubit.dart';
 
 class AppRouter {
-  static Route? onGenerateRoute(RouteSettings settings) {
+  Route onGenerateRoute(RouteSettings settings) {
     final data = settings.arguments;
     switch (settings.name) {
       //loginScreen
@@ -124,6 +125,7 @@ class AppRouter {
           ),
         );
 
+      //userProfileView
       case Routes.userProfileView:
         final user = data as UserData;
         return MaterialPageRoute(
@@ -133,7 +135,20 @@ class AppRouter {
             child: UserProfileView(data: user),
           ),
         );
+
+      //CommentView
+      case Routes.commentView:
+        //  final user = data as UserData;
+        return MaterialPageRoute(
+          builder: (context) => const CommentView(),
+        );
     }
-    return null;
+    return MaterialPageRoute(
+      builder: (_) => Scaffold(
+        body: Center(
+          child: Text("No Route defined for ${settings.name}"),
+        ),
+      ),
+    );
   }
 }

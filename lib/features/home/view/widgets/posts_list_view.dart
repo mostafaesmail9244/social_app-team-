@@ -4,10 +4,10 @@ import '../../data/model/posts_response.dart';
 import 'post_item.dart';
 import 'posts_shimmer.dart';
 
-class PostsBuilder extends StatelessWidget {
+class PostsListView extends StatelessWidget {
   final bool isLoading;
   final List<PostsData>? posts;
-  const PostsBuilder({super.key, required this.isLoading, this.posts});
+  const PostsListView({super.key, required this.isLoading, this.posts});
 
   @override
   Widget build(BuildContext context) {

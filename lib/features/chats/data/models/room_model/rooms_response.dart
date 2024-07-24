@@ -21,7 +21,6 @@ class RoomsData {
   final String lastMessageTime;
   final String createdAt;
   final UserData? otherUserDetails;
-
   final List<String> members;
   const RoomsData({
     required this.id,

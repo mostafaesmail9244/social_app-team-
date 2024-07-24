@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../home/view/widgets/posts_builder.dart';
+import '../../../home/view/widgets/posts_list_view.dart';
 import '../../view_model/get_other_user_cubit/get_other_user_cubit.dart';
 import '../../view_model/get_other_user_cubit/get_other_user_states.dart';
 
@@ -13,10 +13,10 @@ class PostsTabBarBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => const SizedBox.shrink(),
-          getUserLoading: () => const PostsBuilder(isLoading: true),
-          getUserError: (mess) => const PostsBuilder(isLoading: true),
+          getUserLoading: () => const PostsListView(isLoading: true),
+          getUserError: (mess) => const PostsListView(isLoading: true),
           getUserSuccess: (data) =>
-              PostsBuilder(isLoading: false, posts: data.posts),
+              PostsListView(isLoading: false, posts: data.posts),
         );
       },
     );

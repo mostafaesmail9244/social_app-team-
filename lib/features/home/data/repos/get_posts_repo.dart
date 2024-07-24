@@ -9,7 +9,7 @@ class GetPostsRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   Future<Either<Failure, PostsResponse>> getPosts() async {
     try {
-      QuerySnapshot<Map<String, dynamic>> snap = await _firestore
+      final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.postsCollection)
           .orderBy('date', descending: true)
           .get();
