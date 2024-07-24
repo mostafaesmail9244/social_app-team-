@@ -19,9 +19,15 @@ class OnYourMindWidget extends StatelessWidget {
         return state.maybeWhen(
           orElse: () => const SizedBox.shrink(),
           getUserLoading: () => const CustomShimmer(
-              height: 50, width: double.infinity, radius: 12),
+            height: 50,
+            width: double.infinity,
+            radius: 12,
+          ),
           getUserError: (error) => const CustomShimmer(
-              height: 50, width: double.infinity, radius: 12),
+            height: 50,
+            width: double.infinity,
+            radius: 12,
+          ),
           getUserSuccess: (data) => Row(
             children: [
               GestureDetector(

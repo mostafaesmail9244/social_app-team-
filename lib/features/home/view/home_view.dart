@@ -16,27 +16,7 @@ class HomeView extends StatelessWidget {
         icon: IconlyLight.notification,
         onPressed: () {},
       ),
-<<<<<<< HEAD
       body: const HomeBody(),
-=======
-      body:
-          BlocBuilder<GetPostsCubit, GetPostsStates>(builder: (context, state) {
-        return state.when(
-          initial: SizedBox.shrink,
-          getPostsLoading: () => const HomeBody(loading: true),
-          getPostsError: (error) => const HomeBody(loading: true),
-          getPostsSuccess: (data) => RefreshIndicator(
-            onRefresh: () async {
-              context.read<GetPostsCubit>().emitGetPosts();
-            },
-            child: HomeBody(
-              loading: false,
-              posts: data.posts,
-            ),
-          ),
-        );
-      }),
->>>>>>> a83406186de50e71d82ba773884fae18fee7e01d
     );
   }
 }
