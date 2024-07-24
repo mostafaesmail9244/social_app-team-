@@ -6,7 +6,7 @@ import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
 import 'package:social_app/features/chats/data/models/room_model/rooms_response.dart';
 import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
-import 'package:social_app/features/profile/data/models/profile_response/profile_response.dart';
+import 'package:social_app/features/my_profile/data/models/profile_response/profile_response.dart';
 import '../../../../core/router/routes.dart';
 
 class UserItem extends StatelessWidget {
@@ -25,11 +25,12 @@ class UserItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         isSearch == true
-            ? context.read<RoomCubit>().createRoom(
-                  toId: user!.id!,
-                  userName: user!.name!,
-                  userPicture: user!.image!,
-                )
+            ? context.pushNamed(Routes.userProfileView, arguments: user)
+            // context.read<RoomCubit>().createRoom(
+            //       toId: user!.id!,
+            //       userName: user!.name!,
+            //       userPicture: user!.image!,
+            //     )
             : context.pushNamed(Routes.chatView, arguments: room);
       },
       child: Row(

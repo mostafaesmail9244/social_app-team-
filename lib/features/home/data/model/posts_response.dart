@@ -15,6 +15,7 @@ class PostsResponse {
 
 @JsonSerializable()
 class PostsData {
+  final String postId;
   final String? userId;
   final String? userName;
   final String? userImage;
@@ -23,6 +24,7 @@ class PostsData {
   final String? content;
 
   const PostsData({
+    required this.postId,
     this.content,
     this.date,
     this.image,

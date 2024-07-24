@@ -6,6 +6,7 @@ abstract class Routes {
   static const String editeProfileView = 'editeProfileView';
   static const String addPostView = 'addPostView';
   static const String chatView = 'chatDetailsView';
-  static const String searchView = 'searchView';
+  static const String usersView = 'usersView';
   static const String imageDetails = 'imageDetails';
+  static const String userProfileView = 'userProfileView';
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/widgets/custom_shimmer.dart';
-import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
-import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_states.dart';
+import 'package:social_app/features/my_profile/view_model/get_user_cubit/get_user_cubit.dart';
+import 'package:social_app/features/my_profile/view_model/get_user_cubit/get_user_states.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';

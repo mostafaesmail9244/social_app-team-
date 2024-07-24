@@ -23,8 +23,8 @@ class ProfileView extends StatelessWidget {
           return state.when(
             initial: SizedBox.shrink,
             getUserLoading: () => const GetProfileLoading(),
-            getUserSuccess: (data) => ProfileBody(data: data),
             getUserError: (error) => const GetProfileLoading(),
+            getUserSuccess: (data) => ProfileBody(data: data),
           );
         },
       ),

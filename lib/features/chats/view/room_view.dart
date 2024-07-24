@@ -27,11 +27,10 @@ class RoomView extends StatelessWidget {
               current is GetRoomsSuccess,
           builder: (context, state) {
             return state.maybeWhen(
-              getRoomsLoading: () => const ShimmerLoadingChat(),
-              getRoomsSuccess: (data) => RoomBody(data: data),
-              getRoomsError: (error) => const ShimmerLoadingChat(),
-              initial: () => const SizedBox.shrink(),
               orElse: () => const SizedBox.shrink(),
+              getRoomsLoading: () => const ShimmerLoadingChat(),
+              getRoomsError: (error) => const ShimmerLoadingChat(),
+              getRoomsSuccess: (data) => RoomBody(data: data),
             );
           },
         ),

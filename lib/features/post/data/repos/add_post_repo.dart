@@ -26,16 +26,18 @@ class AddPostRepo {
         TaskSnapshot taskSnapshot = await uploadTask;
         downloadURL = await taskSnapshot.ref.getDownloadURL();
       }
-      await _firestore
-          .collection(FireBaseConstants.postsCollection)
-          .add(AddPostRequestBody(
-            image: image == null ? '' : downloadURL!,
-            content: content,
-            userName: CashHelper.get(key: CashConstants.name),
-            userImage: CashHelper.get(key: CashConstants.userImage),
-            userId: CashHelper.get(key: CashConstants.userId),
-            date: DateTime.now().millisecondsSinceEpoch.toString(),
-          ).toJson());
+
+      final post =
+          _firestore.collection(FireBaseConstants.postsCollection).doc();
+      await post.set(AddPostRequestBody(
+        postId: post.id,
+        image: image == null ? '' : downloadURL!,
+        content: content,
+        userName: CashHelper.get(key: CashConstants.name),
+        userImage: CashHelper.get(key: CashConstants.userImage),
+        userId: CashHelper.get(key: CashConstants.userId),
+        date: DateTime.now().millisecondsSinceEpoch.toString(),
+      ).toJson());
 
       return right("Success");
     } catch (e) {

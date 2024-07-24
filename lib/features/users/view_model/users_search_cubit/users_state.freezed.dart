@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_state.dart';
+part of 'users_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,11 +15,10 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SearchState<T> {
+mixin _$UsersSearchState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() buildAppBar,
     required TResult Function() getUsersLoading,
     required TResult Function(String error) getUsersError,
     required TResult Function(UsersResponse users) getUsersSuccess,
@@ -29,7 +28,6 @@ mixin _$SearchState<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
     TResult? Function()? getUsersLoading,
     TResult? Function(String error)? getUsersError,
     TResult? Function(UsersResponse users)? getUsersSuccess,
@@ -39,7 +37,6 @@ mixin _$SearchState<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? buildAppBar,
     TResult Function()? getUsersLoading,
     TResult Function(String error)? getUsersError,
     TResult Function(UsersResponse users)? getUsersSuccess,
@@ -50,7 +47,6 @@ mixin _$SearchState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersError<T> value) getUsersError,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
@@ -60,7 +56,6 @@ mixin _$SearchState<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersError<T> value)? getUsersError,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -70,7 +65,6 @@ mixin _$SearchState<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersError<T> value)? getUsersError,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -81,16 +75,16 @@ mixin _$SearchState<T> {
 }
 
 /// @nodoc
-abstract class $SearchStateCopyWith<T, $Res> {
-  factory $SearchStateCopyWith(
-          SearchState<T> value, $Res Function(SearchState<T>) then) =
-      _$SearchStateCopyWithImpl<T, $Res, SearchState<T>>;
+abstract class $UsersSearchStateCopyWith<T, $Res> {
+  factory $UsersSearchStateCopyWith(
+          UsersSearchState<T> value, $Res Function(UsersSearchState<T>) then) =
+      _$UsersSearchStateCopyWithImpl<T, $Res, UsersSearchState<T>>;
 }
 
 /// @nodoc
-class _$SearchStateCopyWithImpl<T, $Res, $Val extends SearchState<T>>
-    implements $SearchStateCopyWith<T, $Res> {
-  _$SearchStateCopyWithImpl(this._value, this._then);
+class _$UsersSearchStateCopyWithImpl<T, $Res, $Val extends UsersSearchState<T>>
+    implements $UsersSearchStateCopyWith<T, $Res> {
+  _$UsersSearchStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +101,7 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$UsersSearchStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
@@ -121,7 +115,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'SearchState<$T>.initial()';
+    return 'UsersSearchState<$T>.initial()';
   }
 
   @override
@@ -137,7 +131,6 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() buildAppBar,
     required TResult Function() getUsersLoading,
     required TResult Function(String error) getUsersError,
     required TResult Function(UsersResponse users) getUsersSuccess,
@@ -150,7 +143,6 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
     TResult? Function()? getUsersLoading,
     TResult? Function(String error)? getUsersError,
     TResult? Function(UsersResponse users)? getUsersSuccess,
@@ -163,7 +155,6 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? buildAppBar,
     TResult Function()? getUsersLoading,
     TResult Function(String error)? getUsersError,
     TResult Function(UsersResponse users)? getUsersSuccess,
@@ -180,7 +171,6 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersError<T> value) getUsersError,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
@@ -193,7 +183,6 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersError<T> value)? getUsersError,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -206,7 +195,6 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersError<T> value)? getUsersError,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -220,134 +208,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements SearchState<T> {
+abstract class _Initial<T> implements UsersSearchState<T> {
   const factory _Initial() = _$InitialImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$BuildAppBarImplCopyWith<T, $Res> {
-  factory _$$BuildAppBarImplCopyWith(_$BuildAppBarImpl<T> value,
-          $Res Function(_$BuildAppBarImpl<T>) then) =
-      __$$BuildAppBarImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$BuildAppBarImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$BuildAppBarImpl<T>>
-    implements _$$BuildAppBarImplCopyWith<T, $Res> {
-  __$$BuildAppBarImplCopyWithImpl(
-      _$BuildAppBarImpl<T> _value, $Res Function(_$BuildAppBarImpl<T>) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$BuildAppBarImpl<T> implements BuildAppBar<T> {
-  const _$BuildAppBarImpl();
-
-  @override
-  String toString() {
-    return 'SearchState<$T>.buildAppBar()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BuildAppBarImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() buildAppBar,
-    required TResult Function() getUsersLoading,
-    required TResult Function(String error) getUsersError,
-    required TResult Function(UsersResponse users) getUsersSuccess,
-    required TResult Function(List<UserData> usersFiltered) filterUserSuccess,
-  }) {
-    return buildAppBar();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
-    TResult? Function()? getUsersLoading,
-    TResult? Function(String error)? getUsersError,
-    TResult? Function(UsersResponse users)? getUsersSuccess,
-    TResult? Function(List<UserData> usersFiltered)? filterUserSuccess,
-  }) {
-    return buildAppBar?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? buildAppBar,
-    TResult Function()? getUsersLoading,
-    TResult Function(String error)? getUsersError,
-    TResult Function(UsersResponse users)? getUsersSuccess,
-    TResult Function(List<UserData> usersFiltered)? filterUserSuccess,
-    required TResult orElse(),
-  }) {
-    if (buildAppBar != null) {
-      return buildAppBar();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
-    required TResult Function(GetUsersLoading<T> value) getUsersLoading,
-    required TResult Function(GetUsersError<T> value) getUsersError,
-    required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
-    required TResult Function(FilterUserSuccess<T> value) filterUserSuccess,
-  }) {
-    return buildAppBar(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
-    TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
-    TResult? Function(GetUsersError<T> value)? getUsersError,
-    TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
-    TResult? Function(FilterUserSuccess<T> value)? filterUserSuccess,
-  }) {
-    return buildAppBar?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
-    TResult Function(GetUsersLoading<T> value)? getUsersLoading,
-    TResult Function(GetUsersError<T> value)? getUsersError,
-    TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
-    TResult Function(FilterUserSuccess<T> value)? filterUserSuccess,
-    required TResult orElse(),
-  }) {
-    if (buildAppBar != null) {
-      return buildAppBar(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class BuildAppBar<T> implements SearchState<T> {
-  const factory BuildAppBar() = _$BuildAppBarImpl<T>;
 }
 
 /// @nodoc
@@ -359,7 +221,7 @@ abstract class _$$GetUsersLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$GetUsersLoadingImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$GetUsersLoadingImpl<T>>
+    extends _$UsersSearchStateCopyWithImpl<T, $Res, _$GetUsersLoadingImpl<T>>
     implements _$$GetUsersLoadingImplCopyWith<T, $Res> {
   __$$GetUsersLoadingImplCopyWithImpl(_$GetUsersLoadingImpl<T> _value,
       $Res Function(_$GetUsersLoadingImpl<T>) _then)
@@ -373,7 +235,7 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
 
   @override
   String toString() {
-    return 'SearchState<$T>.getUsersLoading()';
+    return 'UsersSearchState<$T>.getUsersLoading()';
   }
 
   @override
@@ -389,7 +251,6 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() buildAppBar,
     required TResult Function() getUsersLoading,
     required TResult Function(String error) getUsersError,
     required TResult Function(UsersResponse users) getUsersSuccess,
@@ -402,7 +263,6 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
     TResult? Function()? getUsersLoading,
     TResult? Function(String error)? getUsersError,
     TResult? Function(UsersResponse users)? getUsersSuccess,
@@ -415,7 +275,6 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? buildAppBar,
     TResult Function()? getUsersLoading,
     TResult Function(String error)? getUsersError,
     TResult Function(UsersResponse users)? getUsersSuccess,
@@ -432,7 +291,6 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersError<T> value) getUsersError,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
@@ -445,7 +303,6 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersError<T> value)? getUsersError,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -458,7 +315,6 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersError<T> value)? getUsersError,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -472,7 +328,7 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
   }
 }
 
-abstract class GetUsersLoading<T> implements SearchState<T> {
+abstract class GetUsersLoading<T> implements UsersSearchState<T> {
   const factory GetUsersLoading() = _$GetUsersLoadingImpl<T>;
 }
 
@@ -487,7 +343,7 @@ abstract class _$$GetUsersErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$GetUsersErrorImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$GetUsersErrorImpl<T>>
+    extends _$UsersSearchStateCopyWithImpl<T, $Res, _$GetUsersErrorImpl<T>>
     implements _$$GetUsersErrorImplCopyWith<T, $Res> {
   __$$GetUsersErrorImplCopyWithImpl(_$GetUsersErrorImpl<T> _value,
       $Res Function(_$GetUsersErrorImpl<T>) _then)
@@ -517,7 +373,7 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
 
   @override
   String toString() {
-    return 'SearchState<$T>.getUsersError(error: $error)';
+    return 'UsersSearchState<$T>.getUsersError(error: $error)';
   }
 
   @override
@@ -542,7 +398,6 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() buildAppBar,
     required TResult Function() getUsersLoading,
     required TResult Function(String error) getUsersError,
     required TResult Function(UsersResponse users) getUsersSuccess,
@@ -555,7 +410,6 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
     TResult? Function()? getUsersLoading,
     TResult? Function(String error)? getUsersError,
     TResult? Function(UsersResponse users)? getUsersSuccess,
@@ -568,7 +422,6 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? buildAppBar,
     TResult Function()? getUsersLoading,
     TResult Function(String error)? getUsersError,
     TResult Function(UsersResponse users)? getUsersSuccess,
@@ -585,7 +438,6 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersError<T> value) getUsersError,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
@@ -598,7 +450,6 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersError<T> value)? getUsersError,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -611,7 +462,6 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersError<T> value)? getUsersError,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -625,7 +475,7 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
   }
 }
 
-abstract class GetUsersError<T> implements SearchState<T> {
+abstract class GetUsersError<T> implements UsersSearchState<T> {
   const factory GetUsersError({required final String error}) =
       _$GetUsersErrorImpl<T>;
 
@@ -646,7 +496,7 @@ abstract class _$$GetUsersSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$GetUsersSuccessImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$GetUsersSuccessImpl<T>>
+    extends _$UsersSearchStateCopyWithImpl<T, $Res, _$GetUsersSuccessImpl<T>>
     implements _$$GetUsersSuccessImplCopyWith<T, $Res> {
   __$$GetUsersSuccessImplCopyWithImpl(_$GetUsersSuccessImpl<T> _value,
       $Res Function(_$GetUsersSuccessImpl<T>) _then)
@@ -676,7 +526,7 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
 
   @override
   String toString() {
-    return 'SearchState<$T>.getUsersSuccess(users: $users)';
+    return 'UsersSearchState<$T>.getUsersSuccess(users: $users)';
   }
 
   @override
@@ -701,7 +551,6 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() buildAppBar,
     required TResult Function() getUsersLoading,
     required TResult Function(String error) getUsersError,
     required TResult Function(UsersResponse users) getUsersSuccess,
@@ -714,7 +563,6 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
     TResult? Function()? getUsersLoading,
     TResult? Function(String error)? getUsersError,
     TResult? Function(UsersResponse users)? getUsersSuccess,
@@ -727,7 +575,6 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? buildAppBar,
     TResult Function()? getUsersLoading,
     TResult Function(String error)? getUsersError,
     TResult Function(UsersResponse users)? getUsersSuccess,
@@ -744,7 +591,6 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersError<T> value) getUsersError,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
@@ -757,7 +603,6 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersError<T> value)? getUsersError,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -770,7 +615,6 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersError<T> value)? getUsersError,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -784,7 +628,7 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
   }
 }
 
-abstract class GetUsersSuccess<T> implements SearchState<T> {
+abstract class GetUsersSuccess<T> implements UsersSearchState<T> {
   const factory GetUsersSuccess(final UsersResponse users) =
       _$GetUsersSuccessImpl<T>;
 
@@ -805,7 +649,7 @@ abstract class _$$FilterUserSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$FilterUserSuccessImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$FilterUserSuccessImpl<T>>
+    extends _$UsersSearchStateCopyWithImpl<T, $Res, _$FilterUserSuccessImpl<T>>
     implements _$$FilterUserSuccessImplCopyWith<T, $Res> {
   __$$FilterUserSuccessImplCopyWithImpl(_$FilterUserSuccessImpl<T> _value,
       $Res Function(_$FilterUserSuccessImpl<T>) _then)
@@ -841,7 +685,7 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
 
   @override
   String toString() {
-    return 'SearchState<$T>.filterUserSuccess(usersFiltered: $usersFiltered)';
+    return 'UsersSearchState<$T>.filterUserSuccess(usersFiltered: $usersFiltered)';
   }
 
   @override
@@ -869,7 +713,6 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() buildAppBar,
     required TResult Function() getUsersLoading,
     required TResult Function(String error) getUsersError,
     required TResult Function(UsersResponse users) getUsersSuccess,
@@ -882,7 +725,6 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? buildAppBar,
     TResult? Function()? getUsersLoading,
     TResult? Function(String error)? getUsersError,
     TResult? Function(UsersResponse users)? getUsersSuccess,
@@ -895,7 +737,6 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? buildAppBar,
     TResult Function()? getUsersLoading,
     TResult Function(String error)? getUsersError,
     TResult Function(UsersResponse users)? getUsersSuccess,
@@ -912,7 +753,6 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(BuildAppBar<T> value) buildAppBar,
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersError<T> value) getUsersError,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
@@ -925,7 +765,6 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(BuildAppBar<T> value)? buildAppBar,
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersError<T> value)? getUsersError,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -938,7 +777,6 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(BuildAppBar<T> value)? buildAppBar,
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersError<T> value)? getUsersError,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
@@ -952,7 +790,7 @@ class _$FilterUserSuccessImpl<T> implements FilterUserSuccess<T> {
   }
 }
 
-abstract class FilterUserSuccess<T> implements SearchState<T> {
+abstract class FilterUserSuccess<T> implements UsersSearchState<T> {
   const factory FilterUserSuccess(final List<UserData> usersFiltered) =
       _$FilterUserSuccessImpl<T>;
 

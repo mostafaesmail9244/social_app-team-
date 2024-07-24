@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/widgets/app_text_filed.dart';
-import 'package:social_app/features/chats/view_model/search_cubit/search_cubit.dart';
+import 'package:social_app/features/users/view_model/users_search_cubit/users_cubit.dart';
 
 AppBar searchAppBar(BuildContext context) {
-  final cubit = context.read<SearchCubit>();
+  final cubit = context.read<UsersSearchCubit>();
   return AppBar(
     backgroundColor: Colors.white,
     title: AppTextFormFiled(

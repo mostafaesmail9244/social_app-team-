@@ -16,6 +16,10 @@ class SocialApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            scrolledUnderElevation: 0,
+            surfaceTintColor: Colors.white,
+          ),
           primaryColor: AppColors.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),

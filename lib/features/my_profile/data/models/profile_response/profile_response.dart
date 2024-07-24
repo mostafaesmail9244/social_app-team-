@@ -23,6 +23,8 @@ class UserData {
   final String? image;
   final String? coverImage;
   final String? bio;
+  final List? followers;
+  final List? following;
 
   const UserData({
     this.id,
@@ -33,13 +35,15 @@ class UserData {
     this.email,
     this.coverImage,
     this.bio,
+    this.followers,
+    this.following,
   });
 
   factory UserData.fromSnapshot(
           DocumentSnapshot<Map<String, dynamic>> document) =>
       _$UserDataFromJson(document.data()!);
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
       'name': name,
@@ -49,21 +53,24 @@ class UserData {
       'image': image,
       'coverImage': coverImage,
       'bio': bio,
+      'followers': followers,
+      'following': following,
     };
   }
 
-  factory UserData.fromMap(Map<String, dynamic> map) {
+  factory UserData.fromJson(Map<String, dynamic> json) {
     return UserData(
-      id: map['id'] != null ? map['id'] as String : null,
-      name: map['name'] != null ? map['name'] as String : null,
-      email: map['email'] != null ? map['email'] as String : null,
-      address: map['address'] != null ? map['address'] as String : null,
-      phone: map['phone'] != null ? map['phone'] as String : null,
-      image: map['image'] != null ? map['image'] as String : null,
-      coverImage: map['coverImage'] != null ? map['coverImage'] as String : null,
-      bio: map['bio'] != null ? map['bio'] as String : null,
+      id: json['id'] != null ? json['id'] as String : null,
+      name: json['name'] != null ? json['name'] as String : null,
+      email: json['email'] != null ? json['email'] as String : null,
+      address: json['address'] != null ? json['address'] as String : null,
+      phone: json['phone'] != null ? json['phone'] as String : null,
+      image: json['image'] != null ? json['image'] as String : null,
+      coverImage:
+          json['coverImage'] != null ? json['coverImage'] as String : null,
+      bio: json['bio'] != null ? json['bio'] as String : null,
+      followers: json['followers'] as List<dynamic>?,
+      following: json['following'] as List<dynamic>?,
     );
   }
-
-
 }

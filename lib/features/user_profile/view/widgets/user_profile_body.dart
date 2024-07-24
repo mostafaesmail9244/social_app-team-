@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:social_app/core/helper/spacing.dart';
+import 'package:social_app/core/style/text_styles.dart';
+import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../my_profile/view/widgets/detail_buttom_widget.dart';
+import '../../../my_profile/view/widgets/profile_image_section.dart';
+import 'posts_tab_bar_builder.dart';
+import 'tab_bar.dart';
+
+class UserProfileBody extends StatelessWidget {
+  final UserData data;
+  const UserProfileBody({super.key, required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(10),
+      children: [
+        ProfileImagesSection(data: data),
+        Text(
+          data.name!,
+          //  userModel!.name!,
+          textAlign: TextAlign.center,
+          style: AppTextStyles.font24Black700,
+        ),
+        verticalSpace(10),
+        Text(
+          data.bio!,
+          //  userModel!.bio ?? 'Write your bio...',
+          textAlign: TextAlign.center,
+          style: AppTextStyles.font14GreyRegular,
+        ),
+        verticalSpace(30),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            button(onTap: () {}, nums: '100', title: 'Posts'),
+            button(onTap: () {}, nums: '55', title: 'Photos'),
+            button(onTap: () {}, nums: '10k', title: 'Followers'),
+            button(onTap: () {}, nums: '64', title: 'Following'),
+          ],
+        ),
+        verticalSpace(20),
+        const SizedBox(
+          height: 400, // Set a fixed height for the TabBarDemo
+          child: TabBarDemo(),
+        ),
+      ],
+    );
+  }
+}

@@ -14,6 +14,7 @@ AddPostRequestBody _$AddPostRequestBodyFromJson(Map<String, dynamic> json) =>
       userImage: json['userImage'] as String,
       userId: json['userId'] as String,
       date: json['date'] as String,
+      postId: json['postId'] as String,
     );
 
 Map<String, dynamic> _$AddPostRequestBodyToJson(AddPostRequestBody instance) =>
@@ -24,4 +25,5 @@ Map<String, dynamic> _$AddPostRequestBodyToJson(AddPostRequestBody instance) =>
       'image': instance.image,
       'content': instance.content,
       'date': instance.date,
+      'postId': instance.postId,
     };

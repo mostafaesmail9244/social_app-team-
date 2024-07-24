@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../profile/data/models/profile_response/profile_response.dart';
+import '../../../my_profile/data/models/profile_response/profile_response.dart';
 import '../../data/models/room_model/rooms_response.dart';
 
 part 'room_state.freezed.dart';
