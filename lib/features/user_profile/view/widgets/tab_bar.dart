@@ -1,46 +1,36 @@
 import 'package:flutter/material.dart';
-
+import 'package:social_app/core/helper/spacing.dart';
+import 'photo_tab_bar_builder.dart';
 import 'posts_tab_bar_builder.dart';
 
-class TabBarDemo extends StatefulWidget {
+class TabBarDemo extends StatelessWidget {
   const TabBarDemo({super.key});
 
   @override
-  State<TabBarDemo> createState() => _TabBarDemoState();
-}
-
-class _TabBarDemoState extends State<TabBarDemo>
-    with SingleTickerProviderStateMixin {
-  late final TabController _tabController =
-      TabController(length: 2, vsync: this);
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: "Photos"),
-            Tab(text: "Posts"),
-          ],
-        ),
-        Expanded(
-          child: TabBarView(
-            controller: _tabController,
-            children: const [
-              PostsTabBarBuilder(),
-              SizedBox(),
+    return DefaultTabController(
+      length: 2,
+      child: Column(
+        children: [
+          const TabBar(
+            tabs: [
+              Tab(text: "Photos"),
+              Tab(text: "Posts"),
             ],
           ),
-        ),
-      ],
+          verticalSpace(10),
+          const Expanded(
+            child: TabBarView(
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                PhotoTabBarBuilder(),
+                PostsTabBarBuilder(),
+              ],
+            ),
+          ),
+          verticalSpace(10),
+        ],
+      ),
     );
   }
 }

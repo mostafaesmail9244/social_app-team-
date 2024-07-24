@@ -5,20 +5,16 @@ import 'post_item.dart';
 import 'posts_shimmer.dart';
 
 class PostsBuilder extends StatelessWidget {
-  final bool loading;
+  final bool isLoading;
   final List<PostsData>? posts;
-  const PostsBuilder({
-    super.key,
-    required this.loading,
-    required this.posts,
-  });
+  const PostsBuilder({super.key, required this.isLoading, this.posts});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: loading ? 5 : posts!.length,
+      itemCount: isLoading ? 5 : posts!.length,
       separatorBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.only(),
@@ -29,7 +25,7 @@ class PostsBuilder extends StatelessWidget {
         );
       },
       itemBuilder: (context, index) {
-        return loading
+        return isLoading
             ? const PostsShimmer()
             : PostItem(
                 post: posts![index],

@@ -16,7 +16,7 @@ class HomeBody extends StatelessWidget {
       children: [
         const OnYourMindWidget(),
         verticalSpace(10),
-        PostsBuilder(loading: loading, posts: posts),
+        PostsBuilder(isLoading: loading, posts: posts),
         verticalSpace(10),
       ],
     );

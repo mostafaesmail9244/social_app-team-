@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/style/text_styles.dart';
 
 InkWell button({
-  required void Function()? onTap,
   required String nums,
   required String title,
+  void Function()? onTap,
 }) {
   return InkWell(
     onTap: onTap,

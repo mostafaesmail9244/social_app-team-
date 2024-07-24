@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../home/view/widgets/posts_builder.dart';
 import '../../view_model/get_other_user_cubit/get_other_user_cubit.dart';
 import '../../view_model/get_other_user_cubit/get_other_user_states.dart';
+import 'post_user_grid_view.dart';
 
-class PostsTabBarBuilder extends StatelessWidget {
-  const PostsTabBarBuilder({super.key});
+class PhotoTabBarBuilder extends StatelessWidget {
+  const PhotoTabBarBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +13,10 @@ class PostsTabBarBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => const SizedBox.shrink(),
-          getUserLoading: () => const PostsBuilder(isLoading: true),
-          getUserError: (mess) => const PostsBuilder(isLoading: true),
+          getUserLoading: () => const PostUserGridView(isLoading: true),
+          getUserError: (mess) => const PostUserGridView(isLoading: true),
           getUserSuccess: (data) =>
-              PostsBuilder(isLoading: false, posts: data.posts),
+              PostUserGridView(data: data, isLoading: false),
         );
       },
     );
