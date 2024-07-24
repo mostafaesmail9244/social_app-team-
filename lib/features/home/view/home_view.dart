@@ -25,9 +25,14 @@ class HomeView extends StatelessWidget {
           initial: SizedBox.shrink,
           getPostsLoading: () => const HomeBody(loading: true),
           getPostsError: (error) => const HomeBody(loading: true),
-          getPostsSuccess: (data) => HomeBody(
-            loading: false,
-            posts: data.posts,
+          getPostsSuccess: (data) => RefreshIndicator(
+            onRefresh: () async {
+              context.read<GetPostsCubit>().emitGetPosts();
+            },
+            child: HomeBody(
+              loading: false,
+              posts: data.posts,
+            ),
           ),
         );
       }),

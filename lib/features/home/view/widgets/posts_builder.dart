@@ -17,7 +17,7 @@ class PostsBuilder extends StatelessWidget {
       itemCount: isLoading ? 5 : posts!.length,
       separatorBuilder: (context, index) {
         return const Padding(
-          padding: EdgeInsets.only(),
+          padding: EdgeInsets.symmetric(vertical: 5),
           child: Divider(
             color: AppColors.darkBlue,
             thickness: 2,
