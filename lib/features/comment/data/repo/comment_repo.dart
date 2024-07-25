@@ -15,8 +15,8 @@ class CommentRepo {
           .collection(FireBaseConstants.postsCollection)
           .doc(postId)
           .collection(FireBaseConstants.commentsCollection)
+          .orderBy('date', descending: false)
           .get();
-      // .orderBy('date', descending: true)
 
       CommentsResponse response = CommentsResponse.fromJson(snap.docs);
       return right(response);
@@ -40,7 +40,7 @@ class CommentRepo {
         tittle: tittle,
         uid: CashHelper.get(key: CashConstants.userId),
         profilePic: CashHelper.get(key: CashConstants.userImage),
-        username: CashHelper.get(key: CashConstants.userImage),
+        username: CashHelper.get(key: CashConstants.name),
         date: DateTime.now().millisecondsSinceEpoch.toString(),
       );
       await _firestore

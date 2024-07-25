@@ -10,7 +10,6 @@ class AddPostTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<AddPostCubit>();
-    print('add post build');
     return BlocBuilder<AddPostCubit, AddPostStates>(
       //  buildWhen: (previous, current) => current is Validate,
       builder: (context, state) {

@@ -5,6 +5,8 @@ import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dar
 import 'package:social_app/features/post/view_model/add_post_cubit/add_cubit.dart';
 import '../../features/chats/data/repos/room_repo.dart';
 import '../../features/chats/view_model/room_cubit/room_cubit.dart';
+import '../../features/comment/data/repo/comment_repo.dart';
+import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/user_profile/data/repo/user_repo.dart';
 import '../../features/user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
 import '../../features/users/view_model/users_search_cubit/users_cubit.dart';
@@ -36,6 +38,7 @@ void setubGetIt() {
   getIt.registerLazySingleton<RoomRepo>(() => RoomRepo());
   getIt.registerLazySingleton<GetPostsRepo>(() => GetPostsRepo());
   getIt.registerLazySingleton<OtherUserRepo>(() => OtherUserRepo());
+  getIt.registerLazySingleton<CommentRepo>(() => CommentRepo());
 
   //cubits
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
@@ -48,6 +51,8 @@ void setubGetIt() {
   getIt.registerFactory<RoomCubit>(() => RoomCubit(getIt()));
   getIt.registerFactory<UsersSearchCubit>(() => UsersSearchCubit(getIt()));
   getIt.registerFactory<GetPostsCubit>(() => GetPostsCubit(getIt()));
+  getIt.registerFactory<CommentCubit>(() => CommentCubit(getIt()));
+
   getIt.registerFactory<GetOtherUserPostsCubit>(
       () => GetOtherUserPostsCubit(getIt()));
 

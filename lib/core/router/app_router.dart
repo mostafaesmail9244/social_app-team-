@@ -14,6 +14,7 @@ import 'package:social_app/features/users/view/users_view.dart';
 import '../../features/chats/view/chat_view.dart';
 import '../../features/chats/view_model/chat_cubit/chat_cubit.dart';
 import '../../features/comment/view/comment_view.dart';
+import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
@@ -138,9 +139,13 @@ class AppRouter {
 
       //CommentView
       case Routes.commentView:
-        //  final user = data as UserData;
+        final postId = data as String;
         return MaterialPageRoute(
-          builder: (context) => const CommentView(),
+          builder: (context) => BlocProvider(
+            create: (context) =>
+                getIt<CommentCubit>()..emitToGetComment(postId),
+            child: CommentView(postID: postId),
+          ),
         );
     }
     return MaterialPageRoute(

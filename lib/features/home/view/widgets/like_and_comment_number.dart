@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-
 import '../../../../core/helper/spacing.dart';
+import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 
 class LikeAndCommentNumber extends StatelessWidget {
@@ -27,7 +27,11 @@ class LikeAndCommentNumber extends StatelessWidget {
         ),
         Row(
           children: [
-            const Icon((IconlyLight.chat), color: Colors.red, size: 16),
+            const Icon(
+              (IconlyLight.chat),
+              color: AppColors.lightMainBlue,
+              size: 16,
+            ),
             horizontalSpace(5),
             // Text('${widget.postModel.comments!.toString()} comment',
             Text('0 comment', style: AppTextStyles.font13GrayRegular),
