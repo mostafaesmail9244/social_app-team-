@@ -10,4 +10,7 @@ class GetPostsStates<T> with _$GetPostsStates {
       GetPostsSuccess<T>;
   const factory GetPostsStates.getPostsError({required String error}) =
       GetPostsError;
+
+  const factory GetPostsStates.addOrRemoveLove(String message) =
+      AddOrRemoveLove;
 }

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/router/routes.dart';
 import 'package:social_app/core/style/app_colors.dart';
+import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/widgets/custom_cached_image.dart';
 import '../../data/model/posts_response.dart';
+import '../../view_model/get_posts_cubit/get_posts_cubit.dart';
+import '../../view_model/get_posts_cubit/get_posts_states.dart';
 
 class CommentAndShareSection extends StatelessWidget {
   final PostsData post;
@@ -15,6 +20,7 @@ class CommentAndShareSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<GetPostsCubit>();
     return Row(
       children: [
         Padding(
@@ -42,10 +48,24 @@ class CommentAndShareSection extends StatelessWidget {
         Row(
           children: [
             IconButton(
-              onPressed: () {},
-              icon: Icon(
-                (isLike ? IconlyBold.heart : IconlyLight.heart),
-                color: Colors.red,
+              onPressed: () {
+                cubit.addOrRemoveLike(
+                  like: post.loves!,
+                  postID: post.postId,
+                  uid: CashHelper.get(key: CashConstants.userId),
+                );
+              },
+              icon: BlocBuilder<GetPostsCubit, GetPostsStates>(
+                buildWhen: (previous, current) => current is AddOrRemoveLove,
+                builder: (context, state) {
+                  return Icon(
+                    (post.loves!
+                            .contains(CashHelper.get(key: CashConstants.userId))
+                        ? IconlyBold.heart
+                        : IconlyLight.heart),
+                    color: Colors.red,
+                  );
+                },
               ),
             ),
             Text(

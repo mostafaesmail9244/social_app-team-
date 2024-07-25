@@ -22,6 +22,7 @@ mixin _$GetPostsStates<T> {
     required TResult Function() getPostsLoading,
     required TResult Function(PostsResponse postsResponse) getPostsSuccess,
     required TResult Function(String error) getPostsError,
+    required TResult Function(String message) addOrRemoveLove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$GetPostsStates<T> {
     TResult? Function()? getPostsLoading,
     TResult? Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult? Function(String error)? getPostsError,
+    TResult? Function(String message)? addOrRemoveLove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$GetPostsStates<T> {
     TResult Function()? getPostsLoading,
     TResult Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult Function(String error)? getPostsError,
+    TResult Function(String message)? addOrRemoveLove,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$GetPostsStates<T> {
     required TResult Function(GetPostsLoading<T> value) getPostsLoading,
     required TResult Function(GetPostsSuccess<T> value) getPostsSuccess,
     required TResult Function(GetPostsError<T> value) getPostsError,
+    required TResult Function(AddOrRemoveLove<T> value) addOrRemoveLove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$GetPostsStates<T> {
     TResult? Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult? Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult? Function(GetPostsError<T> value)? getPostsError,
+    TResult? Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$GetPostsStates<T> {
     TResult Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult Function(GetPostsError<T> value)? getPostsError,
+    TResult Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() getPostsLoading,
     required TResult Function(PostsResponse postsResponse) getPostsSuccess,
     required TResult Function(String error) getPostsError,
+    required TResult Function(String message) addOrRemoveLove,
   }) {
     return initial();
   }
@@ -139,6 +146,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? getPostsLoading,
     TResult? Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult? Function(String error)? getPostsError,
+    TResult? Function(String message)? addOrRemoveLove,
   }) {
     return initial?.call();
   }
@@ -150,6 +158,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? getPostsLoading,
     TResult Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult Function(String error)? getPostsError,
+    TResult Function(String message)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +174,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(GetPostsLoading<T> value) getPostsLoading,
     required TResult Function(GetPostsSuccess<T> value) getPostsSuccess,
     required TResult Function(GetPostsError<T> value) getPostsError,
+    required TResult Function(AddOrRemoveLove<T> value) addOrRemoveLove,
   }) {
     return initial(this);
   }
@@ -176,6 +186,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult? Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult? Function(GetPostsError<T> value)? getPostsError,
+    TResult? Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +198,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult Function(GetPostsError<T> value)? getPostsError,
+    TResult Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +254,7 @@ class _$GetPostsLoadingImpl<T> implements GetPostsLoading<T> {
     required TResult Function() getPostsLoading,
     required TResult Function(PostsResponse postsResponse) getPostsSuccess,
     required TResult Function(String error) getPostsError,
+    required TResult Function(String message) addOrRemoveLove,
   }) {
     return getPostsLoading();
   }
@@ -253,6 +266,7 @@ class _$GetPostsLoadingImpl<T> implements GetPostsLoading<T> {
     TResult? Function()? getPostsLoading,
     TResult? Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult? Function(String error)? getPostsError,
+    TResult? Function(String message)? addOrRemoveLove,
   }) {
     return getPostsLoading?.call();
   }
@@ -264,6 +278,7 @@ class _$GetPostsLoadingImpl<T> implements GetPostsLoading<T> {
     TResult Function()? getPostsLoading,
     TResult Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult Function(String error)? getPostsError,
+    TResult Function(String message)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (getPostsLoading != null) {
@@ -279,6 +294,7 @@ class _$GetPostsLoadingImpl<T> implements GetPostsLoading<T> {
     required TResult Function(GetPostsLoading<T> value) getPostsLoading,
     required TResult Function(GetPostsSuccess<T> value) getPostsSuccess,
     required TResult Function(GetPostsError<T> value) getPostsError,
+    required TResult Function(AddOrRemoveLove<T> value) addOrRemoveLove,
   }) {
     return getPostsLoading(this);
   }
@@ -290,6 +306,7 @@ class _$GetPostsLoadingImpl<T> implements GetPostsLoading<T> {
     TResult? Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult? Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult? Function(GetPostsError<T> value)? getPostsError,
+    TResult? Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
   }) {
     return getPostsLoading?.call(this);
   }
@@ -301,6 +318,7 @@ class _$GetPostsLoadingImpl<T> implements GetPostsLoading<T> {
     TResult Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult Function(GetPostsError<T> value)? getPostsError,
+    TResult Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (getPostsLoading != null) {
@@ -384,6 +402,7 @@ class _$GetPostsSuccessImpl<T> implements GetPostsSuccess<T> {
     required TResult Function() getPostsLoading,
     required TResult Function(PostsResponse postsResponse) getPostsSuccess,
     required TResult Function(String error) getPostsError,
+    required TResult Function(String message) addOrRemoveLove,
   }) {
     return getPostsSuccess(postsResponse);
   }
@@ -395,6 +414,7 @@ class _$GetPostsSuccessImpl<T> implements GetPostsSuccess<T> {
     TResult? Function()? getPostsLoading,
     TResult? Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult? Function(String error)? getPostsError,
+    TResult? Function(String message)? addOrRemoveLove,
   }) {
     return getPostsSuccess?.call(postsResponse);
   }
@@ -406,6 +426,7 @@ class _$GetPostsSuccessImpl<T> implements GetPostsSuccess<T> {
     TResult Function()? getPostsLoading,
     TResult Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult Function(String error)? getPostsError,
+    TResult Function(String message)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (getPostsSuccess != null) {
@@ -421,6 +442,7 @@ class _$GetPostsSuccessImpl<T> implements GetPostsSuccess<T> {
     required TResult Function(GetPostsLoading<T> value) getPostsLoading,
     required TResult Function(GetPostsSuccess<T> value) getPostsSuccess,
     required TResult Function(GetPostsError<T> value) getPostsError,
+    required TResult Function(AddOrRemoveLove<T> value) addOrRemoveLove,
   }) {
     return getPostsSuccess(this);
   }
@@ -432,6 +454,7 @@ class _$GetPostsSuccessImpl<T> implements GetPostsSuccess<T> {
     TResult? Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult? Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult? Function(GetPostsError<T> value)? getPostsError,
+    TResult? Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
   }) {
     return getPostsSuccess?.call(this);
   }
@@ -443,6 +466,7 @@ class _$GetPostsSuccessImpl<T> implements GetPostsSuccess<T> {
     TResult Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult Function(GetPostsError<T> value)? getPostsError,
+    TResult Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (getPostsSuccess != null) {
@@ -531,6 +555,7 @@ class _$GetPostsErrorImpl<T> implements GetPostsError<T> {
     required TResult Function() getPostsLoading,
     required TResult Function(PostsResponse postsResponse) getPostsSuccess,
     required TResult Function(String error) getPostsError,
+    required TResult Function(String message) addOrRemoveLove,
   }) {
     return getPostsError(error);
   }
@@ -542,6 +567,7 @@ class _$GetPostsErrorImpl<T> implements GetPostsError<T> {
     TResult? Function()? getPostsLoading,
     TResult? Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult? Function(String error)? getPostsError,
+    TResult? Function(String message)? addOrRemoveLove,
   }) {
     return getPostsError?.call(error);
   }
@@ -553,6 +579,7 @@ class _$GetPostsErrorImpl<T> implements GetPostsError<T> {
     TResult Function()? getPostsLoading,
     TResult Function(PostsResponse postsResponse)? getPostsSuccess,
     TResult Function(String error)? getPostsError,
+    TResult Function(String message)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (getPostsError != null) {
@@ -568,6 +595,7 @@ class _$GetPostsErrorImpl<T> implements GetPostsError<T> {
     required TResult Function(GetPostsLoading<T> value) getPostsLoading,
     required TResult Function(GetPostsSuccess<T> value) getPostsSuccess,
     required TResult Function(GetPostsError<T> value) getPostsError,
+    required TResult Function(AddOrRemoveLove<T> value) addOrRemoveLove,
   }) {
     return getPostsError(this);
   }
@@ -579,6 +607,7 @@ class _$GetPostsErrorImpl<T> implements GetPostsError<T> {
     TResult? Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult? Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult? Function(GetPostsError<T> value)? getPostsError,
+    TResult? Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
   }) {
     return getPostsError?.call(this);
   }
@@ -590,6 +619,7 @@ class _$GetPostsErrorImpl<T> implements GetPostsError<T> {
     TResult Function(GetPostsLoading<T> value)? getPostsLoading,
     TResult Function(GetPostsSuccess<T> value)? getPostsSuccess,
     TResult Function(GetPostsError<T> value)? getPostsError,
+    TResult Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
     required TResult orElse(),
   }) {
     if (getPostsError != null) {
@@ -606,5 +636,158 @@ abstract class GetPostsError<T> implements GetPostsStates<T> {
   String get error;
   @JsonKey(ignore: true)
   _$$GetPostsErrorImplCopyWith<T, _$GetPostsErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddOrRemoveLoveImplCopyWith<T, $Res> {
+  factory _$$AddOrRemoveLoveImplCopyWith(_$AddOrRemoveLoveImpl<T> value,
+          $Res Function(_$AddOrRemoveLoveImpl<T>) then) =
+      __$$AddOrRemoveLoveImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$AddOrRemoveLoveImplCopyWithImpl<T, $Res>
+    extends _$GetPostsStatesCopyWithImpl<T, $Res, _$AddOrRemoveLoveImpl<T>>
+    implements _$$AddOrRemoveLoveImplCopyWith<T, $Res> {
+  __$$AddOrRemoveLoveImplCopyWithImpl(_$AddOrRemoveLoveImpl<T> _value,
+      $Res Function(_$AddOrRemoveLoveImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$AddOrRemoveLoveImpl<T>(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddOrRemoveLoveImpl<T> implements AddOrRemoveLove<T> {
+  const _$AddOrRemoveLoveImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'GetPostsStates<$T>.addOrRemoveLove(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddOrRemoveLoveImpl<T> &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddOrRemoveLoveImplCopyWith<T, _$AddOrRemoveLoveImpl<T>> get copyWith =>
+      __$$AddOrRemoveLoveImplCopyWithImpl<T, _$AddOrRemoveLoveImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getPostsLoading,
+    required TResult Function(PostsResponse postsResponse) getPostsSuccess,
+    required TResult Function(String error) getPostsError,
+    required TResult Function(String message) addOrRemoveLove,
+  }) {
+    return addOrRemoveLove(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getPostsLoading,
+    TResult? Function(PostsResponse postsResponse)? getPostsSuccess,
+    TResult? Function(String error)? getPostsError,
+    TResult? Function(String message)? addOrRemoveLove,
+  }) {
+    return addOrRemoveLove?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getPostsLoading,
+    TResult Function(PostsResponse postsResponse)? getPostsSuccess,
+    TResult Function(String error)? getPostsError,
+    TResult Function(String message)? addOrRemoveLove,
+    required TResult orElse(),
+  }) {
+    if (addOrRemoveLove != null) {
+      return addOrRemoveLove(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetPostsLoading<T> value) getPostsLoading,
+    required TResult Function(GetPostsSuccess<T> value) getPostsSuccess,
+    required TResult Function(GetPostsError<T> value) getPostsError,
+    required TResult Function(AddOrRemoveLove<T> value) addOrRemoveLove,
+  }) {
+    return addOrRemoveLove(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetPostsLoading<T> value)? getPostsLoading,
+    TResult? Function(GetPostsSuccess<T> value)? getPostsSuccess,
+    TResult? Function(GetPostsError<T> value)? getPostsError,
+    TResult? Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
+  }) {
+    return addOrRemoveLove?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetPostsLoading<T> value)? getPostsLoading,
+    TResult Function(GetPostsSuccess<T> value)? getPostsSuccess,
+    TResult Function(GetPostsError<T> value)? getPostsError,
+    TResult Function(AddOrRemoveLove<T> value)? addOrRemoveLove,
+    required TResult orElse(),
+  }) {
+    if (addOrRemoveLove != null) {
+      return addOrRemoveLove(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddOrRemoveLove<T> implements GetPostsStates<T> {
+  const factory AddOrRemoveLove(final String message) =
+      _$AddOrRemoveLoveImpl<T>;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$AddOrRemoveLoveImplCopyWith<T, _$AddOrRemoveLoveImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -7,6 +7,7 @@ class GetPostsCubit extends Cubit<GetPostsStates> {
   final GetPostsRepo _repo;
 
   GetPostsCubit(this._repo) : super(const GetPostsStates.initial());
+  Set<String> loversId = {};
 
   void emitGetPostsData() async {
     emit(const GetPostsStates.getPostsLoading());
@@ -16,7 +17,18 @@ class GetPostsCubit extends Cubit<GetPostsStates> {
             emit(GetPostsStates.getPostsError(error: error.errorMessage)),
         (data) {
       debugPrint("=========suc posts");
+      // loversId.addAll(data.posts!.map((e) => e.loves.toString()).toList());
       emit(GetPostsStates.getPostsSuccess(data));
     });
+  }
+
+  void addOrRemoveLike(
+      {required String postID, required String uid, required List like}) async {
+    final response = await _repo.addOrRemoveLike(postID, uid, like);
+
+    response.fold(
+      (mes) => emit(GetPostsStates.addOrRemoveLove(mes)),
+      (mes) => emit(GetPostsStates.addOrRemoveLove(mes)),
+    );
   }
 }
