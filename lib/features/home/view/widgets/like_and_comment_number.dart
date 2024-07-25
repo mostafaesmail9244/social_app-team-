@@ -3,9 +3,11 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
+import '../../data/model/posts_response.dart';
 
 class LikeAndCommentNumber extends StatelessWidget {
-  const LikeAndCommentNumber({super.key});
+  final PostsData post;
+  const LikeAndCommentNumber({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,8 @@ class LikeAndCommentNumber extends StatelessWidget {
             ),
             horizontalSpace(5),
             // Text('${widget.postModel.comments!.toString()} comment',
-            Text('0 comment', style: AppTextStyles.font13GrayRegular),
+            Text('${post.commentCount} comment',
+                style: AppTextStyles.font13GrayRegular),
           ],
         ),
       ],

@@ -14,6 +14,7 @@ PostsData _$PostsDataFromJson(Map<String, dynamic> json) => PostsData(
       userId: json['userId'] as String?,
       userImage: json['userImage'] as String?,
       userName: json['userName'] as String?,
+      commentCount: json['commentCount'] as int?,
     );
 
 Map<String, dynamic> _$PostsDataToJson(PostsData instance) => <String, dynamic>{

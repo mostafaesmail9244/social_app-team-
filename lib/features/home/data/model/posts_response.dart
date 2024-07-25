@@ -22,6 +22,7 @@ class PostsData {
   final String? image;
   final String? date;
   final String? content;
+  final int? commentCount;
 
   const PostsData({
     required this.postId,
@@ -31,8 +32,31 @@ class PostsData {
     this.userId,
     this.userImage,
     this.userName,
+    this.commentCount,
   });
   factory PostsData.fromSnapshot(
           DocumentSnapshot<Map<String, dynamic>> document) =>
       _$PostsDataFromJson(document.data()!);
+
+  PostsData copyWith({
+    final String? postId,
+    final String? userId,
+    final String? userName,
+    final String? userImage,
+    final String? image,
+    final String? date,
+    final String? content,
+    final int? commentCount,
+  }) {
+    return PostsData(
+      postId: postId ?? this.postId,
+      userId: userId ?? this.userId,
+      userName: userName ?? this.userName,
+      userImage: userImage ?? this.userImage,
+      image: image ?? this.image,
+      date: date ?? this.date,
+      content: content ?? this.content,
+      commentCount: commentCount ?? this.commentCount,
+    );
+  }
 }

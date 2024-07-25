@@ -26,7 +26,7 @@ class AddPostBlocListener extends StatelessWidget {
         }, addSuccess: (data) {
           // context.read<GetPostsCubit>().emitGetPosts();
           customSuccessWidget(context, 'Added Successfully', 'close it', () {
-            context.read<GetPostsCubit>().emitGetPosts();
+            context.read<GetPostsCubit>().emitGetPostsData();
             context.read<PickImageCubit>().removeImage();
             context.read<AddPostCubit>().focusNode.unfocus();
             context.pop();

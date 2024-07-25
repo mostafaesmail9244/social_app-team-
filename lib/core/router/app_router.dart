@@ -72,7 +72,8 @@ class AppRouter {
               // BlocProvider(create: (context) => getIt<PickImageCubit>()),
               //BlocProvider(create: (context) => getIt<PostCubit>()),
               BlocProvider(
-                  create: (context) => getIt<GetPostsCubit>()..emitGetPosts()),
+                  create: (context) =>
+                      getIt<GetPostsCubit>()..emitGetPostsData()),
 
               BlocProvider(create: (context) => getIt<RoomCubit>()..getRooms()),
 

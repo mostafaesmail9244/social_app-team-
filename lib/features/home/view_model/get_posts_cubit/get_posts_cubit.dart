@@ -8,9 +8,9 @@ class GetPostsCubit extends Cubit<GetPostsStates> {
 
   GetPostsCubit(this._repo) : super(const GetPostsStates.initial());
 
-  void emitGetPosts() async {
+  void emitGetPostsData() async {
     emit(const GetPostsStates.getPostsLoading());
-    final response = await _repo.getPosts();
+    final response = await _repo.getPostsData();
     response.fold(
         (error) =>
             emit(GetPostsStates.getPostsError(error: error.errorMessage)),

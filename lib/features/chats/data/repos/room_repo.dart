@@ -67,7 +67,8 @@ class RoomRepo {
               arrayContains: CashHelper.get(key: CashConstants.userId))
           .get();
 
-      List<RoomsData> rooms = await Future.wait(snap.docs.map((doc) async {
+      final List<RoomsData> rooms =
+          await Future.wait(snap.docs.map((doc) async {
         final RoomsData room = RoomsData.fromSnapshot(doc);
 
         // Assume each room has exactly one other member
