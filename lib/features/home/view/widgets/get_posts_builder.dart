@@ -12,16 +12,17 @@ class GetPostsBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetPostsCubit, GetPostsStates>(
-        builder: (context, state) {
-      return state.when(
-        initial: SizedBox.shrink,
-        getPostsLoading: () => const PostsListView(isLoading: true),
-        getPostsError: (error) => const PostsListView(isLoading: true),
-        getPostsSuccess: (data) => PostsListView(
-          isLoading: false,
-          posts: data.posts,
-        ),
-      );
-    });
+      builder: (context, state) {
+        return state.when(
+          initial: SizedBox.shrink,
+          getPostsLoading: () => const PostsListView(isLoading: true),
+          getPostsError: (error) => const PostsListView(isLoading: true),
+          getPostsSuccess: (data) => PostsListView(
+            isLoading: false,
+            posts: data.posts,
+          ),
+        );
+      },
+    );
   }
 }

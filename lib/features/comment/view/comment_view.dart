@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../view_model/comment_cubit/comment_cubit.dart';
-import 'text_filed_and_icon.dart';
+import 'widgets/text_filed_and_icon.dart';
 import 'widgets/comment_body.dart';
 
 class CommentView extends StatelessWidget {

@@ -5,9 +5,7 @@ import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 
 class LikeAndCommentNumber extends StatelessWidget {
-  const LikeAndCommentNumber({
-    super.key,
-  });
+  const LikeAndCommentNumber({super.key});
 
   @override
   Widget build(BuildContext context) {
