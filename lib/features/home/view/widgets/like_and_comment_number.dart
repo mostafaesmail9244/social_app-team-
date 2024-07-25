@@ -20,7 +20,7 @@ class LikeAndCommentNumber extends StatelessWidget {
             horizontalSpace(5),
             Text(
               // widget.postModel.likes!.toString(),
-              ' likes',
+              '${post.loves?.length}  likes',
               style: AppTextStyles.font13GrayRegular,
             ),
           ],

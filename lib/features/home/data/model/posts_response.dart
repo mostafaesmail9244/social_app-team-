@@ -23,6 +23,7 @@ class PostsData {
   final String? date;
   final String? content;
   final int? commentCount;
+  final List? loves;
 
   const PostsData({
     required this.postId,
@@ -33,6 +34,7 @@ class PostsData {
     this.userImage,
     this.userName,
     this.commentCount,
+    this.loves,
   });
   factory PostsData.fromSnapshot(
           DocumentSnapshot<Map<String, dynamic>> document) =>
@@ -47,6 +49,7 @@ class PostsData {
     final String? date,
     final String? content,
     final int? commentCount,
+    final List? loves,
   }) {
     return PostsData(
       postId: postId ?? this.postId,
@@ -57,6 +60,7 @@ class PostsData {
       date: date ?? this.date,
       content: content ?? this.content,
       commentCount: commentCount ?? this.commentCount,
+      loves: loves ?? this.loves,
     );
   }
 }
