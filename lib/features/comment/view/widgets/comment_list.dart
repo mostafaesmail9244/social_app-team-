@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/features/comment/data/model/comment_response.dart';
+import '../../view_model/comment_cubit/comment_cubit.dart';
 import 'comment_item.dart';
 import 'comment_loading.dart';
 
@@ -11,6 +13,7 @@ class CommentList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      controller: context.read<CommentCubit>().scrollController,
       itemCount: isLoading ? 10 : response!.comments!.length,
       itemBuilder: (context, index) {
         return isLoading

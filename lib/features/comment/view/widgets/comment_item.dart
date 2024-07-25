@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
 import '../../../../core/helper/spacing.dart';
@@ -24,7 +25,7 @@ class CommentItem extends StatelessWidget {
               radius: 320,
             ),
           ),
-          horizontalSpace(5),
+          horizontalSpace(8),
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(5),
@@ -38,10 +39,25 @@ class CommentItem extends StatelessWidget {
                 children: [
                   Text(
                     comment.username,
-                    style: AppTextStyles.font13BlueSemiBold
+                    style: AppTextStyles.font14SemiBoldBlue
                         .copyWith(color: Colors.black),
                   ),
+                  verticalSpace(2),
                   Text(comment.tittle),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      DateFormat("hh:mm a").format(
+                        DateTime.parse(
+                          DateTime.fromMillisecondsSinceEpoch(
+                            int.parse(comment.date),
+                          ).toString(),
+                        ),
+                      ),
+                      style: AppTextStyles.font13RegularGrey66
+                          .copyWith(fontSize: 10),
+                    ),
+                  ),
                 ],
               ),
             ),

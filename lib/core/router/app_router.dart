@@ -143,7 +143,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) =>
-                getIt<CommentCubit>()..emitToGetComment(postId),
+                getIt<CommentCubit>()..emitToGetComment(postId: postId),
             child: CommentView(postID: postId),
           ),
         );

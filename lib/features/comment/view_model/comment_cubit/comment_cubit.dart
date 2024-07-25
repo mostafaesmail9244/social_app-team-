@@ -9,31 +9,49 @@ class CommentCubit extends Cubit<CommentStates> {
   DateTime dateNow = DateTime.now();
 
   late final TextEditingController tittleController = TextEditingController();
+  late final ScrollController scrollController = ScrollController();
   final FocusNode focusNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
 
-  void emitToGetComment(String postId) async {
-    emit(const CommentStates.getCommentLoading());
+  void emitToGetComment({required String postId, bool isLoading = true}) async {
+    if (isLoading) {
+      emit(const CommentStates.getCommentLoading());
+    }
     final response = await _repo.getComments(postId);
     response.fold(
         (error) =>
             emit(CommentStates.getCommentError(error: error.errorMessage)),
         (data) {
-      //tittleController.clear();
       emit(CommentStates.getCommentSuccess(data));
     });
   }
 
   void emitToAddComment(String postId) async {
-    emit(const CommentStates.addCommentLoading());
-    final response = await _repo.addComments(
-        postId: postId, tittle: tittleController.text.trim());
-    response.fold(
-        (error) =>
-            emit(CommentStates.addCommentError(error: error.errorMessage)),
-        (data) {
-      //tittleController.clear();
-      emit(CommentStates.addCommentSuccess(data));
+    // emit(const CommentStates.addCommentLoading());
+    if (tittleController.text.trim().isNotEmpty) {
+      final response = await _repo.addComments(
+          postId: postId, tittle: tittleController.text.trim());
+      response.fold(
+          (error) =>
+              emit(CommentStates.addCommentError(error: error.errorMessage)),
+          (data) {
+        emitToGetComment(postId: postId, isLoading: false);
+        tittleController.clear();
+        scroll();
+        //emit(CommentStates.addCommentSuccess(data));
+      });
+    }
+  }
+
+  void scroll() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeOut,
+          //curve: Curves.easeOutCirc,
+        );
+      }
     });
   }
 }
