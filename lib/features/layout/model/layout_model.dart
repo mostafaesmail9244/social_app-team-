@@ -7,7 +7,7 @@ import '../../home/view/home_view.dart';
 import '../../post/view/post_view.dart';
 import '../../post/view_model/add_post_cubit/add_cubit.dart';
 import '../../my_profile/view/profile_view.dart';
-import '../../chats/view/room_view.dart';
+import '../../room/view/room_view.dart';
 import '../../users/view/users_view.dart';
 import '../../users/view_model/users_search_cubit/users_cubit.dart';
 

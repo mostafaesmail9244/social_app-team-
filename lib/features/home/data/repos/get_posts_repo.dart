@@ -68,4 +68,22 @@ class GetPostsRepo {
       return right('error');
     }
   }
+
+  //   Future<void> removeLike(String postID, String uid) async {
+  //   await _firestore
+  //       .collection(FireBaseConstants.postsCollection)
+  //       .doc(postID)
+  //       .update({
+  //     'loves': FieldValue.arrayRemove([uid])
+  //   });
+  // }
+
+  // Future<void> addLike(String postID, String uid) async {
+  //   await _firestore
+  //       .collection(FireBaseConstants.postsCollection)
+  //       .doc(postID)
+  //       .update({
+  //     'loves': FieldValue.arrayUnion([uid])
+  //   });
+  // }
 }

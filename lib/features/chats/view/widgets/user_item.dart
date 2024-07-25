@@ -3,9 +3,9 @@ import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/widgets/custom_cached_image.dart';
-import 'package:social_app/features/chats/data/models/room_model/rooms_response.dart';
 import 'package:social_app/features/my_profile/data/models/profile_response/profile_response.dart';
 import '../../../../core/router/routes.dart';
+import '../../../room/data/models/room_model/rooms_response.dart';
 
 class UserItem extends StatelessWidget {
   final bool isSearch;

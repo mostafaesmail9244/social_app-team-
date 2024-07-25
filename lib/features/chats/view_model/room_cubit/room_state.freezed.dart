@@ -28,6 +28,9 @@ mixin _$RoomState<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +45,9 @@ mixin _$RoomState<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +62,9 @@ mixin _$RoomState<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +80,12 @@ mixin _$RoomState<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +100,11 @@ mixin _$RoomState<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +119,11 @@ mixin _$RoomState<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -170,6 +195,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return initial();
   }
@@ -187,6 +215,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return initial?.call();
   }
@@ -204,6 +235,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -225,6 +259,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return initial(this);
   }
@@ -242,6 +282,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return initial?.call(this);
   }
@@ -259,6 +304,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -320,6 +370,9 @@ class _$GetRoomsLoadingImpl<T> implements GetRoomsLoading<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return getRoomsLoading();
   }
@@ -337,6 +390,9 @@ class _$GetRoomsLoadingImpl<T> implements GetRoomsLoading<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return getRoomsLoading?.call();
   }
@@ -354,6 +410,9 @@ class _$GetRoomsLoadingImpl<T> implements GetRoomsLoading<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getRoomsLoading != null) {
@@ -375,6 +434,12 @@ class _$GetRoomsLoadingImpl<T> implements GetRoomsLoading<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return getRoomsLoading(this);
   }
@@ -392,6 +457,11 @@ class _$GetRoomsLoadingImpl<T> implements GetRoomsLoading<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return getRoomsLoading?.call(this);
   }
@@ -409,6 +479,11 @@ class _$GetRoomsLoadingImpl<T> implements GetRoomsLoading<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getRoomsLoading != null) {
@@ -497,6 +572,9 @@ class _$GetRoomsSuccessImpl<T> implements GetRoomsSuccess<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return getRoomsSuccess(rooms);
   }
@@ -514,6 +592,9 @@ class _$GetRoomsSuccessImpl<T> implements GetRoomsSuccess<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return getRoomsSuccess?.call(rooms);
   }
@@ -531,6 +612,9 @@ class _$GetRoomsSuccessImpl<T> implements GetRoomsSuccess<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getRoomsSuccess != null) {
@@ -552,6 +636,12 @@ class _$GetRoomsSuccessImpl<T> implements GetRoomsSuccess<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return getRoomsSuccess(this);
   }
@@ -569,6 +659,11 @@ class _$GetRoomsSuccessImpl<T> implements GetRoomsSuccess<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return getRoomsSuccess?.call(this);
   }
@@ -586,6 +681,11 @@ class _$GetRoomsSuccessImpl<T> implements GetRoomsSuccess<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getRoomsSuccess != null) {
@@ -680,6 +780,9 @@ class _$GetRoomsErrorImpl<T> implements GetRoomsError<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return getRoomsError(error);
   }
@@ -697,6 +800,9 @@ class _$GetRoomsErrorImpl<T> implements GetRoomsError<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return getRoomsError?.call(error);
   }
@@ -714,6 +820,9 @@ class _$GetRoomsErrorImpl<T> implements GetRoomsError<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getRoomsError != null) {
@@ -735,6 +844,12 @@ class _$GetRoomsErrorImpl<T> implements GetRoomsError<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return getRoomsError(this);
   }
@@ -752,6 +867,11 @@ class _$GetRoomsErrorImpl<T> implements GetRoomsError<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return getRoomsError?.call(this);
   }
@@ -769,6 +889,11 @@ class _$GetRoomsErrorImpl<T> implements GetRoomsError<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getRoomsError != null) {
@@ -837,6 +962,9 @@ class _$CreateRoomsLoadingImpl<T> implements CreateRoomsLoading<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return createRoomsLoading();
   }
@@ -854,6 +982,9 @@ class _$CreateRoomsLoadingImpl<T> implements CreateRoomsLoading<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return createRoomsLoading?.call();
   }
@@ -871,6 +1002,9 @@ class _$CreateRoomsLoadingImpl<T> implements CreateRoomsLoading<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (createRoomsLoading != null) {
@@ -892,6 +1026,12 @@ class _$CreateRoomsLoadingImpl<T> implements CreateRoomsLoading<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return createRoomsLoading(this);
   }
@@ -909,6 +1049,11 @@ class _$CreateRoomsLoadingImpl<T> implements CreateRoomsLoading<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return createRoomsLoading?.call(this);
   }
@@ -926,6 +1071,11 @@ class _$CreateRoomsLoadingImpl<T> implements CreateRoomsLoading<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (createRoomsLoading != null) {
@@ -1014,6 +1164,9 @@ class _$CreateRoomsSuccessImpl<T> implements CreateRoomsSuccess<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return createRoomsSuccess(message);
   }
@@ -1031,6 +1184,9 @@ class _$CreateRoomsSuccessImpl<T> implements CreateRoomsSuccess<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return createRoomsSuccess?.call(message);
   }
@@ -1048,6 +1204,9 @@ class _$CreateRoomsSuccessImpl<T> implements CreateRoomsSuccess<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (createRoomsSuccess != null) {
@@ -1069,6 +1228,12 @@ class _$CreateRoomsSuccessImpl<T> implements CreateRoomsSuccess<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return createRoomsSuccess(this);
   }
@@ -1086,6 +1251,11 @@ class _$CreateRoomsSuccessImpl<T> implements CreateRoomsSuccess<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return createRoomsSuccess?.call(this);
   }
@@ -1103,6 +1273,11 @@ class _$CreateRoomsSuccessImpl<T> implements CreateRoomsSuccess<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (createRoomsSuccess != null) {
@@ -1197,6 +1372,9 @@ class _$CreateRoomsErrorImpl<T> implements CreateRoomsError<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return createRoomsError(error);
   }
@@ -1214,6 +1392,9 @@ class _$CreateRoomsErrorImpl<T> implements CreateRoomsError<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return createRoomsError?.call(error);
   }
@@ -1231,6 +1412,9 @@ class _$CreateRoomsErrorImpl<T> implements CreateRoomsError<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (createRoomsError != null) {
@@ -1252,6 +1436,12 @@ class _$CreateRoomsErrorImpl<T> implements CreateRoomsError<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return createRoomsError(this);
   }
@@ -1269,6 +1459,11 @@ class _$CreateRoomsErrorImpl<T> implements CreateRoomsError<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return createRoomsError?.call(this);
   }
@@ -1286,6 +1481,11 @@ class _$CreateRoomsErrorImpl<T> implements CreateRoomsError<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (createRoomsError != null) {
@@ -1353,6 +1553,9 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return getUsersLoading();
   }
@@ -1370,6 +1573,9 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return getUsersLoading?.call();
   }
@@ -1387,6 +1593,9 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getUsersLoading != null) {
@@ -1408,6 +1617,12 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return getUsersLoading(this);
   }
@@ -1425,6 +1640,11 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return getUsersLoading?.call(this);
   }
@@ -1442,6 +1662,11 @@ class _$GetUsersLoadingImpl<T> implements GetUsersLoading<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getUsersLoading != null) {
@@ -1530,6 +1755,9 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return getUsersSuccess(users);
   }
@@ -1547,6 +1775,9 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return getUsersSuccess?.call(users);
   }
@@ -1564,6 +1795,9 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getUsersSuccess != null) {
@@ -1585,6 +1819,12 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return getUsersSuccess(this);
   }
@@ -1602,6 +1842,11 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return getUsersSuccess?.call(this);
   }
@@ -1619,6 +1864,11 @@ class _$GetUsersSuccessImpl<T> implements GetUsersSuccess<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getUsersSuccess != null) {
@@ -1713,6 +1963,9 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
     required TResult Function() getUsersLoading,
     required TResult Function(UsersResponse users) getUsersSuccess,
     required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
   }) {
     return getUsersError(error);
   }
@@ -1730,6 +1983,9 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
     TResult? Function()? getUsersLoading,
     TResult? Function(UsersResponse users)? getUsersSuccess,
     TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
   }) {
     return getUsersError?.call(error);
   }
@@ -1747,6 +2003,9 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
     TResult Function()? getUsersLoading,
     TResult Function(UsersResponse users)? getUsersSuccess,
     TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getUsersError != null) {
@@ -1768,6 +2027,12 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
     required TResult Function(GetUsersLoading<T> value) getUsersLoading,
     required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
     required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
   }) {
     return getUsersError(this);
   }
@@ -1785,6 +2050,11 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
     TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
   }) {
     return getUsersError?.call(this);
   }
@@ -1802,6 +2072,11 @@ class _$GetUsersErrorImpl<T> implements GetUsersError<T> {
     TResult Function(GetUsersLoading<T> value)? getUsersLoading,
     TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
     TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
     required TResult orElse(),
   }) {
     if (getUsersError != null) {
@@ -1819,4 +2094,602 @@ abstract class GetUsersError<T> implements RoomState<T> {
   @JsonKey(ignore: true)
   _$$GetUsersErrorImplCopyWith<T, _$GetUsersErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetRoomByMembersLoadingImplCopyWith<T, $Res> {
+  factory _$$GetRoomByMembersLoadingImplCopyWith(
+          _$GetRoomByMembersLoadingImpl<T> value,
+          $Res Function(_$GetRoomByMembersLoadingImpl<T>) then) =
+      __$$GetRoomByMembersLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$GetRoomByMembersLoadingImplCopyWithImpl<T, $Res>
+    extends _$RoomStateCopyWithImpl<T, $Res, _$GetRoomByMembersLoadingImpl<T>>
+    implements _$$GetRoomByMembersLoadingImplCopyWith<T, $Res> {
+  __$$GetRoomByMembersLoadingImplCopyWithImpl(
+      _$GetRoomByMembersLoadingImpl<T> _value,
+      $Res Function(_$GetRoomByMembersLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetRoomByMembersLoadingImpl<T> implements _GetRoomByMembersLoading<T> {
+  const _$GetRoomByMembersLoadingImpl();
+
+  @override
+  String toString() {
+    return 'RoomState<$T>.getRoomByMembersLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetRoomByMembersLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getRoomsLoading,
+    required TResult Function(RoomsResponse rooms) getRoomsSuccess,
+    required TResult Function(String error) getRoomsError,
+    required TResult Function() createRoomsLoading,
+    required TResult Function(String message) createRoomsSuccess,
+    required TResult Function(String error) createRoomsError,
+    required TResult Function() getUsersLoading,
+    required TResult Function(UsersResponse users) getUsersSuccess,
+    required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
+  }) {
+    return getRoomByMembersLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getRoomsLoading,
+    TResult? Function(RoomsResponse rooms)? getRoomsSuccess,
+    TResult? Function(String error)? getRoomsError,
+    TResult? Function()? createRoomsLoading,
+    TResult? Function(String message)? createRoomsSuccess,
+    TResult? Function(String error)? createRoomsError,
+    TResult? Function()? getUsersLoading,
+    TResult? Function(UsersResponse users)? getUsersSuccess,
+    TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
+  }) {
+    return getRoomByMembersLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getRoomsLoading,
+    TResult Function(RoomsResponse rooms)? getRoomsSuccess,
+    TResult Function(String error)? getRoomsError,
+    TResult Function()? createRoomsLoading,
+    TResult Function(String message)? createRoomsSuccess,
+    TResult Function(String error)? createRoomsError,
+    TResult Function()? getUsersLoading,
+    TResult Function(UsersResponse users)? getUsersSuccess,
+    TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
+    required TResult orElse(),
+  }) {
+    if (getRoomByMembersLoading != null) {
+      return getRoomByMembersLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetRoomsLoading<T> value) getRoomsLoading,
+    required TResult Function(GetRoomsSuccess<T> value) getRoomsSuccess,
+    required TResult Function(GetRoomsError<T> value) getRoomsError,
+    required TResult Function(CreateRoomsLoading<T> value) createRoomsLoading,
+    required TResult Function(CreateRoomsSuccess<T> value) createRoomsSuccess,
+    required TResult Function(CreateRoomsError<T> value) createRoomsError,
+    required TResult Function(GetUsersLoading<T> value) getUsersLoading,
+    required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
+    required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
+  }) {
+    return getRoomByMembersLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetRoomsLoading<T> value)? getRoomsLoading,
+    TResult? Function(GetRoomsSuccess<T> value)? getRoomsSuccess,
+    TResult? Function(GetRoomsError<T> value)? getRoomsError,
+    TResult? Function(CreateRoomsLoading<T> value)? createRoomsLoading,
+    TResult? Function(CreateRoomsSuccess<T> value)? createRoomsSuccess,
+    TResult? Function(CreateRoomsError<T> value)? createRoomsError,
+    TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
+    TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
+    TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
+  }) {
+    return getRoomByMembersLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetRoomsLoading<T> value)? getRoomsLoading,
+    TResult Function(GetRoomsSuccess<T> value)? getRoomsSuccess,
+    TResult Function(GetRoomsError<T> value)? getRoomsError,
+    TResult Function(CreateRoomsLoading<T> value)? createRoomsLoading,
+    TResult Function(CreateRoomsSuccess<T> value)? createRoomsSuccess,
+    TResult Function(CreateRoomsError<T> value)? createRoomsError,
+    TResult Function(GetUsersLoading<T> value)? getUsersLoading,
+    TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
+    TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
+    required TResult orElse(),
+  }) {
+    if (getRoomByMembersLoading != null) {
+      return getRoomByMembersLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetRoomByMembersLoading<T> implements RoomState<T> {
+  const factory _GetRoomByMembersLoading() = _$GetRoomByMembersLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$GetRoomByMembersSuccessImplCopyWith<T, $Res> {
+  factory _$$GetRoomByMembersSuccessImplCopyWith(
+          _$GetRoomByMembersSuccessImpl<T> value,
+          $Res Function(_$GetRoomByMembersSuccessImpl<T>) then) =
+      __$$GetRoomByMembersSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({RoomsData room});
+}
+
+/// @nodoc
+class __$$GetRoomByMembersSuccessImplCopyWithImpl<T, $Res>
+    extends _$RoomStateCopyWithImpl<T, $Res, _$GetRoomByMembersSuccessImpl<T>>
+    implements _$$GetRoomByMembersSuccessImplCopyWith<T, $Res> {
+  __$$GetRoomByMembersSuccessImplCopyWithImpl(
+      _$GetRoomByMembersSuccessImpl<T> _value,
+      $Res Function(_$GetRoomByMembersSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? room = null,
+  }) {
+    return _then(_$GetRoomByMembersSuccessImpl<T>(
+      null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as RoomsData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetRoomByMembersSuccessImpl<T> implements _GetRoomByMembersSuccess<T> {
+  const _$GetRoomByMembersSuccessImpl(this.room);
+
+  @override
+  final RoomsData room;
+
+  @override
+  String toString() {
+    return 'RoomState<$T>.getRoomByMembersSuccess(room: $room)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetRoomByMembersSuccessImpl<T> &&
+            (identical(other.room, room) || other.room == room));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, room);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetRoomByMembersSuccessImplCopyWith<T, _$GetRoomByMembersSuccessImpl<T>>
+      get copyWith => __$$GetRoomByMembersSuccessImplCopyWithImpl<T,
+          _$GetRoomByMembersSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getRoomsLoading,
+    required TResult Function(RoomsResponse rooms) getRoomsSuccess,
+    required TResult Function(String error) getRoomsError,
+    required TResult Function() createRoomsLoading,
+    required TResult Function(String message) createRoomsSuccess,
+    required TResult Function(String error) createRoomsError,
+    required TResult Function() getUsersLoading,
+    required TResult Function(UsersResponse users) getUsersSuccess,
+    required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
+  }) {
+    return getRoomByMembersSuccess(room);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getRoomsLoading,
+    TResult? Function(RoomsResponse rooms)? getRoomsSuccess,
+    TResult? Function(String error)? getRoomsError,
+    TResult? Function()? createRoomsLoading,
+    TResult? Function(String message)? createRoomsSuccess,
+    TResult? Function(String error)? createRoomsError,
+    TResult? Function()? getUsersLoading,
+    TResult? Function(UsersResponse users)? getUsersSuccess,
+    TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
+  }) {
+    return getRoomByMembersSuccess?.call(room);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getRoomsLoading,
+    TResult Function(RoomsResponse rooms)? getRoomsSuccess,
+    TResult Function(String error)? getRoomsError,
+    TResult Function()? createRoomsLoading,
+    TResult Function(String message)? createRoomsSuccess,
+    TResult Function(String error)? createRoomsError,
+    TResult Function()? getUsersLoading,
+    TResult Function(UsersResponse users)? getUsersSuccess,
+    TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
+    required TResult orElse(),
+  }) {
+    if (getRoomByMembersSuccess != null) {
+      return getRoomByMembersSuccess(room);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetRoomsLoading<T> value) getRoomsLoading,
+    required TResult Function(GetRoomsSuccess<T> value) getRoomsSuccess,
+    required TResult Function(GetRoomsError<T> value) getRoomsError,
+    required TResult Function(CreateRoomsLoading<T> value) createRoomsLoading,
+    required TResult Function(CreateRoomsSuccess<T> value) createRoomsSuccess,
+    required TResult Function(CreateRoomsError<T> value) createRoomsError,
+    required TResult Function(GetUsersLoading<T> value) getUsersLoading,
+    required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
+    required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
+  }) {
+    return getRoomByMembersSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetRoomsLoading<T> value)? getRoomsLoading,
+    TResult? Function(GetRoomsSuccess<T> value)? getRoomsSuccess,
+    TResult? Function(GetRoomsError<T> value)? getRoomsError,
+    TResult? Function(CreateRoomsLoading<T> value)? createRoomsLoading,
+    TResult? Function(CreateRoomsSuccess<T> value)? createRoomsSuccess,
+    TResult? Function(CreateRoomsError<T> value)? createRoomsError,
+    TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
+    TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
+    TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
+  }) {
+    return getRoomByMembersSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetRoomsLoading<T> value)? getRoomsLoading,
+    TResult Function(GetRoomsSuccess<T> value)? getRoomsSuccess,
+    TResult Function(GetRoomsError<T> value)? getRoomsError,
+    TResult Function(CreateRoomsLoading<T> value)? createRoomsLoading,
+    TResult Function(CreateRoomsSuccess<T> value)? createRoomsSuccess,
+    TResult Function(CreateRoomsError<T> value)? createRoomsError,
+    TResult Function(GetUsersLoading<T> value)? getUsersLoading,
+    TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
+    TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
+    required TResult orElse(),
+  }) {
+    if (getRoomByMembersSuccess != null) {
+      return getRoomByMembersSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetRoomByMembersSuccess<T> implements RoomState<T> {
+  const factory _GetRoomByMembersSuccess(final RoomsData room) =
+      _$GetRoomByMembersSuccessImpl<T>;
+
+  RoomsData get room;
+  @JsonKey(ignore: true)
+  _$$GetRoomByMembersSuccessImplCopyWith<T, _$GetRoomByMembersSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetRoomByMembersErrorImplCopyWith<T, $Res> {
+  factory _$$GetRoomByMembersErrorImplCopyWith(
+          _$GetRoomByMembersErrorImpl<T> value,
+          $Res Function(_$GetRoomByMembersErrorImpl<T>) then) =
+      __$$GetRoomByMembersErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$GetRoomByMembersErrorImplCopyWithImpl<T, $Res>
+    extends _$RoomStateCopyWithImpl<T, $Res, _$GetRoomByMembersErrorImpl<T>>
+    implements _$$GetRoomByMembersErrorImplCopyWith<T, $Res> {
+  __$$GetRoomByMembersErrorImplCopyWithImpl(
+      _$GetRoomByMembersErrorImpl<T> _value,
+      $Res Function(_$GetRoomByMembersErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$GetRoomByMembersErrorImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetRoomByMembersErrorImpl<T> implements _GetRoomByMembersError<T> {
+  const _$GetRoomByMembersErrorImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'RoomState<$T>.getRoomByMembersError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetRoomByMembersErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetRoomByMembersErrorImplCopyWith<T, _$GetRoomByMembersErrorImpl<T>>
+      get copyWith => __$$GetRoomByMembersErrorImplCopyWithImpl<T,
+          _$GetRoomByMembersErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getRoomsLoading,
+    required TResult Function(RoomsResponse rooms) getRoomsSuccess,
+    required TResult Function(String error) getRoomsError,
+    required TResult Function() createRoomsLoading,
+    required TResult Function(String message) createRoomsSuccess,
+    required TResult Function(String error) createRoomsError,
+    required TResult Function() getUsersLoading,
+    required TResult Function(UsersResponse users) getUsersSuccess,
+    required TResult Function(String error) getUsersError,
+    required TResult Function() getRoomByMembersLoading,
+    required TResult Function(RoomsData room) getRoomByMembersSuccess,
+    required TResult Function(String error) getRoomByMembersError,
+  }) {
+    return getRoomByMembersError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getRoomsLoading,
+    TResult? Function(RoomsResponse rooms)? getRoomsSuccess,
+    TResult? Function(String error)? getRoomsError,
+    TResult? Function()? createRoomsLoading,
+    TResult? Function(String message)? createRoomsSuccess,
+    TResult? Function(String error)? createRoomsError,
+    TResult? Function()? getUsersLoading,
+    TResult? Function(UsersResponse users)? getUsersSuccess,
+    TResult? Function(String error)? getUsersError,
+    TResult? Function()? getRoomByMembersLoading,
+    TResult? Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult? Function(String error)? getRoomByMembersError,
+  }) {
+    return getRoomByMembersError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getRoomsLoading,
+    TResult Function(RoomsResponse rooms)? getRoomsSuccess,
+    TResult Function(String error)? getRoomsError,
+    TResult Function()? createRoomsLoading,
+    TResult Function(String message)? createRoomsSuccess,
+    TResult Function(String error)? createRoomsError,
+    TResult Function()? getUsersLoading,
+    TResult Function(UsersResponse users)? getUsersSuccess,
+    TResult Function(String error)? getUsersError,
+    TResult Function()? getRoomByMembersLoading,
+    TResult Function(RoomsData room)? getRoomByMembersSuccess,
+    TResult Function(String error)? getRoomByMembersError,
+    required TResult orElse(),
+  }) {
+    if (getRoomByMembersError != null) {
+      return getRoomByMembersError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(GetRoomsLoading<T> value) getRoomsLoading,
+    required TResult Function(GetRoomsSuccess<T> value) getRoomsSuccess,
+    required TResult Function(GetRoomsError<T> value) getRoomsError,
+    required TResult Function(CreateRoomsLoading<T> value) createRoomsLoading,
+    required TResult Function(CreateRoomsSuccess<T> value) createRoomsSuccess,
+    required TResult Function(CreateRoomsError<T> value) createRoomsError,
+    required TResult Function(GetUsersLoading<T> value) getUsersLoading,
+    required TResult Function(GetUsersSuccess<T> value) getUsersSuccess,
+    required TResult Function(GetUsersError<T> value) getUsersError,
+    required TResult Function(_GetRoomByMembersLoading<T> value)
+        getRoomByMembersLoading,
+    required TResult Function(_GetRoomByMembersSuccess<T> value)
+        getRoomByMembersSuccess,
+    required TResult Function(_GetRoomByMembersError<T> value)
+        getRoomByMembersError,
+  }) {
+    return getRoomByMembersError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(GetRoomsLoading<T> value)? getRoomsLoading,
+    TResult? Function(GetRoomsSuccess<T> value)? getRoomsSuccess,
+    TResult? Function(GetRoomsError<T> value)? getRoomsError,
+    TResult? Function(CreateRoomsLoading<T> value)? createRoomsLoading,
+    TResult? Function(CreateRoomsSuccess<T> value)? createRoomsSuccess,
+    TResult? Function(CreateRoomsError<T> value)? createRoomsError,
+    TResult? Function(GetUsersLoading<T> value)? getUsersLoading,
+    TResult? Function(GetUsersSuccess<T> value)? getUsersSuccess,
+    TResult? Function(GetUsersError<T> value)? getUsersError,
+    TResult? Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult? Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult? Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
+  }) {
+    return getRoomByMembersError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(GetRoomsLoading<T> value)? getRoomsLoading,
+    TResult Function(GetRoomsSuccess<T> value)? getRoomsSuccess,
+    TResult Function(GetRoomsError<T> value)? getRoomsError,
+    TResult Function(CreateRoomsLoading<T> value)? createRoomsLoading,
+    TResult Function(CreateRoomsSuccess<T> value)? createRoomsSuccess,
+    TResult Function(CreateRoomsError<T> value)? createRoomsError,
+    TResult Function(GetUsersLoading<T> value)? getUsersLoading,
+    TResult Function(GetUsersSuccess<T> value)? getUsersSuccess,
+    TResult Function(GetUsersError<T> value)? getUsersError,
+    TResult Function(_GetRoomByMembersLoading<T> value)?
+        getRoomByMembersLoading,
+    TResult Function(_GetRoomByMembersSuccess<T> value)?
+        getRoomByMembersSuccess,
+    TResult Function(_GetRoomByMembersError<T> value)? getRoomByMembersError,
+    required TResult orElse(),
+  }) {
+    if (getRoomByMembersError != null) {
+      return getRoomByMembersError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetRoomByMembersError<T> implements RoomState<T> {
+  const factory _GetRoomByMembersError({required final String error}) =
+      _$GetRoomByMembersErrorImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$GetRoomByMembersErrorImplCopyWith<T, _$GetRoomByMembersErrorImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

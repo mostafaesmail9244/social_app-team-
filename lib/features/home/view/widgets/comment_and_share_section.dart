@@ -58,13 +58,23 @@ class CommentAndShareSection extends StatelessWidget {
               icon: BlocBuilder<GetPostsCubit, GetPostsStates>(
                 buildWhen: (previous, current) => current is AddOrRemoveLove,
                 builder: (context, state) {
-                  return Icon(
-                    (post.loves!
-                            .contains(CashHelper.get(key: CashConstants.userId))
-                        ? IconlyBold.heart
-                        : IconlyLight.heart),
-                    color: Colors.red,
-                  );
+                  if (state is AddOrRemoveLove) {
+                    return Icon(
+                      (post.loves!.contains(
+                              CashHelper.get(key: CashConstants.userId))
+                          ? IconlyBold.heart
+                          : IconlyLight.heart),
+                      color: Colors.red,
+                    );
+                  } else {
+                    return Icon(
+                      (post.loves!.contains(
+                              CashHelper.get(key: CashConstants.userId))
+                          ? IconlyBold.heart
+                          : IconlyLight.heart),
+                      color: Colors.red,
+                    );
+                  }
                 },
               ),
             ),

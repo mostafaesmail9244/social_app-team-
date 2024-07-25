@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/router/routes.dart';
-import 'package:social_app/features/chats/data/models/room_model/rooms_response.dart';
 import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
 import 'package:social_app/features/users/view_model/users_search_cubit/users_cubit.dart';
 import 'package:social_app/features/home/view/widgets/image_details.dart';
@@ -12,7 +11,6 @@ import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dar
 import 'package:social_app/features/my_profile/view_model/get_user_cubit/get_user_cubit.dart';
 import 'package:social_app/features/users/view/users_view.dart';
 import '../../features/chats/view/chat_view.dart';
-import '../../features/chats/view_model/chat_cubit/chat_cubit.dart';
 import '../../features/comment/view/comment_view.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
@@ -23,8 +21,10 @@ import '../../features/my_profile/data/models/profile_response/profile_response.
 import '../../features/my_profile/view/edit_profile_view.dart';
 import '../../features/my_profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/my_profile/view_model/pick_image_cubit/pick_image_cubit.dart';
+import '../../features/room/data/models/room_model/rooms_response.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
 import '../../features/signup/views/signup_view.dart';
+import '../../features/chats/view/before_going_to_chat.dart';
 import '../../features/user_profile/view/user_profile_view.dart';
 import '../../features/user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
 import '../cubits/pick_image_cubit/pick_image_cubit.dart';
@@ -95,10 +95,7 @@ class AppRouter {
       case Routes.chatView:
         final room = data as RoomsData;
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<ChatCubit>(),
-            child: ChatView(room: room),
-          ),
+          builder: (context) => ChatView(room: room),
         );
 
       //editeProfileScreen
@@ -127,13 +124,18 @@ class AppRouter {
           ),
         );
 
-      //userProfileView
+      //otheUserProfileView
       case Routes.userProfileView:
         final user = data as UserData;
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<GetOtherUserPostsCubit>()
-              ..emitGetuserPosts(uid: user.id!),
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<GetOtherUserPostsCubit>()
+                  ..emitGetuserPosts(uid: user.id!),
+              ),
+              BlocProvider(create: (context) => getIt<GetPostsCubit>()),
+            ],
             child: UserProfileView(data: user),
           ),
         );
@@ -147,6 +149,13 @@ class AppRouter {
                 getIt<CommentCubit>()..emitToGetComment(postId: postId),
             child: CommentView(postID: postId),
           ),
+        );
+
+      //CommentView
+      case Routes.testView:
+        final user = data as UserData;
+        return MaterialPageRoute(
+          builder: (context) => BeforeGoingToChat(user: user),
         );
     }
     return MaterialPageRoute(

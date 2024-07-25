@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../data/models/room_model/rooms_response.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/d_injection/injection.dart';
+import '../../room/data/models/room_model/rooms_response.dart';
+import '../view_model/chat_cubit/chat_cubit.dart';
 import 'widgets/chat/chat_app_bar.dart';
 import 'widgets/chat/chat_body.dart';
 
@@ -9,9 +12,12 @@ class ChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: chatAppBar(room),
-      body: ChatBody(room: room),
+    return BlocProvider(
+      create: (context) => getIt<ChatCubit>(),
+      child: Scaffold(
+        appBar: chatAppBar(room),
+        body: ChatBody(room: room),
+      ),
     );
   }
 }

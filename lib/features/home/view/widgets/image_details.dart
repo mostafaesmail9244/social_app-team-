@@ -3,10 +3,7 @@ import 'package:social_app/core/widgets/custom_cached_image.dart';
 
 class ImageDetails extends StatefulWidget {
   final String image;
-  const ImageDetails({
-    super.key,
-    required this.image,
-  });
+  const ImageDetails({super.key, required this.image});
 
   @override
   State<ImageDetails> createState() => _ImageDetailsState();

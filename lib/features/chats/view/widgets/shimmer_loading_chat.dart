@@ -25,7 +25,7 @@ class ShimmerLoading extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 30,
+            radius: 25,
             child: CustomShimmer(
               height: 50,
               width: 50,

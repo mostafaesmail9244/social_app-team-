@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/features/chats/view/widgets/shimmer_loading_chat.dart';
 import 'package:social_app/features/chats/view_model/room_cubit/room_state.dart';
 import '../../../core/widgets/build_app_bar.dart';
-import '../view_model/room_cubit/room_cubit.dart';
-import 'widgets/room/room_body.dart';
+import '../../chats/view_model/room_cubit/room_cubit.dart';
+import 'widgets/room_body.dart';
 
 class RoomView extends StatelessWidget {
   const RoomView({super.key});

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/style/text_styles.dart';
+import '../../../../core/router/routes.dart';
 import '../../../my_profile/data/models/profile_response/profile_response.dart';
 import 'package:social_app/core/helper/spacing.dart';
 
@@ -44,7 +46,14 @@ class UserInfoAndFollow extends StatelessWidget {
                   foregroundColor: AppColors.lightMainBlue,
                   backgroundColor: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(Routes.testView, arguments: data);
+                  // print(context.read<RoomCubit>().roomData!.id);
+                  //       toId: user!.id!,
+                  //       userName: user!.name!,
+                  //       userPicture: user!.image!,
+                  //     )
+                },
                 child: const Icon(Icons.message),
               ),
               ElevatedButton(

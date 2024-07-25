@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:social_app/features/chats/data/repos/room_repo.dart';
 import '../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../room/data/repos/room_repo.dart';
 import 'users_state.dart';
 
 class UsersSearchCubit extends Cubit<UsersSearchState> {
