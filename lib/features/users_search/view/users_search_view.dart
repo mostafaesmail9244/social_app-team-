@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widgets/users_search_app_bar.dart';
+import 'widgets/search_app_bar.dart';
 import 'widgets/users_search_body.dart';
 import '../../chats/view/widgets/shimmer_loading_chat.dart';
 import '../view_model/users_search_cubit/users_search_cubit.dart';
@@ -12,7 +12,9 @@ class UsersSearcView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: usersSearchAppBar(context),
+      appBar: AppBar(title: const SearchTittle()),
+
+      //usersSearchAppBar(context),
       body: BlocBuilder<UsersSearchCubit, UsersSearchState>(
         builder: (context, state) {
           return state.when(
