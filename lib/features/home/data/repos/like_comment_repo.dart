@@ -6,7 +6,7 @@ import 'package:social_app/features/home/data/model/posts_response.dart';
 class LikeCommentRepo {
   final CollectionReference _post =
       FirebaseFirestore.instance.collection(FireBaseConstants.postsCollection);
-  Future<Either<String, PostsData>> getSpecificPostData(
+  Future<Either<String, PostsData>> toggleLike(
       {required String myId, required String postId}) async {
     final DocumentSnapshot documentSnapshot = await _post.doc(postId).get();
     final List loves = await (documentSnapshot.data()! as dynamic)['loves'];

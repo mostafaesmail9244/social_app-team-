@@ -10,18 +10,27 @@ part 'like_commen_states.dart';
 class LikeCommentCubit extends Cubit<LikeCommentState> {
   final LikeCommentRepo _repo;
   LikeCommentCubit(this._repo) : super(Initial());
-  PostsData? post;
 
-  void getSpecificUser(String postId) async {
-    final response = await _repo.getSpecificPostData(
+  Map<String, PostsData> posts = {};
+  // PostsData? post;
+
+  void toggleLike(String postId) async {
+    final response = await _repo.toggleLike(
       myId: CashHelper.get(key: CashConstants.userId),
       postId: postId,
     );
     response.fold((error) {
       debugPrint(error.toString());
     }, (data) {
-      post = data;
-      emit(AddLikeSuccess());
+      posts[postId] = data;
+      emit(PostUpdated(postId));
     });
+  }
+
+  bool isLiked(String postId) {
+    return posts[postId]
+            ?.loves
+            ?.contains(CashHelper.get(key: CashConstants.userId)) ??
+        false;
   }
 }

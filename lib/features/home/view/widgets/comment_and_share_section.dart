@@ -45,15 +45,14 @@ class CommentAndShareSection extends StatelessWidget {
         Row(
           children: [
             BlocBuilder<LikeCommentCubit, LikeCommentState>(
+              buildWhen: (previous, current) =>
+                  current is PostUpdated && current.postId == post.postId,
               builder: (context, state) {
-                if (state is AddLikeSuccess ) {
+                if (state is PostUpdated) {
                   return IconButton(
-                    onPressed: () {
-                      cubit.getSpecificUser(post.postId);
-                    },
+                    onPressed: () => cubit.toggleLike(post.postId),
                     icon: Icon(
-                      (cubit.post!.loves!.contains(
-                              CashHelper.get(key: CashConstants.userId))
+                      (cubit.isLiked(post.postId)
                           ? IconlyBold.heart
                           : IconlyLight.heart),
                       color: Colors.red,
@@ -61,9 +60,7 @@ class CommentAndShareSection extends StatelessWidget {
                   );
                 } else {
                   return IconButton(
-                    onPressed: () {
-                      cubit.getSpecificUser(post.postId);
-                    },
+                    onPressed: () => cubit.toggleLike(post.postId),
                     icon: Icon(
                       (post.loves!.contains(
                               CashHelper.get(key: CashConstants.userId))
