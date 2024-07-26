@@ -35,10 +35,10 @@ class LowerPart extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: cubit.selectProfileImage == null
                       ? CustomCachedNetworkImage(
-                          radius: 65,
                           height: 150,
-                          size: 20,
                           width: double.infinity,
+                          radius: 65,
+                          size: 20,
                           imageUrl:
                               CashHelper.get(key: CashConstants.userImage),
                         )
@@ -53,7 +53,7 @@ class LowerPart extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: -2,
+                bottom: -3,
                 right: size.height * .135,
                 child: CustomIconFilled(
                   onPressed: () {

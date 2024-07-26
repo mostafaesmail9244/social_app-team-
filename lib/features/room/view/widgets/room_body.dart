@@ -6,7 +6,7 @@ import '../../data/models/room_model/rooms_response.dart';
 import '../../view_model/room_cubit/room_cubit.dart';
 
 class RoomBody extends StatelessWidget {
-  final RoomsResponse data;
+  final List<RoomsData>? data;
   const RoomBody({super.key, required this.data});
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,10 @@ class RoomBody extends StatelessWidget {
           return await context.read<RoomCubit>().getRooms();
         },
         child: ListView.separated(
-          itemCount: data.rooms!.length,
+          itemCount: data?.length ?? 0,
           itemBuilder: (context, index) => UserItem(
             isSearch: false,
-            room: data.rooms![index],
+            room: data?[index],
           ),
           separatorBuilder: (context, index) => verticalSpace(16),
         ),

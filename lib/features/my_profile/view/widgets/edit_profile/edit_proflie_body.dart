@@ -17,7 +17,7 @@ class EditProflieBody extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       children: [
-        verticalSpace(20),
+        verticalSpace(10),
         const EditImagesSection(),
         const EditProfileForm(),
         verticalSpace(50),

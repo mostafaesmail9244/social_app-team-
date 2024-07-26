@@ -12,7 +12,7 @@ class EditImagesSection extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final cubit = context.read<PickImageProfileCubit>();
     return SizedBox(
-      height: size.height * .355,
+      height: size.height * .36,
       child: Stack(
         children: [
           UpperImagePart(cubit: cubit, size: size),

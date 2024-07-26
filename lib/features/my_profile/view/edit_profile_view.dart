@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/shared/widgets/build_app_bar.dart';
 import 'widgets/edit_profile/edit_proflie_body.dart';
 
 class EditProflieView extends StatelessWidget {
@@ -6,8 +7,9 @@ class EditProflieView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: EditProflieBody()),
+    return Scaffold(
+      appBar: buildAppBar(context, title: 'Edit Profile'),
+      body: const EditProflieBody(),
     );
   }
 }

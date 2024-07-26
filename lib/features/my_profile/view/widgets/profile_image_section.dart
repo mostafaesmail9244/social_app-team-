@@ -14,7 +14,7 @@ class ProfileImagesSection extends StatelessWidget {
       child: Stack(
         children: [
           CustomCachedNetworkImage(
-            radius: 10,
+            radius: 8,
             imageUrl: data.coverImage!,
             height: 190,
             width: double.infinity,

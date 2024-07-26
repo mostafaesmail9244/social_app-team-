@@ -1,17 +1,21 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import '../../../room/data/repos/room_repo.dart';
+import '../../data/models/room_model/rooms_response.dart';
 import 'room_state.dart';
 
 class RoomCubit extends Cubit<RoomState> {
   final RoomRepo _repo;
   RoomCubit(this._repo) : super(const RoomState.initial());
 
+  RoomsResponse? _roomsList;
   Future<void> getRooms() async {
     emit(const RoomState.getRoomsLoading());
     final result = await _repo.getRoom();
     result.fold(
       (error) => emit(RoomState.getRoomsError(error: error.errorMessage)),
       (rooms) {
+        _roomsList = rooms;
         emit(RoomState.getRoomsSuccess(rooms));
       },
     );
@@ -54,5 +58,21 @@ class RoomCubit extends Cubit<RoomState> {
         emit(RoomState.getRoomByMembersSuccess(room));
       },
     );
+  }
+
+  List<RoomsData> _usersFiltered = [];
+  void searchUserRoom(TextEditingController textControler) {
+    _usersFiltered = _roomsList!.rooms!
+        .where((element) => element.otherUserDetails!.name!
+            .toLowerCase()
+            .startsWith(textControler.text.trim()))
+        .toList();
+    emit(RoomState.getRoomsFilteredSuccess(_usersFiltered));
+  }
+
+  void clear(TextEditingController textControler) {
+    textControler.clear();
+    _usersFiltered.clear();
+    emit(RoomState.getRoomsSuccess(_roomsList!));
   }
 }

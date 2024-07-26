@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
 import '../../../room/data/models/room_model/rooms_response.dart';
 part 'room_state.freezed.dart';
 
@@ -14,6 +13,9 @@ class RoomState<T> with _$RoomState {
 
   const factory RoomState.getRoomsError({required String error}) =
       GetRoomsError;
+
+  const factory RoomState.getRoomsFilteredSuccess(List<RoomsData> roomsList) =
+      GetRoomsFilteredSuccess<T>;
 
   const factory RoomState.createRoomsLoading() = CreateRoomsLoading;
 

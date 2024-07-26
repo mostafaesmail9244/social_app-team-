@@ -12,7 +12,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, title: 'Settings'),
+      appBar: buildAppBar(context, title: 'Profile'),
       body: BlocBuilder<GetUserCubit, GetUserStates>(
         builder: (context, state) {
           return state.when(
