@@ -28,6 +28,7 @@ import '../../features/chats/view/before_going_to_chat_view.dart';
 import '../../features/other_user_profile/view/user_profile_view.dart';
 import '../../features/other_user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
 import '../shared/pick_image_cubit/pick_image_cubit.dart';
+import 'base_routes.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {
@@ -130,8 +131,8 @@ class AppRouter {
       //CommentView
       case Routes.commentView:
         final postId = data as String;
-        return MaterialPageRoute(
-          builder: (context) => BlocProvider(
+        return BaseRoute(
+          page: BlocProvider(
             create: (context) =>
                 getIt<CommentCubit>()..emitToGetComment(postId: postId),
             child: CommentView(postID: postId),

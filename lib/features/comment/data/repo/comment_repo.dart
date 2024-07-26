@@ -40,7 +40,7 @@ class CommentRepo {
         tittle: tittle,
         uid: CashHelper.get(key: CashConstants.userId),
         profilePic: CashHelper.get(key: CashConstants.userImage),
-        username: CashHelper.get(key: CashConstants.name),
+        username: CashHelper.get(key: CashConstants.userName),
         date: DateTime.now().millisecondsSinceEpoch.toString(),
       );
       await _firestore

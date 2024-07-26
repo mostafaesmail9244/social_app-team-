@@ -26,7 +26,7 @@ class ImageAndName extends StatelessWidget {
           ),
           horizontalSpace(10),
           Text(
-            CashHelper.get(key: CashConstants.name),
+            CashHelper.get(key: CashConstants.userName),
             style: AppTextStyles.font18Black,
           ),
         ],

@@ -33,7 +33,7 @@ class AddPostRepo {
         postId: post.id,
         image: image == null ? '' : downloadURL!,
         content: content,
-        userName: CashHelper.get(key: CashConstants.name),
+        userName: CashHelper.get(key: CashConstants.userName),
         userImage: CashHelper.get(key: CashConstants.userImage),
         userId: CashHelper.get(key: CashConstants.userId),
         date: DateTime.now().millisecondsSinceEpoch.toString(),

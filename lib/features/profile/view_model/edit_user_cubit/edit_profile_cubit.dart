@@ -11,8 +11,8 @@ class EditUserCubit extends Cubit<EditUserStatus> {
   EditUserCubit(this._userRepo) : super(EditUserInitial());
 
   final formKey = GlobalKey<FormState>();
-  late final TextEditingController nameController =
-      TextEditingController(text: "${CashHelper.get(key: CashConstants.name)}");
+  late final TextEditingController nameController = TextEditingController(
+      text: "${CashHelper.get(key: CashConstants.userName)}");
   late final TextEditingController phoneController = TextEditingController(
       text: "${CashHelper.get(key: CashConstants.phone)}");
   late final TextEditingController bio =

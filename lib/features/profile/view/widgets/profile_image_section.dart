@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/extentaion.dart';
+import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/models/profile_response/profile_response.dart';
 
 class ProfileImagesSection extends StatelessWidget {
-  final UserData data;
-  const ProfileImagesSection({super.key, required this.data});
+  final UserData? data;
+
+  const ProfileImagesSection({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,8 @@ class ProfileImagesSection extends StatelessWidget {
         children: [
           CustomCachedNetworkImage(
             radius: 8,
-            imageUrl: data.coverImage!,
+            imageUrl: data?.coverImage ??
+                CashHelper.get(key: CashConstants.coverImage),
             height: 190,
             width: double.infinity,
           ),
@@ -32,7 +36,8 @@ class ProfileImagesSection extends StatelessWidget {
                   radius: 65,
                   height: 150,
                   width: double.infinity,
-                  imageUrl: data.image!,
+                  imageUrl: data?.image ??
+                      CashHelper.get(key: CashConstants.userImage),
                 ),
               ),
             ),

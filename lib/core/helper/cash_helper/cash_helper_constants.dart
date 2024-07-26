@@ -3,7 +3,7 @@ class CashConstants {
   static const String token = "token";
   static const String userId = "userId";
   static const String email = "email";
-  static const String name = "name";
+  static const String userName = "name";
   static const String phone = "phone";
   static const String address = "address";
   static const String userImage = "imageUser";
