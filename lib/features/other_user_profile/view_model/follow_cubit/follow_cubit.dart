@@ -14,17 +14,6 @@ class FollowCubit extends Cubit<FollowState> {
   int? followers;
   int? following;
   UserData? userData;
-  // void getFollow(UserData user) async {
-  //   followers = user.followers!.length;
-  //   following = user.following!.length;
-  //   userData = user;
-  //   emit(AddFollowSuccess());
-  // }
-
-  // void addeFollow() async {
-  //   followers = followers! + 1;
-  //   emit(AddFollowSuccess());
-  // }
 
   void addOrRemoveFollow(UserData user) async {
     await _repo.followUser(

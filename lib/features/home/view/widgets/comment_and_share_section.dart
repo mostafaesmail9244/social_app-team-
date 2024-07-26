@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/router/routes.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/model/posts_response.dart';
 import '../../view_model/like_commen_cubit/like_commen_cubit.dart';
+import 'like_widget.dart';
 
 class CommentAndShareSection extends StatelessWidget {
   final PostsData post;
@@ -42,42 +40,7 @@ class CommentAndShareSection extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Row(
-          children: [
-            BlocBuilder<LikeCommentCubit, LikeCommentState>(
-              buildWhen: (previous, current) =>
-                  current is PostUpdated && current.postId == post.postId,
-              builder: (context, state) {
-                if (state is PostUpdated) {
-                  return IconButton(
-                    onPressed: () => cubit.toggleLike(post.postId),
-                    icon: Icon(
-                      (cubit.isLiked(post.postId)
-                          ? IconlyBold.heart
-                          : IconlyLight.heart),
-                      color: Colors.red,
-                    ),
-                  );
-                } else {
-                  return IconButton(
-                    onPressed: () => cubit.toggleLike(post.postId),
-                    icon: Icon(
-                      (post.loves!.contains(
-                              CashHelper.get(key: CashConstants.userId))
-                          ? IconlyBold.heart
-                          : IconlyLight.heart),
-                      color: Colors.red,
-                    ),
-                  );
-                }
-              },
-            ),
-            Text(
-              'Like',
-              style: AppTextStyles.font13GrayRegular,
-            ),
-          ],
-        ),
+        LikeWidget(post: post, cubit: cubit),
         FittedBox(
           child: Row(
             children: [

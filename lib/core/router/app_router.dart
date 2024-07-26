@@ -12,6 +12,7 @@ import '../../features/chats/view/chat_view.dart';
 import '../../features/comment/view/comment_view.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
+import '../../features/home/view_model/like_commen_cubit/like_commen_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
@@ -112,6 +113,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
+              BlocProvider(create: (context) => getIt<LikeCommentCubit>()),
               BlocProvider(
                 create: (context) => getIt<GetOtherUserPostsCubit>()
                   ..emitGetuserPosts(uid: user.id!),

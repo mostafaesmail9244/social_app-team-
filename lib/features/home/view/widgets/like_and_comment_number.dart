@@ -4,6 +4,8 @@ import '../../../../core/helper/spacing.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../data/model/posts_response.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../view_model/like_commen_cubit/like_commen_cubit.dart';
 
 class LikeAndCommentNumber extends StatelessWidget {
   final PostsData post;
@@ -11,6 +13,7 @@ class LikeAndCommentNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<LikeCommentCubit>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -18,10 +21,22 @@ class LikeAndCommentNumber extends StatelessWidget {
           children: [
             const Icon((IconlyLight.heart), color: Colors.red, size: 16),
             horizontalSpace(5),
-            Text(
-              // widget.postModel.likes!.toString(),
-              '${post.loves?.length}  likes',
-              style: AppTextStyles.font13GrayRegular,
+            BlocBuilder<LikeCommentCubit, LikeCommentState>(
+              buildWhen: (previous, current) =>
+                  current is PostUpdated && current.postId == post.postId,
+              builder: (context, state) {
+                if (state is PostUpdated) {
+                  return Text(
+                    '${cubit.post!.loves!.length}  likes',
+                    style: AppTextStyles.font13GrayRegular,
+                  );
+                } else {
+                  return Text(
+                    '${post.loves?.length}  likes',
+                    style: AppTextStyles.font13GrayRegular,
+                  );
+                }
+              },
             ),
           ],
         ),

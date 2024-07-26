@@ -12,7 +12,7 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
   LikeCommentCubit(this._repo) : super(Initial());
 
   Map<String, PostsData> posts = {};
-  // PostsData? post;
+  PostsData? post;
 
   void toggleLike(String postId) async {
     final response = await _repo.toggleLike(
@@ -22,6 +22,7 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
     response.fold((error) {
       debugPrint(error.toString());
     }, (data) {
+      post = data;
       posts[postId] = data;
       emit(PostUpdated(postId));
     });
