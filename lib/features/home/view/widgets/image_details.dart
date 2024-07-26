@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_app/core/widgets/custom_cached_image.dart';
+import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 
 class ImageDetails extends StatefulWidget {
   final String image;

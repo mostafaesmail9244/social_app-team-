@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:social_app/core/widgets/icon_button_filled.dart';
-import '../../../../core/cubits/pick_image_cubit/pick_image_cubit.dart';
-import '../../../../core/cubits/pick_image_cubit/pick_image_states.dart';
+import 'package:social_app/core/shared/widgets/icon_button_filled.dart';
+import '../../../../core/shared/pick_image_cubit/pick_image_cubit.dart';
+import '../../../../core/shared/pick_image_cubit/pick_image_states.dart';
 import '../../../../core/style/app_colors.dart';
 import 'image_picker_dialog.dart';
 

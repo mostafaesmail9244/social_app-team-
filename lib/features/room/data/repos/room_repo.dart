@@ -11,8 +11,7 @@ import '../models/room_model/rooms_response.dart';
 class RoomRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<Either<Failure, UsersResponse>> getAllUsers(
-      {required String uid}) async {
+  Future<Either<Failure, UsersResponse>> getAllUsers() async {
     try {
       final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.usersCollection)
@@ -99,7 +98,8 @@ class RoomRepo {
   }
 
   Future<Either<Failure, RoomsData>> getRoomByMembers(
-      List<String> members) async {
+    List<String> members,
+  ) async {
     try {
       members.sort((a, b) => a.compareTo(b));
       final QuerySnapshot<Map<String, dynamic>> snap = await _firestore

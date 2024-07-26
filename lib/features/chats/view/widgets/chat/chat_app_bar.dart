@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import 'package:social_app/core/widgets/custom_cached_image.dart';
+import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../../core/style/text_styles.dart';
 import '../../../../room/data/models/room_model/rooms_response.dart';
 

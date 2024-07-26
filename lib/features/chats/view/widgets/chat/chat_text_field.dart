@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import '../../../../../core/widgets/app_text_filed.dart';
+import '../../../../../core/shared/widgets/app_text_filed.dart';
 import '../../../../room/data/models/room_model/rooms_response.dart';
 import '../../../view_model/chat_cubit/chat_cubit.dart';
 

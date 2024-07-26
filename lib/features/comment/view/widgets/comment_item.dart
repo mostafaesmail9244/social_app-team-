@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:social_app/core/style/text_styles.dart';
-import 'package:social_app/core/widgets/custom_cached_image.dart';
+import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../data/model/comment_response.dart';
 

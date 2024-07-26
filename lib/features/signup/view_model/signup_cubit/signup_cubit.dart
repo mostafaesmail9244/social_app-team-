@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/widgets/components.dart';
+import '../../../../core/shared/widgets/components.dart';
 import '../../data/models/signup_request/signup_request_body.dart';
 import '../../data/repos/signup_repo.dart';
 import 'signup_states.dart';

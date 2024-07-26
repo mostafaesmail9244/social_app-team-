@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import '../../../core/cubits/pick_image_cubit/pick_image_cubit.dart';
+import '../../../core/shared/pick_image_cubit/pick_image_cubit.dart';
 import '../../../core/d_injection/injection.dart';
 import '../../home/view/home_view.dart';
-import '../../post/view/post_view.dart';
-import '../../post/view_model/add_post_cubit/add_cubit.dart';
+import '../../add_post/view/add_post_view.dart';
+import '../../add_post/view_model/add_post_cubit/add_cubit.dart';
 import '../../my_profile/view/profile_view.dart';
 import '../../room/view/room_view.dart';
-import '../../users/view/users_view.dart';
-import '../../users/view_model/users_search_cubit/users_cubit.dart';
+import '../../users_search/view/users_search_view.dart';
+import '../../users_search/view_model/users_search_cubit/users_search_cubit.dart';
 
 const List<String> labels = [
   "Home",
@@ -35,7 +35,7 @@ const List<Icon> activeIconsList = [
   Icon(IconlyBold.setting),
 ];
 
-List<Widget> screensList = [
+final List<Widget> screensList = [
   const HomeView(),
   const RoomView(),
   MultiBlocProvider(
@@ -43,11 +43,11 @@ List<Widget> screensList = [
       BlocProvider(create: (context) => getIt<PickImageCubit>()),
       BlocProvider(create: (context) => getIt<AddPostCubit>()),
     ],
-    child: const PostView(),
+    child: const AddPostView(),
   ),
   BlocProvider(
     create: (context) => getIt<UsersSearchCubit>()..getAllUsers(),
-    child: const UsersView(),
+    child: const UsersSearcView(),
   ),
   const ProfileView(),
 ];

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import '../../../../../core/router/routes.dart';
-import '../../../../../core/widgets/custom_error.dart';
-import '../../../../../core/widgets/custom_loading.dart';
-import '../../../../../core/widgets/custom_success.dart';
+import '../../../../../core/shared/widgets/custom_error.dart';
+import '../../../../../core/shared/widgets/custom_loading.dart';
+import '../../../../../core/shared/widgets/custom_success.dart';
 import '../../../view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../../view_model/edit_user_cubit/edit_profile_state.dart';
 

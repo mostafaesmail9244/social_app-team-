@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:social_app/core/widgets/app_button.dart';
+import 'package:social_app/core/shared/widgets/app_button.dart';
 import '../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/router/routes.dart';
-import '../../../../core/widgets/components.dart';
+import '../../../../core/shared/widgets/components.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

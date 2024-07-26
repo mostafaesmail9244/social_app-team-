@@ -7,8 +7,8 @@ import 'package:social_app/features/login/view/widgets/login_form.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import '../../../../core/router/routes.dart';
 import '../../../../core/style/text_styles.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/head_auth.dart';
+import '../../../../core/shared/widgets/app_button.dart';
+import '../../../../core/shared/widgets/head_auth.dart';
 import 'dont_have_account.dart';
 import 'login_bloc_listener.dart';
 

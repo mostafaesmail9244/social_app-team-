@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/widgets/app_text_filed.dart';
-import '../../../../core/widgets/icon_button_filled.dart';
+import '../../../../core/shared/widgets/app_text_filed.dart';
+import '../../../../core/shared/widgets/icon_button_filled.dart';
 import '../../view_model/comment_cubit/comment_cubit.dart';
 
 class TextFiledAndIcon extends StatelessWidget {

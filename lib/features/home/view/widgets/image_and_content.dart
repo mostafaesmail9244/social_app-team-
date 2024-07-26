@@ -4,7 +4,7 @@ import 'package:readmore/readmore.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/router/routes.dart';
-import 'package:social_app/core/widgets/custom_cached_image.dart';
+import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../data/model/posts_response.dart';

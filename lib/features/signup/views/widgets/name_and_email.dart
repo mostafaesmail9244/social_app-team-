@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/helper/app_regex.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/widgets/app_text_filed.dart';
+import '../../../../core/shared/widgets/app_text_filed.dart';
 import '../../view_model/signup_cubit/signup_cubit.dart';
 
 class NameAndEmail extends StatelessWidget {

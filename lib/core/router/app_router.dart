@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/router/routes.dart';
-import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
-import 'package:social_app/features/users/view_model/users_search_cubit/users_cubit.dart';
 import 'package:social_app/features/home/view/widgets/image_details.dart';
 import 'package:social_app/features/layout/view/layout_screen.dart';
 import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/my_profile/view_model/get_user_cubit/get_user_cubit.dart';
-import 'package:social_app/features/users/view/users_view.dart';
 import '../../features/chats/view/chat_view.dart';
 import '../../features/comment/view/comment_view.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
@@ -22,12 +19,13 @@ import '../../features/my_profile/view/edit_profile_view.dart';
 import '../../features/my_profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/my_profile/view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../features/room/data/models/room_model/rooms_response.dart';
+import '../../features/room/view_model/room_cubit/room_cubit.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
 import '../../features/signup/views/signup_view.dart';
-import '../../features/chats/view/before_going_to_chat.dart';
-import '../../features/user_profile/view/user_profile_view.dart';
-import '../../features/user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
-import '../cubits/pick_image_cubit/pick_image_cubit.dart';
+import '../../features/chats/view/before_going_to_chat_view.dart';
+import '../../features/other_user_profile/view/user_profile_view.dart';
+import '../../features/other_user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
+import '../shared/pick_image_cubit/pick_image_cubit.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {
@@ -69,14 +67,10 @@ class AppRouter {
           builder: (context) => MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<LayoutCubit>()),
-              // BlocProvider(create: (context) => getIt<PickImageCubit>()),
-              //BlocProvider(create: (context) => getIt<PostCubit>()),
               BlocProvider(
-                  create: (context) =>
-                      getIt<GetPostsCubit>()..emitGetPostsData()),
-
+                create: (context) => getIt<GetPostsCubit>()..emitGetPostsData(),
+              ),
               BlocProvider(create: (context) => getIt<RoomCubit>()..getRooms()),
-
               BlocProvider(
                 create: (context) => getIt<GetUserCubit>()..emitGetUser(),
               ),
@@ -85,6 +79,7 @@ class AppRouter {
           ),
         );
 
+      //imageDetails
       case Routes.imageDetails:
         final image = data as String;
         return MaterialPageRoute(
@@ -110,33 +105,14 @@ class AppRouter {
           ),
         );
 
-      //UsersView
-      case Routes.usersView:
-        return MaterialPageRoute(
-          builder: (context) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getIt<UsersSearchCubit>()..getAllUsers(),
-              ),
-              BlocProvider(create: (context) => getIt<RoomCubit>()),
-            ],
-            child: const UsersView(),
-          ),
-        );
-
-      //otheUserProfileView
-      case Routes.userProfileView:
+      //OtherUserProfileView
+      case Routes.otherUserProfileView:
         final user = data as UserData;
         return MaterialPageRoute(
-          builder: (context) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getIt<GetOtherUserPostsCubit>()
-                  ..emitGetuserPosts(uid: user.id!),
-              ),
-              BlocProvider(create: (context) => getIt<GetPostsCubit>()),
-            ],
-            child: UserProfileView(data: user),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<GetOtherUserPostsCubit>()
+              ..emitGetuserPosts(uid: user.id!),
+            child: OtherUserProfileView(data: user),
           ),
         );
 

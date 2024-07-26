@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
-import '../../../../core/widgets/custom_shimmer.dart';
+import '../../../../core/shared/widgets/custom_shimmer.dart';
 
 class GetProfileLoading extends StatelessWidget {
   const GetProfileLoading({super.key});

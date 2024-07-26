@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/extentaion.dart';
-import '../../../../core/widgets/components.dart';
-import '../../../../core/widgets/custom_loading.dart';
+import '../../../../core/shared/widgets/components.dart';
+import '../../../../core/shared/widgets/custom_loading.dart';
 import '../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/router/routes.dart';

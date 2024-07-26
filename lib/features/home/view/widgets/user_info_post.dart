@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/style/text_styles.dart';
-import '../../../../core/widgets/custom_cached_image.dart';
+import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/model/posts_response.dart';
 
 class UserInfoPost extends StatelessWidget {

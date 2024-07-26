@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import '../../../core/helper/app_regex.dart';
 import '../../../core/helper/spacing.dart';
-import '../../../core/widgets/app_button.dart';
-import '../../../core/widgets/app_text_filed.dart';
-import '../../../core/widgets/head_auth.dart';
+import '../../../core/shared/widgets/app_button.dart';
+import '../../../core/shared/widgets/app_text_filed.dart';
+import '../../../core/shared/widgets/head_auth.dart';
 import '../view_model/forgot_password_cubit/forgot_password_cubit.dart';
 import 'widgets/forgot_password_bloc_listener.dart';
 

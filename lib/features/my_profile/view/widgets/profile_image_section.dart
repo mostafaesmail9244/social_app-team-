@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/extentaion.dart';
-import '../../../../core/widgets/custom_cached_image.dart';
+import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/models/profile_response/profile_response.dart';
 
 class ProfileImagesSection extends StatelessWidget {

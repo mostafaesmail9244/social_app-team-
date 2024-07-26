@@ -8,8 +8,7 @@ abstract class Routes {
   static const String chatView = 'chatDetailsView';
   static const String usersView = 'usersView';
   static const String imageDetails = 'imageDetails';
-  static const String userProfileView = 'userProfileView';
+  static const String otherUserProfileView = 'userProfileView';
   static const String commentView = 'commentView';
-    static const String testView = 'testView';
-
+  static const String testView = 'testView';
 }

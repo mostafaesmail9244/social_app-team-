@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/spacing.dart';
-import '../../../../core/widgets/custom_shimmer.dart';
+import '../../../../core/shared/widgets/custom_shimmer.dart';
 
 class ShimmerLoadingChat extends StatelessWidget {
   const ShimmerLoadingChat({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/features/chats/view_model/room_cubit/room_cubit.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../chats/view/widgets/user_item.dart';
+import '../../../../core/shared/widgets/user_item.dart';
 import '../../data/models/room_model/rooms_response.dart';
+import '../../view_model/room_cubit/room_cubit.dart';
 
 class RoomBody extends StatelessWidget {
   final RoomsResponse data;

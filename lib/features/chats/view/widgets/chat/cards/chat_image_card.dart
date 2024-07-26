@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:social_app/core/widgets/custom_cached_image.dart';
+import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../data/models/message_model/message_model.dart';

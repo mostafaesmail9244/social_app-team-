@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/core/cubits/pick_image_cubit/pick_image_cubit.dart';
+import 'package:social_app/core/shared/pick_image_cubit/pick_image_cubit.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/head_auth.dart';
+import '../../../../core/shared/widgets/app_button.dart';
+import '../../../../core/shared/widgets/head_auth.dart';
 import '../../view_model/signup_cubit/signup_cubit.dart';
 import 'already_have_account.dart';
 import 'image_of_profile.dart';

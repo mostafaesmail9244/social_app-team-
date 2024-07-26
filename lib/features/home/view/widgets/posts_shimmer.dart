@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/widgets/custom_shimmer.dart';
+import '../../../../core/shared/widgets/custom_shimmer.dart';
 
 class PostsShimmer extends StatelessWidget {
   const PostsShimmer({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/extentaion.dart';
-import '../../../../core/widgets/custom_error.dart';
-import '../../../../core/widgets/custom_loading.dart';
-import '../../../../core/widgets/custom_success.dart';
+import '../../../../core/shared/widgets/custom_error.dart';
+import '../../../../core/shared/widgets/custom_loading.dart';
+import '../../../../core/shared/widgets/custom_success.dart';
 import '../../view_model/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../view_model/forgot_password_cubit/forgot_password_states.dart';
 

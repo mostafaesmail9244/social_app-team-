@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/custom_shimmer.dart';
+import '../../../../core/shared/widgets/custom_shimmer.dart';
 
 class CommentLoading extends StatelessWidget {
   const CommentLoading({super.key});

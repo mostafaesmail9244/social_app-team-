@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../../../core/widgets/custom_cached_image.dart';
-import '../../../../../core/widgets/icon_button_filled.dart';
+import '../../../../../core/shared/widgets/custom_cached_image.dart';
+import '../../../../../core/shared/widgets/icon_button_filled.dart';
 import '../../../view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../../view_model/pick_image_cubit/pick_image_states.dart';
 
