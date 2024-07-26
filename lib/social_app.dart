@@ -19,8 +19,10 @@ class SocialApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
+            elevation: 0,
             scrolledUnderElevation: 0,
             surfaceTintColor: Colors.white,
+            backgroundColor: Colors.white,
           ),
           primaryColor: AppColors.mainBlue,
           scaffoldBackgroundColor: Colors.white,

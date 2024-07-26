@@ -23,14 +23,6 @@ class RoomState<T> with _$RoomState {
   const factory RoomState.createRoomsError({required String error}) =
       CreateRoomsError;
 
-  const factory RoomState.getUsersLoading() = GetUsersLoading;
-
-  const factory RoomState.getUsersSuccess(UsersResponse users) =
-      GetUsersSuccess<T>;
-
-  const factory RoomState.getUsersError({required String error}) =
-      GetUsersError;
-
   const factory RoomState.getRoomByMembersLoading() = _GetRoomByMembersLoading;
   const factory RoomState.getRoomByMembersSuccess(RoomsData room) =
       _GetRoomByMembersSuccess;

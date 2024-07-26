@@ -14,7 +14,6 @@ class HomeView extends StatelessWidget {
         title: 'Home',
         isIcon: true,
         icon: IconlyLight.notification,
-        onPressed: () {},
       ),
       body: const HomeBody(),
     );

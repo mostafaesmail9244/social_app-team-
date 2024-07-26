@@ -7,14 +7,11 @@ buildAppBar(
   required String title,
   String? leading,
   TextStyle? style,
-  void Function()? onPressed,
   bool isIcon = false,
   IconData? icon,
+  void Function()? onPressed,
 }) {
   return AppBar(
-    surfaceTintColor: Colors.white,
-    backgroundColor: Colors.white,
-    scrolledUnderElevation: 0.0,
     title: Text(
       title,
       style:
@@ -23,13 +20,13 @@ buildAppBar(
     actions: [
       isIcon
           ? IconButton(
-              onPressed: onPressed,
+              onPressed: onPressed ?? () {},
               icon: Icon(icon),
             )
           : TextButton(
-              onPressed: onPressed,
+              onPressed: onPressed ?? () {},
               child: Text(
-                leading!,
+                leading ?? '',
                 style:
                     AppTextStyles.font24SemiBoldBlue.copyWith(fontSize: 16.sp),
               ),

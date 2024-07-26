@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/shared/widgets/build_app_bar.dart';
 import '../view_model/comment_cubit/comment_cubit.dart';
 import 'widgets/text_filed_and_icon.dart';
 import 'widgets/comment_body.dart';
@@ -12,14 +13,20 @@ class CommentView extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<CommentCubit>();
     return Scaffold(
-        body: SafeArea(
-      child: Column(
-        children: [
-          const SizedBox(height: 10),
-          const Expanded(child: CommentBody()),
-          TextFiledAndIcon(cubit: cubit, postID: postID),
-        ],
+      appBar: buildAppBar(
+        context,
+        title: 'Comments',
+        isIcon: true,
       ),
-    ));
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            const Expanded(child: CommentBody()),
+            TextFiledAndIcon(cubit: cubit, postID: postID),
+          ],
+        ),
+      ),
+    );
   }
 }

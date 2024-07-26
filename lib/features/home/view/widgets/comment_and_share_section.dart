@@ -37,11 +37,10 @@ class CommentAndShareSection extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {
-            // context.pushNamed(Routes.commentView, arguments: post.postId),
-          },
+          onPressed: () =>
+              context.pushNamed(Routes.commentView, arguments: post.postId),
           child: Text(
-            'Write a comment.... ',
+            'Write a comment ...... ',
             style: AppTextStyles.font14GreyRegular,
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../../core/style/text_styles.dart';
@@ -7,18 +8,15 @@ import '../../../../room/data/models/room_model/rooms_response.dart';
 
 AppBar chatAppBar(RoomsData room) {
   return AppBar(
-    automaticallyImplyLeading: false,
-    elevation: 0,
-    backgroundColor: Colors.white,
-    surfaceTintColor: Colors.white,
-    // bottom: PreferredSize(
-    //   preferredSize: const Size.fromHeight(5),
-    //   child: Container(
-    //     margin: const EdgeInsets.symmetric(horizontal: 20),
-    //     color: const Color(0xffD9D9D9),
-    //     height: 1,
-    //   ),
-    // ),
+    leadingWidth: 30,
+    bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(5),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        color: Colors.grey.shade200,
+        height: 1,
+      ),
+    ),
     title: Row(
       children: [
         CircleAvatar(
@@ -44,7 +42,13 @@ AppBar chatAppBar(RoomsData room) {
             ),
             SizedBox(height: 4.h),
             Text(
-              ' user.lastActivat',
+              DateFormat("hh:mm a").format(
+                DateTime.parse(
+                  DateTime.fromMillisecondsSinceEpoch(
+                    int.parse(room.lastMessageTime),
+                  ).toString(),
+                ),
+              ),
               style: TextStyle(
                 fontSize: 12.sp,
                 color: const Color(0xff4CD964),

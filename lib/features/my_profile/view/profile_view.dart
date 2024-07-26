@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/core/style/text_styles.dart';
+import 'package:social_app/core/shared/widgets/build_app_bar.dart';
 import '../view_model/get_user_cubit/get_user_cubit.dart';
 import '../view_model/get_user_cubit/get_user_states.dart';
 import 'widgets/get_profile_loading.dart';
@@ -12,12 +12,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Settings',
-          style: AppTextStyles.font24SemiBoldBlue.copyWith(fontSize: 23),
-        ),
-      ),
+      appBar: buildAppBar(context, title: 'Settings'),
       body: BlocBuilder<GetUserCubit, GetUserStates>(
         builder: (context, state) {
           return state.when(

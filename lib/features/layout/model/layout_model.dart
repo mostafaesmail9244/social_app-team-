@@ -16,7 +16,7 @@ const List<String> labels = [
   "Chat",
   "Post",
   "Users",
-  "Settings",
+  "Profile",
 ];
 
 const List<Icon> iconsList = [
@@ -24,7 +24,7 @@ const List<Icon> iconsList = [
   Icon(IconlyLight.chat),
   Icon(IconlyLight.upload),
   Icon(IconlyLight.user2),
-  Icon(IconlyLight.setting),
+  Icon(IconlyLight.profile),
 ];
 
 const List<Icon> activeIconsList = [
@@ -32,7 +32,7 @@ const List<Icon> activeIconsList = [
   Icon(IconlyBold.chat),
   Icon(IconlyBold.upload),
   Icon(IconlyBold.user2),
-  Icon(IconlyBold.setting),
+  Icon(IconlyBold.profile),
 ];
 
 final List<Widget> screensList = [
