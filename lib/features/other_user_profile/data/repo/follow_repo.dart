@@ -13,6 +13,7 @@ class FollowRepo {
       {required String myId, required String followUserId}) async {
     final DocumentSnapshot documentSnapshot = await _users.doc(myId).get();
     final List following = (documentSnapshot.data()! as dynamic)['following'];
+    
     try {
       if (following.contains(followUserId)) {
         await _users.doc(myId).update({

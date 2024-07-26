@@ -9,18 +9,15 @@ import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/model/posts_response.dart';
-import '../../view_model/get_posts_cubit/get_posts_cubit.dart';
-import '../../view_model/get_posts_cubit/get_posts_states.dart';
+import '../../view_model/like_commen_cubit/like_commen_cubit.dart';
 
 class CommentAndShareSection extends StatelessWidget {
   final PostsData post;
-  final bool isLike;
-  const CommentAndShareSection(
-      {super.key, required this.isLike, required this.post});
+  const CommentAndShareSection({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
-    // final cubit = context.read<GetPostsCubit>();
+    final cubit = context.read<LikeCommentCubit>();
     return Row(
       children: [
         Padding(
@@ -47,44 +44,37 @@ class CommentAndShareSection extends StatelessWidget {
         const Spacer(),
         Row(
           children: [
-            IconButton(
-                onPressed: () {
-                  // cubit.addOrRemoveLike(
-                  //   like: post.loves!,
-                  //   postID: post.postId,
-                  //   uid: CashHelper.get(key: CashConstants.userId),
-                  // );
-                },
-                icon: Icon(
-                  (post.loves!
-                          .contains(CashHelper.get(key: CashConstants.userId))
-                      ? IconlyBold.heart
-                      : IconlyLight.heart),
-                  color: Colors.red,
-                )
-                //  BlocBuilder<GetPostsCubit, GetPostsStates>(
-                //   buildWhen: (previous, current) => current is AddOrRemoveLove,
-                //   builder: (context, state) {
-                //     if (state is AddOrRemoveLove) {
-                //       return Icon(
-                //         (post.loves!.contains(
-                //                 CashHelper.get(key: CashConstants.userId))
-                //             ? IconlyBold.heart
-                //             : IconlyLight.heart),
-                //         color: Colors.red,
-                //       );
-                //     } else {
-                //       return Icon(
-                //         (post.loves!.contains(
-                //                 CashHelper.get(key: CashConstants.userId))
-                //             ? IconlyBold.heart
-                //             : IconlyLight.heart),
-                //         color: Colors.red,
-                //       );
-                //     }
-                //   },
-                // ),
-                ),
+            BlocBuilder<LikeCommentCubit, LikeCommentState>(
+              builder: (context, state) {
+                if (state is AddLikeSuccess ) {
+                  return IconButton(
+                    onPressed: () {
+                      cubit.getSpecificUser(post.postId);
+                    },
+                    icon: Icon(
+                      (cubit.post!.loves!.contains(
+                              CashHelper.get(key: CashConstants.userId))
+                          ? IconlyBold.heart
+                          : IconlyLight.heart),
+                      color: Colors.red,
+                    ),
+                  );
+                } else {
+                  return IconButton(
+                    onPressed: () {
+                      cubit.getSpecificUser(post.postId);
+                    },
+                    icon: Icon(
+                      (post.loves!.contains(
+                              CashHelper.get(key: CashConstants.userId))
+                          ? IconlyBold.heart
+                          : IconlyLight.heart),
+                      color: Colors.red,
+                    ),
+                  );
+                }
+              },
+            ),
             Text(
               'Like',
               style: AppTextStyles.font13GrayRegular,

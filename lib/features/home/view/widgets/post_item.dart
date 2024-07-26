@@ -37,7 +37,7 @@ class PostItem extends StatelessWidget {
              LikeAndCommentNumber(post: post),
             verticalSpace(10),
             Divider(height: 1, color: AppColors.grey.withOpacity(0.3)),
-            CommentAndShareSection(isLike: false, post: post)
+            CommentAndShareSection( post: post)
           ],
         ),
       ),
