@@ -21,7 +21,6 @@ class TabBarDemo extends StatelessWidget {
           verticalSpace(10),
           const Expanded(
             child: TabBarView(
-              physics: NeverScrollableScrollPhysics(),
               children: [
                 PhotoTabBarBuilder(),
                 PostsTabBarBuilder(),

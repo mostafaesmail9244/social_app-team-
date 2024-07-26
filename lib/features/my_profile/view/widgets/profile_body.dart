@@ -36,8 +36,16 @@ class ProfileBody extends StatelessWidget {
           children: [
             button(onTap: () {}, nums: '100', title: 'Posts'),
             button(onTap: () {}, nums: '55', title: 'Photos'),
-            button(onTap: () {}, nums: '10k', title: 'Followers'),
-            button(onTap: () {}, nums: '64', title: 'Following'),
+            button(
+              onTap: () {},
+              nums: data.followers!.length.toString(),
+              title: 'Followers',
+            ),
+            button(
+              onTap: () {},
+              nums: data.following!.length.toString(),
+              title: 'Following',
+            ),
           ],
         ),
         verticalSpace(20),

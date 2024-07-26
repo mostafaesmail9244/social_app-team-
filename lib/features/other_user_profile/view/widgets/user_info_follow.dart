@@ -6,6 +6,7 @@ import 'package:social_app/core/style/text_styles.dart';
 import '../../../../core/router/routes.dart';
 import '../../../my_profile/data/models/profile_response/profile_response.dart';
 import 'package:social_app/core/helper/spacing.dart';
+import 'follow_button_widget.dart';
 
 class UserInfoAndFollow extends StatelessWidget {
   final UserData data;
@@ -22,14 +23,12 @@ class UserInfoAndFollow extends StatelessWidget {
             children: [
               Text(
                 data.name!,
-                //  userModel!.name!,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.font24Black700.copyWith(fontSize: 20.sp),
               ),
               verticalSpace(5),
               Text(
                 data.bio!,
-                //  userModel!.bio ?? 'Write your bio...',
                 textAlign: TextAlign.center,
                 style: AppTextStyles.font14GreyRegular,
               ),
@@ -48,28 +47,10 @@ class UserInfoAndFollow extends StatelessWidget {
                 ),
                 onPressed: () {
                   context.pushNamed(Routes.testView, arguments: data);
-                  // print(context.read<RoomCubit>().roomData!.id);
-                  //       toId: user!.id!,
-                  //       userName: user!.name!,
-                  //       userPicture: user!.image!,
-                  //     )
                 },
                 child: const Icon(Icons.message),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: AppColors.lightMainBlue,
-                ),
-                onPressed: () {},
-                child: const Row(
-                  children: [
-                    Text("Follow"),
-                    SizedBox(width: 5),
-                    Icon(Icons.add)
-                  ],
-                ),
-              ),
+              FollowButtonWidget(data: data),
             ],
           ),
         ],
