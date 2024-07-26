@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../../profile/data/models/profile_response/profile_response.dart';
 
 part 'rooms_response.g.dart';
 

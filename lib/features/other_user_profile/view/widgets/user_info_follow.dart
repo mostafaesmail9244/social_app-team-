@@ -4,7 +4,7 @@ import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import '../../../../core/router/routes.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'follow_button_widget.dart';
 

@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import '../../../../core/firebase_service/firebase_constants.dart';
 import '../../../../core/firebase_service/firebase_failures.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 
 class FollowRepo {
   final CollectionReference _users =

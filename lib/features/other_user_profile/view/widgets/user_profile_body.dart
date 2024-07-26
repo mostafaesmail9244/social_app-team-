@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/spacing.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
-import '../../../my_profile/view/widgets/profile_image_section.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/view/widgets/profile_image_section.dart';
 import 'tab_bar.dart';
 import 'text_section.dart';
 import 'user_info_follow.dart';

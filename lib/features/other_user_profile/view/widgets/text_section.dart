@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/shared/widgets/custom_shimmer.dart';
 import 'package:social_app/features/other_user_profile/view_model/follow_cubit/follow_cubit.dart';
-import '../../../my_profile/view/widgets/detail_buttom_widget.dart';
+import '../../../profile/view/widgets/detail_buttom_widget.dart';
 
 class TextSection extends StatelessWidget {
   const TextSection({super.key});

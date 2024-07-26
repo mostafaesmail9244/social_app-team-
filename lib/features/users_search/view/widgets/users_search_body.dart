@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 import '../../../../core/shared/widgets/user_item.dart';
 
 class UsersSearchBody extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 part 'users_search_state.freezed.dart';
 
 @freezed

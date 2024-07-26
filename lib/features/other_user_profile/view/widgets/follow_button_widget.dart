@@ -4,7 +4,7 @@ import 'package:social_app/core/shared/widgets/custom_shimmer.dart';
 import '../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/style/app_colors.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 import '../../view_model/follow_cubit/follow_cubit.dart';
 
 class FollowButtonWidget extends StatelessWidget {

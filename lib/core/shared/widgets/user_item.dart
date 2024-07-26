@@ -3,7 +3,7 @@ import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
-import 'package:social_app/features/my_profile/data/models/profile_response/profile_response.dart';
+import 'package:social_app/features/profile/data/models/profile_response/profile_response.dart';
 import '../../router/routes.dart';
 import '../../../features/room/data/models/room_model/rooms_response.dart';
 

@@ -5,7 +5,7 @@ import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../layout/view_model/layout_cubit/layout_cubit.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 
 class ImageAndMindWidget extends StatelessWidget {
   final UserData data;

@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../my_profile/data/models/profile_response/profile_response.dart';
+import '../../../profile/data/models/profile_response/profile_response.dart';
 import '../../data/repo/follow_repo.dart';
 
 part 'follow_state.dart';
