@@ -6,10 +6,13 @@ import 'package:social_app/features/home/data/model/posts_response.dart';
 class LikeCommentRepo {
   final CollectionReference _post =
       FirebaseFirestore.instance.collection(FireBaseConstants.postsCollection);
-  Future<Either<String, PostsData>> toggleLike(
-      {required String myId, required String postId}) async {
+
+  Future<Either<String, PostsData>> toggleLike({
+    required String myId,
+    required String postId,
+  }) async {
     final DocumentSnapshot documentSnapshot = await _post.doc(postId).get();
-    final List loves = await (documentSnapshot.data()! as dynamic)['loves'];
+    final List loves = (documentSnapshot.data()! as dynamic)['loves'];
     try {
       if (loves.contains(myId)) {
         await _post.doc(postId).update({
@@ -21,12 +24,18 @@ class LikeCommentRepo {
         });
       }
       final DocumentSnapshot documentSnapshot = await _post.doc(postId).get();
-      // final List lovesList = (documentSnapshot.data()! as dynamic)['loves'];
       final PostsData response = PostsData.fromSnapshot(
           documentSnapshot as DocumentSnapshot<Map<String, dynamic>>);
       return right(response);
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  Stream<PostsData> postStream(String postId) {
+    return _post.doc(postId).snapshots().map((snapshot) {
+      return PostsData.fromSnapshot(
+          snapshot as DocumentSnapshot<Map<String, dynamic>>);
+    });
   }
 }

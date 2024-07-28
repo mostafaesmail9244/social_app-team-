@@ -11,8 +11,7 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
   final LikeCommentRepo _repo;
   LikeCommentCubit(this._repo) : super(Initial());
 
-  Map<String, PostsData> posts = {};
-  PostsData? post;
+  final Map<String, PostsData> posts = {};
 
   void toggleLike(String postId) async {
     final response = await _repo.toggleLike(
@@ -22,16 +21,20 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
     response.fold((error) {
       debugPrint(error.toString());
     }, (data) {
-      post = data;
       posts[postId] = data;
       emit(PostUpdated(postId));
     });
   }
 
+  void listenToPost(String postId) {
+    _repo.postStream(postId).listen((post) {
+      posts[postId] = post;
+      emit(PostUpdated(post.postId));
+    });
+  }
+
   bool isLiked(String postId) {
-    return posts[postId]
-            ?.loves
-            ?.contains(CashHelper.get(key: CashConstants.userId)) ??
-        false;
+    return posts[postId]?.loves?.contains(CashHelper.get(key: CashConstants.userId)) ?? false;
   }
 }
+

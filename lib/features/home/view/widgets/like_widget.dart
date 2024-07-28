@@ -1,6 +1,4 @@
-import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/style/text_styles.dart';
@@ -14,34 +12,24 @@ class LikeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Start listening to changes in the post document
+    cubit.listenToPost(post.postId);
+
     return Row(
       children: [
         BlocBuilder<LikeCommentCubit, LikeCommentState>(
           buildWhen: (previous, current) =>
               current is PostUpdated && current.postId == post.postId,
           builder: (context, state) {
-            if (state is PostUpdated) {
-              return IconButton(
-                onPressed: () => cubit.toggleLike(post.postId),
-                icon: Icon(
-                  (cubit.isLiked(post.postId)
-                      ? IconlyBold.heart
-                      : IconlyLight.heart),
-                  color: Colors.red,
-                ),
-              );
-            } else {
-              return IconButton(
-                onPressed: () => cubit.toggleLike(post.postId),
-                icon: Icon(
-                  (post.loves!
-                          .contains(CashHelper.get(key: CashConstants.userId))
-                      ? IconlyBold.heart
-                      : IconlyLight.heart),
-                  color: Colors.red,
-                ),
-              );
-            }
+            return IconButton(
+              onPressed: () => cubit.toggleLike(post.postId),
+              icon: Icon(
+                (cubit.isLiked(post.postId)
+                    ? IconlyBold.heart
+                    : IconlyLight.heart),
+                color: Colors.red,
+              ),
+            );
           },
         ),
         Text(
