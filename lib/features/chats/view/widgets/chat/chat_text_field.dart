@@ -36,9 +36,9 @@ class ChatTextField extends StatelessWidget {
           ),
           const SizedBox(width: 6),
           IconButton.filled(
-            onPressed: () async {
+            onPressed: () {
               if (controler.text.trim().isNotEmpty) {
-                await cubit.sendMessage(
+                cubit.sendMessage(
                   toId: room.otherUserDetails!.id!,
                   message: controler.text,
                   roomId: room.id,

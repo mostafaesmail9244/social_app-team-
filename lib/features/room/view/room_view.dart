@@ -13,23 +13,21 @@ class RoomView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const HomeAppBarTittle()),
-      body: SafeArea(
-        child: BlocBuilder<RoomCubit, RoomState>(
-          buildWhen: (previous, current) =>
-              current is GetRoomsLoading ||
-              current is GetRoomsError ||
-              current is GetRoomsSuccess ||
-              current is GetRoomsFilteredSuccess,
-          builder: (context, state) {
-            return state.maybeWhen(
-              orElse: () => const SizedBox.shrink(),
-              getRoomsLoading: () => const ShimmerLoadingChat(),
-              getRoomsError: (error) => const ShimmerLoadingChat(),
-              getRoomsSuccess: (data) => RoomBody(data: data.rooms),
-              getRoomsFilteredSuccess: (list) => RoomBody(data: list),
-            );
-          },
-        ),
+      body: BlocBuilder<RoomCubit, RoomState>(
+        buildWhen: (previous, current) =>
+            current is GetRoomsLoading ||
+            current is GetRoomsError ||
+            current is GetRoomsSuccess ||
+            current is GetRoomsFilteredSuccess,
+        builder: (context, state) {
+          return state.maybeWhen(
+            orElse: () => const SizedBox.shrink(),
+            getRoomsLoading: () => const ShimmerLoadingChat(),
+            getRoomsError: (error) => const ShimmerLoadingChat(),
+            getRoomsSuccess: (data) => RoomBody(data: data.rooms),
+            getRoomsFilteredSuccess: (list) => RoomBody(data: list),
+          );
+        },
       ),
     );
   }

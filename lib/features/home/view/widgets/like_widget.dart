@@ -14,12 +14,11 @@ class LikeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // Start listening to changes in the post document
     cubit.listenToLikesPost(post.postId);
-
     return Row(
       children: [
         BlocBuilder<LikeCommentCubit, LikeCommentState>(
           buildWhen: (previous, current) =>
-              current is LikePostUpdated && current.postId == post.postId,
+              current is LikeCountUpdated && current.postId == post.postId,
           builder: (context, state) {
             return IconButton(
               onPressed: () => cubit.toggleLike(post.postId),

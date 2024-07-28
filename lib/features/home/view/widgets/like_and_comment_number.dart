@@ -25,7 +25,7 @@ class LikeAndCommentNumber extends StatelessWidget {
             horizontalSpace(5),
             BlocBuilder<LikeCommentCubit, LikeCommentState>(
               buildWhen: (previous, current) =>
-                  current is LikePostUpdated && current.postId == post.postId,
+                  current is LikeCountUpdated && current.postId == post.postId,
               builder: (context, state) {
                 return Text(
                   '${cubit.posts[post.postId]?.loves?.length ?? 0} likes',

@@ -34,7 +34,7 @@ class RoomRepo {
     required String userPicture,
   }) async {
     final String fromID = CashHelper.get(key: CashConstants.userId);
-    final List<String> members = [fromID, toId]..sort((a, b) => a.compareTo(b));
+    final List<String> members = [fromID, toId];
 
     try {
       final RoomsData chatRoom = RoomsData(
@@ -101,7 +101,6 @@ class RoomRepo {
     List<String> members,
   ) async {
     try {
-      members.sort((a, b) => a.compareTo(b));
       final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.roomsCollection)
           .where('members', isEqualTo: members)
@@ -143,7 +142,7 @@ class RoomRepo {
     required String userPicture,
   }) async {
     final String fromID = CashHelper.get(key: CashConstants.userId);
-    final List<String> members = [fromID, toId]..sort((a, b) => a.compareTo(b));
+    final List<String> members = [fromID, toId];
 
     // Check if the room exists
     final roomResult = await getRoomByMembers(members);

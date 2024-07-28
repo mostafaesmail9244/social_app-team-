@@ -25,7 +25,7 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
       debugPrint(error.toString());
     }, (data) {
       posts[postId] = data;
-      emit(LikePostUpdated(postId));
+      emit(LikeCountUpdated(postId));
     });
   }
 
@@ -39,11 +39,11 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
   void listenToLikesPost(String postId) {
     _repo.likesStream(postId).listen((post) {
       posts[postId] = post;
-      emit(LikePostUpdated(post.postId));
+      emit(LikeCountUpdated(post.postId));
     });
   }
 
-    void listenToCommentsCount(String postId) {
+  void listenToCommentsCount(String postId) {
     _repo.commentsLengthStream(postId).listen((count) {
       commentsCount[postId] = count;
       emit(CommentsCountUpdated(postId, count));

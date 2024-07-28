@@ -13,10 +13,7 @@ class UsersSearchBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: ListView.separated(
         itemCount: users.length,
-        itemBuilder: (context, index) => UserItem(
-          isSearch: true,
-          user: users[index],
-        ),
+        itemBuilder: (context, index) => UserItem(user: users[index]),
         separatorBuilder: (context, index) => verticalSpace(16),
       ),
     );

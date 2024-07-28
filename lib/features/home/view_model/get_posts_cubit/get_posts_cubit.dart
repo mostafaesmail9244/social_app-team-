@@ -21,14 +21,4 @@ class GetPostsCubit extends Cubit<GetPostsStates> {
       emit(GetPostsStates.getPostsSuccess(data));
     });
   }
-
-  void addOrRemoveLike(
-      {required String postID, required String uid, required List like}) async {
-    final response = await _repo.addOrRemoveLike(postID, uid, like);
-
-    response.fold(
-      (mes) => emit(GetPostsStates.addOrRemoveLove(mes)),
-      (mes) => emit(GetPostsStates.addOrRemoveLove(mes)),
-    );
-  }
 }

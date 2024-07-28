@@ -48,7 +48,7 @@ class ChatTextCard extends StatelessWidget {
                   ? Icon(
                       Icons.done_all,
                       size: 13.sp,
-                      color: message.read == '' ? Colors.black : Colors.teal,
+                      color: message.read == '' ? Colors.grey : Colors.teal,
                     )
                   : const SizedBox(width: 4)
             ],

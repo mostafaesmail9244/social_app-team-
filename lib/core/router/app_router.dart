@@ -89,11 +89,11 @@ class AppRouter {
           builder: (context) => ImageDetails(image: image),
         );
 
-      //chatDetailsView
+      //chatView
       case Routes.chatView:
         final room = data as RoomsData;
-        return MaterialPageRoute(
-          builder: (context) => ChatView(room: room),
+        return BaseRoute(
+          page: ChatView(room: room),
         );
 
       //editeProfileScreen

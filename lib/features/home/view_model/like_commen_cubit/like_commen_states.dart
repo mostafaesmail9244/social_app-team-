@@ -8,9 +8,9 @@ final class Initial extends LikeCommentState {}
 
 final class AddLikeSuccess extends LikeCommentState {}
 
-final class LikePostUpdated extends LikeCommentState {
+final class LikeCountUpdated extends LikeCommentState {
   final String postId;
-  const LikePostUpdated(this.postId);
+  const LikeCountUpdated(this.postId);
 }
 
 class CommentsCountUpdated extends LikeCommentState {

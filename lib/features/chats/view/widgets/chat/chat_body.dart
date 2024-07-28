@@ -18,7 +18,9 @@ class _ChatBodyState extends State<ChatBody> {
   final TextEditingController textControler = TextEditingController();
   @override
   void initState() {
-    context.read<ChatCubit>().getMessages(roomId: widget.room.id);
+    Future.delayed(const Duration(seconds: 1), () {
+      context.read<ChatCubit>().readMessage(room: widget.room);
+    });
     super.initState();
   }
 
@@ -49,7 +51,7 @@ class _ChatBodyState extends State<ChatBody> {
               return GroupedListViewBuilder(
                 scrollController: scrollController,
                 cubit: cubit,
-             //   toId: widget.room.memberDetails!.id!,
+                //   toId: widget.room.memberDetails!.id!,
               );
             },
           ),

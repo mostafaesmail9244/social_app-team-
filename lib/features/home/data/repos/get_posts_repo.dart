@@ -41,32 +41,4 @@ class GetPostsRepo {
 
   //   return commentSnapshot.size;
   // }
-
-  Future<Either<String, String>> addOrRemoveLike(
-      String postID, String uid, List like) async {
-    final loveList = like;
-    try {
-      if (loveList.contains(uid)) {
-        loveList.remove(uid);
-
-        await _firestore
-            .collection(FireBaseConstants.postsCollection)
-            .doc(postID)
-            .update({
-          'loves': FieldValue.arrayRemove([uid])
-        });
-      } else {
-        loveList.add(uid);
-        await _firestore
-            .collection(FireBaseConstants.postsCollection)
-            .doc(postID)
-            .update({
-          'loves': FieldValue.arrayUnion([uid])
-        });
-      }
-      return right('success');
-    } catch (e) {
-      return right('error');
-    }
-  }
 }
