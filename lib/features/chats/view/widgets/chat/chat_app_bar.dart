@@ -20,7 +20,7 @@ AppBar chatAppBar(RoomsData room) {
     title: Row(
       children: [
         CircleAvatar(
-          radius: 25.r,
+          radius: 22.r,
           child: CustomCachedNetworkImage(
             imageUrl: room.otherUserDetails!.image!,
             size: 20,

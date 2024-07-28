@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
@@ -24,14 +25,14 @@ class UserItem extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 30,
+            radius: 26.r,
             child: CustomCachedNetworkImage(
               imageUrl: isSearch == true
                   ? user!.image!
                   : room!.otherUserDetails!.image!,
               size: 20,
-              height: 50,
-              width: 50,
+              height: 100,
+              width: 100,
               radius: 320,
             ),
           ),
