@@ -32,10 +32,18 @@ class LikeCommentRepo {
     }
   }
 
-  Stream<PostsData> postStream(String postId) {
+  Stream<PostsData> likesStream(String postId) {
     return _post.doc(postId).snapshots().map((snapshot) {
       return PostsData.fromSnapshot(
           snapshot as DocumentSnapshot<Map<String, dynamic>>);
     });
+  }
+
+  Stream<int> commentsLengthStream(String postId) {
+    return _post
+        .doc(postId)
+        .collection(FireBaseConstants.commentsCollection)
+        .snapshots()
+        .map((snapshot) => snapshot.docs.length);
   }
 }

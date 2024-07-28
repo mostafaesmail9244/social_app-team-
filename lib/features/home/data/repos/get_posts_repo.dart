@@ -8,21 +8,22 @@ class GetPostsRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   Future<Either<Failure, PostsResponse>> getPostsData() async {
     try {
-      final QuerySnapshot<Map<String, dynamic>> postSnapshot = await _firestore
+      final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
           .collection(FireBaseConstants.postsCollection)
           .orderBy('date', descending: true)
           .get();
 
-      final List<PostsData> posts = await Future.wait(
-        postSnapshot.docs.map((postDoc) async {
-          int commentCount = await countCommentsForPost(postDoc.id);
-          PostsData postData = PostsData.fromSnapshot(postDoc)
-              .copyWith(commentCount: commentCount);
-          return postData;
-        }).toList(),
-      );
+      // final List<PostsData> posts = await Future.wait(
+      //   postSnapshot.docs.map((postDoc) async {
+      //     int commentCount = await countCommentsForPost(postDoc.id);
+      //     PostsData postData = PostsData.fromSnapshot(postDoc)
+      //         .copyWith(commentCount: commentCount);
+      //     return postData;
+      //   }).toList(),
+      // );
 
-      return right(PostsResponse(posts: posts));
+      PostsResponse response = PostsResponse.fromJson(snap.docs);
+      return right(response);
     } catch (e) {
       if (e is FirebaseException) {
         return left(ServerFailure.fromFirebaseAuthException(e));
@@ -31,15 +32,15 @@ class GetPostsRepo {
     }
   }
 
-  Future<int> countCommentsForPost(String postId) async {
-    final QuerySnapshot<Map<String, dynamic>> commentSnapshot = await _firestore
-        .collection(FireBaseConstants.postsCollection)
-        .doc(postId)
-        .collection(FireBaseConstants.commentsCollection)
-        .get();
+  // Future<int> countCommentsForPost(String postId) async {
+  //   final QuerySnapshot<Map<String, dynamic>> commentSnapshot = await _firestore
+  //       .collection(FireBaseConstants.postsCollection)
+  //       .doc(postId)
+  //       .collection(FireBaseConstants.commentsCollection)
+  //       .get();
 
-    return commentSnapshot.size;
-  }
+  //   return commentSnapshot.size;
+  // }
 
   Future<Either<String, String>> addOrRemoveLike(
       String postID, String uid, List like) async {
@@ -68,22 +69,4 @@ class GetPostsRepo {
       return right('error');
     }
   }
-
-  //   Future<void> removeLike(String postID, String uid) async {
-  //   await _firestore
-  //       .collection(FireBaseConstants.postsCollection)
-  //       .doc(postID)
-  //       .update({
-  //     'loves': FieldValue.arrayRemove([uid])
-  //   });
-  // }
-
-  // Future<void> addLike(String postID, String uid) async {
-  //   await _firestore
-  //       .collection(FireBaseConstants.postsCollection)
-  //       .doc(postID)
-  //       .update({
-  //     'loves': FieldValue.arrayUnion([uid])
-  //   });
-  // }
 }

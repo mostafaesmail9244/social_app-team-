@@ -59,7 +59,9 @@ class ChatBuble extends StatelessWidget {
                 child: message.type == 'image'
                     ? ChatImageCard(message: message)
                     : ChatTextCard(
-                        message: message, isUserMessage: isUserMessage),
+                        message: message,
+                        isUserMessage: isUserMessage,
+                      ),
               ),
             ),
           ),

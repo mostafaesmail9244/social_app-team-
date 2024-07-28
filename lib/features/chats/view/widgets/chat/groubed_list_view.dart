@@ -11,11 +11,8 @@ import 'grouped_date_widget.dart';
 class GroupedListViewBuilder extends StatelessWidget {
   final ScrollController scrollController;
   final ChatCubit cubit;
-  const GroupedListViewBuilder({
-    super.key,
-    required this.scrollController,
-    required this.cubit,
-  });
+  const GroupedListViewBuilder(
+      {super.key, required this.scrollController, required this.cubit});
 
   @override
   Widget build(BuildContext context) {

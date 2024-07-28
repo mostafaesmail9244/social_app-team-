@@ -14,6 +14,7 @@ class LikeAndCommentNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<LikeCommentCubit>();
+    cubit.listenToCommentsCount(post.postId);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,10 +25,10 @@ class LikeAndCommentNumber extends StatelessWidget {
             horizontalSpace(5),
             BlocBuilder<LikeCommentCubit, LikeCommentState>(
               buildWhen: (previous, current) =>
-                  current is PostUpdated && current.postId == post.postId,
+                  current is LikePostUpdated && current.postId == post.postId,
               builder: (context, state) {
                 return Text(
-                  '${cubit.posts[post.postId]?.loves?.length}  likes',
+                  '${cubit.posts[post.postId]?.loves?.length ?? 0} likes',
                   style: AppTextStyles.font13GrayRegular,
                 );
               },
@@ -42,10 +43,16 @@ class LikeAndCommentNumber extends StatelessWidget {
               size: 16,
             ),
             horizontalSpace(5),
-            // Text('${widget.postModel.comments!.toString()} comment',
-            Text(
-              '${post.commentCount} comment',
-              style: AppTextStyles.font13GrayRegular,
+            BlocBuilder<LikeCommentCubit, LikeCommentState>(
+              buildWhen: (previous, current) =>
+                  current is CommentsCountUpdated &&
+                  current.postId == post.postId,
+              builder: (context, state) {
+                return Text(
+                  '${cubit.commentsCount[post.postId] ?? 0} comments',
+                  style: AppTextStyles.font13GrayRegular,
+                );
+              },
             ),
           ],
         ),
