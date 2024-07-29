@@ -32,6 +32,13 @@ class GetPostsRepo {
     }
   }
 
+  Future<void> deletePost({required String postId}) async {
+    await _firestore
+        .collection(FireBaseConstants.postsCollection)
+        .doc(postId)
+        .delete();
+  }
+
   // Future<int> countCommentsForPost(String postId) async {
   //   final QuerySnapshot<Map<String, dynamic>> commentSnapshot = await _firestore
   //       .collection(FireBaseConstants.postsCollection)

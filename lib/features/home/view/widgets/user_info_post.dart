@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:intl/intl.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/model/posts_response.dart';
+import '../../view_model/get_posts_cubit/get_posts_cubit.dart';
 
 class UserInfoPost extends StatelessWidget {
   final PostsData post;
@@ -42,7 +45,12 @@ class UserInfoPost extends StatelessWidget {
             ],
           ),
         ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
+        IconButton(
+          onPressed: () {
+            context.read<GetPostsCubit>().deletePost(postId: post.postId);
+          },
+          icon: const Icon(IconlyLight.delete, size: 17),
+        ),
       ],
     );
   }

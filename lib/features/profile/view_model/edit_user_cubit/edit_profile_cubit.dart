@@ -28,15 +28,21 @@ class EditUserCubit extends Cubit<EditUserStatus> {
       profileImage: profileImage,
       coverImage: coverImage,
     );
-    response.fold(
-      (error) => emit(EditUserErrorState(error: error.errorMessage)),
-      (res) => emit(EditUserSuccessState(message: res)),
-    );
+    response
+        .fold((error) => emit(EditUserErrorState(error: error.errorMessage)),
+            (res) async {
+      await _updateUserNameInPosts();
+      emit(EditUserSuccessState(message: res));
+    });
   }
 
   void validateThenDoEdit({File? profileImage, File? coverImage}) {
     if (formKey.currentState!.validate()) {
       emitToEditMyInfo(profileImage: profileImage, coverImage: coverImage);
     }
+  }
+
+  Future<void> _updateUserNameInPosts() async {
+    await _userRepo.updateUserNameInPosts(nameController.text);
   }
 }

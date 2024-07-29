@@ -104,8 +104,8 @@ class AppRouter {
 
       //editeProfileScreen
       case Routes.editeProfileView:
-        return MaterialPageRoute(
-          builder: (context) => MultiBlocProvider(
+        return BaseRoute(
+          page: MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<EditUserCubit>()),
               BlocProvider(create: (context) => getIt<PickImageProfileCubit>()),
@@ -117,8 +117,8 @@ class AppRouter {
       //OtherUserProfileView
       case Routes.otherUserProfileView:
         final user = data as UserData;
-        return MaterialPageRoute(
-          builder: (context) => MultiBlocProvider(
+        return BaseRoute(
+          page: MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<LikeCommentCubit>()),
               BlocProvider(
@@ -149,7 +149,17 @@ class AppRouter {
       case Routes.beforeGoingToChatView:
         final user = data as UserData;
         return BaseRoute(
-          page: BeforeGoingToChat(user: user),
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<ChatCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<PickImageCubit>(),
+              ),
+            ],
+            child: BeforeGoingToChat(user: user),
+          ),
         );
 
       //imageDetails

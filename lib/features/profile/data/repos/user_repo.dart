@@ -77,4 +77,35 @@ class UserRepo {
     TaskSnapshot taskSnapshot = await uploadTask;
     return await taskSnapshot.ref.getDownloadURL();
   }
+
+  Future<void> updateUserNameInPosts(String newUserName) async {
+    // Reference to Firestore
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    // Query to fetch all posts by the user
+    QuerySnapshot<Map<String, dynamic>> userPostsSnapshot = await firestore
+        .collection(FireBaseConstants.postsCollection)
+        .where('userId', isEqualTo: CashHelper.get(key: CashConstants.userId))
+        .get();
+
+    // Initialize a batch
+    WriteBatch batch = firestore.batch();
+
+    // Iterate through each document and update the userName field
+    for (DocumentSnapshot<Map<String, dynamic>> doc in userPostsSnapshot.docs) {
+      batch.update(doc.reference, {'userName': newUserName});
+    }
+
+    // Commit the batch
+    await batch.commit();
+  }
+  // Future<void> name(params) {
+  //   for (var id in msgsId) {
+  //     _firestore
+  //         .doc(roomId)
+  //         .collection(FireBaseConstants.messagesCollection)
+  //         .doc(id)
+  //         .delete();
+  //   }
+  // }
 }

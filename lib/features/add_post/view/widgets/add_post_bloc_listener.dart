@@ -28,14 +28,12 @@ class AddPostBlocListener extends StatelessWidget {
           customSuccessWidget(context, 'Added Successfully', 'close it', () {
             context.read<GetPostsCubit>().emitGetPostsData();
             context.read<PickImageCubit>().removeImage();
-            context.read<AddPostCubit>().focusNode.unfocus();
             context.pop();
             context.pop();
+            Future.delayed(const Duration(milliseconds: 100), () {
+              context.read<AddPostCubit>().focusNode.unfocus();
+            });
           });
-          // customSuccessWidget(context, "Added Successfully", "Go To Home", () {
-          //   context.pushNamedAndRemoveUntil(Routes.homeView,
-          //       predicate: (route) => false);
-          // });
         });
       },
       child: const SizedBox.shrink(),
