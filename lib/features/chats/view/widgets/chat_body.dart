@@ -15,7 +15,6 @@ class ChatBody extends StatefulWidget {
 
 class _ChatBodyState extends State<ChatBody> {
   final ScrollController scrollController = ScrollController();
-
   @override
   void dispose() {
     super.dispose();

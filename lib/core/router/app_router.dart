@@ -90,7 +90,16 @@ class AppRouter {
       case Routes.chatView:
         final room = data as RoomsData;
         return BaseRoute(
-          page: ChatView(room: room),
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt<ChatCubit>()..getMessages(roomId: room.id),
+              ),
+              BlocProvider(create: (context) => getIt<PickImageCubit>()),
+            ],
+            child: ChatView(room: room),
+          ),
         );
 
       //editeProfileScreen

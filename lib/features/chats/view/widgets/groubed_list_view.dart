@@ -49,12 +49,17 @@ class GroupedListViewBuilder extends StatelessWidget {
       },
       itemBuilder: (context, MessageModel message) {
         return BlocBuilder<ChatCubit, ChatState>(
+          buildWhen: (previous, current) => current is SelectBubble,
           builder: (context, state) {
-            return ChatBuble(
-              message: message,
-              room: room,
-              isMyMessage:
-                  CashHelper.get(key: CashConstants.userId) == message.fromId,
+            return GestureDetector(
+              onLongPress: () => cubit.selectedMessage(message.id),
+              child: ChatBuble(
+                message: message,
+                room: room,
+                isMyMessage:
+                    CashHelper.get(key: CashConstants.userId) == message.fromId,
+                isSelected: cubit.selectedMessages.contains(message.id),
+              ),
             );
           },
         );

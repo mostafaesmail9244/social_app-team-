@@ -44,8 +44,12 @@ class RoomCard extends StatelessWidget {
           style: AppTextStyles.font14BlueSemiBold
               .copyWith(color: Colors.black, fontSize: 15.sp),
         ),
-        subtitle:
-            Text(room.lastMessage, style: AppTextStyles.font14RegularBlack),
+        subtitle: Text(
+          room.lastMessage,
+          style: AppTextStyles.font14RegularBlack,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
         trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

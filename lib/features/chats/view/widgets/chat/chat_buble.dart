@@ -14,18 +14,23 @@ class ChatBuble extends StatelessWidget {
   final bool isMyMessage;
   final MessageModel message;
   final RoomsData room;
+  final bool isSelected;
   const ChatBuble({
     super.key,
     required this.message,
     required this.isMyMessage,
     required this.room,
+    required this.isSelected,
   });
 
   @override
   Widget build(BuildContext context) {
     context.read<ChatCubit>().readMessage(room: room, message: message);
-    return Padding(
+    return Container(
       padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: isSelected ? Colors.grey.shade200 : Colors.transparent,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

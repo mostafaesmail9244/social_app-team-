@@ -67,6 +67,19 @@ class ChatRepo {
     return await taskSnapshot.ref.getDownloadURL();
   }
 
+  void deleteMessage({
+    required String roomId,
+    required List<String> msgsId,
+  }) {
+    for (var id in msgsId) {
+      _firestore
+          .doc(roomId)
+          .collection(FireBaseConstants.messagesCollection)
+          .doc(id)
+          .delete();
+    }
+  }
+
   // Stream<void> commentsLengthStream(
   //     {required RoomsData room, required String messageId}) {
   //   _firestore

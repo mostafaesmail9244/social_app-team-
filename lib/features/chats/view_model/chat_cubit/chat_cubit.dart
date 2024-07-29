@@ -19,6 +19,7 @@ class ChatCubit extends Cubit<ChatState> {
   final TextEditingController textControler = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   List<MessageModel> messagesList = [];
+  List<String> selectedMessages = [];
 
   void sendMessage({
     required String roomId,
@@ -63,6 +64,45 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
+  void selectedMessage(String msgId) {
+    selectedMessages.contains(msgId)
+        ? selectedMessages.remove(msgId)
+        : selectedMessages.add(msgId);
+    emit(SelectBubble());
+  }
+
+  void copyMessage(String msgId) {
+    
+    selectedMessages.contains(msgId)
+        ? selectedMessages.remove(msgId)
+        : selectedMessages.add(msgId);
+    emit(SelectBubble());
+  }
+
+  void deleteMessage({required String roomId}) {
+    _chatRepo.deleteMessage(roomId: roomId, msgsId: selectedMessages);
+    selectedMessages.clear();
+  }
+
+  void readMessage(
+      {required RoomsData room, required MessageModel message}) async {
+    if (message.toId == CashHelper.get(key: CashConstants.userId)) {
+      await _chatRepo.readMessage(messageId: message.id, room: room);
+    }
+  }
+  // void scroll() {
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     if (scrollController.hasClients) {
+  //       scrollController.animateTo(
+  //         scrollController.position.maxScrollExtent,
+  //         duration: const Duration(milliseconds: 500),
+  //         curve: Curves.easeOut,
+  //         //curve: Curves.easeOutCirc,
+  //       );
+  //     }
+  //   });
+  // }
+
   // void getMessages({required String roomId}) {
   //   _firestore
   //       .collection(FireBaseConstants.roomsCollection)
@@ -85,25 +125,6 @@ class ChatCubit extends Cubit<ChatState> {
   //       }
   //     }
   //     emit(ChatSuccess());
-  //   });
-  // }
-
-  void readMessage(
-      {required RoomsData room, required MessageModel message}) async {
-    if (message.toId == CashHelper.get(key: CashConstants.userId)) {
-      await _chatRepo.readMessage(messageId: message.id, room: room);
-    }
-  }
-  // void scroll() {
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     if (scrollController.hasClients) {
-  //       scrollController.animateTo(
-  //         scrollController.position.maxScrollExtent,
-  //         duration: const Duration(milliseconds: 500),
-  //         curve: Curves.easeOut,
-  //         //curve: Curves.easeOutCirc,
-  //       );
-  //     }
   //   });
   // }
 }
