@@ -2,6 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextWidget extends StatelessWidget {
+  final String label;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+  final Color? color;
+  final int? maxLines;
+  final TextDecoration? textDecoration;
+  final TextAlign? textAlign;
   const TextWidget({
     super.key,
     required this.label,
@@ -13,13 +20,6 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
   });
 
-  final String label;
-  final double? fontSize;
-  final FontWeight? fontWeight;
-  final Color? color;
-  final int? maxLines;
-  final TextDecoration? textDecoration;
-  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     return Text(

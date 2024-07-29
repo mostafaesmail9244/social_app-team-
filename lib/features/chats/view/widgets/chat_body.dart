@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
-import '../../../view_model/chat_cubit/chat_cubit.dart';
-import 'chat_text_field.dart';
+import '../../../rooms_chat/data/models/room_model/rooms_response.dart';
+import '../../view_model/chat_cubit/chat_cubit.dart';
+import 'chat/chat_text_field.dart';
 import 'groubed_list_view.dart';
 
 class ChatBody extends StatefulWidget {
@@ -15,25 +15,15 @@ class ChatBody extends StatefulWidget {
 
 class _ChatBodyState extends State<ChatBody> {
   final ScrollController scrollController = ScrollController();
-  final TextEditingController textControler = TextEditingController();
-  // @override
-  // void initState() {
-  //   Future.delayed(const Duration(seconds: 1), () {
-  //     context.read<ChatCubit>().readMessage(room: widget.room);
-  //   });
-  //   super.initState();
-  // }
 
   @override
   void dispose() {
     super.dispose();
     scrollController.dispose();
-    textControler.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<ChatCubit>();
     return Column(
       children: [
         Expanded(
@@ -47,20 +37,16 @@ class _ChatBodyState extends State<ChatBody> {
                 );
               }
             },
+            buildWhen: (previous, current) => current is ChatSuccess,
             builder: (context, state) {
               return GroupedListViewBuilder(
                 scrollController: scrollController,
-                cubit: cubit,
                 room: widget.room,
               );
             },
           ),
         ),
-        ChatTextField(
-          controler: textControler,
-          cubit: cubit,
-          room: widget.room,
-        ),
+        ChatTextField(room: widget.room),
       ],
     );
   }

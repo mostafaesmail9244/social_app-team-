@@ -24,12 +24,12 @@ class ImageProfile extends StatelessWidget {
                 backgroundColor: AppColors.mainBlue,
                 child: CircleAvatar(
                   radius: 55.r,
-                  child: cubit.selectProfileImage == null
+                  child: cubit.selectChatImage == null
                       ? Image.asset('assets/images/user.png')
                       : ClipRRect(
                           borderRadius: BorderRadius.circular(320),
                           child: Image.file(
-                            cubit.selectProfileImage!,
+                            cubit.selectChatImage!,
                             fit: BoxFit.cover,
                             width: double.infinity,
                           ),
@@ -48,7 +48,7 @@ class ImageProfile extends StatelessWidget {
                           cameraFun: () => cubit.pickFromCamera(),
                           galleryFun: () => cubit.pickFromGallary(false),
                           removeFun: () => cubit.removeImage(),
-                          profilePic: cubit.selectProfileImage,
+                          profilePic: cubit.selectChatImage,
                         );
                       },
                     );

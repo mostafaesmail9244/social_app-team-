@@ -6,20 +6,22 @@ part 'message_model.g.dart';
 @JsonSerializable()
 class MessageModel {
   final String message;
-  final String messageId;
+  final String id;
   final String toId;
   final String fromId;
   final String date;
   final String read;
+  final String? image;
   final String type;
   const MessageModel({
     required this.read,
     required this.type,
-    required this.messageId,
+    required this.id,
     required this.message,
     required this.toId,
     required this.fromId,
     required this.date,
+    this.image,
   });
 
   factory MessageModel.fromSnapshot(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../text_widget.dart';
+import 'text_widget.dart';
 
 class GroupedDateWidget extends StatelessWidget {
   final String label;

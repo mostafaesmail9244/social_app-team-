@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
 import 'package:social_app/features/chats/data/models/message_model/message_model.dart';
 import 'package:uuid/uuid.dart';
 import '../../../../core/firebase_service/firebase_constants.dart';
@@ -12,22 +14,29 @@ class ChatRepo {
   final _firestore =
       FirebaseFirestore.instance.collection(FireBaseConstants.roomsCollection);
   final Reference firebaseRef = FirebaseStorage.instance.ref();
+  String? downloadImageURL;
 
   void sendMessage({
     String? type,
+    File? image,
     required String message,
     required String roomId,
     required String toId,
   }) async {
+    if (type != null) {
+      downloadImageURL = await uploadImage(image!, roomId);
+    }
+
     final msgId = const Uuid().v1();
     MessageModel messageModel = MessageModel(
-      messageId: msgId,
+      id: msgId,
       message: message,
       toId: toId,
       fromId: CashHelper.get(key: CashConstants.userId),
       date: DateTime.now().millisecondsSinceEpoch.toString(),
       read: '',
-      type: 'text',
+      type: type ?? 'text',
+      image: type == null ? null : downloadImageURL,
     );
     _firestore
         .doc(roomId)
@@ -48,6 +57,14 @@ class ChatRepo {
         .collection(FireBaseConstants.messagesCollection)
         .doc(messageId)
         .update({'read': 'read'});
+  }
+
+  Future<String> uploadImage(File image, String roomId) async {
+    String fileName = basename(image.path);
+    Reference fire = firebaseRef.child('chatsImages/$roomId/$fileName');
+    UploadTask uploadTask = fire.putFile(image);
+    TaskSnapshot taskSnapshot = await uploadTask;
+    return await taskSnapshot.ref.getDownloadURL();
   }
 
   // Stream<void> commentsLengthStream(

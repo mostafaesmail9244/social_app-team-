@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import '../../../../data/models/message_model/message_model.dart';
-import '../../text_widget.dart';
+import '../../../data/models/message_model/message_model.dart';
+import '../text_widget.dart';
 
 class ChatTextCard extends StatelessWidget {
   final MessageModel message;
-  final bool isUserMessage;
+  final bool isMyMessage;
 
   const ChatTextCard({
     super.key,
     required this.message,
-    required this.isUserMessage,
+    required this.isMyMessage,
   });
 
   @override
@@ -20,14 +20,14 @@ class ChatTextCard extends StatelessWidget {
       children: [
         Padding(
             padding: EdgeInsets.only(
-              right: isUserMessage ? 60 : 50,
+              right: isMyMessage ? 60 : 50,
               bottom: 10,
             ),
             child: TextWidget(
               label: message.message,
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
-              color: isUserMessage ? Colors.black : Colors.white,
+              color: isMyMessage ? Colors.black : Colors.white,
             )),
         Positioned(
           bottom: -1,
@@ -41,10 +41,10 @@ class ChatTextCard extends StatelessWidget {
                   ).toString(),
                 )),
                 fontSize: 8.sp,
-                color: isUserMessage ? Colors.grey : Colors.white,
+                color: isMyMessage ? Colors.grey : Colors.white,
                 // textAlign: TextAlign.right,
               ),
-              isUserMessage
+              isMyMessage
                   ? Icon(
                       Icons.done_all,
                       size: 13.sp,

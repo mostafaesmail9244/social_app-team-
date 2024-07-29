@@ -11,4 +11,7 @@ abstract class Routes {
   static const String otherUserProfileView = 'userProfileView';
   static const String commentView = 'commentView';
   static const String beforeGoingToChatView = 'testView';
+  static const String sendChatImageView = 'sendChatImageView';
+
+  
 }

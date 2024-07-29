@@ -1,14 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/router/routes.dart';
-import 'package:social_app/features/home/view/widgets/image_details.dart';
+import 'package:social_app/core/shared/screen/image_details_view.dart';
+import 'package:social_app/features/chats/view_model/chat_cubit/chat_cubit.dart';
 import 'package:social_app/features/layout/view/layout_screen.dart';
 import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import 'package:social_app/features/other_user_profile/view_model/follow_cubit/follow_cubit.dart';
 import '../../features/chats/view/chat_view.dart';
+import '../../features/chats/view/send_chat_image_view.dart';
 import '../../features/comment/view/comment_view.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
@@ -82,11 +86,6 @@ class AppRouter {
           ),
         );
 
-      //imageDetails
-      case Routes.imageDetails:
-        final image = data as String;
-        return BaseRoute(page: ImageDetails(image: image));
-
       //chatView
       case Routes.chatView:
         final room = data as RoomsData;
@@ -140,9 +139,24 @@ class AppRouter {
       //CommentView
       case Routes.beforeGoingToChatView:
         final user = data as UserData;
-        return MaterialPageRoute(
-          builder: (context) => BeforeGoingToChat(user: user),
+        return BaseRoute(
+          page: BeforeGoingToChat(user: user),
         );
+
+      //imageDetails
+      case Routes.imageDetails:
+        final image = data as String;
+        return BaseRoute(page: ImageDetailsView(image: image));
+
+      //sendChatImageView
+      case Routes.sendChatImageView:
+        return BaseRoute(
+            page: BlocProvider(
+          create: (context) => getIt<ChatCubit>(),
+          child: SendChatImageView(
+            chatInfo: data as ({RoomsData room, File image}),
+          ),
+        ));
     }
     return MaterialPageRoute(
       builder: (_) => Scaffold(

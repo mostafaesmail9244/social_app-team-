@@ -6,6 +6,7 @@ import '../../../../core/router/routes.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../data/models/room_model/rooms_response.dart';
+import 'badge_widget.dart';
 
 class RoomCard extends StatelessWidget {
   final RoomsData room;
@@ -45,15 +46,21 @@ class RoomCard extends StatelessWidget {
         ),
         subtitle:
             Text(room.lastMessage, style: AppTextStyles.font14RegularBlack),
-        trailing: Text(
-          DateFormat("hh:mm a").format(
-            DateTime.parse(
-              DateTime.fromMillisecondsSinceEpoch(
-                int.parse(room.lastMessageTime),
-              ).toString(),
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              DateFormat("hh:mm a").format(
+                DateTime.parse(
+                  DateTime.fromMillisecondsSinceEpoch(
+                    int.parse(room.lastMessageTime),
+                  ).toString(),
+                ),
+              ),
+              style: AppTextStyles.font14GreyRegular.copyWith(fontSize: 10),
             ),
-          ),
-          style: AppTextStyles.font14GreyRegular.copyWith(fontSize: 10),
+            BadgeWidget(room: room),
+          ],
         ),
       ),
     );

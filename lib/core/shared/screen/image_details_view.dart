@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 
-class ImageDetails extends StatefulWidget {
+class ImageDetailsView extends StatefulWidget {
   final String image;
-  const ImageDetails({super.key, required this.image});
+  const ImageDetailsView({super.key, required this.image});
 
   @override
-  State<ImageDetails> createState() => _ImageDetailsState();
+  State<ImageDetailsView> createState() => _ImageDetailsViewState();
 }
 
-class _ImageDetailsState extends State<ImageDetails> {
+class _ImageDetailsViewState extends State<ImageDetailsView> {
   final zoomTransformationController = TransformationController();
   @override
   void dispose() {

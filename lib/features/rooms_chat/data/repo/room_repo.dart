@@ -40,43 +40,39 @@ class RoomRepo {
     }
   }
 
-  Future<Either<Failure, RoomsResponse>> getRoom() async {
+  Future<Either<Failure, Stream<RoomsResponse>>> getRoomsStream(
+      String userId) async {
     try {
-      final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
+      final stream = _firestore
           .collection(FireBaseConstants.roomsCollection)
-          // .orderBy('createdAt', descending: true)
-          .where('members',
-              arrayContains: CashHelper.get(key: CashConstants.userId))
-          .get();
+          .where('members', arrayContains: userId)
+          .orderBy('lastMessageTime', descending: true)
+          .snapshots()
+          .asyncMap((snapshot) async {
+        final List<RoomsData> rooms =
+            await Future.wait(snapshot.docs.map((doc) async {
+          final room = RoomsData.fromSnapshot(doc);
+          final otherMemberId =
+              room.members.firstWhere((memberId) => memberId != userId);
+          UserData? otherMemberDetails;
+          DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
+              .collection(FireBaseConstants.usersCollection)
+              .doc(otherMemberId)
+              .get();
+          if (userDoc.exists) {
+            otherMemberDetails = UserData.fromSnapshot(userDoc);
+          }
+          return room.copyWith(memberDetails: otherMemberDetails);
+        }).toList());
+        return RoomsResponse(rooms: rooms);
+      });
 
-      final List<RoomsData> rooms =
-          await Future.wait(snap.docs.map((doc) async {
-        final RoomsData room = RoomsData.fromSnapshot(doc);
-
-        // Assume each room has exactly one other member
-        final String otherMemberId = room.members.firstWhere(
-          (memberId) => memberId != CashHelper.get(key: CashConstants.userId),
-        );
-
-        UserData? otherMemberDetails;
-        DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
-            .collection(FireBaseConstants.usersCollection)
-            .doc(otherMemberId)
-            .get();
-        if (userDoc.exists) {
-          otherMemberDetails = UserData.fromSnapshot(userDoc);
-        }
-
-        return room.copyWith(memberDetails: otherMemberDetails);
-      }).toList());
-
-      RoomsResponse response = RoomsResponse(rooms: rooms);
-      return right(response);
+      return Future.value(right(stream));
     } catch (e) {
       if (e is FirebaseException) {
-        return left(ServerFailure.fromFirebaseAuthException(e));
+        return Future.value(left(ServerFailure.fromFirebaseAuthException(e)));
       }
-      return left(ServerFailure(e.toString()));
+      return Future.value(left(ServerFailure(e.toString())));
     }
   }
 
@@ -149,4 +145,54 @@ class RoomRepo {
       (room) => right(room),
     );
   }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> unReadMessagesCount(
+      String roomId) {
+    return _firestore
+        .collection(FireBaseConstants.roomsCollection)
+        .doc(roomId)
+        .collection(FireBaseConstants.messagesCollection)
+        .orderBy('date', descending: false)
+        .snapshots();
+  }
+
+  // Future<Either<Failure, RoomsResponse>> getRooms() async {
+  //   try {
+  //     final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
+  //         .collection(FireBaseConstants.roomsCollection)
+  //         // .orderBy('createdAt', descending: true)
+  //         .where('members',
+  //             arrayContains: CashHelper.get(key: CashConstants.userId))
+  //         .get();
+
+  //     final List<RoomsData> rooms =
+  //         await Future.wait(snap.docs.map((doc) async {
+  //       final RoomsData room = RoomsData.fromSnapshot(doc);
+
+  //       // Assume each room has exactly one other member
+  //       final String otherMemberId = room.members.firstWhere(
+  //         (memberId) => memberId != CashHelper.get(key: CashConstants.userId),
+  //       );
+
+  //       UserData? otherMemberDetails;
+  //       DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
+  //           .collection(FireBaseConstants.usersCollection)
+  //           .doc(otherMemberId)
+  //           .get();
+  //       if (userDoc.exists) {
+  //         otherMemberDetails = UserData.fromSnapshot(userDoc);
+  //       }
+
+  //       return room.copyWith(memberDetails: otherMemberDetails);
+  //     }).toList());
+
+  //     RoomsResponse response = RoomsResponse(rooms: rooms);
+  //     return right(response);
+  //   } catch (e) {
+  //     if (e is FirebaseException) {
+  //       return left(ServerFailure.fromFirebaseAuthException(e));
+  //     }
+  //     return left(ServerFailure(e.toString()));
+  //   }
+  // }
 }

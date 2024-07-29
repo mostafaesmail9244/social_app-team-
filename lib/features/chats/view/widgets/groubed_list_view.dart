@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
-import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
-import '../../../data/models/message_model/message_model.dart';
-import '../../../view_model/chat_cubit/chat_cubit.dart';
-import 'cards/chat_buble.dart';
+import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
+import '../../../rooms_chat/data/models/room_model/rooms_response.dart';
+import '../../data/models/message_model/message_model.dart';
+import '../../view_model/chat_cubit/chat_cubit.dart';
+import 'chat/chat_buble.dart';
 import 'grouped_date_widget.dart';
 
 class GroupedListViewBuilder extends StatelessWidget {
   final ScrollController scrollController;
-  final ChatCubit cubit;
   final RoomsData room;
-  const GroupedListViewBuilder({
-    super.key,
-    required this.scrollController,
-    required this.cubit,
-    required this.room,
-  });
+  const GroupedListViewBuilder(
+      {super.key, required this.scrollController, required this.room});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ChatCubit>();
     return GroupedListView<MessageModel, String>(
       physics: const ClampingScrollPhysics(),
       reverse: true,
@@ -51,11 +48,15 @@ class GroupedListViewBuilder extends StatelessWidget {
         }
       },
       itemBuilder: (context, MessageModel message) {
-        return ChatBuble(
-          message: message,
-          room: room,
-          isUserMessage:
-              CashHelper.get(key: CashConstants.userId) == message.fromId,
+        return BlocBuilder<ChatCubit, ChatState>(
+          builder: (context, state) {
+            return ChatBuble(
+              message: message,
+              room: room,
+              isMyMessage:
+                  CashHelper.get(key: CashConstants.userId) == message.fromId,
+            );
+          },
         );
       },
     );

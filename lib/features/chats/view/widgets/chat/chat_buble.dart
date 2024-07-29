@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_app/core/helper/extentaion.dart';
+import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import '../../../../../rooms_chat/data/models/room_model/rooms_response.dart';
-import '../../../../data/models/message_model/message_model.dart';
-import '../../../../view_model/chat_cubit/chat_cubit.dart';
+import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
+import '../../../data/models/message_model/message_model.dart';
+import '../../../view_model/chat_cubit/chat_cubit.dart';
 import 'chat_image_card.dart';
 import 'chat_text_card.dart';
 
 class ChatBuble extends StatelessWidget {
-  final bool isUserMessage;
+  final bool isMyMessage;
   final MessageModel message;
   final RoomsData room;
-
-  const ChatBuble(
-      {super.key,
-      required this.message,
-      required this.isUserMessage,
-      required this.room});
+  const ChatBuble({
+    super.key,
+    required this.message,
+    required this.isMyMessage,
+    required this.room,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +29,14 @@ class ChatBuble extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(width: 5.w),
+          horizontalSpace(5),
           Expanded(
             child: Align(
               alignment:
-                  isUserMessage ? Alignment.centerLeft : Alignment.centerRight,
+                  isMyMessage ? Alignment.centerLeft : Alignment.centerRight,
               child: Container(
-                constraints: BoxConstraints(
-                  maxWidth: MediaQuery.sizeOf(context).width / 1.33,
-                ),
+                constraints:
+                    BoxConstraints(maxWidth: context.deviceWidth / 1.33),
                 padding: message.type == 'image'
                     ? EdgeInsets.zero
                     : const EdgeInsets.only(
@@ -50,7 +51,7 @@ class ChatBuble extends StatelessWidget {
                       : Border.all(color: AppColors.lightMainBlue, width: 1.w),
                   borderRadius: message.type == 'image'
                       ? null
-                      : isUserMessage
+                      : isMyMessage
                           ? const BorderRadius.only(
                               topRight: Radius.circular(20),
                               bottomLeft: Radius.circular(20),
@@ -61,15 +62,15 @@ class ChatBuble extends StatelessWidget {
                               bottomRight: Radius.circular(20),
                               bottomLeft: Radius.circular(6),
                             ),
-                  color: isUserMessage
+                  color: isMyMessage
                       ? AppColors.moreLightGrey
                       : AppColors.mainBlue.withOpacity(0.75),
                 ),
                 child: message.type == 'image'
-                    ? ChatImageCard(message: message)
+                    ? ChatImageCard(message: message, isMyMessage: isMyMessage)
                     : ChatTextCard(
                         message: message,
-                        isUserMessage: isUserMessage,
+                        isMyMessage: isMyMessage,
                       ),
               ),
             ),

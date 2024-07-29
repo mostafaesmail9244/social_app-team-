@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -14,16 +16,27 @@ class ChatCubit extends Cubit<ChatState> {
   ChatCubit(this._chatRepo) : super(ChatInitial());
 
   // late final ScrollController scrollController = ScrollController();
-  // late final TextEditingController textControler = TextEditingController();
+  final TextEditingController textControler = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   List<MessageModel> messagesList = [];
 
   void sendMessage({
     required String roomId,
     required String toId,
-    required String message,
+    String? type,
+    File? image,
+    bool isSendImageView = false,
   }) {
-    _chatRepo.sendMessage(message: message, toId: toId, roomId: roomId);
+    _chatRepo.sendMessage(
+      message: textControler.text,
+      toId: toId,
+      roomId: roomId,
+      type: type,
+      image: image,
+    );
+    if (isSendImageView) {
+      emit(ChatImageSuccess());
+    }
   }
 
   void getMessages({required String roomId}) {
@@ -38,13 +51,12 @@ class ChatCubit extends Cubit<ChatState> {
         if (change.type == DocumentChangeType.added) {
           messagesList.insert(0, MessageModel.fromSnapshot(change.doc));
         } else if (change.type == DocumentChangeType.modified) {
-          var index =
-              messagesList.indexWhere((msg) => msg.messageId == change.doc.id);
+          var index = messagesList.indexWhere((msg) => msg.id == change.doc.id);
           if (index != -1) {
             messagesList[index] = MessageModel.fromSnapshot(change.doc);
           }
         } else if (change.type == DocumentChangeType.removed) {
-          messagesList.removeWhere((msg) => msg.messageId == change.doc.id);
+          messagesList.removeWhere((msg) => msg.id == change.doc.id);
         }
       }
       emit(ChatSuccess());
@@ -79,7 +91,7 @@ class ChatCubit extends Cubit<ChatState> {
   void readMessage(
       {required RoomsData room, required MessageModel message}) async {
     if (message.toId == CashHelper.get(key: CashConstants.userId)) {
-      await _chatRepo.readMessage(messageId: message.messageId, room: room);
+      await _chatRepo.readMessage(messageId: message.id, room: room);
     }
   }
   // void scroll() {
