@@ -6,7 +6,7 @@ import '../../../comment/data/model/comment_response.dart';
 import '../../data/model/posts_response.dart';
 import '../../data/repos/like_comment_repo.dart';
 
-part 'like_commen_states.dart';
+part 'like_commet_states.dart';
 
 class LikeCommentCubit extends Cubit<LikeCommentState> {
   final LikeCommentRepo _repo;

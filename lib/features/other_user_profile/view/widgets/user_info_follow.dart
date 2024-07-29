@@ -46,7 +46,8 @@ class UserInfoAndFollow extends StatelessWidget {
                   backgroundColor: Colors.white,
                 ),
                 onPressed: () {
-                  context.pushNamed(Routes.testView, arguments: data);
+                  context.pushNamed(Routes.beforeGoingToChatView,
+                      arguments: data);
                 },
                 child: const Icon(Icons.message),
               ),

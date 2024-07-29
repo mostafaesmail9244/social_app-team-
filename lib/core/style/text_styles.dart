@@ -16,9 +16,10 @@ class AppTextStyles {
     fontSize: 18,
   );
   static TextStyle font24BlueBold = const TextStyle(
-      color: AppColors.mainBlue,
-      fontSize: 24,
-      fontWeight: FontWeightHelper.bold);
+    color: AppColors.mainBlue,
+    fontSize: 24,
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font32Blue = const TextStyle(
       color: AppColors.mainBlue, fontSize: 32, fontWeight: FontWeight.w700);
   static TextStyle font13GrayRegular = const TextStyle(

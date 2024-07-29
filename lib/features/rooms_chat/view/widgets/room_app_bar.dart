@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/shared/widgets/app_text_filed.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import 'package:social_app/features/room/view_model/room_cubit/room_cubit.dart';
+import 'package:social_app/features/rooms_chat/view_model/room_cubit/room_cubit.dart';
 
 import '../../../../core/style/text_styles.dart';
 

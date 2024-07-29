@@ -1,4 +1,4 @@
-part of 'like_commen_cubit.dart';
+part of 'like_commet_cubit.dart';
 
 sealed class LikeCommentState {
   const LikeCommentState();
@@ -16,5 +16,5 @@ final class LikeCountUpdated extends LikeCommentState {
 class CommentsCountUpdated extends LikeCommentState {
   final String postId;
   final int count;
-  CommentsCountUpdated(this.postId, this.count);
+  const CommentsCountUpdated(this.postId, this.count);
 }

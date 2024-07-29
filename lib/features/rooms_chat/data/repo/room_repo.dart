@@ -11,23 +11,6 @@ import '../models/room_model/rooms_response.dart';
 class RoomRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<Either<Failure, UsersResponse>> getAllUsers() async {
-    try {
-      final QuerySnapshot<Map<String, dynamic>> snap = await _firestore
-          .collection(FireBaseConstants.usersCollection)
-          .where('id', isNotEqualTo: CashHelper.get(key: CashConstants.userId))
-          .get();
-
-      UsersResponse response = UsersResponse.fromJson(snap.docs);
-      return right(response);
-    } catch (e) {
-      if (e is FirebaseException) {
-        return left(ServerFailure.fromFirebaseAuthException(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
   Future<Either<Failure, String>> creatRoom({
     required String toId,
     required String userName,

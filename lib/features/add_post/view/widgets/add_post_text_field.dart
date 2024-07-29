@@ -18,7 +18,7 @@ class AddPostTextField extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: AppTextFormFiled(
-              hintText: 'What\'s on your mind .....',
+              hintText: 'What\'s on your mind.....',
               focusNode: cubit.focusNode,
               validator: (val) {
                 if (val == null || val.isEmpty) {
@@ -26,7 +26,7 @@ class AddPostTextField extends StatelessWidget {
                 }
               },
               keyboardType: TextInputType.multiline,
-              maxLines: 10,
+              maxLines: 15,
               controller: cubit.contentController,
               focusedBorder:
                   const OutlineInputBorder(borderSide: BorderSide.none),

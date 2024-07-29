@@ -6,12 +6,12 @@ import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/model/posts_response.dart';
-import '../../view_model/like_commen_cubit/like_commen_cubit.dart';
+import '../../view_model/like_commet_cubit/like_commet_cubit.dart';
 import 'like_widget.dart';
 
-class CommentAndShareSection extends StatelessWidget {
+class CommentLikeShareSection extends StatelessWidget {
   final PostsData post;
-  const CommentAndShareSection({super.key, required this.post});
+  const CommentLikeShareSection({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class CommentAndShareSection extends StatelessWidget {
             radius: 12,
             child: CustomCachedNetworkImage(
               imageUrl: post.userImage ?? "",
-              height: 20,
-              width: 20,
+              height: 50,
+              width: 50,
               size: 5,
               radius: 320,
             ),

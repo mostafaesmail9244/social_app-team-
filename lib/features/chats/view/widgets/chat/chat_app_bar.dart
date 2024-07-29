@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../../core/style/text_styles.dart';
-import '../../../../room/data/models/room_model/rooms_response.dart';
+import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
 
 AppBar chatAppBar(RoomsData room) {
   return AppBar(
@@ -20,7 +20,7 @@ AppBar chatAppBar(RoomsData room) {
     title: Row(
       children: [
         CircleAvatar(
-          radius: 22.r,
+          radius: 20.r,
           child: CustomCachedNetworkImage(
             imageUrl: room.otherUserDetails!.image!,
             size: 20,

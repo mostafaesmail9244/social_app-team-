@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../room/data/models/room_model/rooms_response.dart';
+import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
 import '../../../view_model/chat_cubit/chat_cubit.dart';
 import 'chat_text_field.dart';
 import 'groubed_list_view.dart';

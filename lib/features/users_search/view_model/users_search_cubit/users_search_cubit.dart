@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import '../../../profile/data/models/profile_response/profile_response.dart';
-import '../../../room/data/repos/room_repo.dart';
+import '../../data/repo/search_repo.dart';
 import 'users_search_state.dart';
 
 class UsersSearchCubit extends Cubit<UsersSearchState> {
-  final RoomRepo _repo;
+  final SearchRepo _repo;
   UsersSearchCubit(this._repo) : super(const UsersSearchState.initial());
   late final searchController = TextEditingController();
   late final FocusNode searchFocusNode = FocusNode();

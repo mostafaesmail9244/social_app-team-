@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../core/d_injection/injection.dart';
 import '../../profile/data/models/profile_response/profile_response.dart';
-import '../../room/view_model/room_cubit/room_cubit.dart';
-import '../../room/view_model/room_cubit/room_state.dart';
+import '../../rooms_chat/view_model/room_cubit/room_cubit.dart';
+import '../../rooms_chat/view_model/room_cubit/room_state.dart';
 import 'chat_view.dart';
 
 class BeforeGoingToChat extends StatelessWidget {

@@ -6,7 +6,7 @@ import 'package:social_app/features/chats/data/repos/chat_repo.dart';
 import '../../../../core/firebase_service/firebase_constants.dart';
 import '../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../room/data/models/room_model/rooms_response.dart';
+import '../../../rooms_chat/data/models/room_model/rooms_response.dart';
 part 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
@@ -31,16 +31,50 @@ class ChatCubit extends Cubit<ChatState> {
         .collection(FireBaseConstants.roomsCollection)
         .doc(roomId)
         .collection(FireBaseConstants.messagesCollection)
-        .orderBy('date', descending: true)
+        .orderBy('date', descending: false)
         .snapshots()
         .listen((event) {
-      messagesList.clear();
-      for (var doc in event.docs) {
-        messagesList.add(MessageModel.fromSnapshot(doc));
+      for (var change in event.docChanges) {
+        if (change.type == DocumentChangeType.added) {
+          messagesList.insert(0, MessageModel.fromSnapshot(change.doc));
+        } else if (change.type == DocumentChangeType.modified) {
+          var index =
+              messagesList.indexWhere((msg) => msg.messageId == change.doc.id);
+          if (index != -1) {
+            messagesList[index] = MessageModel.fromSnapshot(change.doc);
+          }
+        } else if (change.type == DocumentChangeType.removed) {
+          messagesList.removeWhere((msg) => msg.messageId == change.doc.id);
+        }
       }
       emit(ChatSuccess());
     });
   }
+
+  // void getMessages({required String roomId}) {
+  //   _firestore
+  //       .collection(FireBaseConstants.roomsCollection)
+  //       .doc(roomId)
+  //       .collection(FireBaseConstants.messagesCollection)
+  //       .orderBy('date', descending: true)
+  //       .snapshots()
+  //       .listen((event) {
+  //     for (var change in event.docChanges) {
+  //       if (change.type == DocumentChangeType.added) {
+  //         messagesList.add(MessageModel.fromSnapshot(change.doc));
+  //       } else if (change.type == DocumentChangeType.modified) {
+  //         var index =
+  //             messagesList.indexWhere((msg) => msg.messageId == change.doc.id);
+  //         if (index != -1) {
+  //           messagesList[index] = MessageModel.fromSnapshot(change.doc);
+  //         }
+  //       } else if (change.type == DocumentChangeType.removed) {
+  //         messagesList.removeWhere((msg) => msg.messageId == change.doc.id);
+  //       }
+  //     }
+  //     emit(ChatSuccess());
+  //   });
+  // }
 
   void readMessage({required RoomsData room}) async {
     for (var msg in messagesList) {
@@ -48,6 +82,7 @@ class ChatCubit extends Cubit<ChatState> {
         await _chatRepo.readMessage(messageId: msg.messageId, room: room);
       }
     }
+    debugPrint('😂😂😂 ===============> is read');
     emit(ChatSuccess());
   }
   // void scroll() {

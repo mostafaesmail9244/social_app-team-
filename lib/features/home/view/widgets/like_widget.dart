@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../data/model/posts_response.dart';
-import '../../view_model/like_commen_cubit/like_commen_cubit.dart';
+import '../../view_model/like_commet_cubit/like_commet_cubit.dart';
 
 class LikeWidget extends StatelessWidget {
   final PostsData post;

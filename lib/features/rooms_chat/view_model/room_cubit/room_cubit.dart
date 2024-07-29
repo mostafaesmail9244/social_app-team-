@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../../../room/data/repos/room_repo.dart';
+import '../../data/repo/room_repo.dart';
 import '../../data/models/room_model/rooms_response.dart';
 import 'room_state.dart';
 

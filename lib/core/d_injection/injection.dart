@@ -6,13 +6,14 @@ import 'package:social_app/features/add_post/view_model/add_post_cubit/add_cubit
 import '../../features/comment/data/repo/comment_repo.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/data/repos/like_comment_repo.dart';
-import '../../features/home/view_model/like_commen_cubit/like_commen_cubit.dart';
+import '../../features/home/view_model/like_commet_cubit/like_commet_cubit.dart';
 import '../../features/other_user_profile/data/repo/follow_repo.dart';
 import '../../features/other_user_profile/view_model/follow_cubit/follow_cubit.dart';
-import '../../features/room/data/repos/room_repo.dart';
+import '../../features/rooms_chat/data/repo/room_repo.dart';
 import '../../features/other_user_profile/data/repo/user_repo.dart';
 import '../../features/other_user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
-import '../../features/room/view_model/room_cubit/room_cubit.dart';
+import '../../features/rooms_chat/view_model/room_cubit/room_cubit.dart';
+import '../../features/users_search/data/repo/search_repo.dart';
 import '../../features/users_search/view_model/users_search_cubit/users_search_cubit.dart';
 import '../../features/home/data/repos/get_posts_repo.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
@@ -41,6 +42,7 @@ void setubGetIt() {
   getIt.registerLazySingleton<ChatRepo>(() => ChatRepo());
   getIt.registerLazySingleton<RoomRepo>(() => RoomRepo());
   getIt.registerLazySingleton<GetPostsRepo>(() => GetPostsRepo());
+  getIt.registerLazySingleton<SearchRepo>(() => SearchRepo());
   getIt.registerLazySingleton<OtherUserRepo>(() => OtherUserRepo());
   getIt.registerLazySingleton<CommentRepo>(() => CommentRepo());
   getIt.registerLazySingleton<LikeCommentRepo>(() => LikeCommentRepo());

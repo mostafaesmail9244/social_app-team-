@@ -11,6 +11,11 @@ class ImageDetails extends StatefulWidget {
 
 class _ImageDetailsState extends State<ImageDetails> {
   final zoomTransformationController = TransformationController();
+  @override
+  void dispose() {
+    super.dispose();
+    zoomTransformationController.dispose();
+  }
 
   void _resetZoom() {
     zoomTransformationController.value = Matrix4.identity();
@@ -19,38 +24,29 @@ class _ImageDetailsState extends State<ImageDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      alignment: Alignment.center,
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: InteractiveViewer(
-            transformationController: zoomTransformationController,
-            maxScale: 5,
-            boundaryMargin: EdgeInsets.zero,
-            minScale: 1,
+      appBar: AppBar(),
+      body: Container(
+        padding: const EdgeInsets.only(bottom: 20),
+        alignment: Alignment.center,
+        child: InteractiveViewer(
+          transformationController: zoomTransformationController,
+          maxScale: 5,
+          boundaryMargin: EdgeInsets.zero,
+          minScale: 1,
 
-            /// resize the image to fit the screen
-            child: InkWell(
-              onDoubleTap: () => _resetZoom(),
-              child: CustomCachedNetworkImage(
-                imageUrl: widget.image,
-                radius: 8,
-                height: double.maxFinite,
-                width: double.infinity,
-                fit: BoxFit.contain,
-              ),
+          /// resize the image to fit the screen
+          child: InkWell(
+            onDoubleTap: () => _resetZoom(),
+            child: CustomCachedNetworkImage(
+              imageUrl: widget.image,
+              radius: 8,
+              height: double.maxFinite,
+              width: double.infinity,
+              fit: BoxFit.contain,
             ),
           ),
         ),
       ),
-    ));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    zoomTransformationController.dispose();
+    );
   }
 }

@@ -6,7 +6,7 @@ import 'package:uuid/uuid.dart';
 import '../../../../core/firebase_service/firebase_constants.dart';
 import '../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../room/data/models/room_model/rooms_response.dart';
+import '../../../rooms_chat/data/models/room_model/rooms_response.dart';
 
 class ChatRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -51,6 +51,6 @@ class ChatRepo {
         .doc(room.id)
         .collection(FireBaseConstants.messagesCollection)
         .doc(messageId)
-        .update({'read': room.members[1]});
+        .update({'read': 'read'});
   }
 }

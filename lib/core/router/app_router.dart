@@ -12,7 +12,7 @@ import '../../features/chats/view/chat_view.dart';
 import '../../features/comment/view/comment_view.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
-import '../../features/home/view_model/like_commen_cubit/like_commen_cubit.dart';
+import '../../features/home/view_model/like_commet_cubit/like_commet_cubit.dart';
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
@@ -20,8 +20,8 @@ import '../../features/profile/data/models/profile_response/profile_response.dar
 import '../../features/profile/view/edit_profile_view.dart';
 import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/profile/view_model/pick_image_cubit/pick_image_cubit.dart';
-import '../../features/room/data/models/room_model/rooms_response.dart';
-import '../../features/room/view_model/room_cubit/room_cubit.dart';
+import '../../features/rooms_chat/data/models/room_model/rooms_response.dart';
+import '../../features/rooms_chat/view_model/room_cubit/room_cubit.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
 import '../../features/signup/views/signup_view.dart';
 import '../../features/chats/view/before_going_to_chat_view.dart';
@@ -85,9 +85,7 @@ class AppRouter {
       //imageDetails
       case Routes.imageDetails:
         final image = data as String;
-        return MaterialPageRoute(
-          builder: (context) => ImageDetails(image: image),
-        );
+        return BaseRoute(page: ImageDetails(image: image));
 
       //chatView
       case Routes.chatView:
@@ -140,7 +138,7 @@ class AppRouter {
         );
 
       //CommentView
-      case Routes.testView:
+      case Routes.beforeGoingToChatView:
         final user = data as UserData;
         return MaterialPageRoute(
           builder: (context) => BeforeGoingToChat(user: user),

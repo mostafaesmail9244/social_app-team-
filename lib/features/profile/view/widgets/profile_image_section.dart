@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
+import '../../../../core/router/routes.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../data/models/profile_response/profile_response.dart';
 
 class ProfileImagesSection extends StatelessWidget {
   final UserData? data;
-
   const ProfileImagesSection({super.key, this.data});
 
   @override
@@ -16,12 +16,19 @@ class ProfileImagesSection extends StatelessWidget {
       height: context.deviceHeight * .35,
       child: Stack(
         children: [
-          CustomCachedNetworkImage(
-            radius: 8,
-            imageUrl: data?.coverImage ??
-                CashHelper.get(key: CashConstants.coverImage),
-            height: 190,
-            width: double.infinity,
+          InkWell(
+            onTap: () => context.pushNamed(
+              Routes.imageDetails,
+              arguments: data?.coverImage ??
+                  CashHelper.get(key: CashConstants.coverImage),
+            ),
+            child: CustomCachedNetworkImage(
+              radius: 8,
+              imageUrl: data?.coverImage ??
+                  CashHelper.get(key: CashConstants.coverImage),
+              height: 190,
+              width: double.infinity,
+            ),
           ),
           Positioned(
             left: -1,
@@ -32,12 +39,19 @@ class ProfileImagesSection extends StatelessWidget {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 65,
-                child: CustomCachedNetworkImage(
-                  radius: 65,
-                  height: 150,
-                  width: double.infinity,
-                  imageUrl: data?.image ??
-                      CashHelper.get(key: CashConstants.userImage),
+                child: InkWell(
+                  onTap: () => context.pushNamed(
+                    Routes.imageDetails,
+                    arguments: data?.image ??
+                        CashHelper.get(key: CashConstants.userImage),
+                  ),
+                  child: CustomCachedNetworkImage(
+                    radius: 65,
+                    height: 150,
+                    width: double.infinity,
+                    imageUrl: data?.image ??
+                        CashHelper.get(key: CashConstants.userImage),
+                  ),
                 ),
               ),
             ),

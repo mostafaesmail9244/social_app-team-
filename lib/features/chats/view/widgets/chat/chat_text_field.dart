@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../../core/shared/widgets/app_text_filed.dart';
-import '../../../../room/data/models/room_model/rooms_response.dart';
+import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
 import '../../../view_model/chat_cubit/chat_cubit.dart';
 
 class ChatTextField extends StatelessWidget {
