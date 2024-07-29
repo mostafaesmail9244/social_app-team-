@@ -16,13 +16,13 @@ class ChatBody extends StatefulWidget {
 class _ChatBodyState extends State<ChatBody> {
   final ScrollController scrollController = ScrollController();
   final TextEditingController textControler = TextEditingController();
-  @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 1), () {
-      context.read<ChatCubit>().readMessage(room: widget.room);
-    });
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   Future.delayed(const Duration(seconds: 1), () {
+  //     context.read<ChatCubit>().readMessage(room: widget.room);
+  //   });
+  //   super.initState();
+  // }
 
   @override
   void dispose() {
@@ -51,7 +51,7 @@ class _ChatBodyState extends State<ChatBody> {
               return GroupedListViewBuilder(
                 scrollController: scrollController,
                 cubit: cubit,
-                //   toId: widget.room.memberDetails!.id!,
+                room: widget.room,
               );
             },
           ),

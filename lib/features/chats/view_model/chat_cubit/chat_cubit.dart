@@ -76,14 +76,11 @@ class ChatCubit extends Cubit<ChatState> {
   //   });
   // }
 
-  void readMessage({required RoomsData room}) async {
-    for (var msg in messagesList) {
-      if (msg.toId == CashHelper.get(key: CashConstants.userId)) {
-        await _chatRepo.readMessage(messageId: msg.messageId, room: room);
-      }
+  void readMessage(
+      {required RoomsData room, required MessageModel message}) async {
+    if (message.toId == CashHelper.get(key: CashConstants.userId)) {
+      await _chatRepo.readMessage(messageId: message.messageId, room: room);
     }
-    debugPrint('😂😂😂 ===============> is read');
-    emit(ChatSuccess());
   }
   // void scroll() {
   //   WidgetsBinding.instance.addPostFrameCallback((_) {

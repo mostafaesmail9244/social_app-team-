@@ -9,7 +9,8 @@ import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../rooms_chat/data/models/room_model/rooms_response.dart';
 
 class ChatRepo {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final _firestore =
+      FirebaseFirestore.instance.collection(FireBaseConstants.roomsCollection);
   final Reference firebaseRef = FirebaseStorage.instance.ref();
 
   void sendMessage({
@@ -29,16 +30,12 @@ class ChatRepo {
       type: 'text',
     );
     _firestore
-        .collection(FireBaseConstants.roomsCollection)
         .doc(roomId)
         .collection(FireBaseConstants.messagesCollection)
         .doc(msgId)
         .set(messageModel.toJson());
 
-    _firestore
-        .collection(FireBaseConstants.roomsCollection)
-        .doc(roomId)
-        .update({
+    _firestore.doc(roomId).update({
       'lastMessage': message,
       'lastMessageTime': DateTime.now().millisecondsSinceEpoch.toString(),
     });
@@ -47,10 +44,18 @@ class ChatRepo {
   Future readMessage(
       {required RoomsData room, required String messageId}) async {
     _firestore
-        .collection(FireBaseConstants.roomsCollection)
         .doc(room.id)
         .collection(FireBaseConstants.messagesCollection)
         .doc(messageId)
         .update({'read': 'read'});
   }
+
+  // Stream<void> commentsLengthStream(
+  //     {required RoomsData room, required String messageId}) {
+  //   _firestore
+  //       .doc(room.id)
+  //       .collection(FireBaseConstants.messagesCollection)
+  //       .snapshots()
+  //       .map((snapshot) => snapshot.docs.length);
+  // }
 }
