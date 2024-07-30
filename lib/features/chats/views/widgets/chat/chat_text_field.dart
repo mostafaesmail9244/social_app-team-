@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/style/app_colors.dart';
-import 'package:social_app/features/chats/view/widgets/chat/send_message_button.dart';
+import 'package:social_app/features/chats/views/widgets/chat/send_message_button.dart';
 import '../../../../../core/shared/widgets/app_text_filed.dart';
 import '../../../../rooms_chat/data/models/room_model/rooms_response.dart';
 import '../../../view_model/chat_cubit/chat_cubit.dart';

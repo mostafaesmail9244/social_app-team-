@@ -25,7 +25,6 @@ import '../../features/add_post/data/repos/add_post_repo.dart';
 import '../../features/profile/data/repos/user_repo.dart';
 import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/profile/view_model/get_user_cubit/get_user_cubit.dart';
-import '../../features/profile/view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../features/signup/data/repos/signup_repo.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
 import '../shared/pick_image_cubit/pick_image_cubit.dart';
@@ -68,5 +67,4 @@ void setubGetIt() {
 
   getIt.registerFactory<LayoutCubit>(() => LayoutCubit());
   getIt.registerFactory<PickImageCubit>(() => PickImageCubit());
-  getIt.registerFactory<PickImageProfileCubit>(() => PickImageProfileCubit());
 }

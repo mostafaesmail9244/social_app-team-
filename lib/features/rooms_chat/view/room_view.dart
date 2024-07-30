@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/features/chats/view/widgets/shimmer_loading_chat.dart';
+import 'package:social_app/features/chats/views/widgets/shimmer_loading_chat.dart';
 import '../view_model/room_cubit/room_cubit.dart';
 import '../view_model/room_cubit/room_state.dart';
 import 'widgets/room_app_bar.dart';

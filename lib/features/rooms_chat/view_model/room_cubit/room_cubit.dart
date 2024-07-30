@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -92,15 +91,15 @@ class RoomCubit extends Cubit<RoomState> {
     emit(RoomState.getRoomsFilteredSuccess(_usersFiltered));
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> unReadMessagesCount(
+      String roomId) {
+    return _repo.unReadMessagesCount(roomId);
+  }
+
   void clear(TextEditingController textControler) {
     textControler.clear();
     _usersFiltered.clear();
     emit(RoomState.getRoomsSuccess(_roomsList!));
-  }
-
-  Stream<QuerySnapshot<Map<String, dynamic>>> unReadMessagesCount(
-      String roomId) {
-    return _repo.unReadMessagesCount(roomId);
   }
 
   // Future<void> getRooms() async {

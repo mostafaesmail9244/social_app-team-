@@ -20,7 +20,7 @@ class AddPostView extends StatelessWidget {
         onPressed: () {
           context
               .read<AddPostCubit>()
-              .validateThenDoAddPost(image: cubit.selectPostImage);
+              .validateThenDoAddPost(image: cubit.selectImage);
         },
       ),
       body: AddPostBody(cubit: cubit),

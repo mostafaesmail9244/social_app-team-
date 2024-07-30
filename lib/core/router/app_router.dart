@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/d_injection/injection.dart';
@@ -11,8 +10,8 @@ import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
 import 'package:social_app/features/other_user_profile/view_model/follow_cubit/follow_cubit.dart';
-import '../../features/chats/view/chat_view.dart';
-import '../../features/chats/view/send_chat_image_view.dart';
+import '../../features/chats/views/chat_view.dart';
+import '../../features/chats/views/send_chat_image_view.dart';
 import '../../features/comment/view/comment_view.dart';
 import '../../features/comment/view_model/comment_cubit/comment_cubit.dart';
 import '../../features/home/view_model/get_posts_cubit/get_posts_cubit.dart';
@@ -23,12 +22,11 @@ import '../../features/login/view_model/forgot_password_cubit/forgot_password_cu
 import '../../features/profile/data/models/profile_response/profile_response.dart';
 import '../../features/profile/view/edit_profile_view.dart';
 import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
-import '../../features/profile/view_model/pick_image_cubit/pick_image_cubit.dart';
 import '../../features/rooms_chat/data/models/room_model/rooms_response.dart';
 import '../../features/rooms_chat/view_model/room_cubit/room_cubit.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';
 import '../../features/signup/views/signup_view.dart';
-import '../../features/chats/view/before_going_to_chat_view.dart';
+import '../../features/chats/views/before_going_to_chat_view.dart';
 import '../../features/other_user_profile/view/user_profile_view.dart';
 import '../../features/other_user_profile/view_model/get_other_user_cubit/get_other_user_cubit.dart';
 import '../shared/pick_image_cubit/pick_image_cubit.dart';
@@ -75,12 +73,12 @@ class AppRouter {
             providers: [
               BlocProvider(create: (context) => getIt<LayoutCubit>()),
               BlocProvider(
+                create: (context) => getIt<GetUserCubit>()..emitGetUser(),
+              ),
+              BlocProvider(
                 create: (context) => getIt<GetPostsCubit>()..emitGetPostsData(),
               ),
               BlocProvider(create: (context) => getIt<RoomCubit>()..getRooms()),
-              BlocProvider(
-                create: (context) => getIt<GetUserCubit>()..emitGetUser(),
-              ),
             ],
             child: const LayoutScreen(),
           ),
@@ -90,14 +88,9 @@ class AppRouter {
       case Routes.chatView:
         final room = data as RoomsData;
         return BaseRoute(
-          page: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) =>
-                    getIt<ChatCubit>()..getMessages(roomId: room.id),
-              ),
-              BlocProvider(create: (context) => getIt<PickImageCubit>()),
-            ],
+          page: BlocProvider(
+            create: (context) =>
+                getIt<ChatCubit>()..getMessages(roomId: room.id),
             child: ChatView(room: room),
           ),
         );
@@ -108,7 +101,7 @@ class AppRouter {
           page: MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<EditUserCubit>()),
-              BlocProvider(create: (context) => getIt<PickImageProfileCubit>()),
+              BlocProvider(create: (context) => getIt<PickImageCubit>()),
             ],
             child: const EditProflieView(),
           ),
@@ -148,19 +141,7 @@ class AppRouter {
       //CommentView
       case Routes.beforeGoingToChatView:
         final user = data as UserData;
-        return BaseRoute(
-          page: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getIt<ChatCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => getIt<PickImageCubit>(),
-              ),
-            ],
-            child: BeforeGoingToChat(user: user),
-          ),
-        );
+        return BaseRoute(page: BeforeGoingToChat(user: user));
 
       //imageDetails
       case Routes.imageDetails:

@@ -27,7 +27,7 @@ class SignupViewBody extends StatelessWidget {
           buttonText: "Sign Up",
           onPressed: () {
             context.read<SignupCubit>().validateThenDoSignUp(
-                image: context.read<PickImageCubit>().selectChatImage);
+                image: context.read<PickImageCubit>().selectImage);
           },
         ),
         verticalSpace(20),

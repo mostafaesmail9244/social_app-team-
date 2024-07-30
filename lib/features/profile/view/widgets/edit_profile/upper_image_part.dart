@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_app/core/shared/pick_image_cubit/pick_image_states.dart';
 import '../../../../../core/helper/cash_helper/cash_helper.dart';
 import '../../../../../core/helper/cash_helper/cash_helper_constants.dart';
+import '../../../../../core/shared/pick_image_cubit/pick_image_cubit.dart';
 import '../../../../../core/shared/widgets/custom_cached_image.dart';
 import '../../../../../core/shared/widgets/icon_button_filled.dart';
-import '../../../view_model/pick_image_cubit/pick_image_cubit.dart';
-import '../../../view_model/pick_image_cubit/pick_image_states.dart';
 
 class UpperImagePart extends StatelessWidget {
   final Size size;
-  final PickImageProfileCubit cubit;
+  final PickImageCubit cubit;
   const UpperImagePart({super.key, required this.cubit, required this.size});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PickImageProfileCubit, PickProfileImageStates>(
+    return BlocBuilder<PickImageCubit, PickImageStates>(
       buildWhen: (previous, current) {
-        return current is PickPCoverImageState || current is RemoveCoverState;
+        return current is PickPostImageStates || current is RemoveImageState;
       },
       builder: (context, state) {
         return Stack(
           children: [
-            cubit.selectCoverImage == null
+            cubit.postImage == null
                 ? CustomCachedNetworkImage(
                     radius: 10,
                     imageUrl: CashHelper.get(key: CashConstants.coverImage),
@@ -33,7 +33,7 @@ class UpperImagePart extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.file(
-                        cubit.selectCoverImage!,
+                        cubit.postImage!,
                         fit: BoxFit.fill,
                         width: double.infinity,
                       ),
@@ -44,11 +44,11 @@ class UpperImagePart extends StatelessWidget {
               right: 5,
               child: CustomIconFilled(
                 onPressed: () {
-                  cubit.selectCoverImage == null
-                      ? cubit.pickFromGallary(true)
-                      : cubit.removeCover();
+                  cubit.postImage == null
+                      ? cubit.pickImage(isGallary: true,post: true)
+                      : cubit.removeImage();
                 },
-                icon: cubit.selectCoverImage == null
+                icon: cubit.postImage == null
                     ? Icons.camera_alt_outlined
                     : Icons.delete_outline_rounded,
               ),

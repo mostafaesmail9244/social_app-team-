@@ -6,13 +6,16 @@ class PickImageInitialState extends PickImageStates {}
 
 class PickImageLoadingState extends PickImageStates {}
 
-class PickPostImageState extends PickImageStates {}
-
-class PickProfileImageState extends PickImageStates {
-  final File? image;
-  PickProfileImageState({this.image});
+class PickImageSuccessState extends PickImageStates {
+  final File image;
+  PickImageSuccessState(this.image);
 }
 
 class PickImageErrorState extends PickImageStates {}
 
 class RemoveImageState extends PickImageStates {}
+
+class PickPostImageStates extends PickImageStates {
+  final File image;
+  PickPostImageStates(this.image);
+}

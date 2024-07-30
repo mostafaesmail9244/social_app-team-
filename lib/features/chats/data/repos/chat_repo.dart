@@ -50,8 +50,15 @@ class ChatRepo {
     });
   }
 
-  Future readMessage(
-      {required RoomsData room, required String messageId}) async {
+  Stream getMessages(String roomId) {
+    return _firestore
+        .doc(roomId)
+        .collection(FireBaseConstants.messagesCollection)
+        .orderBy('date', descending: false)
+        .snapshots();
+  }
+
+  void readMessage({required RoomsData room, required String messageId}) async {
     _firestore
         .doc(room.id)
         .collection(FireBaseConstants.messagesCollection)

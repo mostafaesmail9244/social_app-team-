@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/search_app_bar.dart';
 import 'widgets/users_search_body.dart';
-import '../../chats/view/widgets/shimmer_loading_chat.dart';
+import '../../chats/views/widgets/shimmer_loading_chat.dart';
 import '../view_model/users_search_cubit/users_search_cubit.dart';
 import '../view_model/users_search_cubit/users_search_state.dart';
 

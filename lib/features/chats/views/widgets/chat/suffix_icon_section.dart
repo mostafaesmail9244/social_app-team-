@@ -17,7 +17,7 @@ class SuffixIconSection extends StatelessWidget {
     final cubit = context.read<PickImageCubit>();
     return BlocListener<PickImageCubit, PickImageStates>(
       listener: (context, state) {
-        if (state is PickProfileImageState) {
+        if (state is PickImageSuccessState) {
           context.pushNamed(
             Routes.sendChatImageView,
             arguments: (room: room, image: state.image),
@@ -33,7 +33,7 @@ class SuffixIconSection extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              cubit.pickFromGallary(false);
+              cubit.pickImage(isGallary: true);
             },
             icon: const Icon(Icons.camera_alt_outlined),
           ),

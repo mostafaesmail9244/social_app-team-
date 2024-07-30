@@ -21,8 +21,8 @@ class PhotoTagsButton extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return ImagePickerDialog(
-                    cameraFun: () => cubit.pickFromCamera(),
-                    galleryFun: () => cubit.pickFromGallary(true),
+                    cameraFun: () => cubit.pickImage(isGallary: false),
+                    galleryFun: () => cubit.pickImage(isGallary: true),
                   );
                 },
               );

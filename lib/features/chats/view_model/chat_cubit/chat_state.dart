@@ -12,3 +12,5 @@ final class ChatSuccess extends ChatState {}
 final class ChatImageSuccess extends ChatState {}
 
 final class SelectBubble extends ChatState {}
+
+final class DeleteORCopyBubble extends ChatState {}

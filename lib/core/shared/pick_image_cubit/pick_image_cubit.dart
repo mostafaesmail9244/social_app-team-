@@ -7,23 +7,24 @@ import 'pick_image_states.dart';
 
 class PickImageCubit extends Cubit<PickImageStates> {
   PickImageCubit() : super(PickImageInitialState());
-  File? selectPostImage;
-  File? selectChatImage;
+  File? selectImage;
+  File? postImage;
   String imageBase64Sell = '';
-  void pickFromGallary(bool post) async {
+  void pickImage({bool post = false, required bool isGallary}) async {
     emit(PickImageLoadingState());
     try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      final image = await ImagePicker().pickImage(
+          source: isGallary ? ImageSource.gallery : ImageSource.camera);
       if (image != null) {
         if (post) {
-          selectPostImage = File(image.path);
-          emit(PickPostImageState());
-        } else {
-          selectChatImage = File(image.path);
-          List<int> imageBytes = selectChatImage!.readAsBytesSync();
+          postImage = File(image.path);
+          List<int> imageBytes = postImage!.readAsBytesSync();
           imageBase64Sell = base64Encode(imageBytes);
           log("############$imageBase64Sell");
-          emit(PickProfileImageState(image: selectChatImage));
+          emit(PickPostImageStates(postImage!));
+        } else {
+          selectImage = File(image.path);
+          emit(PickImageSuccessState(selectImage!));
         }
       }
     } catch (error) {
@@ -31,19 +32,9 @@ class PickImageCubit extends Cubit<PickImageStates> {
     }
   }
 
-  Future<void> pickFromCamera() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.camera);
-    if (image != null) {
-      selectChatImage = File(image.path);
-      emit(PickPostImageState());
-    } else {
-      emit(PickImageErrorState());
-    }
-  }
-
   void removeImage() {
-    selectPostImage = null;
-    selectChatImage = null;
+    selectImage = null;
+    postImage = null;
     emit(RemoveImageState());
   }
 }

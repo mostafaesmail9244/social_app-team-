@@ -14,7 +14,7 @@ class BuildImagePost extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PickImageCubit, PickImageStates>(
       builder: (context, state) {
-        return cubit.selectPostImage != null
+        return cubit.selectImage != null
             ? Stack(
                 children: [
                   Container(
@@ -28,7 +28,7 @@ class BuildImagePost extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.file(
-                        cubit.selectPostImage!,
+                        cubit.selectImage!,
                         fit: BoxFit.fill,
                         width: double.infinity,
                       ),

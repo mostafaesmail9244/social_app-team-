@@ -5,6 +5,7 @@ import '../../../core/d_injection/injection.dart';
 import '../../profile/data/models/profile_response/profile_response.dart';
 import '../../rooms_chat/view_model/room_cubit/room_cubit.dart';
 import '../../rooms_chat/view_model/room_cubit/room_state.dart';
+import '../view_model/chat_cubit/chat_cubit.dart';
 import 'chat_view.dart';
 
 class BeforeGoingToChat extends StatelessWidget {
@@ -23,12 +24,18 @@ class BeforeGoingToChat extends StatelessWidget {
       child: BlocBuilder<RoomCubit, RoomState>(
         builder: (context, state) {
           return state.maybeWhen(
+            getRoomByMembersSuccess: (room) {
+              return BlocProvider(
+                create: (context) =>
+                    getIt<ChatCubit>()..getMessages(roomId: room.id),
+                child: ChatView(room: room),
+              );
+            },
             orElse: () => const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(color: AppColors.mainBlue),
               ),
             ),
-            getRoomByMembersSuccess: (room) => ChatView(room: room),
           );
         },
       ),
