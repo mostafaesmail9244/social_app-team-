@@ -20,7 +20,7 @@ class ForgotPassCubit extends Cubit<ForgotPasswordStates> {
         (r) => emit(ForgotPasswordStates.forgotPasswordSuccess(r)));
   }
 
-  void validateThenDoPost() {
+  void validateThenDoChangePass() {
     if (formKey.currentState!.validate()) {
       emitSendEmail();
     }

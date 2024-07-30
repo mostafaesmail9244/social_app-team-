@@ -32,7 +32,7 @@ class SignupView extends StatelessWidget {
               ),
             ),
           ),
-          const SignupViewBody(),
+          const SafeArea(child: SignupViewBody()),
         ],
       ),
     );

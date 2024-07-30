@@ -14,7 +14,8 @@ PostsData _$PostsDataFromJson(Map<String, dynamic> json) => PostsData(
       userId: json['userId'] as String?,
       userImage: json['userImage'] as String?,
       userName: json['userName'] as String?,
-      loves: json['loves'] as List<dynamic>?,
+      loves:
+          (json['loves'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$PostsDataToJson(PostsData instance) => <String, dynamic>{

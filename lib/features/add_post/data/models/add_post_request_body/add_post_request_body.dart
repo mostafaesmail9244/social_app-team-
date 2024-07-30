@@ -10,6 +10,7 @@ class AddPostRequestBody {
   final String content;
   final String date;
   final String postId;
+  final List<String> loves;
 
   const AddPostRequestBody({
     required this.image,
@@ -19,6 +20,7 @@ class AddPostRequestBody {
     required this.userId,
     required this.date,
     required this.postId,
+    required this.loves,
   });
   Map<String, dynamic> toJson() => _$AddPostRequestBodyToJson(this);
 }

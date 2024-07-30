@@ -18,6 +18,7 @@ class SignupViewBody extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       children: [
+        verticalSpace(30),
         const HeadAuth(title: "Sign Up", subTitle: "Create an new account"),
         const ImageProfile(),
         verticalSpace(30),

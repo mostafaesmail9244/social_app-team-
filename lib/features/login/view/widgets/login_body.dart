@@ -21,7 +21,7 @@ class LoginBody extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       children: [
-        verticalSpace(30),
+        verticalSpace(100),
         const HeadAuth(
           title: "LOGIN",
           subTitle: "login now to browse our hot offers",

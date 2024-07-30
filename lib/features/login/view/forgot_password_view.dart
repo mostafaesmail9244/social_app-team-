@@ -17,11 +17,13 @@ class ForgotPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     var cubit = context.read<ForgotPassCubit>();
     return Scaffold(
+      appBar: AppBar(),
       body: Form(
         key: cubit.formKey,
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
           children: [
+            verticalSpace(10),
             const HeadAuth(
               title: "Forgot password",
               subTitle:
@@ -46,7 +48,7 @@ class ForgotPasswordView extends StatelessWidget {
             AppButton(
               buttonText: "Reset Password",
               onPressed: () {
-                cubit.validateThenDoPost();
+                cubit.validateThenDoChangePass();
               },
             ),
             const ForgotPasswordBlocListener(),

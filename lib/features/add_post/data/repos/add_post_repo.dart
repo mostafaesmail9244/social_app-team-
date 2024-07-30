@@ -14,10 +14,8 @@ class AddPostRepo {
   final Reference firebaseRef = FirebaseStorage.instance.ref();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String? downloadURL;
-  Future<Either<Failure, String>> addPost({
-    required String content,
-    File? image,
-  }) async {
+  Future<Either<Failure, String>> addPost(
+      {required String content, File? image}) async {
     try {
       if (image != null) {
         String fileName = basename(image.path);
@@ -37,6 +35,7 @@ class AddPostRepo {
         userImage: CashHelper.get(key: CashConstants.userImage),
         userId: CashHelper.get(key: CashConstants.userId),
         date: DateTime.now().millisecondsSinceEpoch.toString(),
+        loves: [],
       ).toJson());
 
       return right("Success");

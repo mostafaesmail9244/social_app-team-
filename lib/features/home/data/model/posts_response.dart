@@ -23,7 +23,7 @@ class PostsData {
   final String? date;
   final String? content;
   // final int? commentCount;
-  final List? loves;
+  final List<String>? loves;
 
   const PostsData({
     required this.postId,
