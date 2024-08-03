@@ -1,31 +1,46 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
+import 'package:social_app/hive_helper/fields/posts_data_fields.dart';
+import 'package:social_app/hive_helper/fields/posts_response_fields.dart';
+import 'package:social_app/hive_helper/hive_adapters.dart';
+import 'package:social_app/hive_helper/hive_types.dart';
 
 part 'posts_response.g.dart';
 
-class PostsResponse {
+@JsonSerializable()
+@HiveType(
+    typeId: HiveTypes.postsResponse, adapterName: HiveAdapters.postsResponse)
+class PostsResponse extends HiveObject {
+  @HiveField(PostsResponseFields.posts)
   final List<PostsData>? posts;
-  const PostsResponse({this.posts});
-  factory PostsResponse.fromJson(List<dynamic> json) {
-    return PostsResponse(
-      posts: json.map((post) => PostsData.fromSnapshot(post)).toList(),
-    );
-  }
+  PostsResponse({this.posts});
+  factory PostsResponse.fromJson(List<dynamic> json) => PostsResponse(
+        posts: json.map((post) => PostsData.fromSnapshot(post)).toList(),
+      );
 }
 
 @JsonSerializable()
-class PostsData {
+@HiveType(typeId: HiveTypes.postsData, adapterName: HiveAdapters.postsData)
+class PostsData extends HiveObject {
+  @HiveField(PostsDataFields.postId)
   final String postId;
+  @HiveField(PostsDataFields.userId)
   final String? userId;
+  @HiveField(PostsDataFields.userName)
   final String? userName;
+  @HiveField(PostsDataFields.userImage)
   final String? userImage;
+  @HiveField(PostsDataFields.image)
   final String? image;
+  @HiveField(PostsDataFields.date)
   final String? date;
+  @HiveField(PostsDataFields.content)
   final String? content;
-  // final int? commentCount;
+  @HiveField(PostsDataFields.loves)
   final List<String>? loves;
 
-  const PostsData({
+  PostsData({
     required this.postId,
     this.content,
     this.date,
@@ -33,34 +48,9 @@ class PostsData {
     this.userId,
     this.userImage,
     this.userName,
-    // this.commentCount,
     this.loves,
   });
   factory PostsData.fromSnapshot(
           DocumentSnapshot<Map<String, dynamic>> document) =>
       _$PostsDataFromJson(document.data()!);
-
-  // PostsData copyWith({
-  //   final String? postId,
-  //   final String? userId,
-  //   final String? userName,
-  //   final String? userImage,
-  //   final String? image,
-  //   final String? date,
-  //   final String? content,
-  //   final int? commentCount,
-  //   final List? loves,
-  // }) {
-  //   return PostsData(
-  //     postId: postId ?? this.postId,
-  //     userId: userId ?? this.userId,
-  //     userName: userName ?? this.userName,
-  //     userImage: userImage ?? this.userImage,
-  //     image: image ?? this.image,
-  //     date: date ?? this.date,
-  //     content: content ?? this.content,
-  //     commentCount: commentCount ?? this.commentCount,
-  //     loves: loves ?? this.loves,
-  //   );
-  // }
 }
