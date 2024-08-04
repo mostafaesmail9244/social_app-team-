@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter:
+    sdk: flutter
   badges: ^3.1.2
   bloc: ^8.1.4
   build_runner: ^2.4.10
@@ -41,8 +43,6 @@ dependencies:
   firebase_auth: ^4.20.0
   firebase_core: ^2.32.0
   firebase_storage: ^11.7.3
-  flutter:
-    sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_iconly: ^1.0.2
   flutter_screenutil: ^5.9.3

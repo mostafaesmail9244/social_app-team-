@@ -12,6 +12,4 @@ abstract class Routes {
   static const String commentView = 'commentView';
   static const String beforeGoingToChatView = 'testView';
   static const String sendChatImageView = 'sendChatImageView';
-
-  
 }
