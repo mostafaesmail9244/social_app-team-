@@ -44,7 +44,7 @@ class ImageAndContent extends StatelessWidget {
               },
               child: CustomCachedNetworkImage(
                 imageUrl: post.image!,
-                radius: 8,
+                radius: 4,
                 height: 200,
                 width: double.infinity,
                 // fit: BoxFit.fill,

@@ -11,10 +11,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => getIt<LikeCommentCubit>()),
-      ],
+    return BlocProvider(
+      create: (context) => getIt<LikeCommentCubit>(),
       child: Scaffold(
         appBar: buildAppBar(
           context,

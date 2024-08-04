@@ -34,6 +34,8 @@ class SignupRepo {
         "image": downloadURL,
         "bio": "write your bio",
         "coverImage": '',
+        "followers": [],
+        "following": [],
       };
       CollectionReference userColl =
           _firestore.collection(FireBaseConstants.usersCollection);

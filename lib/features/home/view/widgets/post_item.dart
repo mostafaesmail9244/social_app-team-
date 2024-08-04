@@ -14,6 +14,7 @@ class PostItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -21,25 +22,22 @@ class PostItem extends StatelessWidget {
           BoxShadow(
             blurRadius: 3,
             color: AppColors.darkBlue.withOpacity(0.2),
-          )
+          ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            verticalSpace(10),
-            UserInfoPost(post: post),
-            verticalSpace(15),
-            ImageAndContent(post: post),
-            verticalSpace(10),
-            LikeAndCommentNumber(post: post),
-            verticalSpace(10),
-            Divider(height: 1, color: AppColors.grey.withOpacity(0.2)),
-            CommentLikeShareSection(post: post)
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          verticalSpace(10),
+          UserInfoPost(post: post),
+          verticalSpace(15),
+          ImageAndContent(post: post),
+          verticalSpace(10),
+          LikeAndCommentNumber(post: post),
+          verticalSpace(10),
+          Divider(height: 1, color: AppColors.grey.withOpacity(0.2)),
+          CommentLikeShareSection(post: post)
+        ],
       ),
     );
   }
