@@ -16,7 +16,7 @@ class ChatRepo {
   final Reference firebaseRef = FirebaseStorage.instance.ref();
   String? downloadImageURL;
 
-  void sendMessage({
+  Future<void> sendMessage({
     String? type,
     File? image,
     required String message,

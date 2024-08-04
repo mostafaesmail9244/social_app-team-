@@ -14,7 +14,7 @@ class ChatCubit extends Cubit<ChatState> {
   ChatCubit(this._chatRepo) : super(ChatInitial());
 
   // late final ScrollController scrollController = ScrollController();
-  final TextEditingController textControler = TextEditingController();
+  late final TextEditingController textControler = TextEditingController();
   List<MessageModel> messagesList = [];
   List<String> selectedMessages = [];
 
@@ -32,6 +32,11 @@ class ChatCubit extends Cubit<ChatState> {
       type: type,
       image: image,
     );
+    //     .then((_) {
+    //   SendNotificationsHelper()
+    //       .sendNotifications(msg: textControler.text, fcmToken: "");
+    // });
+
     if (isSendImageView) {
       emit(ChatImageSuccess());
     }
