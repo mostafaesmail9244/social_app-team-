@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
-import 'package:social_app/hive_helper/fields/posts_data_fields.dart';
-import 'package:social_app/hive_helper/fields/posts_response_fields.dart';
-import 'package:social_app/hive_helper/hive_adapters.dart';
-import 'package:social_app/hive_helper/hive_types.dart';
+import 'package:social_app/core/helper/hive_helper/fields/posts_data_fields.dart';
+import 'package:social_app/core/helper/hive_helper/fields/posts_response_fields.dart';
+import 'package:social_app/core/helper/hive_helper/hive_adapters.dart';
+import 'package:social_app/core/helper/hive_helper/hive_types.dart';
 
 part 'posts_response.g.dart';
 
