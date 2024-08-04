@@ -18,7 +18,7 @@ class LikeWidget extends StatelessWidget {
       children: [
         BlocBuilder<LikeCommentCubit, LikeCommentState>(
           buildWhen: (previous, current) =>
-              current is LikeCountUpdated && current.postId == post.postId,
+              current is LikesCountUpdated && current.postId == post.postId,
           builder: (context, state) {
             return IconButton(
               onPressed: () => cubit.toggleLike(post.postId),

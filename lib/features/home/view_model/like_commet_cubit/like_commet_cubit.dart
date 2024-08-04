@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../comment/data/model/comment_response.dart';
 import '../../data/model/posts_response.dart';
 import '../../data/repos/like_comment_repo.dart';
 
@@ -13,7 +12,6 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
   LikeCommentCubit(this._repo) : super(Initial());
 
   Map<String, PostsData> posts = {};
-  Map<String, CommentData> comments = {};
   Map<String, int> commentsCount = {};
 
   void toggleLike(String postId) async {
@@ -21,12 +19,10 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
       myId: CashHelper.get(key: CashConstants.userId),
       postId: postId,
     );
-    response.fold((error) {
-      debugPrint(error.toString());
-    }, (data) {
-      posts[postId] = data;
-      emit(LikeCountUpdated(postId));
-    });
+    response.fold(
+      (error) => debugPrint(error.toString()),
+      (data) => posts[postId] = data,
+    );
   }
 
   bool isLiked(String postId) {
@@ -39,7 +35,7 @@ class LikeCommentCubit extends Cubit<LikeCommentState> {
   void listenToLikesPost(String postId) {
     _repo.likesStream(postId).listen((post) {
       posts[postId] = post;
-      emit(LikeCountUpdated(post.postId));
+      emit(LikesCountUpdated(postId));
     });
   }
 
