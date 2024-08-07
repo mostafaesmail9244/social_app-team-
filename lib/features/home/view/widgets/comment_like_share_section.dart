@@ -31,33 +31,30 @@ class CommentLikeShareSection extends StatelessWidget {
             ),
           ),
         ),
-        TextButton(
-          onPressed: () =>
-              context.pushNamed(Routes.commentView, arguments: post.postId),
-          child: Text(
-            'Write a comment ...... ',
-            style: AppTextStyles.font14GreyRegular,
+        Expanded(
+          child: TextButton(
+            onPressed: () =>
+                context.pushNamed(Routes.commentView, arguments: post.postId),
+            child: Text(
+              'Write a comment ... ',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.font13GrayRegular,
+            ),
           ),
         ),
-        const Spacer(),
         LikeWidget(post: post, cubit: cubit),
-        FittedBox(
-          child: Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  (Icons.ios_share_outlined),
-                  color: AppColors.lightMainBlue,
-                ),
-              ),
-              Text(
-                'Share',
-                style: AppTextStyles.font13GrayRegular,
-              ),
-            ],
+        TextButton.icon(
+          icon: const Icon(
+            (Icons.ios_share_outlined),
+            color: AppColors.lightMainBlue,
           ),
-        )
+          onPressed: () {},
+          label: Text(
+            'Share',
+            style: AppTextStyles.font13GrayRegular,
+          ),
+        ),
       ],
     );
   }

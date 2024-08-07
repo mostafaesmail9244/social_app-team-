@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:social_app/features/chats/data/repos/chat_repo.dart';
 import 'package:social_app/features/chats/view_model/chat_cubit/chat_cubit.dart';
+import 'package:social_app/features/home/data/source/local/home_db_service.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:social_app/features/add_post/view_model/add_post_cubit/add_cubit.dart';
 import '../../features/comment/data/repo/comment_repo.dart';
@@ -31,7 +32,7 @@ import '../shared/pick_image_cubit/pick_image_cubit.dart';
 
 GetIt getIt = GetIt.instance;
 
-void setubGetIt() {
+void setubGetIt() async {
   //repos
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo());
   getIt.registerLazySingleton<SignupRepo>(() => SignupRepo());
@@ -40,13 +41,14 @@ void setubGetIt() {
   getIt.registerLazySingleton<AddPostRepo>(() => AddPostRepo());
   getIt.registerLazySingleton<ChatRepo>(() => ChatRepo());
   getIt.registerLazySingleton<RoomRepo>(() => RoomRepo());
-  getIt.registerLazySingleton<GetPostsRepo>(() => GetPostsRepo());
+  getIt.registerLazySingleton<GetPostsRepo>(() => GetPostsRepo(getIt()));
+  // getIt.registerLazySingleton<GetPostsRepo>(() => GetPostsRepo());
   getIt.registerLazySingleton<SearchRepo>(() => SearchRepo());
   getIt.registerLazySingleton<OtherUserRepo>(() => OtherUserRepo());
   getIt.registerLazySingleton<CommentRepo>(() => CommentRepo());
   getIt.registerLazySingleton<LikeCommentRepo>(() => LikeCommentRepo());
   getIt.registerLazySingleton<FollowRepo>(() => FollowRepo());
-
+  getIt.registerLazySingleton<HomeDbService>(() => HomeDbService());
   //cubits
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
