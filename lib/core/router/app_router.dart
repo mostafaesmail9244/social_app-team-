@@ -72,6 +72,7 @@ class AppRouter {
           builder: (context) => MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<LayoutCubit>()),
+              BlocProvider(create: (context) => getIt<LikeCommentCubit>()),
               BlocProvider(
                 create: (context) => getIt<GetUserCubit>()..emitGetUser(),
               ),
