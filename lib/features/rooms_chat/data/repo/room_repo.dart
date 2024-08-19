@@ -55,10 +55,11 @@ class RoomRepo {
           final otherMemberId =
               room.members.firstWhere((memberId) => memberId != userId);
           UserData? otherMemberDetails;
-          DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
-              .collection(FireBaseConstants.usersCollection)
-              .doc(otherMemberId)
-              .get();
+          final DocumentSnapshot<Map<String, dynamic>> userDoc =
+              await _firestore
+                  .collection(FireBaseConstants.usersCollection)
+                  .doc(otherMemberId)
+                  .get();
           if (userDoc.exists) {
             otherMemberDetails = UserData.fromSnapshot(userDoc);
           }
@@ -97,7 +98,7 @@ class RoomRepo {
       );
 
       UserData? otherMemberDetails;
-      DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
+      final DocumentSnapshot<Map<String, dynamic>> userDoc = await _firestore
           .collection(FireBaseConstants.usersCollection)
           .doc(otherMemberId)
           .get();

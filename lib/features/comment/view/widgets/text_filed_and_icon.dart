@@ -3,7 +3,7 @@ import '../../../../core/shared/widgets/app_text_filed.dart';
 import '../../../../core/shared/widgets/icon_button_filled.dart';
 import '../../view_model/comment_cubit/comment_cubit.dart';
 
-class TextFiledAndIcon extends StatelessWidget {
+class TextFiledAndIcon extends StatefulWidget {
   final CommentCubit cubit;
   final String postID;
   const TextFiledAndIcon({
@@ -11,6 +11,19 @@ class TextFiledAndIcon extends StatelessWidget {
     required this.cubit,
     required this.postID,
   });
+
+  @override
+  State<TextFiledAndIcon> createState() => _TextFiledAndIconState();
+}
+
+class _TextFiledAndIconState extends State<TextFiledAndIcon> {
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () {
+      FocusScope.of(context).requestFocus(widget.cubit.focusNode);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +34,7 @@ class TextFiledAndIcon extends StatelessWidget {
           Expanded(
             child: AppTextFormFiled(
               contentPadding: const EdgeInsets.all(15),
+              focusNode: widget.cubit.focusNode,
               filled: true,
               fillColor: Colors.grey.withOpacity(0.05),
               borderRadius: 8,
@@ -32,14 +46,13 @@ class TextFiledAndIcon extends StatelessWidget {
                 }
               },
               keyboardType: TextInputType.text,
-              controller: cubit.tittleController,
-      
+              controller: widget.cubit.tittleController,
             ),
           ),
           CustomIconFilled(
             isComment: true,
             onPressed: () {
-              cubit.emitToAddComment(postID);
+              widget.cubit.emitToAddComment(widget.postID);
             },
             icon: Icons.send_rounded,
           ),

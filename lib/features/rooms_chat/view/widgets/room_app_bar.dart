@@ -7,16 +7,16 @@ import 'package:social_app/features/rooms_chat/view_model/room_cubit/room_cubit.
 
 import '../../../../core/style/text_styles.dart';
 
-class HomeAppBarTittle extends StatefulWidget {
-  const HomeAppBarTittle({super.key});
+class RoomAppBarTittle extends StatefulWidget {
+  const RoomAppBarTittle({super.key});
 
   @override
-  State<HomeAppBarTittle> createState() => _HomeAppBarTittleState();
+  State<RoomAppBarTittle> createState() => _RoomAppBarTittleState();
 }
 
-class _HomeAppBarTittleState extends State<HomeAppBarTittle> {
-  late final TextEditingController textControler = TextEditingController();
-  late final FocusNode focusNode = FocusNode();
+class _RoomAppBarTittleState extends State<RoomAppBarTittle> {
+  final TextEditingController textControler = TextEditingController();
+  final FocusNode focusNode = FocusNode();
   bool searchOpened = false;
 
   @override

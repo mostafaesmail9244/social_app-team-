@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_app/core/helper/extentaion.dart';
-import 'package:social_app/core/router/routes.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
+import '../../../comment/view/show_comments_viewt.dart';
 import '../../data/model/posts_response.dart';
 import '../../view_model/like_commet_cubit/like_commet_cubit.dart';
 import 'like_widget.dart';
@@ -33,10 +32,10 @@ class CommentLikeShareSection extends StatelessWidget {
         ),
         Expanded(
           child: TextButton(
-            onPressed: () =>
-                context.pushNamed(Routes.commentView, arguments: post.postId),
+            onPressed: () => showCommentsPost(context, post.postId),
+            // context.pushNamed(Routes.commentView, arguments: post.postId),
             child: Text(
-              'Write a comment ... ',
+              'Write a comment... ',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.font13GrayRegular,

@@ -13,8 +13,6 @@ class UsersSearcView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const SearchTittle()),
-
-      //usersSearchAppBar(context),
       body: BlocBuilder<UsersSearchCubit, UsersSearchState>(
         builder: (context, state) {
           return state.when(

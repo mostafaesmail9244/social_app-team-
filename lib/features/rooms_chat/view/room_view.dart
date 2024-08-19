@@ -12,7 +12,7 @@ class RoomView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const HomeAppBarTittle()),
+      appBar: AppBar(title: const RoomAppBarTittle()),
       body: BlocBuilder<RoomCubit, RoomState>(
         buildWhen: (previous, current) =>
             current is GetRoomsLoading ||
