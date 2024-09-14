@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/helper/spacing.dart';
-import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
+import 'package:social_app/features/personal_profile/view_model/get_user_cubit/get_user_cubit.dart';
 import 'edit_profile/edit_button_section.dart';
 import 'logout_button.dart';
 import 'profile_image_section.dart';

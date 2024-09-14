@@ -8,7 +8,7 @@ import 'package:social_app/features/chats/view_model/chat_cubit/chat_cubit.dart'
 import 'package:social_app/features/layout/view/layout_screen.dart';
 import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
-import 'package:social_app/features/profile/view_model/get_user_cubit/get_user_cubit.dart';
+import 'package:social_app/features/personal_profile/view_model/get_user_cubit/get_user_cubit.dart';
 import 'package:social_app/features/other_user_profile/view_model/follow_cubit/follow_cubit.dart';
 import '../../features/chats/views/chat_view.dart';
 import '../../features/chats/views/send_chat_image_view.dart';
@@ -19,9 +19,9 @@ import '../../features/home/view_model/like_commet_cubit/like_commet_cubit.dart'
 import '../../features/login/view/forgot_password_view.dart';
 import '../../features/login/view/login_screen.dart';
 import '../../features/login/view_model/forgot_password_cubit/forgot_password_cubit.dart';
-import '../../features/profile/data/models/profile_response/profile_response.dart';
-import '../../features/profile/view/edit_profile_view.dart';
-import '../../features/profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
+import '../../features/personal_profile/data/models/profile_response/profile_response.dart';
+import '../../features/personal_profile/view/edit_profile_view.dart';
+import '../../features/personal_profile/view_model/edit_user_cubit/edit_profile_cubit.dart';
 import '../../features/rooms_chat/data/models/room_model/rooms_response.dart';
 import '../../features/rooms_chat/view_model/room_cubit/room_cubit.dart';
 import '../../features/signup/view_model/signup_cubit/signup_cubit.dart';

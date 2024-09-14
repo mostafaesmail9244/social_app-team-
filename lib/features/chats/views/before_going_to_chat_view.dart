@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../core/d_injection/injection.dart';
-import '../../profile/data/models/profile_response/profile_response.dart';
+import '../../personal_profile/data/models/profile_response/profile_response.dart';
 import '../../rooms_chat/view_model/room_cubit/room_cubit.dart';
 import '../../rooms_chat/view_model/room_cubit/room_state.dart';
 import '../view_model/chat_cubit/chat_cubit.dart';

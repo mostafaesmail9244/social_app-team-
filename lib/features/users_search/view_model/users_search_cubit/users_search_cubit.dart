@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../../../profile/data/models/profile_response/profile_response.dart';
+import '../../../personal_profile/data/models/profile_response/profile_response.dart';
 import '../../data/repo/search_repo.dart';
 import 'users_search_state.dart';
 

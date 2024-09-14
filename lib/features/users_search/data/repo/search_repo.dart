@@ -5,7 +5,7 @@ import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import '../../../../core/firebase_service/firebase_constants.dart';
 import '../../../../core/firebase_service/firebase_failures.dart';
 import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
-import '../../../profile/data/models/profile_response/profile_response.dart';
+import '../../../personal_profile/data/models/profile_response/profile_response.dart';
 
 class SearchRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
