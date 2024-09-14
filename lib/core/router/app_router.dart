@@ -8,6 +8,7 @@ import 'package:social_app/features/chats/view_model/chat_cubit/chat_cubit.dart'
 import 'package:social_app/features/layout/view/layout_screen.dart';
 import 'package:social_app/features/layout/view_model/layout_cubit/layout_cubit.dart';
 import 'package:social_app/features/login/view_model/login_cubit/login_cubit.dart';
+import 'package:social_app/features/other_user_profile/data/model/chat_args.dart';
 import 'package:social_app/features/personal_profile/view_model/get_user_cubit/get_user_cubit.dart';
 import 'package:social_app/features/other_user_profile/view_model/follow_cubit/follow_cubit.dart';
 import '../../features/chats/views/chat_view.dart';
@@ -110,18 +111,21 @@ class AppRouter {
 
       //OtherUserProfileView
       case Routes.otherUserProfileView:
-        final user = data as UserData;
+        final user = data as ChatArgs;
         return BaseRoute(
           page: MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => getIt<LikeCommentCubit>()),
               BlocProvider(
+                create: (context) => getIt<GetUserCubit>()..emitGetUser(),
+              ),
+              BlocProvider(
                 create: (context) => getIt<GetOtherUserPostsCubit>()
-                  ..emitGetuserPosts(uid: user.id!),
+                  ..emitGetuserPosts(uid: user.id),
               ),
               BlocProvider(
                 create: (context) =>
-                    getIt<FollowCubit>()..getSpecificUser(user),
+                    getIt<FollowCubit>()..getSpecificUser(user.id),
               ),
             ],
             child: OtherUserProfileView(data: user),

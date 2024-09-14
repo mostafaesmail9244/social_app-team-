@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import '../../../../core/helper/spacing.dart';
+import '../../../../core/router/routes.dart';
 import '../../../../core/style/text_styles.dart';
 import '../../../../core/shared/widgets/custom_cached_image.dart';
+import '../../../other_user_profile/data/model/chat_args.dart';
 import '../../data/model/posts_response.dart';
 
 class UserInfoPost extends StatelessWidget {
@@ -14,12 +17,24 @@ class UserInfoPost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CustomCachedNetworkImage(
-          imageUrl: post.userImage!,
-          radius: 320,
-          height: 35,
-          width: 40,
-          size: 20,
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(
+              Routes.otherUserProfileView,
+              arguments: ChatArgs(
+                name: post.userName!,
+                id: post.userId!,
+                isSearch: false,
+              ),
+            );
+          },
+          child: CustomCachedNetworkImage(
+            imageUrl: post.userImage!,
+            radius: 320,
+            height: 35,
+            width: 40,
+            size: 20,
+          ),
         ),
         horizontalSpace(10),
         Expanded(

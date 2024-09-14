@@ -20,12 +20,12 @@ class FollowCubit extends Cubit<FollowState> {
       myId: CashHelper.get(key: CashConstants.userId),
       followUserId: user.id!,
     );
-    getSpecificUser(userData!);
+    getSpecificUser(userData!.id!);
     // emit(AddFollowSuccess());
   }
 
-  void getSpecificUser(UserData user) async {
-    final response = await _repo.getUserInfo(uid: user.id!);
+  void getSpecificUser(String id) async {
+    final response = await _repo.getUserInfo(uid: id);
     response.fold((error) {
       debugPrint(error.toString());
     }, (data) {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
 import '../../../../core/helper/spacing.dart';
+import '../../../../core/router/routes.dart';
+import '../../../other_user_profile/data/model/chat_args.dart';
 import '../../data/model/comment_response.dart';
 
 class CommentItem extends StatelessWidget {
@@ -16,13 +19,25 @@ class CommentItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: 20,
-            child: CustomCachedNetworkImage(
-              imageUrl: comment.profilePic,
-              height: 50,
-              width: 50,
-              radius: 320,
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(
+                Routes.otherUserProfileView,
+                arguments: ChatArgs(
+                  name: comment.username,
+                  id: comment.uid,
+                  isSearch: false,
+                ),
+              );
+            },
+            child: CircleAvatar(
+              radius: 20,
+              child: CustomCachedNetworkImage(
+                imageUrl: comment.profilePic,
+                height: 50,
+                width: 50,
+                radius: 320,
+              ),
             ),
           ),
           horizontalSpace(8),

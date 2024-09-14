@@ -4,6 +4,7 @@ import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/helper/spacing.dart';
 import 'package:social_app/core/style/text_styles.dart';
 import 'package:social_app/core/shared/widgets/custom_cached_image.dart';
+import 'package:social_app/features/other_user_profile/data/model/chat_args.dart';
 import 'package:social_app/features/personal_profile/data/models/profile_response/profile_response.dart';
 import '../../router/routes.dart';
 
@@ -15,7 +16,15 @@ class UserItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.otherUserProfileView, arguments: user);
+        context.pushNamed(
+          Routes.otherUserProfileView,
+          arguments: ChatArgs(
+            userData: user!,
+            name: user!.name!,
+            id: user!.id!,
+            isSearch: true,
+          ),
+        );
       },
       child: Row(
         children: [

@@ -2,14 +2,14 @@ import '../../../personal_profile/data/models/profile_response/profile_response.
 
 class ChatArgs {
   final UserData? userData;
-  final String? id;
-  final String? name;
-  final String? img;
+  final String name;
+  final String id;
+  final bool isSearch;
 
   const ChatArgs({
     this.userData,
-    this.id,
-    this.name,
-    this.img,
+    required this.name,
+    required this.id,
+    required this.isSearch,
   });
 }

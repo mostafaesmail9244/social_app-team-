@@ -8,20 +8,21 @@ class GetUserCubit extends Cubit<GetUserStates> {
   final UserRepo _getUserRepo;
 
   GetUserCubit(this._getUserRepo) : super(const GetUserStates.initial());
-  void emitGetUser() async {
+  void emitGetUser({String? id}) async {
     emit(const GetUserStates.getUserLoading());
 
     final response = await _getUserRepo.getMyData(
-        uid: CashHelper.get(key: CashConstants.userId));
+        uid: id ?? CashHelper.get(key: CashConstants.userId));
     response.fold(
         (error) => emit(GetUserStates.getUserError(error: error.errorMessage)),
         (data) async {
-      CashHelper.put(key: CashConstants.userImage, value: data.image);
-      CashHelper.put(key: CashConstants.coverImage, value: data.coverImage);
-      CashHelper.put(key: CashConstants.userName, value: data.name);
-      CashHelper.put(key: CashConstants.bio, value: data.bio);
-      CashHelper.put(key: CashConstants.phone, value: data.phone);
-
+      if (id == null) {
+        CashHelper.put(key: CashConstants.userImage, value: data.image);
+        CashHelper.put(key: CashConstants.coverImage, value: data.coverImage);
+        CashHelper.put(key: CashConstants.userName, value: data.name);
+        CashHelper.put(key: CashConstants.bio, value: data.bio);
+        CashHelper.put(key: CashConstants.phone, value: data.phone);
+      }
       emit(GetUserStates.getUserSuccess(data));
     });
   }
