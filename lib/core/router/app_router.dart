@@ -117,7 +117,8 @@ class AppRouter {
             providers: [
               BlocProvider(create: (context) => getIt<LikeCommentCubit>()),
               BlocProvider(
-                create: (context) => getIt<GetUserCubit>()..emitGetUser(),
+                create: (context) =>
+                    getIt<GetUserCubit>()..emitGetUser(id: user.id),
               ),
               BlocProvider(
                 create: (context) => getIt<GetOtherUserPostsCubit>()

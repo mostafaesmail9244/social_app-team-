@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/core/helper/extentaion.dart';
 import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/core/style/text_styles.dart';
+import '../../../../core/helper/cash_helper/cash_helper_constants.dart';
 import '../../../../core/router/routes.dart';
 import '../../../personal_profile/data/models/profile_response/profile_response.dart';
 import 'package:social_app/core/helper/spacing.dart';
@@ -31,27 +33,29 @@ class UserInfoAndFollow extends StatelessWidget {
             style: AppTextStyles.font14GreyRegular,
           ),
           verticalSpace(15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  shape: const CircleBorder(
-                    side: BorderSide(color: AppColors.mainBlue),
-                  ),
-                  foregroundColor: AppColors.lightMainBlue,
-                  backgroundColor: Colors.white,
+          data.id == CashHelper.get(key: CashConstants.userId)
+              ? const SizedBox()
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        shape: const CircleBorder(
+                          side: BorderSide(color: AppColors.mainBlue),
+                        ),
+                        foregroundColor: AppColors.lightMainBlue,
+                        backgroundColor: Colors.white,
+                      ),
+                      onPressed: () {
+                        context.pushNamed(Routes.beforeGoingToChatView,
+                            arguments: data);
+                      },
+                      child: const Icon(Icons.message),
+                    ),
+                    FollowButtonWidget(data: data),
+                  ],
                 ),
-                onPressed: () {
-                  context.pushNamed(Routes.beforeGoingToChatView,
-                      arguments: data);
-                },
-                child: const Icon(Icons.message),
-              ),
-              FollowButtonWidget(data: data),
-            ],
-          ),
         ],
       ),
     );
