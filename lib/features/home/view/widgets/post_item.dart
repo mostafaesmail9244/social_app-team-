@@ -4,7 +4,7 @@ import 'package:social_app/core/style/app_colors.dart';
 import 'package:social_app/features/home/data/model/posts_response.dart';
 import 'image_and_content.dart';
 import 'like_and_comment_number.dart';
-import 'comment_like_share_section.dart';
+import 'comment_like_share_buttons.dart';
 import 'user_info_post.dart';
 
 class PostItem extends StatelessWidget {
@@ -36,7 +36,7 @@ class PostItem extends StatelessWidget {
           LikeAndCommentNumber(post: post),
           verticalSpace(10),
           Divider(height: 1, color: AppColors.grey.withOpacity(0.2)),
-          CommentLikeShareSection(post: post)
+          CommentLikeShareButtons(post: post)
         ],
       ),
     );

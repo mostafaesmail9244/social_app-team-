@@ -63,7 +63,7 @@ class RoomCard extends StatelessWidget {
               ),
               style: AppTextStyles.font14GreyRegular.copyWith(fontSize: 10),
             ),
-            BadgeWidget(room: room),
+            BadgeWidget(id: room.id),
           ],
         ),
       ),

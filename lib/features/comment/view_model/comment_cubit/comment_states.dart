@@ -1,19 +1,36 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:social_app/features/comment/data/model/comment_response.dart';
-part 'comment_states.freezed.dart';
+import '../../data/model/comment_response.dart';
 
-@Freezed()
-class CommentStates<T> with _$CommentStates {
-  const factory CommentStates.initial() = _Initial;
-  const factory CommentStates.addCommentLoading() = AddCommentLoading;
-  const factory CommentStates.addCommentSuccess(String message) =
-      AddCommentSuccess;
-  const factory CommentStates.addCommentError({required String error}) =
-      AddCommentError;
+sealed class CommentStates {
+  const CommentStates();
+}
 
-  const factory CommentStates.getCommentLoading() = GetCommentLoading;
-  const factory CommentStates.getCommentSuccess(CommentsResponse data) =
-      GetCommentSuccess<T>;
-  const factory CommentStates.getCommentError({required String error}) =
-      GetCommentError;
+final class Initial extends CommentStates {
+  const Initial();
+}
+
+final class AddCommentLoading extends CommentStates {
+  const AddCommentLoading();
+}
+
+final class AddCommentSuccess extends CommentStates {
+  const AddCommentSuccess();
+}
+
+final class AddCommentError extends CommentStates {
+  final String error;
+  const AddCommentError(this.error);
+}
+
+final class GetCommentLoading extends CommentStates {
+  const GetCommentLoading();
+}
+
+final class GetCommentSuccess extends CommentStates {
+  final List<CommentData> data;
+  const GetCommentSuccess(this.data);
+}
+
+final class GetCommentError extends CommentStates {
+  final String error;
+  const GetCommentError(this.error);
 }

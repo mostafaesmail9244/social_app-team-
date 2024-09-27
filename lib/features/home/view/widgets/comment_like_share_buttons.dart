@@ -8,9 +8,9 @@ import '../../data/model/posts_response.dart';
 import '../../view_model/like_commet_cubit/like_commet_cubit.dart';
 import 'like_widget.dart';
 
-class CommentLikeShareSection extends StatelessWidget {
+class CommentLikeShareButtons extends StatelessWidget {
   final PostsData post;
-  const CommentLikeShareSection({super.key, required this.post});
+  const CommentLikeShareButtons({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {

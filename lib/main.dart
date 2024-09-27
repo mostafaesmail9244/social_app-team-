@@ -13,14 +13,18 @@ import 'social_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
-  await CashHelper.init();
-  await Hive.initFlutter();
+  await Future.wait([
+    Firebase.initializeApp(),
+    Hive.initFlutter(),
+    CashHelper.init(),
+  ]);
+
   await HomeDbService.initDataBase();
   setubGetIt();
-  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.grey));
+    const SystemUiOverlayStyle(statusBarColor: Colors.grey),
+  );
 
   runApp(SocialApp(appRouter: AppRouter()));
 }

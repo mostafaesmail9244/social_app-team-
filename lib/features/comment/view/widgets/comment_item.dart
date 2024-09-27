@@ -57,7 +57,7 @@ class CommentItem extends StatelessWidget {
                     style: AppTextStyles.font14SemiBoldBlue
                         .copyWith(color: Colors.black),
                   ),
-                  verticalSpace(2),
+                  verticalSpace(3),
                   Text(comment.tittle),
                   Align(
                     alignment: Alignment.bottomRight,

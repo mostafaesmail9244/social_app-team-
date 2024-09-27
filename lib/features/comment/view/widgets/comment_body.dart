@@ -15,13 +15,10 @@ class CommentBody extends StatelessWidget {
           current is GetCommentLoading ||
           current is GetCommentSuccess,
       builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () => const SizedBox.shrink(),
-          getCommentError: (err) => const CommentList(isLoading: true),
-          getCommentLoading: () => const CommentList(isLoading: true),
-          getCommentSuccess: (data) =>
-              CommentList(response: data, isLoading: false),
-        );
+        if (state is GetCommentSuccess) {
+          return CommentList(comments: state.data, isLoading: false);
+        }
+        return const CommentList(isLoading: true);
       },
     );
   }

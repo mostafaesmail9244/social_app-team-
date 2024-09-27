@@ -20,7 +20,9 @@ class _TextFiledAndIconState extends State<TextFiledAndIcon> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
-      FocusScope.of(context).requestFocus(widget.cubit.focusNode);
+      if (mounted) {
+        FocusScope.of(context).requestFocus(widget.cubit.focusNode);
+      }
     });
     super.initState();
   }
@@ -52,6 +54,7 @@ class _TextFiledAndIconState extends State<TextFiledAndIcon> {
           CustomIconFilled(
             isComment: true,
             onPressed: () {
+              widget.cubit.localComment(widget.postID);
               widget.cubit.emitToAddComment(widget.postID);
             },
             icon: Icons.send_rounded,

@@ -1,9 +1,17 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CashHelper {
+  static final CashHelper _instance = CashHelper._internal();
   static late SharedPreferences sharedPreferences;
 
-  static init() async {
+  // Private constructor for singleton pattern
+  CashHelper._internal();
+
+  // Factory constructor to return the same instance every time
+  factory CashHelper() => _instance;
+
+  // Initialization method
+  static Future<void> init() async {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
@@ -17,10 +25,10 @@ class CashHelper {
       return await sharedPreferences.setBool(key, value);
     } else if (value is List<String>) {
       return await sharedPreferences.setStringList(key, value);
-    } else if (value is int) {
-      return await sharedPreferences.setInt(key, value);
-    } else {
+    } else if (value is double) {
       return await sharedPreferences.setDouble(key, value);
+    } else {
+      return await sharedPreferences.setInt(key, value);
     }
   }
 
@@ -28,11 +36,11 @@ class CashHelper {
     return sharedPreferences.get(key);
   }
 
-  static Future<bool> removeData({required key}) async {
+  static Future<bool> removeData({required String key}) async {
     return await sharedPreferences.remove(key);
   }
 
-  static Future<bool> clearData() async {
+  static Future<bool> clearAllData() async {
     return await sharedPreferences.clear();
   }
 }

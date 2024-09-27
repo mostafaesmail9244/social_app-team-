@@ -6,19 +6,19 @@ import 'comment_item.dart';
 import 'comment_loading.dart';
 
 class CommentList extends StatelessWidget {
-  final CommentsResponse? response;
+  final List<CommentData>? comments;
   final bool isLoading;
-  const CommentList({super.key, this.response, required this.isLoading});
+  const CommentList({super.key, this.comments, required this.isLoading});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       controller: context.read<CommentCubit>().scrollController,
-      itemCount: isLoading ? 10 : response!.comments!.length,
+      itemCount: isLoading ? 10 : comments!.length,
       itemBuilder: (context, index) {
         return isLoading
             ? const CommentLoading()
-            : CommentItem(comment: response!.comments![index]);
+            : CommentItem(comment: comments![index]);
       },
     );
   }
