@@ -10,26 +10,29 @@ import 'room_state.dart';
 
 class RoomCubit extends Cubit<RoomState> {
   final RoomRepo _repo;
-  RoomCubit(this._repo) : super(const RoomState.initial());
+  RoomCubit(this._repo) : super(const Initial());
 
   RoomsResponse? _roomsList;
   StreamSubscription<RoomsResponse>? _roomsSubscription;
 
   Future<void> getRooms() async {
-    emit(const RoomState.getRoomsLoading());
+    emit(const GetRoomsLoading());
     final result =
         await _repo.getRoomsStream(CashHelper.get(key: CashConstants.userId));
     result.fold(
-      (error) => emit(RoomState.getRoomsError(error: error.errorMessage)),
+      (error) => emit(GetRoomsError(error.errorMessage)),
       (roomsStream) {
         _roomsSubscription?.cancel(); // Cancel any existing subscription
         _roomsSubscription = roomsStream.listen(
           (roomsResponse) {
             _roomsList = roomsResponse;
-            emit(RoomState.getRoomsSuccess(roomsResponse));
+            // if (roomsResponse.rooms?.any((room) => room.members
+            //         .contains(CashHelper.get(key: CashConstants.userId))) ??
+            //     false) {}
+            emit(GetRoomsSuccess(roomsResponse));
           },
           onError: (error) {
-            emit(RoomState.getRoomsError(error: error.toString()));
+            emit(GetRoomsError(error.toString()));
           },
         );
       },
@@ -47,16 +50,16 @@ class RoomCubit extends Cubit<RoomState> {
     required String userName,
     required String userPicture,
   }) async {
-    emit(const RoomState.createRoomsLoading());
+    emit(const CreateRoomsLoading());
     final result = await _repo.creatRoom(
       toId: toId,
       userName: userName,
       userPicture: userPicture,
     );
     result.fold(
-      (error) => emit(RoomState.createRoomsError(error: error.errorMessage)),
+      (error) => emit(CreateRoomsError(error.errorMessage)),
       (message) {
-        emit(RoomState.createRoomsSuccess(message));
+        emit(CreateRoomsSuccess(message));
       },
     );
   }
@@ -66,17 +69,16 @@ class RoomCubit extends Cubit<RoomState> {
     required String userName,
     required String userPicture,
   }) async {
-    emit(const RoomState.getRoomByMembersLoading());
+    emit(const GetRoomByMembersLoading());
     final result = await _repo.getOrCreateRoom(
       toId: toId,
       userName: userName,
       userPicture: userPicture,
     );
     result.fold(
-      (error) =>
-          emit(RoomState.getRoomByMembersError(error: error.errorMessage)),
+      (error) => emit(GetRoomByMembersError(error.errorMessage)),
       (room) {
-        emit(RoomState.getRoomByMembersSuccess(room));
+        emit(GetRoomByMembersSuccess(room));
       },
     );
   }
@@ -88,7 +90,7 @@ class RoomCubit extends Cubit<RoomState> {
             .toLowerCase()
             .startsWith(textControler.text.trim()))
         .toList();
-    emit(RoomState.getRoomsFilteredSuccess(_usersFiltered));
+    emit(GetRoomsFilteredSuccess(_usersFiltered));
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> unReadMessagesCount(
@@ -99,7 +101,7 @@ class RoomCubit extends Cubit<RoomState> {
   void clear(TextEditingController textControler) {
     textControler.clear();
     _usersFiltered.clear();
-    emit(RoomState.getRoomsSuccess(_roomsList!));
+    emit(GetRoomsSuccess(_roomsList!));
   }
 
   // Future<void> getRooms() async {

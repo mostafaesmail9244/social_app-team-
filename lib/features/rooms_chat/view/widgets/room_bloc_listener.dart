@@ -17,15 +17,15 @@ class RoomBlocListener extends StatelessWidget {
           cur is CreateRoomsError ||
           cur is CreateRoomsSuccess,
       listener: (context, state) {
-        state.whenOrNull(createRoomsLoading: () {
+        if (state is CreateRoomsLoading) {
           customLoading(context);
-        }, createRoomsSuccess: (userData) {
+        } else if (state is CreateRoomsError) {
+          context.pop();
+          flutterToast(text: state.error, state: ToastEnum.error);
+        } else if (state is CreateRoomsSuccess) {
           context.pop();
           context.pop();
-        }, createRoomsError: (error) {
-          context.pop();
-          flutterToast(text: error, state: ToastEnum.error);
-        });
+        }
       },
       child: const SizedBox.shrink(),
     );

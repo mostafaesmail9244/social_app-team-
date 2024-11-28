@@ -8,13 +8,14 @@ import 'package:social_app/core/d_injection/injection.dart';
 import 'package:social_app/core/helper/cash_helper/cash_helper.dart';
 import 'package:social_app/features/home/data/source/local/home_db_service.dart';
 import 'core/router/app_router.dart';
+import 'firebase_options.dart';
 import 'social_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await Future.wait([
-    Firebase.initializeApp(),
+    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
     Hive.initFlutter(),
     CashHelper.init(),
   ]);

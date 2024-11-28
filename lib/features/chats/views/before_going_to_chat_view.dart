@@ -23,18 +23,16 @@ class BeforeGoingToChat extends StatelessWidget {
         ),
       child: BlocBuilder<RoomCubit, RoomState>(
         builder: (context, state) {
-          return state.maybeWhen(
-            getRoomByMembersSuccess: (room) {
-              return BlocProvider(
-                create: (context) =>
-                    getIt<ChatCubit>()..getMessages(roomId: room.id),
-                child: ChatView(room: room),
-              );
-            },
-            orElse: () => const Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(color: AppColors.mainBlue),
-              ),
+          if (state is GetRoomByMembersSuccess) {
+            return BlocProvider(
+              create: (context) =>
+                  getIt<ChatCubit>()..getMessages(roomId: state.room.id),
+              child: ChatView(room: state.room),
+            );
+          }
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(color: AppColors.mainBlue),
             ),
           );
         },
